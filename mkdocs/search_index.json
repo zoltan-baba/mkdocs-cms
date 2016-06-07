@@ -201,7 +201,7 @@
             "title": "Trial after signing up"
         }, 
         {
-            "location": "/adding-a-new-app/adding-a-new-app/", 
+            "location": "/adding-a-new-app/", 
             "text": "When adding your app to Bitrise, we will clone your repository to make sure we can access it. Besides cloning your repository we will run our \nproject scanner\n that detects all the supported apps and instantly configure your workflow with all the necessary steps to build and deploy your app.\n\n\nTo add a new app to Bitrise go to your \ndashboard\n and press \nAdd new app\n.\n\n\n\n\nIn case this is the first application the dashboard will show you the quickstart guide instead of a list of you apps. There you can select to try out our sample to check how Bitrise works, without connecting any of your apps to the system. Or you can choose to add your own app right away.\n\n\nLet's check out how you can \nconnect a repository\n!", 
             "title": "Adding a new app"
         }, 
@@ -254,6 +254,61 @@
             "location": "/adding-a-new-app/setting-up-configuration/#project-configuration-with-automatic-repository-scanner", 
             "text": "To validate and automatically scan your project you only need to tell Bitrise the default branch of your repository. During validation Bitrise will make sure it has access to the given branch, using the  SSH key  you set up.  After successful validation Bitrise will scan your repository and give you a default workflow", 
             "title": "Project configuration with automatic repository scanner"
+        }, 
+        {
+            "location": "/team-management/", 
+            "text": "Now that you have set up your app on Bitrise we can start inviting team members! You can select multiple roles for the new members, like: \nadmin\n, \ndeveloper\n, and \nqa/tester\n.\nDifferent roles have different permissions that you can read more about below.\n\n\nTo invite a team member head to the \nTeam tab\n on your application's page. You can invite any user by their username or by their email address. If they are not registered on Bitrise we will send out an invitation email for them.\n\n\n\n\nInviting team members\n\n\nYou need to be the app's \nowner\n or an \nadmin\n to be able to add new team members to your app.\n\n\n\n\n\n\nCheck out the different roles and permissions below:\n\n\nAdmin\n\u2693\n\n\n\n\nDeveloper\n\u2693\n\n\n\n\nTester / QA\n\u2693", 
+            "title": "Adding a new team member"
+        }, 
+        {
+            "location": "/team-management/#admin", 
+            "text": "", 
+            "title": "Admin"
+        }, 
+        {
+            "location": "/team-management/#developer", 
+            "text": "", 
+            "title": "Developer"
+        }, 
+        {
+            "location": "/team-management/#tester-qa", 
+            "text": "", 
+            "title": "Tester / QA"
+        }, 
+        {
+            "location": "/team-management/changing-the-owner-of-an-app/", 
+            "text": "It can happen that you need to transfer an application on \nBitrise\n to another user. This can be done in a few seconds by following these quick steps:\n\n\n\n\nLogin with the \ncurrent owner\n of the app\n\n\nOpen the app's page and go to the \nTeam\n tab\n\n\nMake sure the new owner of the app is in the team or add her/him if you need to\n\n\nClick the \nTransfer ownership\n button next to the current owner's username\n\n\n\n\nFor transferring the ownership, select the new user to transfer the app to:\n\n\n\n\nYou can use the toggle to stay the connected service user. This is important if you are the admin of the given repository on \nGitHub\n, or \nBitbucket\n and the app needs your credentials to work on Bitrise.", 
+            "title": "Changing the owner of an app"
+        }, 
+        {
+            "location": "/webhooks/", 
+            "text": "Most source code hosting service provides a feature to register webhooks. A webhook is basically an URL which will be called on specified events.\n\n\nTo have Bitrise automatically start a build every time you push code into your repository you can set up a webhook at your code hosting service which will automatically trigger a build on Bitrise with the code you push to your repository.\n\n\nSetting up webhooks automatically\n\u2693\n\n\nIf you select \nGitHub\n or \nBitbucket\n as the source code provider when you add your app Bitrise automatically sets up a webhook for it with a click of a button at the end of your app setup journey. In this case, you can skip this tutorial.\n\n\nSetting up webhooks by hand\n\u2693\n\n\nYou can manually setup or change your webhooks after you registered your application.\nWe support multiple webhook providers. You can find the supported providers in your application's \nCode\n tab.\n\n\n\n\n\n\nCustom webhook support\n\n\nOur webhook processor is Open Sourced\n. If you are looking for a not supported solution, you can create an issue on the GitHub page or create a pull request with the implementation.\n\n\nYou can also run your own webhook provider behind your own firewall if required.\n\n\n\n\nYou can find detailed description about the setup on the Code tab or select a provider to check its devcenter article:\n\n\n\n\nAdding a GitHub webhook\n\n\nAdding a Bitbucket webhook\n\n\nAdding webhooks for Gitlab\n\n\nAdding webhooks for Visual Studio Online / Visual Studio Team Services\n\n\nAdding webhooks for Slack\n\n\nAdding webhooks for Gogs", 
+            "title": "Adding webhooks"
+        }, 
+        {
+            "location": "/webhooks/#setting-up-webhooks-automatically", 
+            "text": "If you select  GitHub  or  Bitbucket  as the source code provider when you add your app Bitrise automatically sets up a webhook for it with a click of a button at the end of your app setup journey. In this case, you can skip this tutorial.", 
+            "title": "Setting up webhooks automatically"
+        }, 
+        {
+            "location": "/webhooks/#setting-up-webhooks-by-hand", 
+            "text": "You can manually setup or change your webhooks after you registered your application.\nWe support multiple webhook providers. You can find the supported providers in your application's  Code  tab.    Custom webhook support  Our webhook processor is Open Sourced . If you are looking for a not supported solution, you can create an issue on the GitHub page or create a pull request with the implementation.  You can also run your own webhook provider behind your own firewall if required.   You can find detailed description about the setup on the Code tab or select a provider to check its devcenter article:   Adding a GitHub webhook  Adding a Bitbucket webhook  Adding webhooks for Gitlab  Adding webhooks for Visual Studio Online / Visual Studio Team Services  Adding webhooks for Slack  Adding webhooks for Gogs", 
+            "title": "Setting up webhooks by hand"
+        }, 
+        {
+            "location": "/webhooks/adding-a-github-webhook/", 
+            "text": "To have Bitrise automatically start a build every time you push code into your repository you can set up a webhook at your code hosting service which will automatically trigger a build on Bitrise with the code you push to your repository.\n\n\nGet the webhook URL for GitHub\n\u2693\n\n\nNavigate to the \nCode\n tab of your app's page and select \nGitHub\n from the dropdown at the webhooks section.\n\n\n\n\nCopy the webhook URL for the selected service.\n\n\nSetup webhook on GitHub\n\u2693\n\n\nNavigate to your GitHub repository and select \nSettings\n.\n\n\n\n\nSelect \nAdd webhook\n under Webhooks \n Services.\n\n\n\n\nPaste the GitHub Webhook URL from Bitrise to the Payload URL.\n\n\n\n\nSelect \nLet me select individual events\n.\n\n\n\n\nSelect \nPull request\n and \nPush\n. After you are ready press the \nAdd webhook\n button and you are ready to roll!", 
+            "title": "Adding a GitHub webhook"
+        }, 
+        {
+            "location": "/webhooks/adding-a-github-webhook/#get-the-webhook-url-for-github", 
+            "text": "Navigate to the  Code  tab of your app's page and select  GitHub  from the dropdown at the webhooks section.   Copy the webhook URL for the selected service.", 
+            "title": "Get the webhook URL for GitHub"
+        }, 
+        {
+            "location": "/webhooks/adding-a-github-webhook/#setup-webhook-on-github", 
+            "text": "Navigate to your GitHub repository and select  Settings .   Select  Add webhook  under Webhooks   Services.   Paste the GitHub Webhook URL from Bitrise to the Payload URL.   Select  Let me select individual events .   Select  Pull request  and  Push . After you are ready press the  Add webhook  button and you are ready to roll!", 
+            "title": "Setup webhook on GitHub"
         }, 
         {
             "location": "/caching/about-caching/", 

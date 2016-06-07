@@ -72,7 +72,7 @@
     
         
     <url>
-     <loc>None/adding-a-new-app/adding-a-new-app/</loc>
+     <loc>None/adding-a-new-app/</loc>
      <lastmod>2016-06-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -91,6 +91,38 @@
         
     <url>
      <loc>None/adding-a-new-app/setting-up-configuration/</loc>
+     <lastmod>2016-06-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>None/team-management/</loc>
+     <lastmod>2016-06-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/team-management/changing-the-owner-of-an-app/</loc>
+     <lastmod>2016-06-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>None/webhooks/</loc>
+     <lastmod>2016-06-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/webhooks/adding-a-github-webhook/</loc>
      <lastmod>2016-06-07</lastmod>
      <changefreq>daily</changefreq>
     </url>

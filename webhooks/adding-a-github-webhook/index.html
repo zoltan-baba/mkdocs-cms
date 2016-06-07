@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     
       
-        <title>Virtual Machines - Bitrise DevCenter</title>
+        <title>Adding a GitHub webhook - Bitrise DevCenter</title>
       
       
       
@@ -95,12 +95,12 @@
           <span class="path">
             
               
-                Infrastructure <i class="icon icon-link"></i>
+                Webhooks <i class="icon icon-link"></i>
               
             
           </span>
         
-        Virtual Machines
+        Adding a GitHub webhook
       </div>
     </div>
     
@@ -215,53 +215,16 @@
       
         
   <li>
-    <a class="current" title="Virtual Machines" href="./">
+    <a class="" title="Virtual Machines" href="../../infrastructure/virtual-machines/">
       Virtual Machines
     </a>
-    
-      
-      
-        <ul>
-          
-            <li class="anchor">
-              <a title="Security" href="#security">
-                Security
-              </a>
-            </li>
-          
-            <li class="anchor">
-              <a title="Customization" href="#customization">
-                Customization
-              </a>
-            </li>
-          
-            <li class="anchor">
-              <a title="Open Source Stacks" href="#open-source-stacks">
-                Open Source Stacks
-              </a>
-            </li>
-          
-            <li class="anchor">
-              <a title="Virtual machine updates" href="#virtual-machine-updates">
-                Virtual machine updates
-              </a>
-            </li>
-          
-            <li class="anchor">
-              <a title="Xcode version support guideline" href="#xcode-version-support-guideline">
-                Xcode version support guideline
-              </a>
-            </li>
-          
-        </ul>
-      
     
   </li>
 
       
         
   <li>
-    <a class="" title="Available Stacks" href="../available-stacks/">
+    <a class="" title="Available Stacks" href="../../infrastructure/available-stacks/">
       Available Stacks
     </a>
     
@@ -396,7 +359,7 @@
       
         
   <li>
-    <a class="" title="Adding webhooks" href="../../webhooks/">
+    <a class="" title="Adding webhooks" href="../">
       Adding webhooks
     </a>
     
@@ -405,9 +368,28 @@
       
         
   <li>
-    <a class="" title="Adding a GitHub webhook" href="../../webhooks/adding-a-github-webhook/">
+    <a class="current" title="Adding a GitHub webhook" href="./">
       Adding a GitHub webhook
     </a>
+    
+      
+      
+        <ul>
+          
+            <li class="anchor">
+              <a title="Get the webhook URL for GitHub" href="#get-the-webhook-url-for-github">
+                Get the webhook URL for GitHub
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Setup webhook on GitHub" href="#setup-webhook-on-github">
+                Setup webhook on GitHub
+              </a>
+            </li>
+          
+        </ul>
+      
     
   </li>
 
@@ -471,44 +453,24 @@
       <article class="article">
         <div class="wrapper">
           
-            <h1>Virtual Machines</h1>
+            <h1>Adding a GitHub webhook</h1>
           
-          <p>On Bitrise, we have <code>OS X</code> and <code>Linux</code> virtual machines hosted for your builds. You can select multiple stacks that holds different versions of these virtual machines. Read more about available stacks and stack prepare types in the <a href="doc:available-stacks">Available Stacks docs</a>.</p>
-<h2 id="security">Security<a class="headerlink" href="#security" title="Permanent link">⚓</a></h2>
-<p>Every build runs in its own virtual machine and the virtual machine is rolled back to a saved state, the base box state, after the build is finished. This way <strong>your builds are always protected</strong> by changes made by others and by your previous builds and you can use a <strong>stable environment</strong> to define your build workflow, since <em>no state persists between builds</em>.</p>
-<div class="admonition note">
-<p class="admonition-title">Passwordless sudo</p>
-<p>The user which is used for the builds is configured with <strong>passwordless sudo</strong> enabled, this way you are able to install all the extra things you need for your builds and for other automation.</p>
-</div>
-<h2 id="customization">Customization<a class="headerlink" href="#customization" title="Permanent link">⚓</a></h2>
-<p>You can find the <strong>OS X</strong> base box setup guide and automation scripts we use for building our OS X virtual machine base box in our <a href="https://github.com/bitrise-io/osx-box-bootstrap">OS X Box Bootstrap repository</a>. This way you are able to build your own virtual machine based on the ones used on Bitrise to match ours.</p>
-<p>For our <strong>Linux</strong> machines, check out the <a href="https://github.com/bitrise-docker/bitrise-base">Bitrise Base Docker Image's repository</a>.</p>
-<div class="admonition note">
-<p class="admonition-title">System reports</p>
-<p>You can always check our current configurations in the <a href="https://github.com/bitrise-io/bitrise.io/tree/master/system_reports">system reports folder of our main repository</a>.</p>
-<p>These reports have been generated by the scripts indicated in the first lines of the report itself.</p>
-</div>
-<h2 id="open-source-stacks">Open Source Stacks<a class="headerlink" href="#open-source-stacks" title="Permanent link">⚓</a></h2>
-<p>The repositories for our virtual machines are also the place for pull requests. If you'd like to have a tool pre-installed in our machines, feel free to add your changes and they will be included in the next release after merge.</p>
-<h2 id="virtual-machine-updates">Virtual machine updates<a class="headerlink" href="#virtual-machine-updates" title="Permanent link">⚓</a></h2>
-<p>Updates are always announced on our <a href="http://blog.bitrise.io/">News Blog</a> and can be seen on <a href="https://www.bitrise.io/dashboard">your Bitrise Dashboard</a>. We will also send you a <em>Platform Updates</em> email about significant changes, unless you disable this feature under your <a href="https://www.bitrise.io/me/profile">account settings page</a>.</p>
-<h3 id="minor-updates">Minor updates<a class="headerlink" href="#minor-updates" title="Permanent link">⚓</a></h3>
-<p>Additional patches might be applied during the week in case we detect an issue with the current virtual machine environments. These patches do not change any pre-installed tool's version, unless it's really necessary.</p>
-<h2 id="xcode-version-support-guideline">Xcode version support guideline<a class="headerlink" href="#xcode-version-support-guideline" title="Permanent link">⚓</a></h2>
-<p>We have several setups available with different Xcode versions. The Xcode you have pre-installed in your dedicated VM is always the one specified in your app's Settings under the Stack selector menu. You are able to switch between Xcode versions with changing this setting. Read more about available stacks and stack prepare types in the <a href="http://devcenter.bitrise.io/v2.0/docs/available-stacks#section-os-x">Available Stacks docs</a>.</p>
-<p>When a new major version of Xcode gets released we keep supporting the previous major version until the first significant patch version of Xcode is released.</p>
-<p>As an example in case of Xcode major version 6: Xcode 6 is the major version and the first significant patch is Xcode 6.1. We kept the latest Xcode 5 installed on the Virtual Machines until Xcode 6.1 was released.</p>
-<h3 id="ios-simulator-version-sdk-support">iOS Simulator version &amp; SDK support<a class="headerlink" href="#ios-simulator-version-sdk-support" title="Permanent link">⚓</a></h3>
-<p>All the iOS Simulator versions which can be installed through <em>Xcode -&gt; Preferences -&gt; Downloads</em> are installed and available.</p>
-<h3 id="xctool-support">xctool support<a class="headerlink" href="#xctool-support" title="Permanent link">⚓</a></h3>
-<p><a href="https://github.com/facebook/xctool">xctool</a> is pre-installed on the OS X VMs, through <a href="http://brew.sh/">homebrew</a>. If you need to update it to be sure you have the latest version you can add a <a href="https://github.com/bitrise-io/steps-script">Script Step</a> with the following content:</p>
-<pre class="code"><code class="language-bash">#!/bin/bash
-brew update &amp;&amp; brew upgrade xctool</code></pre>
-
-
-<p>If you need the latest <code>xctool</code> version compiled from source you can do it by adding a <strong>Script Step</strong> to your workflow, right before your first Xcode build, Analyze, Unit test or Archive step, with the following content:</p>
-<pre class="code"><code class="language-bash">#!/bin/bash
-brew update &amp;&amp; brew uninstall xctool &amp;&amp; brew install xctool --build-from-source</code></pre>
+          <p>To have Bitrise automatically start a build every time you push code into your repository you can set up a webhook at your code hosting service which will automatically trigger a build on Bitrise with the code you push to your repository.</p>
+<h2 id="get-the-webhook-url-for-github">Get the webhook URL for GitHub<a class="headerlink" href="#get-the-webhook-url-for-github" title="Permanent link">⚓</a></h2>
+<p>Navigate to the <code>Code</code> tab of your app's page and select <code>GitHub</code> from the dropdown at the webhooks section.</p>
+<p><img alt="Screenshot" src="https://www.filepicker.io/api/file/PsJWPs8yR5iL3yPC9hQP" /></p>
+<p>Copy the webhook URL for the selected service.</p>
+<h2 id="setup-webhook-on-github">Setup webhook on GitHub<a class="headerlink" href="#setup-webhook-on-github" title="Permanent link">⚓</a></h2>
+<p>Navigate to your GitHub repository and select <code>Settings</code>.</p>
+<p><img alt="Screenshot" src="https://www.filepicker.io/api/file/azZor2oLQ3uRM7cE5xkQ" /></p>
+<p>Select <code>Add webhook</code> under Webhooks &amp; Services.</p>
+<p><img alt="Screenshot" src="https://www.filepicker.io/api/file/NNCEwWaQ0iRJsrmN8Pi7" /></p>
+<p>Paste the GitHub Webhook URL from Bitrise to the Payload URL.</p>
+<p><img alt="Screenshot" src="https://www.filepicker.io/api/file/ZGqRm2GmRJOxOtKZqYs5" /></p>
+<p>Select <code>Let me select individual events</code>.</p>
+<p><img alt="Screenshot" src="https://www.filepicker.io/api/file/gnMC4mNvSUS8TuwiG2gA" /></p>
+<p>Select <code>Pull request</code> and <code>Push</code>. After you are ready press the <code>Add webhook</code> button and you are ready to roll!</p>
+<p><img alt="Screenshot" src="https://www.filepicker.io/api/file/hN8fF6ivRaKnaHBVojRb" /></p>
           <aside class="copyright" role="note">
             
             Documentation built with
@@ -525,7 +487,7 @@ brew update &amp;&amp; brew uninstall xctool &amp;&amp; brew install xctool --bu
   <nav class="pagination" aria-label="Footer">
     <div class="previous">
       
-        <a href="../../getting-started/builds-and-workflows/" title="Builds & Workflows">
+        <a href="../" title="Adding webhooks">
           <span class="direction">
             Previous
           </span>
@@ -535,7 +497,7 @@ brew update &amp;&amp; brew uninstall xctool &amp;&amp; brew install xctool --bu
             </div>
             <div class="stretch">
               <div class="title">
-                Builds & Workflows
+                Adding webhooks
               </div>
             </div>
           </div>
@@ -544,14 +506,14 @@ brew update &amp;&amp; brew uninstall xctool &amp;&amp; brew install xctool --bu
     </div>
     <div class="next">
       
-        <a href="../available-stacks/" title="Available Stacks">
+        <a href="../../caching/about-caching/" title="About caching">
           <span class="direction">
             Next
           </span>
           <div class="page">
             <div class="stretch">
               <div class="title">
-                Available Stacks
+                About caching
               </div>
             </div>
             <div class="button button-next" role="button" aria-label="Next">
