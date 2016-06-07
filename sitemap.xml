@@ -97,4 +97,32 @@
         
     
 
+    
+        
+    <url>
+     <loc>None/caching/about-caching/</loc>
+     <lastmod>2016-06-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/caching/caching-cocoapods/</loc>
+     <lastmod>2016-06-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/caching/caching-gradle/</loc>
+     <lastmod>2016-06-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/caching/caching-ruby-gems/</loc>
+     <lastmod>2016-06-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
 </urlset>

@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     
       
-        <title>Signing up with GitHub - Bitrise DevCenter</title>
+        <title>About caching - Bitrise DevCenter</title>
       
       
       
@@ -95,12 +95,12 @@
           <span class="path">
             
               
-                Signing up <i class="icon icon-link"></i>
+                Caching <i class="icon icon-link"></i>
               
             
           </span>
         
-        Signing up with GitHub
+        About caching
       </div>
     </div>
     
@@ -242,41 +242,16 @@
       
         
   <li>
-    <a class="current" title="Signing up with GitHub" href="./">
+    <a class="" title="Signing up with GitHub" href="../../signing-up/signing-up-with-github/">
       Signing up with GitHub
     </a>
-    
-      
-      
-        <ul>
-          
-            <li class="anchor">
-              <a title="Sign up" href="#sign-up">
-                Sign up
-              </a>
-            </li>
-          
-            <li class="anchor">
-              <a title="Authorize Bitrise" href="#authorize-bitrise">
-                Authorize Bitrise
-              </a>
-            </li>
-          
-            <li class="anchor">
-              <a title="Finish signup" href="#finish-signup">
-                Finish signup
-              </a>
-            </li>
-          
-        </ul>
-      
     
   </li>
 
       
         
   <li>
-    <a class="" title="Signing up with Bitbucket" href="../signing-up-with-bitbucket/">
+    <a class="" title="Signing up with Bitbucket" href="../../signing-up/signing-up-with-bitbucket/">
       Signing up with Bitbucket
     </a>
     
@@ -285,7 +260,7 @@
       
         
   <li>
-    <a class="" title="Signing up with email" href="../signing-up-with-email/">
+    <a class="" title="Signing up with email" href="../../signing-up/signing-up-with-email/">
       Signing up with email
     </a>
     
@@ -294,7 +269,7 @@
       
         
   <li>
-    <a class="" title="Trial after signing up" href="../trial-after-signing-up/">
+    <a class="" title="Trial after signing up" href="../../signing-up/trial-after-signing-up/">
       Trial after signing up
     </a>
     
@@ -357,16 +332,41 @@
       
         
   <li>
-    <a class="" title="About caching" href="../../caching/about-caching/">
+    <a class="current" title="About caching" href="./">
       About caching
     </a>
+    
+      
+      
+        <ul>
+          
+            <li class="anchor">
+              <a title="Setup" href="#setup">
+                Setup
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Technical notes" href="#technical-notes">
+                Technical notes
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Downloading and deleting caches" href="#downloading-and-deleting-caches">
+                Downloading and deleting caches
+              </a>
+            </li>
+          
+        </ul>
+      
     
   </li>
 
       
         
   <li>
-    <a class="" title="Caching Cocoapods" href="../../caching/caching-cocoapods/">
+    <a class="" title="Caching Cocoapods" href="../caching-cocoapods/">
       Caching Cocoapods
     </a>
     
@@ -375,7 +375,7 @@
       
         
   <li>
-    <a class="" title="Caching Gradle" href="../../caching/caching-gradle/">
+    <a class="" title="Caching Gradle" href="../caching-gradle/">
       Caching Gradle
     </a>
     
@@ -384,7 +384,7 @@
       
         
   <li>
-    <a class="" title="Caching Ruby GEMs" href="../../caching/caching-ruby-gems/">
+    <a class="" title="Caching Ruby GEMs" href="../caching-ruby-gems/">
       Caching Ruby GEMs
     </a>
     
@@ -405,27 +405,34 @@
       <article class="article">
         <div class="wrapper">
           
-            <h1>Signing up with GitHub</h1>
+            <h1>About caching</h1>
           
-          <p>You are able to authenticate yourself with your GitHub user against Bitrise. It means some practical benefits, like logging in with one click and of course you won't have to authorize your GitHub account when adding repositories hosted by these providers again.</p>
+          <p>The caching will tar all the cached directories and dependencies and store them securely in Amazon S3. Note that if you store files which are downloaded from a CDN / cloud storage you might not see any improvement, as downloading it from the Bitrise Build Cache storage will probably take about the same time as downloading it from its canonical CDN / cloud storage location. However Bitrise Caching still might help if you have reliability issues with the resource's, or dependency's canonical download location.</p>
+<h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">⚓</a></h2>
+<p>All you need to get started is adding two Steps to your Workflow:</p>
+<ul>
+<li>One for downloading the previous cache (if any): <code>Cache:Pull</code></li>
+<li>One for checking the state of the cache and uploading it if required: <code>Cache:Push</code></li>
+</ul>
+<p>You should add the <code>Cache:Pull</code> (download) step right before you'd use the cache. For example, in case of an iOS app, this can be between the <code>Git Clone</code> and the <code>CocoaPods</code> install steps. If you intend to cache your <code>./Pods</code> directory you should not pull the cache before the <code>Git Clone</code>, because <code>Git Clone</code> will create the base directory for <code>./Pods</code>. Before the <code>Git Clone</code> step your code (and the directories your code creates when git cloned) is not available on the Virtual Machine.</p>
+<p>The <code>Cache:Push</code> step can be the very last step in the Workflow. The only thing you have to care about is that it should be after the step(s) which update the cached paths. For example in case of <code>CocoaPods</code> you should put the <code>Cache:Push</code> step anywhere after the <code>CocoaPods</code> install, because that's the step which generates, or updates the directory (<code>./Pods</code>) which is cached.</p>
+<h2 id="technical-notes">Technical notes<a class="headerlink" href="#technical-notes" title="Permanent link">⚓</a></h2>
+<p>The Build Cache feature is split into two parts, the <code>Build Cache API</code> and the <code>Steps</code>.</p>
+<p>The <code>Build Cache API</code> is actually a really simple API, with only one responsibility: you can request a download or an upload URL from the API. Of course it also makes sure that you have the required access rights to the resource (Build Cache Archive), but other than that its only responsibility is providing the secure - time limited and expiring - download and upload URLs. It does not process the files.</p>
+<p>The <code>Steps</code> are the place where the "magic" happens. The whole logic of comparing caches to see if there was any relevant change and creating the cache archives is done by the Steps. This also means that you can write your own Steps and implement your own comparison and compression logic. The step just has to use the Build Cache API to get download and upload URLs, there's no restriction on the cache file format or on its content.</p>
+<div class="admonition note">
+<p class="admonition-title">Advanced notes</p>
+<ul>
+<li>You can create your own Cache steps</li>
+<li>You can create and use your own Build Cache server and API</li>
+</ul>
+</div>
+<h2 id="downloading-and-deleting-caches">Downloading and deleting caches<a class="headerlink" href="#downloading-and-deleting-caches" title="Permanent link">⚓</a></h2>
+<p>You can download and delete caches, for every branch which generated a cache, on the <code>Settings</code> tab of the app, under the <code>Manage Build Caches</code> section.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If you'd like to sign up with your email address, please follow the instructions in <a href="../../signing-up/signing-up-with-email">sign up with email address</a>.</p>
+<p>You can see the size of the caches and the last time a given cache was used in the popup.</p>
 </div>
-<h2 id="sign-up">Sign up<a class="headerlink" href="#sign-up" title="Permanent link">⚓</a></h2>
-<p>Go to the Sign up page with pressing <code>Sign up!</code> on the landing page of <a href="https://bitrise.io">bitrise.io</a>.</p>
-<p><img alt="Screenshot" src="../../img/signing-up/github_signup.png" /></p>
-<p>Select <code>GitHub</code> for authenticating yourself with one of these services.</p>
-<h2 id="authorize-bitrise">Authorize Bitrise<a class="headerlink" href="#authorize-bitrise" title="Permanent link">⚓</a></h2>
-<p>You have to authorize Bitrise before we can establish the connection. This means you give permissions to Bitrise to access (read) your repositories.</p>
-<p><img alt="Screenshot" src="../../img/signing-up/github_authorization.png" /></p>
-<p>If you press the <code>Authorize application</code> button, you will be redirected to Bitrise.</p>
-<h2 id="finish-signup">Finish signup<a class="headerlink" href="#finish-signup" title="Permanent link">⚓</a></h2>
-<p>You will have to pick a username and a password for your Bitrise account. This way you are free from relying on the given service's availability, you are also able to connect more accounts, GitHub <strong>and</strong> Bitbucket, for example. Last, but not least, you don't have to stick to your connected account's username.</p>
-<p><img alt="Screenshot" src="../../img/signing-up/signup_finish.png" /></p>
-<p>After that, you are ready to roll.</p>
-<p>From now on, you are able to sign in with a click of a button. Choose your favorite!</p>
-<p><img alt="Screenshot" src="../../img/signing-up/signup_success.png" /></p>
           <aside class="copyright" role="note">
             
             Documentation built with
@@ -442,7 +449,7 @@
   <nav class="pagination" aria-label="Footer">
     <div class="previous">
       
-        <a href="../../infrastructure/available-stacks/" title="Available Stacks">
+        <a href="../../adding-a-new-app/setting-up-configuration/" title="Setting up configuration">
           <span class="direction">
             Previous
           </span>
@@ -452,7 +459,7 @@
             </div>
             <div class="stretch">
               <div class="title">
-                Available Stacks
+                Setting up configuration
               </div>
             </div>
           </div>
@@ -461,14 +468,14 @@
     </div>
     <div class="next">
       
-        <a href="../signing-up-with-bitbucket/" title="Signing up with Bitbucket">
+        <a href="../caching-cocoapods/" title="Caching Cocoapods">
           <span class="direction">
             Next
           </span>
           <div class="page">
             <div class="stretch">
               <div class="title">
-                Signing up with Bitbucket
+                Caching Cocoapods
               </div>
             </div>
             <div class="button button-next" role="button" aria-label="Next">

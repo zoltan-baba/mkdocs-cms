@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     
       
-        <title>Signing up with GitHub - Bitrise DevCenter</title>
+        <title>Caching Ruby GEMs - Bitrise DevCenter</title>
       
       
       
@@ -95,12 +95,12 @@
           <span class="path">
             
               
-                Signing up <i class="icon icon-link"></i>
+                Caching <i class="icon icon-link"></i>
               
             
           </span>
         
-        Signing up with GitHub
+        Caching Ruby GEMs
       </div>
     </div>
     
@@ -242,41 +242,16 @@
       
         
   <li>
-    <a class="current" title="Signing up with GitHub" href="./">
+    <a class="" title="Signing up with GitHub" href="../../signing-up/signing-up-with-github/">
       Signing up with GitHub
     </a>
-    
-      
-      
-        <ul>
-          
-            <li class="anchor">
-              <a title="Sign up" href="#sign-up">
-                Sign up
-              </a>
-            </li>
-          
-            <li class="anchor">
-              <a title="Authorize Bitrise" href="#authorize-bitrise">
-                Authorize Bitrise
-              </a>
-            </li>
-          
-            <li class="anchor">
-              <a title="Finish signup" href="#finish-signup">
-                Finish signup
-              </a>
-            </li>
-          
-        </ul>
-      
     
   </li>
 
       
         
   <li>
-    <a class="" title="Signing up with Bitbucket" href="../signing-up-with-bitbucket/">
+    <a class="" title="Signing up with Bitbucket" href="../../signing-up/signing-up-with-bitbucket/">
       Signing up with Bitbucket
     </a>
     
@@ -285,7 +260,7 @@
       
         
   <li>
-    <a class="" title="Signing up with email" href="../signing-up-with-email/">
+    <a class="" title="Signing up with email" href="../../signing-up/signing-up-with-email/">
       Signing up with email
     </a>
     
@@ -294,7 +269,7 @@
       
         
   <li>
-    <a class="" title="Trial after signing up" href="../trial-after-signing-up/">
+    <a class="" title="Trial after signing up" href="../../signing-up/trial-after-signing-up/">
       Trial after signing up
     </a>
     
@@ -357,7 +332,7 @@
       
         
   <li>
-    <a class="" title="About caching" href="../../caching/about-caching/">
+    <a class="" title="About caching" href="../about-caching/">
       About caching
     </a>
     
@@ -366,7 +341,7 @@
       
         
   <li>
-    <a class="" title="Caching Cocoapods" href="../../caching/caching-cocoapods/">
+    <a class="" title="Caching Cocoapods" href="../caching-cocoapods/">
       Caching Cocoapods
     </a>
     
@@ -375,7 +350,7 @@
       
         
   <li>
-    <a class="" title="Caching Gradle" href="../../caching/caching-gradle/">
+    <a class="" title="Caching Gradle" href="../caching-gradle/">
       Caching Gradle
     </a>
     
@@ -384,9 +359,28 @@
       
         
   <li>
-    <a class="" title="Caching Ruby GEMs" href="../../caching/caching-ruby-gems/">
+    <a class="current" title="Caching Ruby GEMs" href="./">
       Caching Ruby GEMs
     </a>
+    
+      
+      
+        <ul>
+          
+            <li class="anchor">
+              <a title="Technical note" href="#technical-note">
+                Technical note
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Example workflow" href="#example-workflow">
+                Example workflow
+              </a>
+            </li>
+          
+        </ul>
+      
     
   </li>
 
@@ -405,27 +399,48 @@
       <article class="article">
         <div class="wrapper">
           
-            <h1>Signing up with GitHub</h1>
+            <h1>Caching Ruby GEMs</h1>
           
-          <p>You are able to authenticate yourself with your GitHub user against Bitrise. It means some practical benefits, like logging in with one click and of course you won't have to authorize your GitHub account when adding repositories hosted by these providers again.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If you'd like to sign up with your email address, please follow the instructions in <a href="../../signing-up/signing-up-with-email">sign up with email address</a>.</p>
+          <h2 id="technical-note">Technical note<a class="headerlink" href="#technical-note" title="Permanent link">⚓</a></h2>
+<p>Ruby GEMs are installed into a single directory by default. You can get the location of this directory with <code>gem environment gemdir</code>. If you want to change this directory you can set the <code>$GEM_HOME</code> environment variable, this will be picked up by <code>gem install</code> and it'll install the GEMs to the location specified by <code>$GEM_HOME</code>.</p>
+<p>Now that you know where the Ruby GEMs are stored you can easily cache the directory. As in any other previous case you need two steps:</p>
+<ol>
+<li>put the <code>Cache:Pull</code> step after the <code>Git Clone</code></li>
+<li>put the <code>Cache:Push</code> step to the very end of the Workflow</li>
+<li>You can now just select the <code>Cache:Push</code> step and add the Ruby GEM home directory to the Cache Paths input.</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>You can't just add <code>gem environment gemdir</code> to the input as you can only reference Environment Variables in the inputs directly, and <code>$GEM_HOME</code> is not set by default on the Bitrise.io VMs.</p>
 </div>
-<h2 id="sign-up">Sign up<a class="headerlink" href="#sign-up" title="Permanent link">⚓</a></h2>
-<p>Go to the Sign up page with pressing <code>Sign up!</code> on the landing page of <a href="https://bitrise.io">bitrise.io</a>.</p>
-<p><img alt="Screenshot" src="../../img/signing-up/github_signup.png" /></p>
-<p>Select <code>GitHub</code> for authenticating yourself with one of these services.</p>
-<h2 id="authorize-bitrise">Authorize Bitrise<a class="headerlink" href="#authorize-bitrise" title="Permanent link">⚓</a></h2>
-<p>You have to authorize Bitrise before we can establish the connection. This means you give permissions to Bitrise to access (read) your repositories.</p>
-<p><img alt="Screenshot" src="../../img/signing-up/github_authorization.png" /></p>
-<p>If you press the <code>Authorize application</code> button, you will be redirected to Bitrise.</p>
-<h2 id="finish-signup">Finish signup<a class="headerlink" href="#finish-signup" title="Permanent link">⚓</a></h2>
-<p>You will have to pick a username and a password for your Bitrise account. This way you are free from relying on the given service's availability, you are also able to connect more accounts, GitHub <strong>and</strong> Bitbucket, for example. Last, but not least, you don't have to stick to your connected account's username.</p>
-<p><img alt="Screenshot" src="../../img/signing-up/signup_finish.png" /></p>
-<p>After that, you are ready to roll.</p>
-<p>From now on, you are able to sign in with a click of a button. Choose your favorite!</p>
-<p><img alt="Screenshot" src="../../img/signing-up/signup_success.png" /></p>
+<p>There are two simple solutions for this issue:</p>
+<ul>
+<li>Set <code>GEM_HOME</code> as an App Env Var to, let's say, <code>$HOME/.gem</code>.</li>
+<li>Add a <code>Script step</code> to your workflow and set the <code>$GEM_HOME</code> environment variable there</li>
+</ul>
+<p>The second option is usually more error proof as you don't change the location of gem home, you just set the environment variable to the path where it's located.</p>
+<h2 id="example-workflow">Example workflow<a class="headerlink" href="#example-workflow" title="Permanent link">⚓</a></h2>
+<pre class="code"><code class="language-yml">example:
+  steps:
+  - script@1.1.0:
+      title: GEM_HOME
+      inputs:
+      - content: |-
+          #!/bin/bash
+          set -ev
+
+          envman add --key GEM_HOME --value &quot;$(gem environment gemdir)&quot;
+  - git-clone@3.2.0: {}
+  - cache-pull: {}
+
+  # ... Add your steps here.
+  # You can `gem install` Ruby gems with Script steps here too,
+  # just make sure it's between the `cache-pull` and `cache-push` steps.
+
+  - cache-push:
+      inputs:
+      - cache_paths: |-
+          $GEM_HOME</code></pre>
           <aside class="copyright" role="note">
             
             Documentation built with
@@ -442,7 +457,7 @@
   <nav class="pagination" aria-label="Footer">
     <div class="previous">
       
-        <a href="../../infrastructure/available-stacks/" title="Available Stacks">
+        <a href="../caching-gradle/" title="Caching Gradle">
           <span class="direction">
             Previous
           </span>
@@ -452,7 +467,7 @@
             </div>
             <div class="stretch">
               <div class="title">
-                Available Stacks
+                Caching Gradle
               </div>
             </div>
           </div>
@@ -460,22 +475,6 @@
       
     </div>
     <div class="next">
-      
-        <a href="../signing-up-with-bitbucket/" title="Signing up with Bitbucket">
-          <span class="direction">
-            Next
-          </span>
-          <div class="page">
-            <div class="stretch">
-              <div class="title">
-                Signing up with Bitbucket
-              </div>
-            </div>
-            <div class="button button-next" role="button" aria-label="Next">
-              <i class="icon icon-forward"></i>
-            </div>
-          </div>
-        </a>
       
     </div>
   </nav>
