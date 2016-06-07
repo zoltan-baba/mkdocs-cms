@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="no-js ie6"><![endif]-->
+<!--[if IE 7 ]><html class="no-js ie7"><![endif]-->
+<!--[if IE 8 ]><html class="no-js ie8"><![endif]-->
+<!--[if IE 9 ]><html class="no-js ie9"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    
+      
+        <title>Virtual Machines - Bitrise DevCenter</title>
+      
+      
+      
+      
+    
+    <meta property="og:url" content="None">
+    <meta property="og:title" content="Bitrise DevCenter">
+    <meta property="og:image" content="None/../../img/logo.svg">
+    <meta name="apple-mobile-web-app-title" content="Bitrise DevCenter">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+      <link rel="apple-touch-icon" href="../../img/logo.svg">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="../../None">
+    <link rel="icon" type="image/x-icon" href="../../None">
+    <style>
+      @font-face {
+      	font-family: 'Icon';
+      	src: url('../../assets/fonts/icon.eot?52m981');
+      	src: url('../../assets/fonts/icon.eot?#iefix52m981')
+               format('embedded-opentype'),
+      		   url('../../assets/fonts/icon.woff?52m981')
+               format('woff'),
+      		   url('../../assets/fonts/icon.ttf?52m981')
+               format('truetype'),
+      		   url('../../assets/fonts/icon.svg?52m981#icon')
+               format('svg');
+      	font-weight: normal;
+      	font-style: normal;
+      }
+    </style>
+    <link rel="stylesheet" href="../../assets/stylesheets/application-0dac3e5884.css">
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/palettes-05ab2406df.css">
+    
+    
+      
+      
+      
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,700|Source+Code+Pro">
+      <style>
+        body, input {
+          font-family: 'Roboto', Helvetica, Arial, sans-serif;
+        }
+        pre, code {
+          font-family: 'Source Code Pro', 'Courier New', 'Courier', monospace;
+        }
+      </style>
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script src="../../assets/javascripts/modernizr-4ab42b99fd.js"></script>
+    
+  </head>
+  
+  
+  
+  <body class="palette-primary-deep-purple palette-accent-deep-purple">
+    
+      
+      
+    
+    <div class="backdrop">
+      <div class="backdrop-paper"></div>
+    </div>
+    <input class="toggle" type="checkbox" id="toggle-drawer">
+    <input class="toggle" type="checkbox" id="toggle-search">
+    <label class="toggle-button overlay" for="toggle-drawer"></label>
+    <header class="header">
+      <nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        
+          <span class="path">
+            
+              
+                Infrastructure <i class="icon icon-link"></i>
+              
+            
+          </span>
+        
+        Virtual Machines
+      </div>
+    </div>
+    
+    
+    <div class="button button-search" role="button" aria-label="Search">
+      <label class="toggle-button icon icon-search" title="Search" for="toggle-search"></label>
+    </div>
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+    </header>
+    <main class="main">
+      
+      <div class="drawer">
+        <nav aria-label="Navigation">
+  
+  <a href="https://github.com/bitrise-io/devcenter" class="project">
+    <div class="banner">
+      
+        <div class="logo">
+          <img src="../../img/logo.svg">
+        </div>
+      
+      <div class="name">
+        <strong>
+          Bitrise DevCenter
+          <span class="version">
+            
+          </span>
+        </strong>
+        
+          <br>
+          bitrise-io/devcenter
+        
+      </div>
+    </div>
+  </a>
+  <div class="scrollable">
+    <div class="wrapper">
+      
+        <ul class="repo">
+          <li class="repo-download">
+            
+            <a href="https://github.com/bitrise-io/devcenter/archive/master.zip" target="_blank" title="Download" data-action="download">
+              <i class="icon icon-download"></i> Download
+            </a>
+          </li>
+          <li class="repo-stars">
+            <a href="https://github.com/bitrise-io/devcenter/stargazers" target="_blank" title="Stargazers" data-action="star">
+              <i class="icon icon-star"></i> Stars
+              <span class="count">&ndash;</span>
+            </a>
+          </li>
+        </ul>
+        <hr>
+      
+      <div class="toc">
+        <ul>
+          
+            
+  <li>
+    <a class="" title="Bitrise DevCenter" href="../..">
+      Bitrise DevCenter
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Getting Started</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="What is Bitrise?" href="../../getting-started/">
+      What is Bitrise?
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Builds & Workflows" href="../../getting-started/builds-and-workflows/">
+      Builds & Workflows
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Infrastructure</span>
+    <ul>
+      
+        
+  <li>
+    <a class="current" title="Virtual Machines" href="./">
+      Virtual Machines
+    </a>
+    
+      
+      
+        <ul>
+          
+            <li class="anchor">
+              <a title="Security" href="#security">
+                Security
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Customization" href="#customization">
+                Customization
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Open Source Stacks" href="#open-source-stacks">
+                Open Source Stacks
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Virtual machine updates" href="#virtual-machine-updates">
+                Virtual machine updates
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Xcode version support guideline" href="#xcode-version-support-guideline">
+                Xcode version support guideline
+              </a>
+            </li>
+          
+        </ul>
+      
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Available Stacks" href="../available-stacks/">
+      Available Stacks
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Signing up</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Signing up with GitHub" href="../../signing-up/signing-up-with-github/">
+      Signing up with GitHub
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Signing up with Bitbucket" href="../../signing-up/signing-up-with-bitbucket/">
+      Signing up with Bitbucket
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Signing up with email" href="../../signing-up/signing-up-with-email/">
+      Signing up with email
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Trial after signing up" href="../../signing-up/trial-after-signing-up/">
+      Trial after signing up
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Adding a new app</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Adding a new app" href="../../adding-a-new-app/adding-a-new-app/">
+      Adding a new app
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Connecting a repository" href="../../adding-a-new-app/connecting-a-repository/">
+      Connecting a repository
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Setting up SSH keys" href="../../adding-a-new-app/setting-up-ssh-keys/">
+      Setting up SSH keys
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Setting up configuration" href="../../adding-a-new-app/setting-up-configuration/">
+      Setting up configuration
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+      </div>
+      <article class="article">
+        <div class="wrapper">
+          
+            <h1>Virtual Machines</h1>
+          
+          <p>On Bitrise, we have <code>OS X</code> and <code>Linux</code> virtual machines hosted for your builds. You can select multiple stacks that holds different versions of these virtual machines. Read more about available stacks and stack prepare types in the <a href="doc:available-stacks">Available Stacks docs</a>.</p>
+<h2 id="security">Security<a class="headerlink" href="#security" title="Permanent link">⚓</a></h2>
+<p>Every build runs in its own virtual machine and the virtual machine is rolled back to a saved state, the base box state, after the build is finished. This way <strong>your builds are always protected</strong> by changes made by others and by your previous builds and you can use a <strong>stable environment</strong> to define your build workflow, since <em>no state persists between builds</em>.</p>
+<div class="admonition note">
+<p class="admonition-title">Passwordless sudo</p>
+<p>The user which is used for the builds is configured with <strong>passwordless sudo</strong> enabled, this way you are able to install all the extra things you need for your builds and for other automation.</p>
+</div>
+<h2 id="customization">Customization<a class="headerlink" href="#customization" title="Permanent link">⚓</a></h2>
+<p>You can find the <strong>OS X</strong> base box setup guide and automation scripts we use for building our OS X virtual machine base box in our <a href="https://github.com/bitrise-io/osx-box-bootstrap">OS X Box Bootstrap repository</a>. This way you are able to build your own virtual machine based on the ones used on Bitrise to match ours.</p>
+<p>For our <strong>Linux</strong> machines, check out the <a href="https://github.com/bitrise-docker/bitrise-base">Bitrise Base Docker Image's repository</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">System reports</p>
+<p>You can always check our current configurations in the <a href="https://github.com/bitrise-io/bitrise.io/tree/master/system_reports">system reports folder of our main repository</a>.</p>
+<p>These reports have been generated by the scripts indicated in the first lines of the report itself.</p>
+</div>
+<h2 id="open-source-stacks">Open Source Stacks<a class="headerlink" href="#open-source-stacks" title="Permanent link">⚓</a></h2>
+<p>The repositories for our virtual machines are also the place for pull requests. If you'd like to have a tool pre-installed in our machines, feel free to add your changes and they will be included in the next release after merge.</p>
+<h2 id="virtual-machine-updates">Virtual machine updates<a class="headerlink" href="#virtual-machine-updates" title="Permanent link">⚓</a></h2>
+<p>Updates are always announced on our <a href="http://blog.bitrise.io/">News Blog</a> and can be seen on <a href="https://www.bitrise.io/dashboard">your Bitrise Dashboard</a>. We will also send you a <em>Platform Updates</em> email about significant changes, unless you disable this feature under your <a href="https://www.bitrise.io/me/profile">account settings page</a>.</p>
+<h3 id="minor-updates">Minor updates<a class="headerlink" href="#minor-updates" title="Permanent link">⚓</a></h3>
+<p>Additional patches might be applied during the week in case we detect an issue with the current virtual machine environments. These patches do not change any pre-installed tool's version, unless it's really necessary.</p>
+<h2 id="xcode-version-support-guideline">Xcode version support guideline<a class="headerlink" href="#xcode-version-support-guideline" title="Permanent link">⚓</a></h2>
+<p>We have several setups available with different Xcode versions. The Xcode you have pre-installed in your dedicated VM is always the one specified in your app's Settings under the Stack selector menu. You are able to switch between Xcode versions with changing this setting. Read more about available stacks and stack prepare types in the <a href="http://devcenter.bitrise.io/v2.0/docs/available-stacks#section-os-x">Available Stacks docs</a>.</p>
+<p>When a new major version of Xcode gets released we keep supporting the previous major version until the first significant patch version of Xcode is released.</p>
+<p>As an example in case of Xcode major version 6: Xcode 6 is the major version and the first significant patch is Xcode 6.1. We kept the latest Xcode 5 installed on the Virtual Machines until Xcode 6.1 was released.</p>
+<h3 id="ios-simulator-version-sdk-support">iOS Simulator version &amp; SDK support<a class="headerlink" href="#ios-simulator-version-sdk-support" title="Permanent link">⚓</a></h3>
+<p>All the iOS Simulator versions which can be installed through <em>Xcode -&gt; Preferences -&gt; Downloads</em> are installed and available.</p>
+<h3 id="xctool-support">xctool support<a class="headerlink" href="#xctool-support" title="Permanent link">⚓</a></h3>
+<p><a href="https://github.com/facebook/xctool">xctool</a> is pre-installed on the OS X VMs, through <a href="http://brew.sh/">homebrew</a>. If you need to update it to be sure you have the latest version you can add a <a href="https://github.com/bitrise-io/steps-script">Script Step</a> with the following content:</p>
+<pre class="code"><code class="language-bash">#!/bin/bash
+brew update &amp;&amp; brew upgrade xctool</code></pre>
+
+
+<p>If you need the latest <code>xctool</code> version compiled from source you can do it by adding a <strong>Script Step</strong> to your workflow, right before your first Xcode build, Analyze, Unit test or Archive step, with the following content:</p>
+<pre class="code"><code class="language-bash">#!/bin/bash
+brew update &amp;&amp; brew uninstall xctool &amp;&amp; brew install xctool --build-from-source</code></pre>
+          <aside class="copyright" role="note">
+            
+            Documentation built with
+            <a href="http://www.mkdocs.org" target="_blank">MkDocs</a>
+            using the
+            <a href="http://squidfunk.github.io/mkdocs-material/" target="_blank">
+              Material
+            </a>
+            theme.
+          </aside>
+          
+            <footer class="footer">
+              
+  <nav class="pagination" aria-label="Footer">
+    <div class="previous">
+      
+        <a href="../../getting-started/builds-and-workflows/" title="Builds & Workflows">
+          <span class="direction">
+            Previous
+          </span>
+          <div class="page">
+            <div class="button button-previous" role="button" aria-label="Previous">
+              <i class="icon icon-back"></i>
+            </div>
+            <div class="stretch">
+              <div class="title">
+                Builds & Workflows
+              </div>
+            </div>
+          </div>
+        </a>
+      
+    </div>
+    <div class="next">
+      
+        <a href="../available-stacks/" title="Available Stacks">
+          <span class="direction">
+            Next
+          </span>
+          <div class="page">
+            <div class="stretch">
+              <div class="title">
+                Available Stacks
+              </div>
+            </div>
+            <div class="button button-next" role="button" aria-label="Next">
+              <i class="icon icon-forward"></i>
+            </div>
+          </div>
+        </a>
+      
+    </div>
+  </nav>
+
+            </footer>
+          
+        </div>
+      </article>
+      <div class="results" role="status" aria-live="polite">
+        <div class="scrollable">
+          <div class="wrapper">
+            <div class="meta"></div>
+            <div class="list"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      var base_url = '../..';
+      var repo_id  = 'bitrise-io/devcenter';
+    </script>
+    <script src="../../assets/javascripts/application-997097ee0c.js"></script>
+    
+    
+  </body>
+</html>

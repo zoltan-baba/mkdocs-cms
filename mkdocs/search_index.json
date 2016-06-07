@@ -1,0 +1,259 @@
+{
+    "docs": [
+        {
+            "location": "/", 
+            "text": "", 
+            "title": "Bitrise DevCenter"
+        }, 
+        {
+            "location": "/getting-started/", 
+            "text": "Bitrise\n is a continuous integration and delivery (CI/CD) platform with a main focus on mobile app development. We currently maintain full support of testing, building and deployment of \niOS\n, \nAndroid\n and \nXamarin\n mobile applications.\n\n\nYour apps\n\u2693\n\n\nYou can set up a workflow of steps to automate the testing and deployment processes of your apps with just a few clicks.\n\n\nWhen you trigger a build, a \nvirtual machine\n is assigned to host your app and to execute the corresponding workflow, step by step.\n\n\nYou are able to define more workflows for the very same app. A workflow consists of one or more steps which are scripts that being imported into Bitrise from their own \nGitHub repositories\n. It's all open source so \nyou can develop your own desired steps\n any time to use them on Bitrise.\n\n\nThe steps can do anything that can be implemented using scripts: send emails, \ntext messages\n, pass values to each other, \ncreate Xcode archives\n, \npublish to iTunes Connect\n, or just run any kind of script. You can read more about steps and workflows in \nBuilds \n workflows\n.\n\n\nAfter a build is finished, the dedicated virtual machine is going to be discarded. You can browse the logs of every step that ran during the workflow if necessary. You can read more about code security in \nVirtual machines\n.\n\n\nOffline CLI\n\u2693\n\n\nTo run Bitrise on your machine, you can install our \nopen source runner\n and use the \nbitrise\n command to execute your workflows locally. It's a great help when you're developing steps, or just want to use Bitrise for \nany kind of automation\n on your machine.", 
+            "title": "What is Bitrise?"
+        }, 
+        {
+            "location": "/getting-started/#your-apps", 
+            "text": "You can set up a workflow of steps to automate the testing and deployment processes of your apps with just a few clicks.  When you trigger a build, a  virtual machine  is assigned to host your app and to execute the corresponding workflow, step by step.  You are able to define more workflows for the very same app. A workflow consists of one or more steps which are scripts that being imported into Bitrise from their own  GitHub repositories . It's all open source so  you can develop your own desired steps  any time to use them on Bitrise.  The steps can do anything that can be implemented using scripts: send emails,  text messages , pass values to each other,  create Xcode archives ,  publish to iTunes Connect , or just run any kind of script. You can read more about steps and workflows in  Builds   workflows .  After a build is finished, the dedicated virtual machine is going to be discarded. You can browse the logs of every step that ran during the workflow if necessary. You can read more about code security in  Virtual machines .", 
+            "title": "Your apps"
+        }, 
+        {
+            "location": "/getting-started/#offline-cli", 
+            "text": "To run Bitrise on your machine, you can install our  open source runner  and use the  bitrise  command to execute your workflows locally. It's a great help when you're developing steps, or just want to use Bitrise for  any kind of automation  on your machine.", 
+            "title": "Offline CLI"
+        }, 
+        {
+            "location": "/getting-started/builds-and-workflows/", 
+            "text": "Builds \n Workflows\n\u2693\n\n\nA \nbuild\n is the process specified by the app's \nworkflow\n, which is a collection of \nsteps\n. Every step is an \nopen source\n script repository which you can inspect and modify.\n\n\nA Workflow is interpreted as a \nyaml\n, which you are able to modify at bitrise.io's Workflow editor, or \nyaml editor\n directly. On the graphical UI of the Workflow editor, you are able to add, remove, and reorder the build steps. Steps represent a block of script execution with predefined input and output variables. Steps can be written in various languages we (our virtual machines) support, like bash, Go, Ruby, Swift, etc. Read more about how workflows and steps are implemented on our \nengineering blog\n.\n\n\nWhen a build is running, these scripts will be downloaded and executed in the order you've defined in your workflow, with the input parameters you set. They will produce the predefined outputs set as environment variables.\n\n\nThe build process\n\u2693\n\n\nThere are a lot of things that can be customized when working with Bitrise. The build process has some mutable dimensions as well, from several kind of triggers, through different stacks and preparation types to environment variables.\n\n\n\n\nTrigger builds by\n\n\nclicking the \"Build\" button on the application's page (runs manually)\n\n\nscheduling with a selected branch and frequency (runs when scheduled)\n\n\nwebhook\n  - after each push or pull request to the given branch (runs when push/pull request arrives)\n\n\n\n\nour \nBuild Trigger API\n\n\n\n\n\n\nEnvironment preparation\nOnce we've found a suitable machine, a virtual machine will be provisioned and prepared to run the build. Read more about our virtual machines in \nVirtual machines\n. Build specific environment variables are preset, so you can use these in your steps. Read more about our available stacks and preparation types in \nAvailable Stacks\n.\n\n\n\n\n\n\nConcurrency\nBuilds over your subscription plan's concurrency count will be marked as \non hold\n. They will start whenever your ongoing builds are finished and you have a free build slot. You can always \npurchase additional concurrencies\n with the Pro plan.\n\n\n\n\n\n\nWorkflow execution\nSteps in Workflows are executed in the same order as defined in the Workflow editor of your application, from top to bottom. You can reorder the steps by dragging. The log each step generates will be displayed on the build's details page.\n\n\n\n\n\n\nCleanup\nAfter the execution of the build, there will be a summary of the build created and stored on the Bitrise server and \nthe virtual machine gets rolled back to a predefined state\n, erasing every file and every change your build made so your code/files woudn't fall into the wrong hands.", 
+            "title": "Builds & Workflows"
+        }, 
+        {
+            "location": "/getting-started/builds-and-workflows/#builds-workflows", 
+            "text": "A  build  is the process specified by the app's  workflow , which is a collection of  steps . Every step is an  open source  script repository which you can inspect and modify.  A Workflow is interpreted as a  yaml , which you are able to modify at bitrise.io's Workflow editor, or  yaml editor  directly. On the graphical UI of the Workflow editor, you are able to add, remove, and reorder the build steps. Steps represent a block of script execution with predefined input and output variables. Steps can be written in various languages we (our virtual machines) support, like bash, Go, Ruby, Swift, etc. Read more about how workflows and steps are implemented on our  engineering blog .  When a build is running, these scripts will be downloaded and executed in the order you've defined in your workflow, with the input parameters you set. They will produce the predefined outputs set as environment variables.", 
+            "title": "Builds &amp; Workflows"
+        }, 
+        {
+            "location": "/getting-started/builds-and-workflows/#the-build-process", 
+            "text": "There are a lot of things that can be customized when working with Bitrise. The build process has some mutable dimensions as well, from several kind of triggers, through different stacks and preparation types to environment variables.   Trigger builds by  clicking the \"Build\" button on the application's page (runs manually)  scheduling with a selected branch and frequency (runs when scheduled)  webhook   - after each push or pull request to the given branch (runs when push/pull request arrives)   our  Build Trigger API    Environment preparation\nOnce we've found a suitable machine, a virtual machine will be provisioned and prepared to run the build. Read more about our virtual machines in  Virtual machines . Build specific environment variables are preset, so you can use these in your steps. Read more about our available stacks and preparation types in  Available Stacks .    Concurrency\nBuilds over your subscription plan's concurrency count will be marked as  on hold . They will start whenever your ongoing builds are finished and you have a free build slot. You can always  purchase additional concurrencies  with the Pro plan.    Workflow execution\nSteps in Workflows are executed in the same order as defined in the Workflow editor of your application, from top to bottom. You can reorder the steps by dragging. The log each step generates will be displayed on the build's details page.    Cleanup\nAfter the execution of the build, there will be a summary of the build created and stored on the Bitrise server and  the virtual machine gets rolled back to a predefined state , erasing every file and every change your build made so your code/files woudn't fall into the wrong hands.", 
+            "title": "The build process"
+        }, 
+        {
+            "location": "/infrastructure/virtual-machines/", 
+            "text": "On Bitrise, we have \nOS X\n and \nLinux\n virtual machines hosted for your builds. You can select multiple stacks that holds different versions of these virtual machines. Read more about available stacks and stack prepare types in the \nAvailable Stacks docs\n.\n\n\nSecurity\n\u2693\n\n\nEvery build runs in its own virtual machine and the virtual machine is rolled back to a saved state, the base box state, after the build is finished. This way \nyour builds are always protected\n by changes made by others and by your previous builds and you can use a \nstable environment\n to define your build workflow, since \nno state persists between builds\n.\n\n\n\n\nPasswordless sudo\n\n\nThe user which is used for the builds is configured with \npasswordless sudo\n enabled, this way you are able to install all the extra things you need for your builds and for other automation.\n\n\n\n\nCustomization\n\u2693\n\n\nYou can find the \nOS X\n base box setup guide and automation scripts we use for building our OS X virtual machine base box in our \nOS X Box Bootstrap repository\n. This way you are able to build your own virtual machine based on the ones used on Bitrise to match ours.\n\n\nFor our \nLinux\n machines, check out the \nBitrise Base Docker Image's repository\n.\n\n\n\n\nSystem reports\n\n\nYou can always check our current configurations in the \nsystem reports folder of our main repository\n.\n\n\nThese reports have been generated by the scripts indicated in the first lines of the report itself.\n\n\n\n\nOpen Source Stacks\n\u2693\n\n\nThe repositories for our virtual machines are also the place for pull requests. If you'd like to have a tool pre-installed in our machines, feel free to add your changes and they will be included in the next release after merge.\n\n\nVirtual machine updates\n\u2693\n\n\nUpdates are always announced on our \nNews Blog\n and can be seen on \nyour Bitrise Dashboard\n. We will also send you a \nPlatform Updates\n email about significant changes, unless you disable this feature under your \naccount settings page\n.\n\n\nMinor updates\n\u2693\n\n\nAdditional patches might be applied during the week in case we detect an issue with the current virtual machine environments. These patches do not change any pre-installed tool's version, unless it's really necessary.\n\n\nXcode version support guideline\n\u2693\n\n\nWe have several setups available with different Xcode versions. The Xcode you have pre-installed in your dedicated VM is always the one specified in your app's Settings under the Stack selector menu. You are able to switch between Xcode versions with changing this setting. Read more about available stacks and stack prepare types in the \nAvailable Stacks docs\n.\n\n\nWhen a new major version of Xcode gets released we keep supporting the previous major version until the first significant patch version of Xcode is released.\n\n\nAs an example in case of Xcode major version 6: Xcode 6 is the major version and the first significant patch is Xcode 6.1. We kept the latest Xcode 5 installed on the Virtual Machines until Xcode 6.1 was released.\n\n\niOS Simulator version \n SDK support\n\u2693\n\n\nAll the iOS Simulator versions which can be installed through \nXcode -\n Preferences -\n Downloads\n are installed and available.\n\n\nxctool support\n\u2693\n\n\nxctool\n is pre-installed on the OS X VMs, through \nhomebrew\n. If you need to update it to be sure you have the latest version you can add a \nScript Step\n with the following content:\n\n\n#!/bin/bash\nbrew update \n brew upgrade xctool\n\n\n\n\nIf you need the latest \nxctool\n version compiled from source you can do it by adding a \nScript Step\n to your workflow, right before your first Xcode build, Analyze, Unit test or Archive step, with the following content:\n\n\n#!/bin/bash\nbrew update \n brew uninstall xctool \n brew install xctool --build-from-source", 
+            "title": "Virtual Machines"
+        }, 
+        {
+            "location": "/infrastructure/virtual-machines/#security", 
+            "text": "Every build runs in its own virtual machine and the virtual machine is rolled back to a saved state, the base box state, after the build is finished. This way  your builds are always protected  by changes made by others and by your previous builds and you can use a  stable environment  to define your build workflow, since  no state persists between builds .   Passwordless sudo  The user which is used for the builds is configured with  passwordless sudo  enabled, this way you are able to install all the extra things you need for your builds and for other automation.", 
+            "title": "Security"
+        }, 
+        {
+            "location": "/infrastructure/virtual-machines/#customization", 
+            "text": "You can find the  OS X  base box setup guide and automation scripts we use for building our OS X virtual machine base box in our  OS X Box Bootstrap repository . This way you are able to build your own virtual machine based on the ones used on Bitrise to match ours.  For our  Linux  machines, check out the  Bitrise Base Docker Image's repository .   System reports  You can always check our current configurations in the  system reports folder of our main repository .  These reports have been generated by the scripts indicated in the first lines of the report itself.", 
+            "title": "Customization"
+        }, 
+        {
+            "location": "/infrastructure/virtual-machines/#open-source-stacks", 
+            "text": "The repositories for our virtual machines are also the place for pull requests. If you'd like to have a tool pre-installed in our machines, feel free to add your changes and they will be included in the next release after merge.", 
+            "title": "Open Source Stacks"
+        }, 
+        {
+            "location": "/infrastructure/virtual-machines/#virtual-machine-updates", 
+            "text": "Updates are always announced on our  News Blog  and can be seen on  your Bitrise Dashboard . We will also send you a  Platform Updates  email about significant changes, unless you disable this feature under your  account settings page .", 
+            "title": "Virtual machine updates"
+        }, 
+        {
+            "location": "/infrastructure/virtual-machines/#minor-updates", 
+            "text": "Additional patches might be applied during the week in case we detect an issue with the current virtual machine environments. These patches do not change any pre-installed tool's version, unless it's really necessary.", 
+            "title": "Minor updates"
+        }, 
+        {
+            "location": "/infrastructure/virtual-machines/#xcode-version-support-guideline", 
+            "text": "We have several setups available with different Xcode versions. The Xcode you have pre-installed in your dedicated VM is always the one specified in your app's Settings under the Stack selector menu. You are able to switch between Xcode versions with changing this setting. Read more about available stacks and stack prepare types in the  Available Stacks docs .  When a new major version of Xcode gets released we keep supporting the previous major version until the first significant patch version of Xcode is released.  As an example in case of Xcode major version 6: Xcode 6 is the major version and the first significant patch is Xcode 6.1. We kept the latest Xcode 5 installed on the Virtual Machines until Xcode 6.1 was released.", 
+            "title": "Xcode version support guideline"
+        }, 
+        {
+            "location": "/infrastructure/virtual-machines/#ios-simulator-version-sdk-support", 
+            "text": "All the iOS Simulator versions which can be installed through  Xcode -  Preferences -  Downloads  are installed and available.", 
+            "title": "iOS Simulator version &amp; SDK support"
+        }, 
+        {
+            "location": "/infrastructure/virtual-machines/#xctool-support", 
+            "text": "xctool  is pre-installed on the OS X VMs, through  homebrew . If you need to update it to be sure you have the latest version you can add a  Script Step  with the following content:  #!/bin/bash\nbrew update   brew upgrade xctool  If you need the latest  xctool  version compiled from source you can do it by adding a  Script Step  to your workflow, right before your first Xcode build, Analyze, Unit test or Archive step, with the following content:  #!/bin/bash\nbrew update   brew uninstall xctool   brew install xctool --build-from-source", 
+            "title": "xctool support"
+        }, 
+        {
+            "location": "/infrastructure/available-stacks/", 
+            "text": "The Stack indicates the virtual machine version that we will use to run your build. After adding your application to Bitrise we will detect the best image, but you can simply change it to a different one on the \nSettings\n tab of your app.\n\n\n\n\nStack status types\n\u2693\n\n\n\n\n\n\n\n\nType\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nExperimental\n\n\nInternal, expected to change, and eventually moved to \nPreview\n.\n\n\n\n\n\n\nPreview\n\n\nPublic, users with a related beta flag can access it. Might change or moved to \nBeta\n.\n\n\n\n\n\n\nBeta\n\n\nPublic beta, might change if there's a regression, otherwise will become \nStable\n\n\n\n\n\n\nStable\n\n\nGenerally available and expected to be supported for the foreseeable future.\n\n\n\n\n\n\nLTS\n\n\nSame as Stable, except it has a specific remove date and no changes will be made to the stack until the removal date (except only really crucial changes, which affect security for example).\n\n\n\n\n\n\n\n\nStack prepare types\n\u2693\n\n\n\n\n\n\n\n\nType\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\nPre-Booted\n\n\nIf a Stack is available as pre-booted, and there's enough pre-booted machines with that Stack configuration, your build can start right away, without waiting for the build environment to boot. In case there's no more available pre-booted machine with that Stack configuration, your build will start on an \nOn-Demand\n configuration.\n\n\n\n\n\n\nOn-Demand\n\n\nIf a Stack is available as on-demand configuration and there's no (available) pre-booted configuration for the Stack, our system will have to create a virtual machine for your selected configuration when your build starts. This means that your build will be in \npreparing environment\n state while the related Virtual Machine is created \n booted. For an OS X configuration the boot process usually takes about 1-2 minutes - we're working on improving this. \nThe prepare time (of course) is not counted into the build time, it won't affect how long your build can run.\n\n\n\n\n\n\n\n\nAvailable stacks\n\u2693\n\n\nOS X\n\u2693\n\n\nXcode 7.3, on OS X 10.11\n\u2693\n\n\nCurrent stack status: \nStable\n.\n\n\nXcode 7.3.1\n, installed on OS X 10.11 (El Capitan).\n\n\nYou can find the repository we use to set this environment up at:\n \nhttps://github.com/bitrise-io/osx-box-bootstrap\n.\n\n\nYou can find the System Report (pre-installed tool versions list) of this stack at:\n \nhttps://github.com/bitrise-io/bitrise.io/blob/master/system_reports/osx-xcode-7.3.log\n\n\nXcode 7.2, on OS X 10.11\n\u2693\n\n\nXcode 7.2.1\n installed on OS X 10.11.2\n\n\nCurrent stack status: \nLTS\n.\n\n\nYou can find the repository we use to set this environment up at:\n \nhttps://github.com/bitrise-io/osx-box-bootstrap\n.\n\n\nYou can find the System Report (pre-installed tool versions list) of this stack at:\n \nhttps://github.com/bitrise-io/bitrise.io/blob/master/system_reports/osx-xcode-7.2.log\n\n\nXcode 6.4, on OS X 10.11\n\u2693\n\n\nCurrent stack status: \nLTS\n.\n\n\nYou can find the repository we use to set this environment up at:\n \nhttps://github.com/bitrise-io/osx-box-bootstrap\n.\n\n\nYou can find the System Report (pre-installed tool versions list) of this stack at:\n \nhttps://github.com/bitrise-io/bitrise.io/blob/master/system_reports/osx-xcode-6.4.log\n\n\nXamarin Stable with Xcode 7.3, on OS X 10.11\n\u2693\n\n\nPretty much the same as \nXcode 7.3, on OS X 10.11\n, with the latest Xamarin Stable channel and additional, pre-installed Xamarin tools.\n\n\nYou can find the repository we use to set this environment up at:\n \nhttps://github.com/bitrise-io/osx-box-bootstrap\n.\n\n\nYou can find the System Report (pre-installed tool versions list) of this stack at:\n \nhttps://github.com/bitrise-io/bitrise.io/blob/master/system_reports/osx-xamarin-stable.log\n\n\nXamarin Beta with Xcode 7.3, on OS X 10.11\n\u2693\n\n\nPretty much the same as \nXcode 7.3, on OS X 10.11\n, with the latest Xamarin Beta channel and additional, pre-installed Xamarin tools.\n\n\nYou can find the repository we use to set this environment up at:\n \nhttps://github.com/bitrise-io/osx-box-bootstrap\n.\n\n\nYou can find the System Report (pre-installed tool versions list) of this stack at:\n \nhttps://github.com/bitrise-io/bitrise.io/blob/master/system_reports/osx-xamarin-beta.log\n\n\nXamarin Alpha with Xcode 7.3, on OS X 10.11\n\u2693\n\n\nPretty much the same as \nXcode 7.3, on OS X 10.11\n, with the latest Xamarin Alpha channel and additional, pre-installed Xamarin tools.\n\n\nYou can find the repository we use to set this environment up at:\n \nhttps://github.com/bitrise-io/osx-box-bootstrap\n.\n\n\nYou can find the System Report (pre-installed tool versions list) of this stack at:\n \nhttps://github.com/bitrise-io/bitrise.io/blob/master/system_reports/osx-xamarin-alpha.log\n\n\nLinux\n\u2693\n\n\nDocker based setup, with pre-cached base and Android Docker images\n\u2693\n\n\nCurrent stack status: \nStable\n.\n\n\nYou can find the Android specific docs at \nAndroid guides\n.\nThe environment is described at \nAndroid/Docker environment \n what's pre-installed\n.\n\n\nYou can find the System Report (pre-installed tool versions list) of this stack at:\n \nhttps://github.com/bitrise-io/bitrise.io/blob/master/system_reports/docker-based-android-setup.log", 
+            "title": "Available Stacks"
+        }, 
+        {
+            "location": "/infrastructure/available-stacks/#stack-status-types", 
+            "text": "Type  Description      Experimental  Internal, expected to change, and eventually moved to  Preview .    Preview  Public, users with a related beta flag can access it. Might change or moved to  Beta .    Beta  Public beta, might change if there's a regression, otherwise will become  Stable    Stable  Generally available and expected to be supported for the foreseeable future.    LTS  Same as Stable, except it has a specific remove date and no changes will be made to the stack until the removal date (except only really crucial changes, which affect security for example).", 
+            "title": "Stack status types"
+        }, 
+        {
+            "location": "/infrastructure/available-stacks/#stack-prepare-types", 
+            "text": "Type  Description      Pre-Booted  If a Stack is available as pre-booted, and there's enough pre-booted machines with that Stack configuration, your build can start right away, without waiting for the build environment to boot. In case there's no more available pre-booted machine with that Stack configuration, your build will start on an  On-Demand  configuration.    On-Demand  If a Stack is available as on-demand configuration and there's no (available) pre-booted configuration for the Stack, our system will have to create a virtual machine for your selected configuration when your build starts. This means that your build will be in  preparing environment  state while the related Virtual Machine is created   booted. For an OS X configuration the boot process usually takes about 1-2 minutes - we're working on improving this.  The prepare time (of course) is not counted into the build time, it won't affect how long your build can run.", 
+            "title": "Stack prepare types"
+        }, 
+        {
+            "location": "/infrastructure/available-stacks/#available-stacks", 
+            "text": "", 
+            "title": "Available stacks"
+        }, 
+        {
+            "location": "/infrastructure/available-stacks/#os-x", 
+            "text": "", 
+            "title": "OS X"
+        }, 
+        {
+            "location": "/infrastructure/available-stacks/#xcode-73-on-os-x-1011", 
+            "text": "Current stack status:  Stable .  Xcode 7.3.1 , installed on OS X 10.11 (El Capitan).  You can find the repository we use to set this environment up at:   https://github.com/bitrise-io/osx-box-bootstrap .  You can find the System Report (pre-installed tool versions list) of this stack at:   https://github.com/bitrise-io/bitrise.io/blob/master/system_reports/osx-xcode-7.3.log", 
+            "title": "Xcode 7.3, on OS X 10.11"
+        }, 
+        {
+            "location": "/infrastructure/available-stacks/#xcode-72-on-os-x-1011", 
+            "text": "Xcode 7.2.1  installed on OS X 10.11.2  Current stack status:  LTS .  You can find the repository we use to set this environment up at:   https://github.com/bitrise-io/osx-box-bootstrap .  You can find the System Report (pre-installed tool versions list) of this stack at:   https://github.com/bitrise-io/bitrise.io/blob/master/system_reports/osx-xcode-7.2.log", 
+            "title": "Xcode 7.2, on OS X 10.11"
+        }, 
+        {
+            "location": "/infrastructure/available-stacks/#xcode-64-on-os-x-1011", 
+            "text": "Current stack status:  LTS .  You can find the repository we use to set this environment up at:   https://github.com/bitrise-io/osx-box-bootstrap .  You can find the System Report (pre-installed tool versions list) of this stack at:   https://github.com/bitrise-io/bitrise.io/blob/master/system_reports/osx-xcode-6.4.log", 
+            "title": "Xcode 6.4, on OS X 10.11"
+        }, 
+        {
+            "location": "/infrastructure/available-stacks/#xamarin-stable-with-xcode-73-on-os-x-1011", 
+            "text": "Pretty much the same as  Xcode 7.3, on OS X 10.11 , with the latest Xamarin Stable channel and additional, pre-installed Xamarin tools.  You can find the repository we use to set this environment up at:   https://github.com/bitrise-io/osx-box-bootstrap .  You can find the System Report (pre-installed tool versions list) of this stack at:   https://github.com/bitrise-io/bitrise.io/blob/master/system_reports/osx-xamarin-stable.log", 
+            "title": "Xamarin Stable with Xcode 7.3, on OS X 10.11"
+        }, 
+        {
+            "location": "/infrastructure/available-stacks/#xamarin-beta-with-xcode-73-on-os-x-1011", 
+            "text": "Pretty much the same as  Xcode 7.3, on OS X 10.11 , with the latest Xamarin Beta channel and additional, pre-installed Xamarin tools.  You can find the repository we use to set this environment up at:   https://github.com/bitrise-io/osx-box-bootstrap .  You can find the System Report (pre-installed tool versions list) of this stack at:   https://github.com/bitrise-io/bitrise.io/blob/master/system_reports/osx-xamarin-beta.log", 
+            "title": "Xamarin Beta with Xcode 7.3, on OS X 10.11"
+        }, 
+        {
+            "location": "/infrastructure/available-stacks/#xamarin-alpha-with-xcode-73-on-os-x-1011", 
+            "text": "Pretty much the same as  Xcode 7.3, on OS X 10.11 , with the latest Xamarin Alpha channel and additional, pre-installed Xamarin tools.  You can find the repository we use to set this environment up at:   https://github.com/bitrise-io/osx-box-bootstrap .  You can find the System Report (pre-installed tool versions list) of this stack at:   https://github.com/bitrise-io/bitrise.io/blob/master/system_reports/osx-xamarin-alpha.log", 
+            "title": "Xamarin Alpha with Xcode 7.3, on OS X 10.11"
+        }, 
+        {
+            "location": "/infrastructure/available-stacks/#linux", 
+            "text": "", 
+            "title": "Linux"
+        }, 
+        {
+            "location": "/infrastructure/available-stacks/#docker-based-setup-with-pre-cached-base-and-android-docker-images", 
+            "text": "Current stack status:  Stable .  You can find the Android specific docs at  Android guides .\nThe environment is described at  Android/Docker environment   what's pre-installed .  You can find the System Report (pre-installed tool versions list) of this stack at:   https://github.com/bitrise-io/bitrise.io/blob/master/system_reports/docker-based-android-setup.log", 
+            "title": "Docker based setup, with pre-cached base and Android Docker images"
+        }, 
+        {
+            "location": "/signing-up/signing-up-with-github/", 
+            "text": "You are able to authenticate yourself with your GitHub user against Bitrise. It means some practical benefits, like logging in with one click and of course you won't have to authorize your GitHub account when adding repositories hosted by these providers again.\n\n\n\n\nNote\n\n\nIf you'd like to sign up with your email address, please follow the instructions in \nsign up with email address\n.\n\n\n\n\nSign up\n\u2693\n\n\nGo to the Sign up page with pressing \nSign up!\n on the landing page of \nbitrise.io\n.\n\n\n\n\nSelect \nGitHub\n for authenticating yourself with one of these services.\n\n\nAuthorize Bitrise\n\u2693\n\n\nYou have to authorize Bitrise before we can establish the connection. This means you give permissions to Bitrise to access (read) your repositories.\n\n\n\n\nIf you press the \nAuthorize application\n button, you will be redirected to Bitrise.\n\n\nFinish signup\n\u2693\n\n\nYou will have to pick a username and a password for your Bitrise account. This way you are free from relying on the given service's availability, you are also able to connect more accounts, GitHub \nand\n Bitbucket, for example. Last, but not least, you don't have to stick to your connected account's username.\n\n\n\n\nAfter that, you are ready to roll.\n\n\nFrom now on, you are able to sign in with a click of a button. Choose your favorite!", 
+            "title": "Signing up with GitHub"
+        }, 
+        {
+            "location": "/signing-up/signing-up-with-github/#sign-up", 
+            "text": "Go to the Sign up page with pressing  Sign up!  on the landing page of  bitrise.io .   Select  GitHub  for authenticating yourself with one of these services.", 
+            "title": "Sign up"
+        }, 
+        {
+            "location": "/signing-up/signing-up-with-github/#authorize-bitrise", 
+            "text": "You have to authorize Bitrise before we can establish the connection. This means you give permissions to Bitrise to access (read) your repositories.   If you press the  Authorize application  button, you will be redirected to Bitrise.", 
+            "title": "Authorize Bitrise"
+        }, 
+        {
+            "location": "/signing-up/signing-up-with-github/#finish-signup", 
+            "text": "You will have to pick a username and a password for your Bitrise account. This way you are free from relying on the given service's availability, you are also able to connect more accounts, GitHub  and  Bitbucket, for example. Last, but not least, you don't have to stick to your connected account's username.   After that, you are ready to roll.  From now on, you are able to sign in with a click of a button. Choose your favorite!", 
+            "title": "Finish signup"
+        }, 
+        {
+            "location": "/signing-up/signing-up-with-bitbucket/", 
+            "text": "You are able to authenticate yourself with your Bitbucket user against Bitrise. It means some practical benefits, like logging in with one click and of course you won't have to authorize your Bitbucket account when adding repositories hosted by these providers again.\n\n\n\n\nNote\n\n\nIf you'd like to sign up with your email address, please follow the instructions in \nsign up with email address\n.\n\n\n\n\nSign up\n\u2693\n\n\nGo to the Sign up page with pressing \nSign up!\n on the landing page of \nbitrise.io\n.\n\n\n\n\nSelect \nBitbucket\n for authenticating yourself with one of these services.\n\n\nAuthorize Bitrise\n\u2693\n\n\nYou have to authorize Bitrise before we can establish the connection. This means you give permissions to Bitrise to access (read) your repositories.\n\n\n\n\nIf you press the \nGrant access\n button, you will be redirected to Bitrise.\n\n\nFinish signup\n\u2693\n\n\nYou will have to pick a username and a password for your Bitrise account. This way you are free from relying on the given service's availability, you are also able to connect more accounts, GitHub \nand\n Bitbucket, for example. Last, but not least, you don't have to stick to your connected account's username.\n\n\n\n\nAfter that, you are ready to roll.\n\n\nFrom now on, you are able to sign in with a click of a button. Choose your favorite!", 
+            "title": "Signing up with Bitbucket"
+        }, 
+        {
+            "location": "/signing-up/signing-up-with-bitbucket/#sign-up", 
+            "text": "Go to the Sign up page with pressing  Sign up!  on the landing page of  bitrise.io .   Select  Bitbucket  for authenticating yourself with one of these services.", 
+            "title": "Sign up"
+        }, 
+        {
+            "location": "/signing-up/signing-up-with-bitbucket/#authorize-bitrise", 
+            "text": "You have to authorize Bitrise before we can establish the connection. This means you give permissions to Bitrise to access (read) your repositories.   If you press the  Grant access  button, you will be redirected to Bitrise.", 
+            "title": "Authorize Bitrise"
+        }, 
+        {
+            "location": "/signing-up/signing-up-with-bitbucket/#finish-signup", 
+            "text": "You will have to pick a username and a password for your Bitrise account. This way you are free from relying on the given service's availability, you are also able to connect more accounts, GitHub  and  Bitbucket, for example. Last, but not least, you don't have to stick to your connected account's username.   After that, you are ready to roll.  From now on, you are able to sign in with a click of a button. Choose your favorite!", 
+            "title": "Finish signup"
+        }, 
+        {
+            "location": "/signing-up/signing-up-with-email/", 
+            "text": "You can sign up to Bitrise in one step with your email address. You just have to pick a username and a password in addition.\n\n\n\n\nNote\n\n\nIf you would like to use your GitHub / Bitbucket account, please check out the following devcenter articles:\n\n\n\n\nSigning up with GitHub\n\n\nSigning up with Bitbucket\n\n\n\n\n\n\nSign up\n\u2693\n\n\n\n\nAfter you provided your credentials, press \nSign up\n.\n\n\nAfter successful registration we will send you a confirmation email. Click on the confirmation link in the email and you are ready to roll!", 
+            "title": "Signing up with email"
+        }, 
+        {
+            "location": "/signing-up/signing-up-with-email/#sign-up", 
+            "text": "After you provided your credentials, press  Sign up .  After successful registration we will send you a confirmation email. Click on the confirmation link in the email and you are ready to roll!", 
+            "title": "Sign up"
+        }, 
+        {
+            "location": "/signing-up/trial-after-signing-up/", 
+            "text": "After you created your user on Bitrise your account will start with a \n2 weeks of trial\n of our \nPro plan\n. This means that you can setup your application and start building it with all the benefits of the paying plan.\n\n\n\n\nTip\n\n\nRead more about \noptimizing your build times\n to help you fit into the 10 minute limit for free accounts.", 
+            "title": "Trial after signing up"
+        }, 
+        {
+            "location": "/adding-a-new-app/adding-a-new-app/", 
+            "text": "When adding your app to Bitrise, we will clone your repository to make sure we can access it. Besides cloning your repository we will run our \nproject scanner\n that detects all the supported apps and instantly configure your workflow with all the necessary steps to build and deploy your app.\n\n\nTo add a new app to Bitrise go to your \ndashboard\n and press \nAdd new app\n.\n\n\n\n\nIn case this is the first application the dashboard will show you the quickstart guide instead of a list of you apps. There you can select to try out our sample to check how Bitrise works, without connecting any of your apps to the system. Or you can choose to add your own app right away.\n\n\nLet's check out how you can \nconnect a repository\n!", 
+            "title": "Adding a new app"
+        }, 
+        {
+            "location": "/adding-a-new-app/connecting-a-repository/", 
+            "text": "After you've selected adding a new app, you will find yourself on the \nCreate app\n page. Check the \nadd a new app\n tutorial for instructions about getting to this page.\n\n\nBitrise will give you options to connect any kind of git repository to it. \nGitHub\n and \nBitbucket\n are supported out of the box. If you've already authorized Bitrise with your GitHub for example, you will see Bitrise automatically listing all your repositories, so you can just click on the one you'd like to connect.\n\n\n\n\nConnect any git repository to Bitrise\n\n\nYou can connect any private or public git repository to Bitrise. We will automatically create an SSH key that you can use to setup the connection with your provider.\n\n\n\n\n\n\nIf you haven't authorized Bitrise against the provider hosting your repository, it will ask for permission.\n\n\n\n\nIt will then list your repositories as above. If you'd like to connect git repository hosted by other than GitHub or Bitbucket, select the \nOther / Manual\n tab.\n\n\n\n\nYou will have to add the git url of the repository you would like to connect.\n\n\n\n\nUse SSH URLs for private repositories\n\n\nPlease note, that if you are connecting a private repository, Bitrise will try to clone it through SSH, so it's necessary to provide an SSH URL to your repository here.\n\n\n\n\nBitrise will add an SSH key to your repository at a later step. Read more about how to add SSH keys automatically, or manually at \nSSH keys\n.", 
+            "title": "Connecting a repository"
+        }, 
+        {
+            "location": "/adding-a-new-app/setting-up-ssh-keys/", 
+            "text": "SSH keys serve the role of secure transfer between services. In the case of Bitrise, it will ask for your permission to be authorized at your git source provider, e.g. GitHub. Read more about how to \nauthorize Bitrise\n.\n\n\nThe reason behind the need for being authorized, is that Bitrise has to have a working SSH connection to your repository to be able to clone it. There are several ways to make it work. Automatically, by adding it manually, or by using your own key.\n\n\n\n\nUse SSH URLs everywhere\n\n\nMost services support SSH key based authentication \nonly\n for SSH URLs (ex: \ngit@github.com:bitrise-io/bitrise.git\n), and \nnot\n for HTTPS URLs (ex: \nhttps://github.com/bitrise-io/bitrise.git\n)! This means, that \nevery private repository you want to use have to be addressed with the SSH URL\n. If you have direct private git repo references in your \nPodfile\n you'll have to use the SSH URL there as well! Same applies for \nsubmodules\n and every other private git repository URL you want to use with the SSH key you register on \nBitrise.io\n!\n\n\n\n\nAutomatic setup\n\u2693\n\n\nIn case of \nGitHub\n and \nBitbucket\n repository setups, Bitrise will generate a public and private SSH key pair and ask whether you like the idea of adding that into your repository automatically as deploy key, or you'd like to add it by hand.\n\n\n\n\nAs the description tells, you are able to auto-add the key to the repository if you have admin rights for it. In any other case, you are able to copy the public key from here and add it to your repository at your provider.\n\n\nThe auto-add option will add the generated key as a read-only \ndeploy key\n to your repository, it's the best for your security.\n\n\nManual setup\n\u2693\n\n\nIf you have private dependencies, you have to add the generated SSH key manually to your profile at your provider instead. That's because deploy keys are only valid for only one repository.\n\n\n\n\nA bot user\n\n\nThere's an easy way to work around modifying your own profile by adding a \\\"bot\\\" user with the SSH key to the repositories. \nAdd the SSH key you would like to use to the user and add the user to the projects\n. You don't have to add the \\\"bot\\\" user with read and write permission, it is enough to assign read permissions. After that you can use the SSH key to clone to the repository or any submodule. It\u2019s that simple.\n\n\n\n\n\n\nWarning\n\n\nDo not\n add the key to the repository Deploy Keys. Add it to the user's account who has access to the repositories.\n\n\n\n\nGitHub\n\u2693\n\n\n\n\nBitbucket\n\u2693\n\n\n\n\nGitLab\n\u2693\n\n\n\n\nUse your own key\n\u2693\n\n\nThis option can be used if you also have the private key of the given user. You just have to paste the private key and \nBitrise\n will be able to access the repositories.", 
+            "title": "Setting up SSH keys"
+        }, 
+        {
+            "location": "/adding-a-new-app/setting-up-ssh-keys/#automatic-setup", 
+            "text": "In case of  GitHub  and  Bitbucket  repository setups, Bitrise will generate a public and private SSH key pair and ask whether you like the idea of adding that into your repository automatically as deploy key, or you'd like to add it by hand.   As the description tells, you are able to auto-add the key to the repository if you have admin rights for it. In any other case, you are able to copy the public key from here and add it to your repository at your provider.  The auto-add option will add the generated key as a read-only  deploy key  to your repository, it's the best for your security.", 
+            "title": "Automatic setup"
+        }, 
+        {
+            "location": "/adding-a-new-app/setting-up-ssh-keys/#manual-setup", 
+            "text": "If you have private dependencies, you have to add the generated SSH key manually to your profile at your provider instead. That's because deploy keys are only valid for only one repository.   A bot user  There's an easy way to work around modifying your own profile by adding a \\\"bot\\\" user with the SSH key to the repositories.  Add the SSH key you would like to use to the user and add the user to the projects . You don't have to add the \\\"bot\\\" user with read and write permission, it is enough to assign read permissions. After that you can use the SSH key to clone to the repository or any submodule. It\u2019s that simple.    Warning  Do not  add the key to the repository Deploy Keys. Add it to the user's account who has access to the repositories.", 
+            "title": "Manual setup"
+        }, 
+        {
+            "location": "/adding-a-new-app/setting-up-ssh-keys/#github", 
+            "text": "", 
+            "title": "GitHub"
+        }, 
+        {
+            "location": "/adding-a-new-app/setting-up-ssh-keys/#bitbucket", 
+            "text": "", 
+            "title": "Bitbucket"
+        }, 
+        {
+            "location": "/adding-a-new-app/setting-up-ssh-keys/#gitlab", 
+            "text": "", 
+            "title": "GitLab"
+        }, 
+        {
+            "location": "/adding-a-new-app/setting-up-ssh-keys/#use-your-own-key", 
+            "text": "This option can be used if you also have the private key of the given user. You just have to paste the private key and  Bitrise  will be able to access the repositories.", 
+            "title": "Use your own key"
+        }, 
+        {
+            "location": "/adding-a-new-app/setting-up-configuration/", 
+            "text": "After \nSetting up the SSH key\n to your project Bitrise will download your code to make sure it can access the repository and run an automatic repository scanner script to find the best initial configuration for your project.\nCurrently Bitrise will detect \niOS\n, \nAndroid\n, \nXamarin\n and \nfastlane\n projects out of the box.\n\n\nProject configuration with automatic repository scanner\n\u2693\n\n\nTo validate and automatically scan your project you only need to tell Bitrise the default branch of your repository. During validation Bitrise will make sure it has access to the given branch, using the \nSSH key\n you set up.\n\n\nAfter successful validation Bitrise will scan your repository and give you a default workflow", 
+            "title": "Setting up configuration"
+        }, 
+        {
+            "location": "/adding-a-new-app/setting-up-configuration/#project-configuration-with-automatic-repository-scanner", 
+            "text": "To validate and automatically scan your project you only need to tell Bitrise the default branch of your repository. During validation Bitrise will make sure it has access to the given branch, using the  SSH key  you set up.  After successful validation Bitrise will scan your repository and give you a default workflow", 
+            "title": "Project configuration with automatic repository scanner"
+        }
+    ]
+}

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    
+    <url>
+     <loc>None/</loc>
+     <lastmod>2016-06-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+        
+    <url>
+     <loc>None/getting-started/</loc>
+     <lastmod>2016-06-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/getting-started/builds-and-workflows/</loc>
+     <lastmod>2016-06-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>None/infrastructure/virtual-machines/</loc>
+     <lastmod>2016-06-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/infrastructure/available-stacks/</loc>
+     <lastmod>2016-06-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>None/signing-up/signing-up-with-github/</loc>
+     <lastmod>2016-06-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/signing-up/signing-up-with-bitbucket/</loc>
+     <lastmod>2016-06-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/signing-up/signing-up-with-email/</loc>
+     <lastmod>2016-06-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/signing-up/trial-after-signing-up/</loc>
+     <lastmod>2016-06-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>None/adding-a-new-app/adding-a-new-app/</loc>
+     <lastmod>2016-06-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/adding-a-new-app/connecting-a-repository/</loc>
+     <lastmod>2016-06-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/adding-a-new-app/setting-up-ssh-keys/</loc>
+     <lastmod>2016-06-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/adding-a-new-app/setting-up-configuration/</loc>
+     <lastmod>2016-06-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+</urlset>
