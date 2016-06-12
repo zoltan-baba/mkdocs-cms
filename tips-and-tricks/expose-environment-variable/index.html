@@ -508,6 +508,17 @@ pipe the value:</p>
 
 <p><em>You can read more about how <code>envman</code> can
 be used on it's <a href="https://github.com/bitrise-io/envman/">GitHub page</a>.</em></p>
+<div class="admonition warning">
+<p class="admonition-title">Env Var value size limit</p>
+<p>Environment Variable values set through <code>envman</code> are limited to 10KB by default.
+This is done in order to prevent issues with common tools.
+Different tools have different environment size constraints,
+e.g. <code>Bash</code> will start to fail on OS X once the environments set
+exceed ~120KB (<strong>in total, not a single variable!</strong>).</p>
+<p>For larger data you should use files or other solutions,
+and use environment variables to point to the file / to the
+ID or location of where the data is stored.</p>
+</div>
 <p>Once the environment variable is exposed you can use it like
 any other environment variable. In <code>bash</code> you can reference
 the previous example environment as: <code>$MY_RELEASE_NOTE</code>.</p>
