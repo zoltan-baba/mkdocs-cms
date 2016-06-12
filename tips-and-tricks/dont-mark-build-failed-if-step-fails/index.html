@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     
       
-        <title>Connecting a repository - Bitrise DevCenter</title>
+        <title>Don't mark the Build as failed if a given step would fail (ignore the error of the Step) - Bitrise DevCenter</title>
       
       
       
@@ -95,12 +95,12 @@
           <span class="path">
             
               
-                Adding a new app <i class="icon icon-link"></i>
+                Tips & Tricks <i class="icon icon-link"></i>
               
             
           </span>
         
-        Connecting a repository
+        Don't mark the Build as failed if a given step would fail (ignore the error of the Step)
       </div>
     </div>
     
@@ -287,7 +287,7 @@
       
         
   <li>
-    <a class="" title="Adding a new app" href="../">
+    <a class="" title="Adding a new app" href="../../adding-a-new-app/">
       Adding a new app
     </a>
     
@@ -296,19 +296,16 @@
       
         
   <li>
-    <a class="current" title="Connecting a repository" href="./">
+    <a class="" title="Connecting a repository" href="../../adding-a-new-app/connecting-a-repository/">
       Connecting a repository
     </a>
-    
-      
-      
     
   </li>
 
       
         
   <li>
-    <a class="" title="Setting up SSH keys" href="../setting-up-ssh-keys/">
+    <a class="" title="Setting up SSH keys" href="../../adding-a-new-app/setting-up-ssh-keys/">
       Setting up SSH keys
     </a>
     
@@ -317,7 +314,7 @@
       
         
   <li>
-    <a class="" title="Setting up configuration" href="../setting-up-configuration/">
+    <a class="" title="Setting up configuration" href="../../adding-a-new-app/setting-up-configuration/">
       Setting up configuration
     </a>
     
@@ -434,7 +431,7 @@
       
         
   <li>
-    <a class="" title="Attach any file as an Artifact to the Build" href="../../tips-and-tricks/attach-any-file-to-build/">
+    <a class="" title="Attach any file as an Artifact to the Build" href="../attach-any-file-to-build/">
       Attach any file as an Artifact to the Build
     </a>
     
@@ -443,7 +440,7 @@
       
         
   <li>
-    <a class="" title="Expose an Environment Variable and use it in another Step" href="../../tips-and-tricks/expose-environment-variable/">
+    <a class="" title="Expose an Environment Variable and use it in another Step" href="../expose-environment-variable/">
       Expose an Environment Variable and use it in another Step
     </a>
     
@@ -452,16 +449,19 @@
       
         
   <li>
-    <a class="" title="Don't mark the Build as failed if a given step would fail (ignore the error of the Step)" href="../../tips-and-tricks/dont-mark-build-failed-if-step-fails/">
+    <a class="current" title="Don't mark the Build as failed if a given step would fail (ignore the error of the Step)" href="./">
       Don't mark the Build as failed if a given step would fail (ignore the error of the Step)
     </a>
+    
+      
+      
     
   </li>
 
       
         
   <li>
-    <a class="" title="Enable/Disable a step (optionally, based on a condition)" href="../../tips-and-tricks/disable-a-step-by-condition/">
+    <a class="" title="Enable/Disable a step (optionally, based on a condition)" href="../disable-a-step-by-condition/">
       Enable/Disable a step (optionally, based on a condition)
     </a>
     
@@ -482,25 +482,23 @@
       <article class="article">
         <div class="wrapper">
           
-            <h1>Connecting a repository</h1>
+            <h1>Don't mark the Build as failed if a given step would fail (ignore the error of the Step)</h1>
           
-          <p>After you've selected adding a new app, you will find yourself on the <code>Create app</code> page. Check the <a href="doc:add-a-new-app">add a new app</a> tutorial for instructions about getting to this page.</p>
-<p>Bitrise will give you options to connect any kind of git repository to it. <code>GitHub</code> and <code>Bitbucket</code> are supported out of the box. If you've already authorized Bitrise with your GitHub for example, you will see Bitrise automatically listing all your repositories, so you can just click on the one you'd like to connect.</p>
-<div class="admonition note">
-<p class="admonition-title">Connect any git repository to Bitrise</p>
-<p>You can connect any private or public git repository to Bitrise. We will automatically create an SSH key that you can use to setup the connection with your provider.</p>
-</div>
-<p><img alt="Screenshot" src="https://www.filepicker.io/api/file/i7O8ZTjdSJSlDay3m5bE" /></p>
-<p>If you haven't authorized Bitrise against the provider hosting your repository, it will ask for permission.</p>
-<p><img alt="Screenshot" src="https://www.filepicker.io/api/file/QcX5L3QwSZ2mg7CfPBEq" /></p>
-<p>It will then list your repositories as above. If you'd like to connect git repository hosted by other than GitHub or Bitbucket, select the <code>Other / Manual</code> tab.</p>
-<p><img alt="Screenshot" src="https://www.filepicker.io/api/file/RHMT25oeSg6aVMbL5iZ6" /></p>
-<p>You will have to add the git url of the repository you would like to connect.</p>
-<div class="admonition warning">
-<p class="admonition-title">Use SSH URLs for private repositories</p>
-<p>Please note, that if you are connecting a private repository, Bitrise will try to clone it through SSH, so it's necessary to provide an SSH URL to your repository here.</p>
-</div>
-<p>Bitrise will add an SSH key to your repository at a later step. Read more about how to add SSH keys automatically, or manually at <a href="doc:setting-up-ssh-keys">SSH keys</a>.</p>
+          <p><em>To do this you have to switch to <code>bitrise.yml</code> mode (open the Workflow Editor on bitrise.io -&gt; left side: click on <code>bitrise.yml</code> to switch to the interactive <code>bitrise.yml</code> editor).</em></p>
+<p>All you have to do is: add an <code>is_skippable: true</code> flag to the Step.</p>
+<p>An example <code>script</code> step which, although fails, it won't "break" the build:</p>
+<pre class="code"><code>- script:
+    is_skippable: true
+    inputs:
+    - content: |-
+        #!/bin/bash
+        echo &quot;Failing Step.&quot;
+        exit 1
+        # exit 1 would mark this step as Failed, but it won't break the Build
+        #  because of the is_skippable: true flag / propery</code></pre>
+
+
+<p>You can find more examples on <a href="https://github.com/bitrise-io/bitrise/blob/fec3772ee2287d6e405d908fb9b42367a5751b43/_examples/tutorials/errors-force-run-and-skippable/bitrise.yml">GitHub</a>.</p>
           <aside class="copyright" role="note">
             
             Documentation built with
@@ -517,7 +515,7 @@
   <nav class="pagination" aria-label="Footer">
     <div class="previous">
       
-        <a href="../" title="Adding a new app">
+        <a href="../expose-environment-variable/" title="Expose an Environment Variable and use it in another Step">
           <span class="direction">
             Previous
           </span>
@@ -527,7 +525,7 @@
             </div>
             <div class="stretch">
               <div class="title">
-                Adding a new app
+                Expose an Environment Variable and use it in another Step
               </div>
             </div>
           </div>
@@ -536,14 +534,14 @@
     </div>
     <div class="next">
       
-        <a href="../setting-up-ssh-keys/" title="Setting up SSH keys">
+        <a href="../disable-a-step-by-condition/" title="Enable/Disable a step (optionally, based on a condition)">
           <span class="direction">
             Next
           </span>
           <div class="page">
             <div class="stretch">
               <div class="title">
-                Setting up SSH keys
+                Enable/Disable a step (optionally, based on a condition)
               </div>
             </div>
             <div class="button button-next" role="button" aria-label="Next">

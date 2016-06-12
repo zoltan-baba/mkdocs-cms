@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     
       
-        <title>Connecting a repository - Bitrise DevCenter</title>
+        <title>Attach any file as an Artifact to the Build - Bitrise DevCenter</title>
       
       
       
@@ -95,12 +95,12 @@
           <span class="path">
             
               
-                Adding a new app <i class="icon icon-link"></i>
+                Tips & Tricks <i class="icon icon-link"></i>
               
             
           </span>
         
-        Connecting a repository
+        Attach any file as an Artifact to the Build
       </div>
     </div>
     
@@ -287,7 +287,7 @@
       
         
   <li>
-    <a class="" title="Adding a new app" href="../">
+    <a class="" title="Adding a new app" href="../../adding-a-new-app/">
       Adding a new app
     </a>
     
@@ -296,19 +296,16 @@
       
         
   <li>
-    <a class="current" title="Connecting a repository" href="./">
+    <a class="" title="Connecting a repository" href="../../adding-a-new-app/connecting-a-repository/">
       Connecting a repository
     </a>
-    
-      
-      
     
   </li>
 
       
         
   <li>
-    <a class="" title="Setting up SSH keys" href="../setting-up-ssh-keys/">
+    <a class="" title="Setting up SSH keys" href="../../adding-a-new-app/setting-up-ssh-keys/">
       Setting up SSH keys
     </a>
     
@@ -317,7 +314,7 @@
       
         
   <li>
-    <a class="" title="Setting up configuration" href="../setting-up-configuration/">
+    <a class="" title="Setting up configuration" href="../../adding-a-new-app/setting-up-configuration/">
       Setting up configuration
     </a>
     
@@ -434,16 +431,19 @@
       
         
   <li>
-    <a class="" title="Attach any file as an Artifact to the Build" href="../../tips-and-tricks/attach-any-file-to-build/">
+    <a class="current" title="Attach any file as an Artifact to the Build" href="./">
       Attach any file as an Artifact to the Build
     </a>
+    
+      
+      
     
   </li>
 
       
         
   <li>
-    <a class="" title="Expose an Environment Variable and use it in another Step" href="../../tips-and-tricks/expose-environment-variable/">
+    <a class="" title="Expose an Environment Variable and use it in another Step" href="../expose-environment-variable/">
       Expose an Environment Variable and use it in another Step
     </a>
     
@@ -452,7 +452,7 @@
       
         
   <li>
-    <a class="" title="Don't mark the Build as failed if a given step would fail (ignore the error of the Step)" href="../../tips-and-tricks/dont-mark-build-failed-if-step-fails/">
+    <a class="" title="Don't mark the Build as failed if a given step would fail (ignore the error of the Step)" href="../dont-mark-build-failed-if-step-fails/">
       Don't mark the Build as failed if a given step would fail (ignore the error of the Step)
     </a>
     
@@ -461,7 +461,7 @@
       
         
   <li>
-    <a class="" title="Enable/Disable a step (optionally, based on a condition)" href="../../tips-and-tricks/disable-a-step-by-condition/">
+    <a class="" title="Enable/Disable a step (optionally, based on a condition)" href="../disable-a-step-by-condition/">
       Enable/Disable a step (optionally, based on a condition)
     </a>
     
@@ -482,25 +482,28 @@
       <article class="article">
         <div class="wrapper">
           
-            <h1>Connecting a repository</h1>
+            <h1>Attach any file as an Artifact to the Build</h1>
           
-          <p>After you've selected adding a new app, you will find yourself on the <code>Create app</code> page. Check the <a href="doc:add-a-new-app">add a new app</a> tutorial for instructions about getting to this page.</p>
-<p>Bitrise will give you options to connect any kind of git repository to it. <code>GitHub</code> and <code>Bitbucket</code> are supported out of the box. If you've already authorized Bitrise with your GitHub for example, you will see Bitrise automatically listing all your repositories, so you can just click on the one you'd like to connect.</p>
+          <p>For this example we'll attach the OS X <code>system.log</code> to the Build as an Artifact, but this works for any file, even for ones that you generate during the build, you just have to replace the example path we use (<code>/var/log/system.log</code>) with the path you want to deploy. You can of course use Environment Variables in the path too, like <code>$HOME/</code>.</p>
+<p><em>Deployed Artifacts appear on the Build's page, in the Artifacts &amp; Apps section, and anyone who has access to the Build page can download it from there.</em></p>
+<p>To do this:</p>
+<ul>
+<li>Add a new <a href="https://github.com/bitrise-io/steps-deploy-to-bitrise-io">Deploy to Bitrise.io</a> step to your workflow, to any point you want to (can be the very last step in the workflow, but of course if you want to deploy a file which is generated during the build you should add the step <strong>after</strong> the file is generated and available).</li>
+<li>Change the <code>Deploy directory or file path</code> input of the Step to: <code>/var/log/system.log</code></li>
+</ul>
+<p>A YAML configuration example of the step &amp; input:</p>
+<pre class="code"><code>    - deploy-to-bitrise-io@1.2.3:
+        inputs:
+        - deploy_path: &quot;/var/log/system.log&quot;</code></pre>
+
+
+<p>That's all, your next build will attach the OS X system log file
+to your build - you'll see it at the top of the Build's page.</p>
 <div class="admonition note">
-<p class="admonition-title">Connect any git repository to Bitrise</p>
-<p>You can connect any private or public git repository to Bitrise. We will automatically create an SSH key that you can use to setup the connection with your provider.</p>
+<p class="admonition-title">By default the <strong>Deploy to Bitrise.io</strong> will always run</p>
+<p>By default the <code>Deploy to Bitrise.io</code> will always run,
+even if a previous step fails, so you can deploy failed step/tool logs too.</p>
 </div>
-<p><img alt="Screenshot" src="https://www.filepicker.io/api/file/i7O8ZTjdSJSlDay3m5bE" /></p>
-<p>If you haven't authorized Bitrise against the provider hosting your repository, it will ask for permission.</p>
-<p><img alt="Screenshot" src="https://www.filepicker.io/api/file/QcX5L3QwSZ2mg7CfPBEq" /></p>
-<p>It will then list your repositories as above. If you'd like to connect git repository hosted by other than GitHub or Bitbucket, select the <code>Other / Manual</code> tab.</p>
-<p><img alt="Screenshot" src="https://www.filepicker.io/api/file/RHMT25oeSg6aVMbL5iZ6" /></p>
-<p>You will have to add the git url of the repository you would like to connect.</p>
-<div class="admonition warning">
-<p class="admonition-title">Use SSH URLs for private repositories</p>
-<p>Please note, that if you are connecting a private repository, Bitrise will try to clone it through SSH, so it's necessary to provide an SSH URL to your repository here.</p>
-</div>
-<p>Bitrise will add an SSH key to your repository at a later step. Read more about how to add SSH keys automatically, or manually at <a href="doc:setting-up-ssh-keys">SSH keys</a>.</p>
           <aside class="copyright" role="note">
             
             Documentation built with
@@ -517,7 +520,7 @@
   <nav class="pagination" aria-label="Footer">
     <div class="previous">
       
-        <a href="../" title="Adding a new app">
+        <a href="../../caching/caching-ruby-gems/" title="Caching Ruby GEMs">
           <span class="direction">
             Previous
           </span>
@@ -527,7 +530,7 @@
             </div>
             <div class="stretch">
               <div class="title">
-                Adding a new app
+                Caching Ruby GEMs
               </div>
             </div>
           </div>
@@ -536,14 +539,14 @@
     </div>
     <div class="next">
       
-        <a href="../setting-up-ssh-keys/" title="Setting up SSH keys">
+        <a href="../expose-environment-variable/" title="Expose an Environment Variable and use it in another Step">
           <span class="direction">
             Next
           </span>
           <div class="page">
             <div class="stretch">
               <div class="title">
-                Setting up SSH keys
+                Expose an Environment Variable and use it in another Step
               </div>
             </div>
             <div class="button button-next" role="button" aria-label="Next">
