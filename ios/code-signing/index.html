@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     
       
-        <title>Available Stacks - Bitrise DevCenter</title>
+        <title>Code Signing - Bitrise DevCenter</title>
       
       
       
@@ -95,12 +95,12 @@
           <span class="path">
             
               
-                Infrastructure <i class="icon icon-link"></i>
+                iOS <i class="icon icon-link"></i>
               
             
           </span>
         
-        Available Stacks
+        Code Signing
       </div>
     </div>
     
@@ -215,7 +215,7 @@
       
         
   <li>
-    <a class="" title="Virtual Machines" href="../virtual-machines/">
+    <a class="" title="Virtual Machines" href="../../infrastructure/virtual-machines/">
       Virtual Machines
     </a>
     
@@ -224,34 +224,9 @@
       
         
   <li>
-    <a class="current" title="Available Stacks" href="./">
+    <a class="" title="Available Stacks" href="../../infrastructure/available-stacks/">
       Available Stacks
     </a>
-    
-      
-      
-        <ul>
-          
-            <li class="anchor">
-              <a title="Stack status types" href="#stack-status-types">
-                Stack status types
-              </a>
-            </li>
-          
-            <li class="anchor">
-              <a title="Stack prepare types" href="#stack-prepare-types">
-                Stack prepare types
-              </a>
-            </li>
-          
-            <li class="anchor">
-              <a title="Available stacks" href="#available-stacks">
-                Available stacks
-              </a>
-            </li>
-          
-        </ul>
-      
     
   </li>
 
@@ -456,9 +431,28 @@
       
         
   <li>
-    <a class="" title="Code Signing" href="../../ios/code-signing/">
+    <a class="current" title="Code Signing" href="./">
       Code Signing
     </a>
+    
+      
+      
+        <ul>
+          
+            <li class="anchor">
+              <a title="How iOS code signing works" href="#how-ios-code-signing-works">
+                How iOS code signing works
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="How to make the process easier, more manageable?" href="#how-to-make-the-process-easier-more-manageable">
+                How to make the process easier, more manageable?
+              </a>
+            </li>
+          
+        </ul>
+      
     
   </li>
 
@@ -522,94 +516,99 @@
       <article class="article">
         <div class="wrapper">
           
-            <h1>Available Stacks</h1>
+            <h1>Code Signing</h1>
           
-          <p>The Stack indicates the virtual machine version that we will use to run your build. After adding your application to Bitrise we will detect the best image, but you can simply change it to a different one on the <code>Settings</code> tab of your app.</p>
-<p><img alt="Screenshot" src="../../img/infrastructure/stack_selector.png" /></p>
-<h2 id="stack-status-types">Stack status types<a class="headerlink" href="#stack-status-types" title="Permanent link">⚓</a></h2>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Experimental</td>
-<td>Internal, expected to change, and eventually moved to <code>Preview</code>.</td>
-</tr>
-<tr>
-<td>Preview</td>
-<td>Public, users with a related beta flag can access it. Might change or moved to <code>Beta</code>.</td>
-</tr>
-<tr>
-<td>Beta</td>
-<td>Public beta, might change if there's a regression, otherwise will become <code>Stable</code></td>
-</tr>
-<tr>
-<td>Stable</td>
-<td>Generally available and expected to be supported for the foreseeable future.</td>
-</tr>
-<tr>
-<td>LTS</td>
-<td>Same as Stable, except it has a specific remove date and no changes will be made to the stack until the removal date (except only really crucial changes, which affect security for example).</td>
-</tr>
-</tbody>
-</table>
-<h2 id="stack-prepare-types">Stack prepare types<a class="headerlink" href="#stack-prepare-types" title="Permanent link">⚓</a></h2>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Pre-Booted</td>
-<td>If a Stack is available as pre-booted, and there's enough pre-booted machines with that Stack configuration, your build can start right away, without waiting for the build environment to boot. In case there's no more available pre-booted machine with that Stack configuration, your build will start on an <code>On-Demand</code> configuration.</td>
-</tr>
-<tr>
-<td>On-Demand</td>
-<td>If a Stack is available as on-demand configuration and there's no (available) pre-booted configuration for the Stack, our system will have to create a virtual machine for your selected configuration when your build starts. This means that your build will be in <code>preparing environment</code> state while the related Virtual Machine is created &amp; booted. For an OS X configuration the boot process usually takes about 1-2 minutes - we're working on improving this. <em>The prepare time (of course) is not counted into the build time, it won't affect how long your build can run.</em></td>
-</tr>
-</tbody>
-</table>
-<h2 id="available-stacks">Available stacks<a class="headerlink" href="#available-stacks" title="Permanent link">⚓</a></h2>
-<h3 id="os-x">OS X<a class="headerlink" href="#os-x" title="Permanent link">⚓</a></h3>
-<h3 id="xcode-73-on-os-x-1011">Xcode 7.3, on OS X 10.11<a class="headerlink" href="#xcode-73-on-os-x-1011" title="Permanent link">⚓</a></h3>
-<p><em>Current stack status: <code>Stable</code></em>.</p>
-<p><code>Xcode 7.3.1</code>, installed on OS X 10.11 (El Capitan).</p>
-<p><em>You can find the repository we use to set this environment up at:</em> <a href="https://github.com/bitrise-io/osx-box-bootstrap">https://github.com/bitrise-io/osx-box-bootstrap</a>.</p>
-<p><em>You can find the System Report (pre-installed tool versions list) of this stack at:</em> <a href="https://github.com/bitrise-io/bitrise.io/blob/master/system_reports/osx-xcode-7.3.log">https://github.com/bitrise-io/bitrise.io/blob/master/system_reports/osx-xcode-7.3.log</a></p>
-<h3 id="xcode-72-on-os-x-1011">Xcode 7.2, on OS X 10.11<a class="headerlink" href="#xcode-72-on-os-x-1011" title="Permanent link">⚓</a></h3>
-<p><code>Xcode 7.2.1</code> installed on OS X 10.11.2</p>
-<p><em>Current stack status: <code>LTS</code></em>.</p>
-<p><em>You can find the repository we use to set this environment up at:</em> <a href="https://github.com/bitrise-io/osx-box-bootstrap">https://github.com/bitrise-io/osx-box-bootstrap</a>.</p>
-<p><em>You can find the System Report (pre-installed tool versions list) of this stack at:</em> <a href="https://github.com/bitrise-io/bitrise.io/blob/master/system_reports/osx-xcode-7.2.log">https://github.com/bitrise-io/bitrise.io/blob/master/system_reports/osx-xcode-7.2.log</a></p>
-<h3 id="xcode-64-on-os-x-1011">Xcode 6.4, on OS X 10.11<a class="headerlink" href="#xcode-64-on-os-x-1011" title="Permanent link">⚓</a></h3>
-<p><em>Current stack status: <code>LTS</code></em>.</p>
-<p><em>You can find the repository we use to set this environment up at:</em> <a href="https://github.com/bitrise-io/osx-box-bootstrap">https://github.com/bitrise-io/osx-box-bootstrap</a>.</p>
-<p><em>You can find the System Report (pre-installed tool versions list) of this stack at:</em> <a href="https://github.com/bitrise-io/bitrise.io/blob/master/system_reports/osx-xcode-6.4.log">https://github.com/bitrise-io/bitrise.io/blob/master/system_reports/osx-xcode-6.4.log</a></p>
-<h3 id="xamarin-stable-with-xcode-73-on-os-x-1011">Xamarin Stable with Xcode 7.3, on OS X 10.11<a class="headerlink" href="#xamarin-stable-with-xcode-73-on-os-x-1011" title="Permanent link">⚓</a></h3>
-<p>Pretty much the same as <code>Xcode 7.3, on OS X 10.11</code>, with the latest Xamarin Stable channel and additional, pre-installed Xamarin tools.</p>
-<p><em>You can find the repository we use to set this environment up at:</em> <a href="https://github.com/bitrise-io/osx-box-bootstrap">https://github.com/bitrise-io/osx-box-bootstrap</a>.</p>
-<p><em>You can find the System Report (pre-installed tool versions list) of this stack at:</em> <a href="https://github.com/bitrise-io/bitrise.io/blob/master/system_reports/osx-xamarin-stable.log">https://github.com/bitrise-io/bitrise.io/blob/master/system_reports/osx-xamarin-stable.log</a></p>
-<h3 id="xamarin-beta-with-xcode-73-on-os-x-1011">Xamarin Beta with Xcode 7.3, on OS X 10.11<a class="headerlink" href="#xamarin-beta-with-xcode-73-on-os-x-1011" title="Permanent link">⚓</a></h3>
-<p>Pretty much the same as <code>Xcode 7.3, on OS X 10.11</code>, with the latest Xamarin Beta channel and additional, pre-installed Xamarin tools.</p>
-<p><em>You can find the repository we use to set this environment up at:</em> <a href="https://github.com/bitrise-io/osx-box-bootstrap">https://github.com/bitrise-io/osx-box-bootstrap</a>.</p>
-<p><em>You can find the System Report (pre-installed tool versions list) of this stack at:</em> <a href="https://github.com/bitrise-io/bitrise.io/blob/master/system_reports/osx-xamarin-beta.log">https://github.com/bitrise-io/bitrise.io/blob/master/system_reports/osx-xamarin-beta.log</a></p>
-<h3 id="xamarin-alpha-with-xcode-73-on-os-x-1011">Xamarin Alpha with Xcode 7.3, on OS X 10.11<a class="headerlink" href="#xamarin-alpha-with-xcode-73-on-os-x-1011" title="Permanent link">⚓</a></h3>
-<p>Pretty much the same as <code>Xcode 7.3, on OS X 10.11</code>, with the latest Xamarin Alpha channel and additional, pre-installed Xamarin tools.</p>
-<p><em>You can find the repository we use to set this environment up at:</em> <a href="https://github.com/bitrise-io/osx-box-bootstrap">https://github.com/bitrise-io/osx-box-bootstrap</a>.</p>
-<p><em>You can find the System Report (pre-installed tool versions list) of this stack at:</em> <a href="https://github.com/bitrise-io/bitrise.io/blob/master/system_reports/osx-xamarin-alpha.log">https://github.com/bitrise-io/bitrise.io/blob/master/system_reports/osx-xamarin-alpha.log</a></p>
-<h3 id="linux">Linux<a class="headerlink" href="#linux" title="Permanent link">⚓</a></h3>
-<h3 id="docker-based-setup-with-pre-cached-base-and-android-docker-images">Docker based setup, with pre-cached base and Android Docker images<a class="headerlink" href="#docker-based-setup-with-pre-cached-base-and-android-docker-images" title="Permanent link">⚓</a></h3>
-<p><em>Current stack status: <code>Stable</code></em>.</p>
-<p>You can find the Android specific docs at <a href="doc:android-beta">Android guides</a>.
-The environment is described at <a href="doc:android-environment-whats-pre-installed">Android/Docker environment &amp; what's pre-installed</a>.</p>
-<p><em>You can find the System Report (pre-installed tool versions list) of this stack at:</em> <a href="https://github.com/bitrise-io/bitrise.io/blob/master/system_reports/docker-based-android-setup.log">https://github.com/bitrise-io/bitrise.io/blob/master/system_reports/docker-based-android-setup.log</a></p>
+          <h2 id="how-ios-code-signing-works">How iOS code signing works<a class="headerlink" href="#how-ios-code-signing-works" title="Permanent link">⚓</a></h2>
+<p>iOS apps require code signing for every action/output which generates an app (<code>.ipa</code>) meant to
+run on a physical iOS device.</p>
+<p>When you create &amp; export an Archive (<code>.ipa</code>) of your app Xcode will sign it automatically,
+based on the <strong>Code Signing</strong> settings you have in your Xcode project. There are, however,
+a couple of things you have to know about how Xcode selects the code signing
+files (unless you set a specific Identity and/or Provisioning Profile).</p>
+<p>If you have a Code Signing configuration in your Xcode project like this one:</p>
+<p><img alt="Recommended iOS Code Signing configuration in Xcode" src="../../img/recommended-ios-code-signing-settings.png" /></p>
+<p>where you don't set a specific Identity and Provisioning Profile, Xcode will
+select the ones which match the following points:</p>
+<ul>
+<li>For the <strong>Release</strong> configuration it'll search for a Distribution Identity/Certificate</li>
+<li>For the <strong>Debug</strong> configuration it'll search for a Development Identity/Certificate</li>
+<li>The Provisioning Profile has to match with the <strong>team ID</strong> and with the <strong>bundle ID</strong> you set
+  in your Xcode project settings.</li>
+</ul>
+<p>This means that even if you have a Distribution Identity/Certificate available in the system,
+if Xcode can't find a related Provisioning Profile which matches the <em>team ID</em> <strong>and</strong> the <em>bundle ID</em>
+you'll get an error like this when you try to archive the project:</p>
+<pre class="code"><code>Code Sign error: No code signing identities found: No valid signing identities (i.e. certificate and private key pair) matching the team ID ‘certificate_ID’ were found.</code></pre>
+
+
+<p>This means that to be able to Archive your project you have to provide both a Certificate (<code>.p12</code> Identity file)
+and a Provisioning Profile which matches:</p>
+<ul>
+<li>the type of the configuration you set in your Xcode project settings under the <strong>Code Signing</strong> section (Distribution or Development)</li>
+<li>the Provisioning Profile has to match both the <em>bundle ID</em> <strong>and</strong> the <em>team ID</em> set in the Xcode project settings</li>
+<li>and <strong>the two files have to be compatible with each other</strong> (you
+can check this on the <a href="https://developer.apple.com/account/ios/certificate">Apple Developer Portal</a> - select a Provisioning Profile,
+click <strong>Edit</strong>, there you can see the Certificates which are allowed to use that specific Provisioning Profile)</li>
+</ul>
+<p>There can be multiple Certificates/Identities and Provisioning Profiles installed on the system,
+the only thing what matters for Xcode when it tries to sign the app is to find a Certificate/Identity and
+Provisioning Profile pair which fulfills all the requirements listed above.</p>
+<h2 id="how-to-make-the-process-easier-more-manageable">How to make the process easier, more manageable?<a class="headerlink" href="#how-to-make-the-process-easier-more-manageable" title="Permanent link">⚓</a></h2>
+<p>There's an important "trick" which can make your code signing process much easier:
+Xcode (Xcode's Command Line Tool, <code>xcodebuild</code>) has a command line parameter to
+override the Identity and Provisioning Profile configurations set in Xcode project settings!</p>
+<p>The <code>CODE_SIGN_IDENTITY</code> parameter can be used to override the <strong>Code Signing Identity</strong>,
+while the <code>PROVISIONING_PROFILE</code> parameter can be used to override the <strong>Provisioning Profile</strong> configuration
+for any <code>xcodebuild</code> command (e.g. Archive).</p>
+<p>Both our <code>Xcode Archive</code> and <code>Xcode Analyze</code> steps include two related inputs,
+<code>Force code signing with Identity</code> and <code>Force code signing with Provisioning Profile</code>.
+The value you provide for these inputs will be passed to <code>xcodebuild</code>
+as <code>CODE_SIGN_IDENTITY</code> and <code>PROVISIONING_PROFILE</code>.</p>
+<p><strong>Now, the important bit, that can make your life much easier</strong> (especially if you generate an iOS app with
+multiple, different code signing configuration (e.g. if you want to generate both an Ad-Hoc and
+an App Store signed <code>ipa</code>)):</p>
+<div class="admonition note">
+<p class="admonition-title">Setting a specific Identity will make Xcode ignore other search parameters!</p>
+<p>If you set the Identity to <code>iPhone Distribution</code> Xcode will search for a matching Provisioning
+Profile which fulfills all the other criteria (team ID and bundle ID),
+while <strong>if you provide the full ID of the Identity</strong> like <code>iPhone Distribution: My Company</code>
+Xcode will <strong>ignore</strong> everything else and will use that specific Identity (if it can
+find it in the system)!</p>
+</div>
+<p>This means that even if the Provisioning Profile has a different <em>team ID</em> set, just by
+specifying the Identity's full ID, Xcode will pick the Provisioning Profile
+which is compatible with the Identity, it won't check the <em>team ID</em> parameter!</p>
+<p>This makes iOS code signing (in most cases) much easier, as all you have to do is:</p>
+<ul>
+<li>Make sure that you set the Provisioning Profile configuration <em>in your Xcode project settings</em> to "Automatic",
+  or else you'll have to override this configuration too (to be able to use different Provisioning Profiles)</li>
+<li>You should set the Identity configuration <em>in your Xcode project settings</em> to a generic category like
+  "iPhone Developer" or "iPhone Distribution" (this is more like a best practice, to make the life of
+  developers easier, <em>not a requirement if you override the configuration</em>)</li>
+<li><strong>And the last piece is</strong>: set the <code>Force code signing with Identity</code> input of Xcode Archive and
+  Xcode Analyze to the <strong>full ID of the Identity</strong> (something like: <code>iPhone Distribution: My Company</code>)</li>
+</ul>
+<p><strong>With this setup you don't have to change your code signing configuration in your Xcode project</strong>,
+you only have to specify the configuration in your Bitrise workflow, and you can specify
+different code signing configuration for every Xcode step if you want to!</p>
+<div class="admonition note">
+<p class="admonition-title">Where to get these IDs?</p>
+<p>If you use our <strong>Certificate and profile installer</strong> step then you can find the IDs in the step's
+log. It prints the ID of every identity and provisioning profile it downloads
+and installs successfully. You can copy-paste that ID directly into the
+<strong><em>Force code signing with Identity</em></strong> (ID looks like: <code>iPhone Distribution: My Company (Xyz)</code>),
+and if you need it, into the <strong><em>Force code signing with Provisioning Profile</em></strong>
+(ID looks like: <code>xyz045x4-6143-4e5a-a94a-3fe3aec96eb3</code>) input fields.</p>
+</div>
+<p><strong>Usually it's enough to specify only the Identity ID</strong> for the build, the compatible Provisioning Profile
+will be selected by Xcode automatically. Not setting the Provisioning Profile has the advantage
+that if you have to update the Provisioning Profile you won't have to update your
+Bitrise configuration with the new profile's ID, as long as the Provisioning Profile is
+compatible with the Identity you set. But if you'd need to control exactly
+which Provisioning Profile should be used for a given step, you can use
+the <code>Force code signing with Provisioning Profile</code> input of the steps.
+<em>This can be useful if you want to use multiple Distribution Provisioning Profiles
+in a single build, <strong>e.g. to create both an Ad-Hoc and an App Store signed app.</strong></em> </p>
           <aside class="copyright" role="note">
             
             Documentation built with
@@ -626,7 +625,7 @@ The environment is described at <a href="doc:android-environment-whats-pre-insta
   <nav class="pagination" aria-label="Footer">
     <div class="previous">
       
-        <a href="../virtual-machines/" title="Virtual Machines">
+        <a href="../../caching/caching-ruby-gems/" title="Caching Ruby GEMs">
           <span class="direction">
             Previous
           </span>
@@ -636,7 +635,7 @@ The environment is described at <a href="doc:android-environment-whats-pre-insta
             </div>
             <div class="stretch">
               <div class="title">
-                Virtual Machines
+                Caching Ruby GEMs
               </div>
             </div>
           </div>
@@ -645,14 +644,14 @@ The environment is described at <a href="doc:android-environment-whats-pre-insta
     </div>
     <div class="next">
       
-        <a href="../../signing-up/signing-up-with-github/" title="Signing up with GitHub">
+        <a href="../../tips-and-tricks/attach-any-file-to-build/" title="Attach any file as an Artifact to the Build">
           <span class="direction">
             Next
           </span>
           <div class="page">
             <div class="stretch">
               <div class="title">
-                Signing up with GitHub
+                Attach any file as an Artifact to the Build
               </div>
             </div>
             <div class="button button-next" role="button" aria-label="Next">
