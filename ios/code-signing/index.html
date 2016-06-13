@@ -538,7 +538,7 @@ select the ones which match the following points:</p>
 <p>This means that even if you have a Distribution Identity/Certificate available in the system,
 if Xcode can't find a related Provisioning Profile which matches the <em>team ID</em> <strong>and</strong> the <em>bundle ID</em>
 you'll get an error like this when you try to archive the project:</p>
-<pre class="code"><code>Code Sign error: No code signing identities found: No valid signing identities (i.e. certificate and private key pair) matching the team ID ‘certificate_ID’ were found.</code></pre>
+<pre class="code"><code>Code Sign error: No code signing identities found: No valid signing identities (i.e. certificate and private key pair) matching the team ID ‘...’ were found.</code></pre>
 
 
 <p>This means that to be able to Archive your project you have to provide both a Certificate (<code>.p12</code> Identity file)
