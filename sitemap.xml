@@ -165,6 +165,12 @@
      <changefreq>daily</changefreq>
     </url>
         
+    <url>
+     <loc>None/ios/known-xcode-issues/</loc>
+     <lastmod>2016-06-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
     
 
     
