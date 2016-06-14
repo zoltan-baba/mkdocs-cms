@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     
       
-        <title>Builds & Workflows - Bitrise DevCenter</title>
+        <title>Xcode Archive: export options - Bitrise DevCenter</title>
       
       
       
@@ -95,12 +95,12 @@
           <span class="path">
             
               
-                Getting Started <i class="icon icon-link"></i>
+                Tips & Tricks <i class="icon icon-link"></i>
               
             
           </span>
         
-        Builds & Workflows
+        Xcode Archive: export options
       </div>
     </div>
     
@@ -188,7 +188,7 @@
       
         
   <li>
-    <a class="" title="What is Bitrise?" href="../">
+    <a class="" title="What is Bitrise?" href="../../getting-started/">
       What is Bitrise?
     </a>
     
@@ -197,24 +197,9 @@
       
         
   <li>
-    <a class="current" title="Builds & Workflows" href="./">
+    <a class="" title="Builds & Workflows" href="../../getting-started/builds-and-workflows/">
       Builds & Workflows
     </a>
-    
-      
-        
-      
-      
-        <ul>
-          
-            <li class="anchor">
-              <a title="The build process" href="#the-build-process">
-                The build process
-              </a>
-            </li>
-          
-        </ul>
-      
     
   </li>
 
@@ -473,7 +458,7 @@
       
         
   <li>
-    <a class="" title="Attach any file as an Artifact to the Build" href="../../tips-and-tricks/attach-any-file-to-build/">
+    <a class="" title="Attach any file as an Artifact to the Build" href="../attach-any-file-to-build/">
       Attach any file as an Artifact to the Build
     </a>
     
@@ -482,7 +467,7 @@
       
         
   <li>
-    <a class="" title="Expose an Environment Variable and use it in another Step" href="../../tips-and-tricks/expose-environment-variable/">
+    <a class="" title="Expose an Environment Variable and use it in another Step" href="../expose-environment-variable/">
       Expose an Environment Variable and use it in another Step
     </a>
     
@@ -491,7 +476,7 @@
       
         
   <li>
-    <a class="" title="Don't mark the Build as failed if a given step would fail (ignore the error of the Step)" href="../../tips-and-tricks/dont-mark-build-failed-if-step-fails/">
+    <a class="" title="Don't mark the Build as failed if a given step would fail (ignore the error of the Step)" href="../dont-mark-build-failed-if-step-fails/">
       Don't mark the Build as failed if a given step would fail (ignore the error of the Step)
     </a>
     
@@ -500,7 +485,7 @@
       
         
   <li>
-    <a class="" title="Enable/Disable a step (optionally, based on a condition)" href="../../tips-and-tricks/disable-a-step-by-condition/">
+    <a class="" title="Enable/Disable a step (optionally, based on a condition)" href="../disable-a-step-by-condition/">
       Enable/Disable a step (optionally, based on a condition)
     </a>
     
@@ -509,9 +494,34 @@
       
         
   <li>
-    <a class="" title="Xcode Archive: export options" href="../../tips-and-tricks/xcodebuild-export-options/">
+    <a class="current" title="Xcode Archive: export options" href="./">
       Xcode Archive: export options
     </a>
+    
+      
+      
+        <ul>
+          
+            <li class="anchor">
+              <a title="A bit of history and technical info" href="#a-bit-of-history-and-technical-info">
+                A bit of history and technical info
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="About the Xcode Archive step generated export options" href="#about-the-xcode-archive-step-generated-export-options">
+                About the Xcode Archive step generated export options
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Use your own export options" href="#use-your-own-export-options">
+                Use your own export options
+              </a>
+            </li>
+          
+        </ul>
+      
     
   </li>
 
@@ -530,37 +540,129 @@
       <article class="article">
         <div class="wrapper">
           
-          <h1 id="builds-workflows">Builds &amp; Workflows<a class="headerlink" href="#builds-workflows" title="Permanent link">⚓</a></h1>
-<p>A <em>build</em> is the process specified by the app's <em>workflow</em>, which is a collection of <em>steps</em>. Every step is an <a href="https://github.com/bitrise-io/bitrise-steplib"><strong>open source</strong></a> script repository which you can inspect and modify.</p>
-<p>A Workflow is interpreted as a <code>yaml</code>, which you are able to modify at bitrise.io's Workflow editor, or <a href="http://blog.bitrise.io/2016/02/12/edit-your-yaml-files-like-a-boss.html">yaml editor</a> directly. On the graphical UI of the Workflow editor, you are able to add, remove, and reorder the build steps. Steps represent a block of script execution with predefined input and output variables. Steps can be written in various languages we (our virtual machines) support, like bash, Go, Ruby, Swift, etc. Read more about how workflows and steps are implemented on our <a href="https://tech.bitrise.io/decentralized-automation/">engineering blog</a>.</p>
-<p>When a build is running, these scripts will be downloaded and executed in the order you've defined in your workflow, with the input parameters you set. They will produce the predefined outputs set as environment variables.</p>
-<h2 id="the-build-process">The build process<a class="headerlink" href="#the-build-process" title="Permanent link">⚓</a></h2>
-<p>There are a lot of things that can be customized when working with Bitrise. The build process has some mutable dimensions as well, from several kind of triggers, through different stacks and preparation types to environment variables.</p>
-<ol>
-<li>Trigger builds by</li>
-<li>clicking the "Build" button on the application's page (runs manually)</li>
-<li>scheduling with a selected branch and frequency (runs when scheduled)</li>
-<li><a href="doc:adding-webhooks">webhook</a>  - after each push or pull request to the given branch (runs when push/pull request arrives)</li>
-<li>
-<p>our <a href="doc:build-trigger-api">Build Trigger API</a></p>
-</li>
-<li>
-<p>Environment preparation
-Once we've found a suitable machine, a virtual machine will be provisioned and prepared to run the build. Read more about our virtual machines in <a href="doc:virtual-machines">Virtual machines</a>. Build specific environment variables are preset, so you can use these in your steps. Read more about our available stacks and preparation types in <a href="doc:available-stacks">Available Stacks</a>.</p>
-</li>
-<li>
-<p>Concurrency
-Builds over your subscription plan's concurrency count will be marked as <em>on hold</em>. They will start whenever your ongoing builds are finished and you have a free build slot. You can always <a href="https://www.bitrise.io/me/profile/pricing">purchase additional concurrencies</a> with the Pro plan.</p>
-</li>
-<li>
-<p>Workflow execution
-Steps in Workflows are executed in the same order as defined in the Workflow editor of your application, from top to bottom. You can reorder the steps by dragging. The log each step generates will be displayed on the build's details page.</p>
-</li>
-<li>
-<p>Cleanup
-After the execution of the build, there will be a summary of the build created and stored on the Bitrise server and <strong>the virtual machine gets rolled back to a predefined state</strong>, erasing every file and every change your build made so your code/files woudn't fall into the wrong hands.</p>
-</li>
-</ol>
+            <h1>Xcode Archive: export options</h1>
+          
+          <p>If you create a new iOS app on <a href="https://www.bitrise.io/">bitrise.io</a>
+the generated default workflow wil include our <code>Xcode Archive</code> step.
+This step can manage to archive and export your iOS app.</p>
+<h2 id="a-bit-of-history-and-technical-info">A bit of history and technical info<a class="headerlink" href="#a-bit-of-history-and-technical-info" title="Permanent link">⚓</a></h2>
+<p>If the step is used with <code>Xcode 6</code> it'll generate the following (legacy) command to export
+the <code>ipa</code> of your app (you can see it in the step's log):</p>
+<pre class="code"><code>xcodebuild -exportArchive \
+    -exportFormat ipa \
+    -archivePath &quot;/var/folders/lb/8n5bn9k975qgw662jpqdy7mm0000gn/T/bitrise-xcarchive.YnAMfpzJ/ios-simple-objc.xcarchive&quot; \
+    -exportPath &quot;/Users/vagrant/deploy/ios-simple-objc.ipa&quot; \
+    -exportProvisioningProfile &quot;Xyz&quot;</code></pre>
+
+
+<p>Back in the days of Xcode 6 this was everything you had to do; just specify the format to be <code>ipa</code>
+and set the required paths and the Provisioning Profile to be used for code signing the <code>ipa</code>.</p>
+<p><code>Xcode 7</code> instroduced a lot of additional archive feature and the support for
+defining more complex archive parameters. This meant that although Xcode 7 still supports
+the old parameters, it's now declared as <strong>deprecated</strong>, and you'd get
+the following warning if you'd use the old parameters instead of the new <code>-exportOptionsPlist</code> parameter: </p>
+<pre class="code"><code>xcodebuild: WARNING: -exportArchive without -exportOptionsPlist is deprecated</code></pre>
+
+
+<p>The export command's <strong>new version</strong> expects a Plist file (<code>-exportOptionsPlist</code>),
+which should include all the archive parameters (including code signing type/method,
+and other parameters like enable/disable Bitcode). The full command looks like this:</p>
+<pre class="code"><code>xcodebuild -exportArchive \
+    -archivePath &quot;/var/folders/lb/8n5bn9k975qgw662jpqdy7mm0000gn/T/bitrise-xcarchive.QbpHVvNx/ios-simple-objc.xcarchive&quot; \
+    -exportPath &quot;/var/folders/lb/8n5bn9k975qgw662jpqdy7mm0000gn/T/bitrise-xcarchive.aCvNPRAi&quot; \
+    -exportOptionsPlist &quot;/Users/vagrant/deploy/export_options.plist&quot;</code></pre>
+
+
+<p>By default the <code>Xcode Archive</code> step generates the minimal sufficient Plist file,
+with only the export <code>method</code> defined in it (unless you specify the <code>export_options_path</code> input,
+we'll get back to this a bit later):</p>
+<pre class="code"><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE plist PUBLIC &quot;-//Apple Computer//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
+&lt;plist version=&quot;1.0&quot;&gt;
+&lt;dict&gt;
+    &lt;key&gt;method&lt;/key&gt;
+    &lt;string&gt;development&lt;/string&gt;
+&lt;/dict&gt;
+&lt;/plist&gt;</code></pre>
+
+
+<h2 id="about-the-xcode-archive-step-generated-export-options">About the Xcode Archive step generated export options<a class="headerlink" href="#about-the-xcode-archive-step-generated-export-options" title="Permanent link">⚓</a></h2>
+<p>The default <strong>generated</strong> export options Plist file only specifies
+the <strong>export method</strong> (<code>app-store</code>, <code>ad-hoc</code>, <code>enterprise</code> or <code>development</code>)
+based on the provisioning profile embedded in the <code>.xcarchive</code> (which is generated by the <code>xcodebuild archive</code>
+command, also performed by the <code>Xcode Archive</code> step, right before the <code>xcodebuild -exportArchive</code> command).</p>
+<p><em>The embedded provisioning profile depends on your code sign settings in your project.
+You can force the desired code signing configuration
+with <code>Xcode Archive</code> step's <code>force_code_sign_identity</code> and <code>force_provisioning_profile</code> inputs.
+You can find more information about these options in the <a href="../ios/code-signing">iOS Code Signing</a> article.</em></p>
+<p>Every other export option which can be defined in the Plist is optional.</p>
+<h2 id="use-your-own-export-options">Use your own export options<a class="headerlink" href="#use-your-own-export-options" title="Permanent link">⚓</a></h2>
+<p>In case of the default export_options.plist does not fit your needs,
+you can specify your own export options too.
+To do this create a plist file (in your repository) with the options you want to use. </p>
+<div class="admonition note">
+<p class="admonition-title">Available export options</p>
+<p>You can get a list of all available options by calling <code>xcodebuild -h</code> -
+check the <strong>Available keys for -exportOptionsPlist:</strong> section of the printed help.</p>
+</div>
+<p><em>These are the options you can select in Xcode when you export the ipa manually.</em></p>
+<p>The <strong>recommanded</strong> way is to <strong>put this generated plist file in your project's repository</strong>.
+Then you can set <code>Xcode Archive</code> step's <code>export_options_path</code> input
+to the path of your plist file (e.g. <code>./path/to/export-options.plist</code>).</p>
+<h3 id="disable-bitcode-in-ipa">Disable bitcode in ipa<a class="headerlink" href="#disable-bitcode-in-ipa" title="Permanent link">⚓</a></h3>
+<p><strong>By default uploadBitcode export options is set to YES</strong>, unless you specifically disable
+it in the export options Plist.
+If it does not fit your requirements you have to use your own export options,
+instead of the archive steps generated one.</p>
+<p>Your export options plist should look like:</p>
+<pre class="code"><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE plist PUBLIC &quot;-//Apple Computer//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
+&lt;plist version=&quot;1.0&quot;&gt;
+&lt;dict&gt;
+    &lt;key&gt;method&lt;/key&gt;
+    &lt;string&gt;app-store&lt;/string&gt;
+    &lt;key&gt;uploadBitcode&lt;/key&gt;
+    &lt;false/&gt;
+&lt;/dict&gt;
+&lt;/plist&gt;</code></pre>
+
+
+<div class="admonition note">
+<p class="admonition-title">Code Signing note</p>
+<p>Of course, if you set the <code>method</code> to <code>app-store</code> then you have to upload / use
+an App Store code signing Identity &amp; Provisioning Profile (it have to be
+available in the system).</p>
+</div>
+<h3 id="related-issues">Related issues:<a class="headerlink" href="#related-issues" title="Permanent link">⚓</a></h3>
+<h4 id="error-itms-90635-invalid-mach-o-format">ERROR ITMS-90635: Invalid Mach-O Format<a class="headerlink" href="#error-itms-90635-invalid-mach-o-format" title="Permanent link">⚓</a></h4>
+<pre class="code"><code>Transporter Error Output: ERROR ITMS-90635: Invalid Mach-O Format.
+...
+Verify that all of the targets for a platform have a consistent value for the ENABLE_BITCODE build setting.
+...</code></pre>
+
+
+<p>This error occurs if you have different <code>ENABLE_BITCODE</code> settings
+in your (sub)projects, including the projects generated by CocoaPods for example.</p>
+<p>If you use CocoaPods you can <strong>override the <code>ENABLE_BITCODE</code> in the pod projects</strong> by adding
+the following section to your <code>Podfile</code>:</p>
+<p>For CocoaPods 1.0+:</p>
+<pre class="code"><code>post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['ENABLE_BITCODE'] = 'NO'
+    end
+  end
+end</code></pre>
+
+
+<p>For CocoaPods 0.39 and below:</p>
+<pre class="code"><code>post_install do |installer|
+  installer.project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['ENABLE_BITCODE'] = 'NO'
+    end
+  end
+end</code></pre>
           <aside class="copyright" role="note">
             
             Documentation built with
@@ -577,7 +679,7 @@ After the execution of the build, there will be a summary of the build created a
   <nav class="pagination" aria-label="Footer">
     <div class="previous">
       
-        <a href="../" title="What is Bitrise?">
+        <a href="../disable-a-step-by-condition/" title="Enable/Disable a step (optionally, based on a condition)">
           <span class="direction">
             Previous
           </span>
@@ -587,7 +689,7 @@ After the execution of the build, there will be a summary of the build created a
             </div>
             <div class="stretch">
               <div class="title">
-                What is Bitrise?
+                Enable/Disable a step (optionally, based on a condition)
               </div>
             </div>
           </div>
@@ -595,22 +697,6 @@ After the execution of the build, there will be a summary of the build created a
       
     </div>
     <div class="next">
-      
-        <a href="../../infrastructure/virtual-machines/" title="Virtual Machines">
-          <span class="direction">
-            Next
-          </span>
-          <div class="page">
-            <div class="stretch">
-              <div class="title">
-                Virtual Machines
-              </div>
-            </div>
-            <div class="button button-next" role="button" aria-label="Next">
-              <i class="icon icon-forward"></i>
-            </div>
-          </div>
-        </a>
       
     </div>
   </nav>
