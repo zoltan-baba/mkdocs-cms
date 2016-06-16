@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     
       
-        <title>Builds & Workflows - Bitrise DevCenter</title>
+        <title>Community Created - Bitrise DevCenter</title>
       
       
       
@@ -95,12 +95,12 @@
           <span class="path">
             
               
-                Getting Started <i class="icon icon-link"></i>
+                Tutorials <i class="icon icon-link"></i>
               
             
           </span>
         
-        Builds & Workflows
+        Community Created
       </div>
     </div>
     
@@ -188,7 +188,7 @@
       
         
   <li>
-    <a class="" title="What is Bitrise?" href="../">
+    <a class="" title="What is Bitrise?" href="../../getting-started/">
       What is Bitrise?
     </a>
     
@@ -197,24 +197,9 @@
       
         
   <li>
-    <a class="current" title="Builds & Workflows" href="./">
+    <a class="" title="Builds & Workflows" href="../../getting-started/builds-and-workflows/">
       Builds & Workflows
     </a>
-    
-      
-        
-      
-      
-        <ul>
-          
-            <li class="anchor">
-              <a title="The build process" href="#the-build-process">
-                The build process
-              </a>
-            </li>
-          
-        </ul>
-      
     
   </li>
 
@@ -347,9 +332,28 @@
       
         
   <li>
-    <a class="" title="Community Created" href="../../tutorials/community-created/">
+    <a class="current" title="Community Created" href="./">
       Community Created
     </a>
+    
+      
+      
+        <ul>
+          
+            <li class="anchor">
+              <a title="English" href="#english">
+                English
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Japanese" href="#japanese">
+                Japanese
+              </a>
+            </li>
+          
+        </ul>
+      
     
   </li>
 
@@ -548,37 +552,38 @@
       <article class="article">
         <div class="wrapper">
           
-          <h1 id="builds-workflows">Builds &amp; Workflows<a class="headerlink" href="#builds-workflows" title="Permanent link">⚓</a></h1>
-<p>A <em>build</em> is the process specified by the app's <em>workflow</em>, which is a collection of <em>steps</em>. Every step is an <a href="https://github.com/bitrise-io/bitrise-steplib"><strong>open source</strong></a> script repository which you can inspect and modify.</p>
-<p>A Workflow is interpreted as a <code>yaml</code>, which you are able to modify at bitrise.io's Workflow editor, or <a href="http://blog.bitrise.io/2016/02/12/edit-your-yaml-files-like-a-boss.html">yaml editor</a> directly. On the graphical UI of the Workflow editor, you are able to add, remove, and reorder the build steps. Steps represent a block of script execution with predefined input and output variables. Steps can be written in various languages we (our virtual machines) support, like bash, Go, Ruby, Swift, etc. Read more about how workflows and steps are implemented on our <a href="https://tech.bitrise.io/decentralized-automation/">engineering blog</a>.</p>
-<p>When a build is running, these scripts will be downloaded and executed in the order you've defined in your workflow, with the input parameters you set. They will produce the predefined outputs set as environment variables.</p>
-<h2 id="the-build-process">The build process<a class="headerlink" href="#the-build-process" title="Permanent link">⚓</a></h2>
-<p>There are a lot of things that can be customized when working with Bitrise. The build process has some mutable dimensions as well, from several kind of triggers, through different stacks and preparation types to environment variables.</p>
-<ol>
-<li>Trigger builds by</li>
-<li>clicking the "Build" button on the application's page (runs manually)</li>
-<li>scheduling with a selected branch and frequency (runs when scheduled)</li>
-<li><a href="doc:adding-webhooks">webhook</a>  - after each push or pull request to the given branch (runs when push/pull request arrives)</li>
-<li>
-<p>our <a href="doc:build-trigger-api">Build Trigger API</a></p>
-</li>
-<li>
-<p>Environment preparation
-Once we've found a suitable machine, a virtual machine will be provisioned and prepared to run the build. Read more about our virtual machines in <a href="doc:virtual-machines">Virtual machines</a>. Build specific environment variables are preset, so you can use these in your steps. Read more about our available stacks and preparation types in <a href="doc:available-stacks">Available Stacks</a>.</p>
-</li>
-<li>
-<p>Concurrency
-Builds over your subscription plan's concurrency count will be marked as <em>on hold</em>. They will start whenever your ongoing builds are finished and you have a free build slot. You can always <a href="https://www.bitrise.io/me/profile/pricing">purchase additional concurrencies</a> with the Pro plan.</p>
-</li>
-<li>
-<p>Workflow execution
-Steps in Workflows are executed in the same order as defined in the Workflow editor of your application, from top to bottom. You can reorder the steps by dragging. The log each step generates will be displayed on the build's details page.</p>
-</li>
-<li>
-<p>Cleanup
-After the execution of the build, there will be a summary of the build created and stored on the Bitrise server and <strong>the virtual machine gets rolled back to a predefined state</strong>, erasing every file and every change your build made so your code/files woudn't fall into the wrong hands.</p>
-</li>
-</ol>
+            <h1>Community Created</h1>
+          
+          <p><em>If you write a tutorial or blog post about Bitrise feel free to <a href="">add it to this list yourself</a>
+or <a href="https://www.bitrise.io/contact">contact us</a> and we'll add it for you!</em></p>
+<h2 id="english">English<a class="headerlink" href="#english" title="Permanent link">⚓</a></h2>
+<ul>
+<li><a href="http://codingwithcookie.com/2016/05/xamarin-continuous-integration-with-bitrise-io/">Xamarin Continuous Integration with Bitrise.io</a> - <em>Xamarin project setup guide with Code Signing notes</em></li>
+<li><a href="http://blog.cayas.de/continuous-integration-and-deployment-with-bitrise">(Xamarin) Continuous Integration and Deployment with Bitrise</a> - <em>getting started guide</em></li>
+<li><a href="http://blog.prolificinteractive.com/2016/04/20/the-road-to-bitrise/">The Road to Bitrise</a> - <em>switching from Jenkins</em></li>
+<li><a href="https://medium.com/@hesam.kamalan/how-to-automate-android-build-process-on-bitrise-ci-71ae3a94362e#.t0i91z6pj">How to automate Android build process on Bitrise CI (part 1)</a></li>
+<li><a href="https://medium.com/@hesam.kamalan/how-to-automate-android-build-process-on-bitrise-ci-part-2-b3f8124c29ee#.xzhrr5jvb">How to automate Android build process on Bitrise CI (part 2)</a></li>
+<li><a href="https://medium.com/@hesam.kamalan/how-to-send-commit-changes-by-email-once-ci-build-passes-dee13c67c195#.2243833r3">How to send commit changes by email once CI build passes?</a></li>
+<li><a href="http://blog.ricardopereira.eu/2015/07/10/EN-bitrise-and-carthage/">Bitrise and Carthage - a simple guide about how to use Carthage on Bitrise</a></li>
+<li><a href="https://blog.alltheflow.com/continuous-integration-made-easy-with-bitrise/">Continuous integration made easy with Bitrise</a> - <em>intro to Step development</em></li>
+<li><a href="https://github.com/bartonhammond/snowflake/#continuous-integration">Snowflake: React Native app Continuous Integration with Bitrise.io</a> - <em>detailed setup guide with youtube videos</em></li>
+<li><a href="http://vgaidarji.github.io/blog/2016/02/27/how-to-build-cordova-based-android-project-on-bitrise-io/">How to build Cordova-based Android project on bitrise.io</a></li>
+<li><a href="https://blog.alltheflow.com/continuous-happiness-for-mac/">Continuous happiness for Mac</a> - <em>build your Mac projects on Bitrise</em></li>
+<li><a href="https://www.youtube.com/watch?v=ChX0TQzOd8c">Xamarin project setup on Bitrise.io</a> - <em>youtube video</em></li>
+<li><a href="https://www.youtube.com/watch?v=1UeNajpjIXY">Motz Codes Live: Continuous Integration &amp; Deployment for Xamarin with Bitrise</a> - <em>youtube video, detailed guide</em></li>
+</ul>
+<h2 id="japanese">Japanese<a class="headerlink" href="#japanese" title="Permanent link">⚓</a></h2>
+<ul>
+<li><a href="http://qiita.com/keygx/items/ab6149476f43ec51eb5c">iOS用のCIサービスBitriseを使ってみた</a> - <em>Detailed introduction guide</em></li>
+<li><a href="http://qiita.com/kou_hon/items/51dda72ad62c0c03a720">iOSアプリ用のCI環境を作ろう</a> - <em>Using Bitrise to deploy iOS apps to Deploygate</em></li>
+<li><a href="http://qiita.com/kou_hon/items/fe80072a38dd8aa861af">Androidアプリ開発用のCI環境を作ろう</a> - <em>Using Bitrise to deploy Android apps to Deploygate</em></li>
+<li><a href="http://www.slideshare.net/kurikazu/bitrise-62409912">BITRISEを使っています</a> - <em>SlideShare</em></li>
+<li><a href="http://engineering.otobank.co.jp/entry/ios-build-switch-to-bitrise-from-circleci">CircleCIのiOSビルドが有料プラン化するらしいので、Bitriseの無料プランに乗り換えてみた</a> - <em>Migrating a CircleCI configuration to Bitrise</em></li>
+<li><a href="http://blog.koogawa.com/entry/2016/01/31/110032">iOS用のCIサービス「Bitrise」を使ったメモ</a> - <em>Notes about using Bitrise for iOS Continuous Integration</em></li>
+<li><a href="http://yanma.hateblo.jp/entry/2016/03/15/104131">俺的Bitrise活用術</a></li>
+<li><a href="http://sssslide.com/www.slideshare.net/koogawa/ioscibitrise">iOS対応のCIサービス「Bitrise」を使ってみた</a> - <em>SlideShare</em></li>
+<li><a href="http://techblog.lclco.com/entry/2016/05/09/192230">Bitrise,fastlane,CrashlyticsでiOSアプリのテスト配布を自動化する</a> - <em>Bitrise + fastlane, automate testing &amp; deployment (to Crashlytics) of iOS apps</em></li>
+</ul>
           <aside class="copyright" role="note">
             
             Documentation built with
@@ -595,7 +600,7 @@ After the execution of the build, there will be a summary of the build created a
   <nav class="pagination" aria-label="Footer">
     <div class="previous">
       
-        <a href="../" title="What is Bitrise?">
+        <a href="../../adding-a-new-app/setting-up-configuration/" title="Setting up configuration">
           <span class="direction">
             Previous
           </span>
@@ -605,7 +610,7 @@ After the execution of the build, there will be a summary of the build created a
             </div>
             <div class="stretch">
               <div class="title">
-                What is Bitrise?
+                Setting up configuration
               </div>
             </div>
           </div>
@@ -614,14 +619,14 @@ After the execution of the build, there will be a summary of the build created a
     </div>
     <div class="next">
       
-        <a href="../../infrastructure/virtual-machines/" title="Virtual Machines">
+        <a href="../../team-management/" title="Adding a new team member">
           <span class="direction">
             Next
           </span>
           <div class="page">
             <div class="stretch">
               <div class="title">
-                Virtual Machines
+                Adding a new team member
               </div>
             </div>
             <div class="button button-next" role="button" aria-label="Next">
