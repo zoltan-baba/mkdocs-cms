@@ -247,13 +247,18 @@
         }, 
         {
             "location": "/adding-a-new-app/setting-up-configuration/", 
-            "text": "After \nSetting up the SSH key\n to your project Bitrise will download your code to make sure it can access the repository and run an automatic repository scanner script to find the best initial configuration for your project.\nCurrently Bitrise will detect \niOS\n, \nAndroid\n, \nXamarin\n and \nfastlane\n projects out of the box.\n\n\nProject configuration with automatic repository scanner\n\u2693\n\n\nTo validate and automatically scan your project you only need to tell Bitrise the default branch of your repository. During validation Bitrise will make sure it has access to the given branch, using the \nSSH key\n you set up.\n\n\nAfter successful validation Bitrise will scan your repository and give you a default workflow", 
+            "text": "After \nSetting up the SSH key\n for\nyour project, Bitrise will download your code to make sure it can access the repository\nand will run an automatic repository scanner script to find the best initial configuration for your project.\nCurrently Bitrise will detect \niOS\n, \nAndroid\n, \nXamarin\n and \nfastlane\n projects out of the box.\n\n\nYou can configure other types of projects too, but that will require manual\nconfiguration.\n\n\nProject configuration with automatic repository scanner\n\u2693\n\n\nTo validate and automatically scan your project you only need to tell Bitrise\nthe default branch of your repository.\nDuring validation Bitrise will make sure it has access to the given branch,\nusing the \nSSH key\n you set up.\n\n\nAfter successful validation Bitrise will scan your repository and give you a default workflow\n\n\nSkipping the scanner - full manual configuration\n\u2693\n\n\nIf for some reason you want to skip the scanner, you can choose\nthe \nConfigure manually without project scanning\n option,\nin the \nValidation setup\n section.\n\n\n\n\nBy choosing this option \nbitrise.io\n will only\nvalidate the access to the repository, but it won't run the scanner.\nInstead, it'll present you the manual configuration options\nin the \nProject build configuration\n section.", 
             "title": "Setting up configuration"
         }, 
         {
             "location": "/adding-a-new-app/setting-up-configuration/#project-configuration-with-automatic-repository-scanner", 
-            "text": "To validate and automatically scan your project you only need to tell Bitrise the default branch of your repository. During validation Bitrise will make sure it has access to the given branch, using the  SSH key  you set up.  After successful validation Bitrise will scan your repository and give you a default workflow", 
+            "text": "To validate and automatically scan your project you only need to tell Bitrise\nthe default branch of your repository.\nDuring validation Bitrise will make sure it has access to the given branch,\nusing the  SSH key  you set up.  After successful validation Bitrise will scan your repository and give you a default workflow", 
             "title": "Project configuration with automatic repository scanner"
+        }, 
+        {
+            "location": "/adding-a-new-app/setting-up-configuration/#skipping-the-scanner-full-manual-configuration", 
+            "text": "If for some reason you want to skip the scanner, you can choose\nthe  Configure manually without project scanning  option,\nin the  Validation setup  section.   By choosing this option  bitrise.io  will only\nvalidate the access to the repository, but it won't run the scanner.\nInstead, it'll present you the manual configuration options\nin the  Project build configuration  section.", 
+            "title": "Skipping the scanner - full manual configuration"
         }, 
         {
             "location": "/tutorials/community-created/", 

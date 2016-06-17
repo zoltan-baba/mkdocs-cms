@@ -548,11 +548,27 @@
           
             <h1>Setting up configuration</h1>
           
-          <p>After <a href="../../adding-a-new-app/setting-up-ssh-keys">Setting up the SSH key</a> to your project Bitrise will download your code to make sure it can access the repository and run an automatic repository scanner script to find the best initial configuration for your project.
+          <p>After <a href="../../adding-a-new-app/setting-up-ssh-keys">Setting up the SSH key</a> for
+your project, Bitrise will download your code to make sure it can access the repository
+and will run an automatic repository scanner script to find the best initial configuration for your project.
 Currently Bitrise will detect <code>iOS</code>, <code>Android</code>, <code>Xamarin</code> and <code>fastlane</code> projects out of the box.</p>
+<p>You can configure other types of projects too, but that will require manual
+configuration.</p>
 <h2 id="project-configuration-with-automatic-repository-scanner">Project configuration with automatic repository scanner<a class="headerlink" href="#project-configuration-with-automatic-repository-scanner" title="Permanent link">⚓</a></h2>
-<p>To validate and automatically scan your project you only need to tell Bitrise the default branch of your repository. During validation Bitrise will make sure it has access to the given branch, using the <a href="../../adding-a-new-app/setting-up-ssh-keys">SSH key</a> you set up.</p>
+<p>To validate and automatically scan your project you only need to tell Bitrise
+the default branch of your repository.
+During validation Bitrise will make sure it has access to the given branch,
+using the <a href="../../adding-a-new-app/setting-up-ssh-keys">SSH key</a> you set up.</p>
 <p>After successful validation Bitrise will scan your repository and give you a default workflow</p>
+<h3 id="skipping-the-scanner-full-manual-configuration">Skipping the scanner - full manual configuration<a class="headerlink" href="#skipping-the-scanner-full-manual-configuration" title="Permanent link">⚓</a></h3>
+<p>If for some reason you want to skip the scanner, you can choose
+the <strong>Configure manually without project scanning</strong> option,
+in the <strong>Validation setup</strong> section.</p>
+<p><img alt="Configure manually without project scanning" src="../../img/adding-a-new-app/validation_configure_manually.png" /></p>
+<p>By choosing this option <a href="https://www.bitrise.io/">bitrise.io</a> will only
+validate the access to the repository, but it won't run the scanner.
+Instead, it'll present you the manual configuration options
+in the <em>Project build configuration</em> section.</p>
           <aside class="copyright" role="note">
             
             Documentation built with
