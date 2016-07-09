@@ -25,8 +25,8 @@
       <link rel="apple-touch-icon" href="../../img/logo.svg">
     
     
-    <link rel="shortcut icon" type="image/x-icon" href="../../None">
-    <link rel="icon" type="image/x-icon" href="../../None">
+    <link rel="shortcut icon" type="image/x-icon" href="../../assets/images/favicon-e565ddfa3b.ico">
+    <link rel="icon" type="image/x-icon" href="../../assets/images/favicon-e565ddfa3b.ico">
     <style>
       @font-face {
       	font-family: 'Icon';
@@ -43,7 +43,7 @@
       	font-style: normal;
       }
     </style>
-    <link rel="stylesheet" href="../../assets/stylesheets/application-0dac3e5884.css">
+    <link rel="stylesheet" href="../../assets/stylesheets/application-a422ff04cc.css">
     
       <link rel="stylesheet" href="../../assets/stylesheets/palettes-05ab2406df.css">
     
@@ -51,7 +51,7 @@
       
       
       
-      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,700|Source+Code+Pro">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700|Source+Code+Pro">
       <style>
         body, input {
           font-family: 'Roboto', Helvetica, Arial, sans-serif;
@@ -485,6 +485,12 @@
             </li>
           
             <li class="anchor">
+              <a title="Segmentation fault" href="#segmentation-fault">
+                Segmentation fault
+              </a>
+            </li>
+          
+            <li class="anchor">
               <a title="Issues which occur with the Xcode Command Line Tools (xcodebuild), but not with Xcode.app" href="#issues-which-occur-with-the-xcode-command-line-tools-xcodebuild-but-not-with-xcodeapp">
                 Issues which occur with the Xcode Command Line Tools (xcodebuild), but not with Xcode.app
               </a>
@@ -682,6 +688,13 @@ omits / does not present any error message.</p>
   to not to generate Code Coverage files.</li>
 <li>If the previous steps did not help, you should check the whole discussion and suggested solutions at: <a href="https://github.com/bitrise-io/bitrise.io/issues/5">https://github.com/bitrise-io/bitrise.io/issues/5</a></li>
 </ul>
+<h2 id="segmentation-fault"><code>Segmentation fault</code><a class="headerlink" href="#segmentation-fault" title="Permanent link">⚓</a></h2>
+<p>The error is:</p>
+<pre class="code"><code>clang: error: unable to execute command: Segmentation fault: 11</code></pre>
+
+
+<p>This is usually due to Xcode version mismatch - that you use a different Xcode on your Mac than the one you use on <a href="https://www.bitrise.io">bitrise.io</a>. Commonly occurs with Xcode 7.2 (if you have the Xcode 7.2 stack selected on bitrise.io), if you're already on a newer version of Xcode locally on your Mac.</p>
+<p>The solution is simple, just make sure that you use the same Xcode version everywhere.</p>
 <h2 id="issues-which-occur-with-the-xcode-command-line-tools-xcodebuild-but-not-with-xcodeapp">Issues which occur with the Xcode Command Line Tools (<code>xcodebuild</code>), but not with Xcode.app<a class="headerlink" href="#issues-which-occur-with-the-xcode-command-line-tools-xcodebuild-but-not-with-xcodeapp" title="Permanent link">⚓</a></h2>
 <ul>
 <li><a href="https://openradar.appspot.com/24222858">xcodebuild hangs when a test causes EXC_BAD_ACCESS kernel exception</a></li>
