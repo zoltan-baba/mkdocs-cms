@@ -545,7 +545,7 @@ release note which you want to use in a message or deploy step.
 Exposing environment variables is really easy,
 you just have to use <a href="https://github.com/bitrise-io/envman/">envman</a> if you want to make it available for every other Step.</p>
 <p>A very simple example might be:</p>
-<pre class="code"><code>envman --add MY_RELEASE_NOTE --value &quot;This is the release note&quot;</code></pre>
+<pre class="code"><code>envman add --key MY_RELEASE_NOTE --value &quot;This is the release note&quot;</code></pre>
 
 
 <p>You can call <code>envman</code> in any Step, including a script step,
