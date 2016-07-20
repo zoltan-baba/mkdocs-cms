@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     
       
-        <title>Setting up SSH keys - Bitrise DevCenter</title>
+        <title>Install Any Additional Tool - Bitrise DevCenter</title>
       
       
       
@@ -95,12 +95,12 @@
           <span class="path">
             
               
-                Adding a new app <i class="icon icon-link"></i>
+                Tips & Tricks <i class="icon icon-link"></i>
               
             
           </span>
         
-        Setting up SSH keys
+        Install Any Additional Tool
       </div>
     </div>
     
@@ -287,7 +287,7 @@
       
         
   <li>
-    <a class="" title="Adding a new app" href="../">
+    <a class="" title="Adding a new app" href="../../adding-a-new-app/">
       Adding a new app
     </a>
     
@@ -296,7 +296,7 @@
       
         
   <li>
-    <a class="" title="Connecting a repository" href="../connecting-a-repository/">
+    <a class="" title="Connecting a repository" href="../../adding-a-new-app/connecting-a-repository/">
       Connecting a repository
     </a>
     
@@ -305,35 +305,16 @@
       
         
   <li>
-    <a class="current" title="Setting up SSH keys" href="./">
+    <a class="" title="Setting up SSH keys" href="../../adding-a-new-app/setting-up-ssh-keys/">
       Setting up SSH keys
     </a>
-    
-      
-      
-        <ul>
-          
-            <li class="anchor">
-              <a title="Automatic setup" href="#automatic-setup">
-                Automatic setup
-              </a>
-            </li>
-          
-            <li class="anchor">
-              <a title="Manual setup" href="#manual-setup">
-                Manual setup
-              </a>
-            </li>
-          
-        </ul>
-      
     
   </li>
 
       
         
   <li>
-    <a class="" title="Setting up configuration" href="../setting-up-configuration/">
+    <a class="" title="Setting up configuration" href="../../adding-a-new-app/setting-up-configuration/">
       Setting up configuration
     </a>
     
@@ -495,7 +476,7 @@
       
         
   <li>
-    <a class="" title="Attach any file as an Artifact to the Build" href="../../tips-and-tricks/attach-any-file-to-build/">
+    <a class="" title="Attach any file as an Artifact to the Build" href="../attach-any-file-to-build/">
       Attach any file as an Artifact to the Build
     </a>
     
@@ -504,7 +485,7 @@
       
         
   <li>
-    <a class="" title="Expose an Environment Variable and use it in another Step" href="../../tips-and-tricks/expose-environment-variable/">
+    <a class="" title="Expose an Environment Variable and use it in another Step" href="../expose-environment-variable/">
       Expose an Environment Variable and use it in another Step
     </a>
     
@@ -513,7 +494,7 @@
       
         
   <li>
-    <a class="" title="Don't mark the Build as failed if a given step would fail (ignore the error of the Step)" href="../../tips-and-tricks/dont-mark-build-failed-if-step-fails/">
+    <a class="" title="Don't mark the Build as failed if a given step would fail (ignore the error of the Step)" href="../dont-mark-build-failed-if-step-fails/">
       Don't mark the Build as failed if a given step would fail (ignore the error of the Step)
     </a>
     
@@ -522,7 +503,7 @@
       
         
   <li>
-    <a class="" title="Enable/Disable a step (optionally, based on a condition)" href="../../tips-and-tricks/disable-a-step-by-condition/">
+    <a class="" title="Enable/Disable a step (optionally, based on a condition)" href="../disable-a-step-by-condition/">
       Enable/Disable a step (optionally, based on a condition)
     </a>
     
@@ -531,7 +512,7 @@
       
         
   <li>
-    <a class="" title="Xcode Archive: export options" href="../../tips-and-tricks/xcodebuild-export-options/">
+    <a class="" title="Xcode Archive: export options" href="../xcodebuild-export-options/">
       Xcode Archive: export options
     </a>
     
@@ -540,9 +521,34 @@
       
         
   <li>
-    <a class="" title="Install Any Additional Tool" href="../../tips-and-tricks/install-additional-tools/">
+    <a class="current" title="Install Any Additional Tool" href="./">
       Install Any Additional Tool
     </a>
+    
+      
+      
+        <ul>
+          
+            <li class="anchor">
+              <a title="Step by step setup" href="#step-by-step-setup">
+                Step by step setup
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Advanced option: use deps in bitrise.yml" href="#advanced-option-use-deps-in-bitriseyml">
+                Advanced option: use deps in bitrise.yml
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Conditional execution" href="#conditional-execution">
+                Conditional execution
+              </a>
+            </li>
+          
+        </ul>
+      
     
   </li>
 
@@ -561,37 +567,135 @@
       <article class="article">
         <div class="wrapper">
           
-            <h1>Setting up SSH keys</h1>
+            <h1>Install Any Additional Tool</h1>
           
-          <p>SSH keys serve the role of secure transfer between services. In the case of Bitrise, it will ask for your permission to be authorized at your git source provider, e.g. GitHub. Read more about how to <a href="../adding-a-new-app/connecting-a-repository">authorize Bitrise</a>.</p>
-<p>The reason behind the need for being authorized, is that Bitrise has to have a working SSH connection to your repository to be able to clone it. There are several ways to make it work. Automatically, by adding it manually, or by using your own key.</p>
-<div class="admonition warning">
-<p class="admonition-title">Use SSH URLs everywhere</p>
-<p>Most services support SSH key based authentication <strong>only</strong> for SSH URLs (ex: <code>git@github.com:bitrise-io/bitrise.git</code>), and <strong>not</strong> for HTTPS URLs (ex: <code>https://github.com/bitrise-io/bitrise.git</code>)! This means, that <strong>every private repository you want to use have to be addressed with the SSH URL</strong>. If you have direct private git repo references in your <code>Podfile</code> you'll have to use the SSH URL there as well! Same applies for <code>submodules</code> and every other private git repository URL you want to use with the SSH key you register on <a href="https://www.bitrise.io/">Bitrise.io</a>!</p>
-</div>
-<h2 id="automatic-setup">Automatic setup<a class="headerlink" href="#automatic-setup" title="Permanent link">⚓</a></h2>
-<p>In case of <code>GitHub</code> and <code>Bitbucket</code> repository setups, Bitrise will generate a public and private SSH key pair and ask whether you like the idea of adding that into your repository automatically as deploy key, or you'd like to add it by hand.</p>
-<p><img alt="Screenshot" src="https://www.filepicker.io/api/file/CPXS24mATvOIJfIGchUn" /></p>
-<p>As the description tells, you are able to auto-add the key to the repository if you have admin rights for it. In any other case, you are able to copy the public key from here and add it to your repository at your provider.</p>
-<p>The auto-add option will add the generated key as a read-only <a href="https://developer.github.com/guides/managing-deploy-keys/#deploy-keys">deploy key</a> to your repository, it's the best for your security.</p>
-<h2 id="manual-setup">Manual setup<a class="headerlink" href="#manual-setup" title="Permanent link">⚓</a></h2>
-<p>If you have private dependencies, you have to add the generated SSH key manually to your profile at your provider instead. That's because deploy keys are only valid for only one repository.</p>
+          <p>If you need something you can't find a Step for, you can always install &amp; use tools with scripts or Script steps.</p>
+<p>Just add a <code>Script</code> step to your Workflow, and either write your script there, or run a script from your repository.</p>
+<p><em>Passwordless <code>sudo</code> is enabled on all of our build virtual machines, so you can freely use <code>sudo</code> if you need it.</em></p>
+<p>Once you have a working script, <strong>you can also transform it into a Step</strong> and optionally share it with others (through our StepLib).
+You can find a template and more information about how you can create your own Step at: https://github.com/bitrise-steplib/step-template</p>
+<h2 id="step-by-step-setup">Step by step setup<a class="headerlink" href="#step-by-step-setup" title="Permanent link">⚓</a></h2>
+<ol>
+<li>Open your app on Bitrise.io</li>
+<li>Open the app's Workflow Editor (on the <code>Workflow</code> tab -&gt; click <code>Manage Workflows</code>)</li>
+<li>Select a Workflow</li>
+<li>Click on the <code>+</code> sign (you can see this between every step), where you want to insert your Script step</li>
+<li>In the step list search for "script", and click the <code>Add to Workflow</code> button on the "Script" step item.</li>
+<li>Now that you have the Script step in your workflow, you just have to select it and write your script into the <code>Script content</code> input (on the right side of the Workflow Editor).</li>
+</ol>
+<p><em>Note: you can drag-and-drop reorder the steps in the Workflow, so you don't have to delete and re-add a step if you'd want to change the order.</em></p>
+<p>If you want to run a script from your repository you can run it from this Script step. Paths are relative to your repository's root. So, for example, if you have a Bash script at <code>path/to/script.sh</code> you can run it with this <code>Script content</code>:</p>
+<pre class="code"><code>bash ./path/to/script.sh</code></pre>
+
+
+<p>Or, in a more robust form (which is better if you want to extend the content in the future):</p>
+<pre class="code"><code class="language-bash linenums">#!/bin/bash
+set -ex
+bash ./path/to/script.sh</code></pre>
+
+
+<p><em>The <code>set -ex</code> line is recommended for every multi-line Bash script, to make your scripts easier to debug.</em></p>
+<p>You can of course run non Bash scripts too, e.g. a Ruby script:</p>
+<pre class="code"><code class="language-bash linenums">#!/bin/bash
+set -ex
+ruby ./path/to/script.rb</code></pre>
+
+
+<h3 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">⚓</a></h3>
+<p>At this point you already have the Script step in your Workflow, and you just have to write the
+script to install the dependency. How do you do that? Exactly the same way you would on
+your own Mac / Linux, in your Terminal / Command Line!</p>
+<h4 id="brew-on-macos"><code>brew</code> on macOS<a class="headerlink" href="#brew-on-macos" title="Permanent link">⚓</a></h4>
+<p>E.g. to install <code>cmake</code> with a script step, on macOS, using <code>brew</code>:</p>
+<pre class="code"><code class="language-bash linenums">#!/bin/bash
+set -ex
+brew install cmake</code></pre>
+
+
+<p>Actually, the whole Script content could be as short as:</p>
+<pre class="code"><code>brew install cmake</code></pre>
+
+
+<p>Which is exactly how you would use <code>brew</code> on your Mac, but you'll most likely
+add more content to the Script step sooner or later; the first
+example is a more future proof Bash script template.</p>
+<h4 id="apt-get-on-linux"><code>apt-get</code> on Linux<a class="headerlink" href="#apt-get-on-linux" title="Permanent link">⚓</a></h4>
+<p>E.g. to install <code>cmake</code> with a script step, on Linux, using <code>apt-get</code>:</p>
+<pre class="code"><code class="language-bash linenums">#!/bin/bash
+set -ex
+sudo apt-get install -y cmake</code></pre>
+
+
 <div class="admonition note">
-<p class="admonition-title">A bot user</p>
-<p>There's an easy way to work around modifying your own profile by adding a \"bot\" user with the SSH key to the repositories. <strong>Add the SSH key you would like to use to the user and add the user to the projects</strong>. You don't have to add the \"bot\" user with read and write permission, it is enough to assign read permissions. After that you can use the SSH key to clone to the repository or any submodule. It’s that simple.</p>
+<p class="admonition-title">Don't forget the <code>-y</code> flag for <code>apt-get</code>!</p>
+<p>If you don't add the <code>-y</code> ("yes") flag to the <code>apt-get</code> command, <code>apt-get</code> will
+present a prompt which you have to accept or deny <strong>manually</strong>.
+This is not a problem on your own Linux machine, but in a CI environment
+you can't provide manual input for <code>apt-get</code>. To prevent this issue,
+and to auto accept the prompt, just use the <code>-y</code> flag, as shown in the example.</p>
 </div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p><strong>Do not</strong> add the key to the repository Deploy Keys. Add it to the user's account who has access to the repositories.</p>
+<h2 id="advanced-option-use-deps-in-bitriseyml">Advanced option: use <code>deps</code> in <code>bitrise.yml</code><a class="headerlink" href="#advanced-option-use-deps-in-bitriseyml" title="Permanent link">⚓</a></h2>
+<p>Instead of installing your tool inside the Script step, you can use the <code>deps</code> option
+of the <code>bitrise.yml</code>. If you declare <code>deps</code> <em>for a given Step</em>,
+the <a href="https://github.com/bitrise-io/bitrise">Bitrise CLI</a>
+will check if that tool is installed, and will install it for you if required.</p>
+<div class="admonition note">
+<p class="admonition-title">Available dependency managers</p>
+<p>This method is the preferred way of handling (step) dependencies, as the Bitrise CLI
+will not (re)install the specified tool(s) if it's already available.
+That said, there are tools which are not available in the supported dependency managers,
+or you need a version of the tool which is not available in the dependency manager.
+In those cases you should simply install the tool inside the Script, as described above. </p>
 </div>
-<h3 id="github">GitHub<a class="headerlink" href="#github" title="Permanent link">⚓</a></h3>
-<p><img alt="Screenshot" src="https://www.filepicker.io/api/file/z78ihfOER2yFsN3Mhuvn" /></p>
-<h3 id="bitbucket">Bitbucket<a class="headerlink" href="#bitbucket" title="Permanent link">⚓</a></h3>
-<p><img alt="Screenshot" src="https://www.filepicker.io/api/file/W9RzlsITUWwOw5rhP89A" /></p>
-<h3 id="gitlab">GitLab<a class="headerlink" href="#gitlab" title="Permanent link">⚓</a></h3>
-<p><img alt="Screenshot" src="https://www.filepicker.io/api/file/cgenxLRDyCtcGWAyauZg" /></p>
-<h3 id="use-your-own-key">Use your own key<a class="headerlink" href="#use-your-own-key" title="Permanent link">⚓</a></h3>
-<p>This option can be used if you also have the private key of the given user. You just have to paste the private key and <a href="https://www.bitrise.io">Bitrise</a> will be able to access the repositories.</p>
+<p>An example, installing <code>cmake</code> with either <code>apt-get</code> (where <code>apt-get</code> is available),
+or with <code>brew</code> (on macOS):</p>
+<pre class="code"><code>deps:
+  brew:
+  - name: cmake
+  apt_get:
+  - name: cmake</code></pre>
+
+
+<p>A minimal <code>bitrise.yml</code> for demonstration:</p>
+<pre class="code"><code>format_version: 1.2.0
+default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
+
+workflows:
+  test:
+    steps:
+    - script:
+        deps:
+          brew:
+          - name: cmake
+          apt_get:
+          - name: cmake
+        inputs:
+          - content: |-
+              #!/bin/bash
+              set -ex
+              which cmake</code></pre>
+
+
+<h2 id="conditional-execution">Conditional execution<a class="headerlink" href="#conditional-execution" title="Permanent link">⚓</a></h2>
+<p>Additionally, you can use Environment Variables in your scripts too. As an example, using the base <a href="doc:available-environment-variables">Available Environment Variables</a> <code>PR</code> (but you can use any Environment Variable, like the ones exposed by previous steps in the Workflow), to run different scripts in case of a Pull Request and a non Pull Request build:</p>
+<pre class="code"><code class="language-bash linenums">#!/bin/bash
+set -ex
+
+if [[ &quot;$PR&quot; == &quot;true&quot; ]] ; then
+  echo &quot;=&gt; Pull Request mode/build!&quot;
+  bash ./path/to/in-case-of-pull-request.sh
+else
+  echo &quot;=&gt; Not Pull Request mode/build!&quot;
+  bash ./path/to/not-pull-request.sh
+fi</code></pre>
+
+
+<p><em>Note: if you <strong>don't</strong> want to run any part of the Step/script based on a variable (like <code>$PR</code>),
+you don't have to implement the check in the script. You can use the <code>run_if</code> expression in
+the <code>bitrise.yml</code> directly to declare in which case(s) the Step should run. Additionally,
+<code>run_if</code> can be added to any step, not just to Script steps.
+You can find more information about <code>run_if</code> expressions
+in <a href="../../tips-and-tricks/disable-a-step-by-condition/#run-a-step-only-if-the-build-failed">this guide</a>.</em></p>
           <aside class="copyright" role="note">
             
             Documentation built with
@@ -608,7 +712,7 @@
   <nav class="pagination" aria-label="Footer">
     <div class="previous">
       
-        <a href="../connecting-a-repository/" title="Connecting a repository">
+        <a href="../xcodebuild-export-options/" title="Xcode Archive: export options">
           <span class="direction">
             Previous
           </span>
@@ -618,7 +722,7 @@
             </div>
             <div class="stretch">
               <div class="title">
-                Connecting a repository
+                Xcode Archive: export options
               </div>
             </div>
           </div>
@@ -626,22 +730,6 @@
       
     </div>
     <div class="next">
-      
-        <a href="../setting-up-configuration/" title="Setting up configuration">
-          <span class="direction">
-            Next
-          </span>
-          <div class="page">
-            <div class="stretch">
-              <div class="title">
-                Setting up configuration
-              </div>
-            </div>
-            <div class="button button-next" role="button" aria-label="Next">
-              <i class="icon icon-forward"></i>
-            </div>
-          </div>
-        </a>
       
     </div>
   </nav>
