@@ -711,8 +711,11 @@ omits / does not present any error message.</p>
 </ul>
 <h4 id="everyany-xcode-command-hangs">Every/Any Xcode command hangs<a class="headerlink" href="#everyany-xcode-command-hangs" title="Permanent link">⚓</a></h4>
 <p>This is a rare issue, caused by running a <strong>non shared Scheme</strong>.</p>
-<p><code>xcodebuild</code> can only work with <strong>shared Schemes</strong>. If you try to run
-a command on a non shared Scheme it usually manifests in a "scheme not found"
+<p><code>xcodebuild</code> can only work with <strong>shared Schemes</strong> and user schemes (auto created by Xcode.app).
+<code>xcodebuild</code>, unlike Xcode.app, <strong>does not</strong> auto create user schemes, it can only work with
+<strong>shared schemes</strong> and already existing user schemes (Xcode.app creates the user scheme when you open
+the project in Xcode.app <strong>on the specific Mac machine the first time</strong>, for schemes which are not marked as shared).
+If you try to run a command on a missing / non shared Scheme it usually manifests in a "scheme not found"
 error, but we saw projects where it resulted in <code>xcodebuild</code> hanging, instead
 of an error message.</p>
 <p>If this is the case then any <code>xcodebuild</code> command will hang, even something
