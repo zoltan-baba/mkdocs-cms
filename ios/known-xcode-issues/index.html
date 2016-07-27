@@ -707,16 +707,21 @@ omits / does not present any error message.</p>
 <p>This is usually due to Xcode version mismatch - that you use a different Xcode on your Mac than the one you use on <a href="https://www.bitrise.io">bitrise.io</a>. Commonly occurs with Xcode 7.2 (if you have the Xcode 7.2 stack selected on bitrise.io), if you're already on a newer version of Xcode locally on your Mac.</p>
 <p>The solution is simple, just make sure that you use the same Xcode version everywhere.</p>
 <h2 id="issues-which-occur-with-the-xcode-command-line-tools-xcodebuild-but-not-with-xcodeapp">Issues which occur with the Xcode Command Line Tools (<code>xcodebuild</code>), but not with Xcode.app<a class="headerlink" href="#issues-which-occur-with-the-xcode-command-line-tools-xcodebuild-but-not-with-xcodeapp" title="Permanent link">⚓</a></h2>
+<h3 id="xcodebuild-hangs-when-a-test-causes-exc_bad_access-kernel-exception">xcodebuild hangs when a test causes EXC_BAD_ACCESS kernel exception<a class="headerlink" href="#xcodebuild-hangs-when-a-test-causes-exc_bad_access-kernel-exception" title="Permanent link">⚓</a></h3>
+<p><a href="https://openradar.appspot.com/24222858">xcodebuild hangs when a test causes EXC_BAD_ACCESS kernel exception</a></p>
+<p>Note: this can happen only on specific iOS Simulators / iOS versions too, e.g. if the app only crashes on iOS 8, but not on iOS 9</p>
+<h3 id="xcode-8-xcodebuild-test-hangs-at-the-very-end-of-the-tests">Xcode 8 - <code>xcodebuild .. test</code> hangs at the very end of the tests<a class="headerlink" href="#xcode-8-xcodebuild-test-hangs-at-the-very-end-of-the-tests" title="Permanent link">⚓</a></h3>
+<p><code>xcodebuild .. test</code> hangs at the end of the tests (after it printed the summary of the tests)
+if the output of <code>xcodebuild ..</code> is piped / redirected in any way.
+This means that <code>xcodebuild .. test .. | xcpretty</code> or even <code>tee</code> can be used to reproduce this issue.</p>
 <ul>
-<li><a href="https://openradar.appspot.com/24222858">xcodebuild hangs when a test causes EXC_BAD_ACCESS kernel exception</a><ul>
-<li>Note: this can happen only on specific iOS Simulators / iOS versions too, e.g. if the app only crashes on iOS 8, but not on iOS 9</li>
-</ul>
-</li>
-<li><code>xcodebuild .. test</code> hangs at the end of the tests if the output of <code>xcodebuild ..</code> is piped / redirected in any way. This means that <code>xcodebuild .. test .. | xcpretty</code> or even <code>tee</code> can be used to reproduce this issue.<ul>
-<li>Affected Xcode versions: so far it seems to be an <code>Xcode 8 beta</code> issue.</li>
+<li><strong>Affected Xcode versions</strong>: so far it seems to be an <code>Xcode 8 beta</code> issue.</li>
 <li>Related <a href="http://openradar.appspot.com/26872644">radar</a> and <a href="https://github.com/supermarin/xcpretty/issues/227">xcpretty</a> issues.</li>
-</ul>
-</li>
+<li>Workaround: use a <code>Script</code> step instead of the Xcode Test step,
+  and copy paste the <code>xcodebuild</code> command from the hanging Xcode Test step's log, without <code>| xcpretty</code> etc.
+  Of course, with this you won't be able to use the built in features the Xcode Test step
+  provides, but the base <code>xcodebuild</code> command should be able to run, if the output
+  is not redirected / piped.</li>
 </ul>
 <h4 id="everyany-xcode-command-hangs">Every/Any Xcode command hangs<a class="headerlink" href="#everyany-xcode-command-hangs" title="Permanent link">⚓</a></h4>
 <p>This is a rare issue, caused by running a <strong>non shared Scheme</strong>.</p>
