@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     
       
-        <title>Caching Gradle - Bitrise DevCenter</title>
+        <title>Create signed APK on bitrise.io - Bitrise DevCenter</title>
       
       
       
@@ -95,12 +95,12 @@
           <span class="path">
             
               
-                Caching <i class="icon icon-link"></i>
+                Tutorials <i class="icon icon-link"></i>
               
             
           </span>
         
-        Caching Gradle
+        Create signed APK on bitrise.io
       </div>
     </div>
     
@@ -332,7 +332,7 @@
       
         
   <li>
-    <a class="" title="Community Created" href="../../tutorials/community-created/">
+    <a class="" title="Community Created" href="../community-created/">
       Community Created
     </a>
     
@@ -341,9 +341,28 @@
       
         
   <li>
-    <a class="" title="Create signed APK on bitrise.io" href="../../tutorials/create-signed-apk-on-bitrise/">
+    <a class="current" title="Create signed APK on bitrise.io" href="./">
       Create signed APK on bitrise.io
     </a>
+    
+      
+      
+        <ul>
+          
+            <li class="anchor">
+              <a title="1. Specify code sign configuration in your project" href="#1-specify-code-sign-configuration-in-your-project">
+                1. Specify code sign configuration in your project
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="2. Let sign-apk step to sign/resign your unsigned/debug signed apk" href="#2-let-sign-apk-step-to-signresign-your-unsigneddebug-signed-apk">
+                2. Let sign-apk step to sign/resign your unsigned/debug signed apk
+              </a>
+            </li>
+          
+        </ul>
+      
     
   </li>
 
@@ -413,7 +432,7 @@
       
         
   <li>
-    <a class="" title="About caching" href="../about-caching/">
+    <a class="" title="About caching" href="../../caching/about-caching/">
       About caching
     </a>
     
@@ -422,7 +441,7 @@
       
         
   <li>
-    <a class="" title="Caching Cocoapods" href="../caching-cocoapods/">
+    <a class="" title="Caching Cocoapods" href="../../caching/caching-cocoapods/">
       Caching Cocoapods
     </a>
     
@@ -431,29 +450,16 @@
       
         
   <li>
-    <a class="current" title="Caching Gradle" href="./">
+    <a class="" title="Caching Gradle" href="../../caching/caching-gradle/">
       Caching Gradle
     </a>
-    
-      
-      
-        <ul>
-          
-            <li class="anchor">
-              <a title="Example workflow" href="#example-workflow">
-                Example workflow
-              </a>
-            </li>
-          
-        </ul>
-      
     
   </li>
 
       
         
   <li>
-    <a class="" title="Caching Ruby GEMs" href="../caching-ruby-gems/">
+    <a class="" title="Caching Ruby GEMs" href="../../caching/caching-ruby-gems/">
       Caching Ruby GEMs
     </a>
     
@@ -564,47 +570,115 @@
       <article class="article">
         <div class="wrapper">
           
-            <h1>Caching Gradle</h1>
+            <h1>Create signed APK on bitrise.io</h1>
           
-          <ol>
-<li>Put the <code>Cache:Pull</code> step after the Git Clone</li>
-<li>Put the <code>Cache:Push</code> step to the very end of the Workflow</li>
-<li>Select the <code>Cache:Push</code> step and specify the following paths for caching (Cache Paths input):<blockquote>
-<p><code>$HOME/.gradle</code></p>
-<blockquote>
-<p><code>./.gradle</code></p>
-</blockquote>
-</blockquote>
-</li>
-<li>Select the <code>Cache:Push</code> step and specify the following paths for update-check ignore (Ignore Paths from change check input):<blockquote>
-<p><code>$HOME/.gradle/caches/*.lock</code></p>
-<blockquote>
-<p><code>./.gradle/*.lock</code></p>
-<blockquote>
-<p><code>./.gradle/*.bin</code></p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
+          <p><strong>In general there are two options to create a signed apk with bitrise:</strong></p>
+<ol>
+<li>The first option is: <strong>specify code sign configuration in your Gradle configuration</strong></li>
+<li>The second option is: let <a href="https://github.com/bitrise-steplib/steps-sign-apk">sign-apk step</a> to sign/resign your unsigned/debug signed apk</li>
 </ol>
-<h2 id="example-workflow">Example workflow<a class="headerlink" href="#example-workflow" title="Permanent link">⚓</a></h2>
-<pre class="code"><code class="language-yml">example:
-  steps:
-  - git-clone@3.2.0: {}
-  - cache-pull: {}
-  - gradle-runner@1.3.1:
-      inputs:
-      - gradle_file: &quot;$BITRISE_PROJECT_PATH&quot;
-      - gradle_task: &quot;$GRADLE_TASK&quot;
-  - cache-push:
-      inputs:
-      - cache_paths: |-
-          $HOME/.gradle
-          ./.gradle
-      - ignore_check_on_paths: |-
-          $HOME/.gradle/caches/*.lock
-          ./.gradle/*.lock
-          ./.gradle/*.bin</code></pre>
+<h2 id="1-specify-code-sign-configuration-in-your-project">1. Specify code sign configuration in your project<a class="headerlink" href="#1-specify-code-sign-configuration-in-your-project" title="Permanent link">⚓</a></h2>
+<p><strong>In case of android project you can specify signing configs in Android Studio, or in your Gradle configuration</strong>:</p>
+<hr />
+<ul>
+<li>in project navigator select your project and <strong>Open Module Settings</strong></li>
+<li>from <strong>Modules</strong> select your module to sign  </li>
+<li>on <strong>Signing</strong> tab fill out the signing informations</li>
+</ul>
+<p>Signing config is stored in you app's <code>build.gradle</code> file and looks something like this:</p>
+<pre class="code"><code>android {
+    signingConfigs {
+        release {
+            keyAlias 'MyAndroidKey'
+            keyPassword '***'
+            storeFile file(&quot;/path/to/my/keystore.jks&quot;)
+            storePassword '***'
+        }
+    }
+...</code></pre>
+
+
+<p><strong>In case of Xamarin android project with Xamarin Studio</strong>:</p>
+<hr />
+<ul>
+<li>double click on your android project to open the <strong>Project Options</strong></li>
+<li>select <strong>Android Package Signing</strong> in <strong>Build</strong> group</li>
+<li>select the <strong>Configuration - Platform</strong> you want to use to create signed apk and check the <strong>Sign the .APK file using the following keystore details.</strong></li>
+<li>fill out the signing information</li>
+</ul>
+<h3 id="how-to-use-the-same-keystore-path-locally-and-on-bitrise">How to use the same keystore path locally and on bitrise?<a class="headerlink" href="#how-to-use-the-same-keystore-path-locally-and-on-bitrise" title="Permanent link">⚓</a></h3>
+<p><strong>In case of android project :</strong> </p>
+<hr />
+<p>You can eliminate this problem by using <strong>environment variables</strong> in keystore path (<code>storeFile</code>), and in the password and other configuration values. Let's say your keystore path is: <code>$HOME/keystores/my_keystore.jks</code>, then your <code>build.gradle</code> file would look something like this:</p>
+<pre class="code"><code>android {
+    signingConfigs {
+        release {
+            keyAlias 'MyAndroidKey'
+            keyPassword '***'
+            storeFile file(System.getenv(&quot;HOME&quot;) + &quot;/keystores/my_keystore.jks&quot;)
+            storePassword '***'
+        }
+    }
+...</code></pre>
+
+
+<blockquote>
+<p>You can use System.getenv("ENV_KEY") to access environment variables anywhere in the gradle config file.</p>
+</blockquote>
+<p>Using environment variable as keyPassword and storePassword, your build.gradle file may looks like (<em>this examples uses the env vars you get when you upload your keystore to <a href="https://www.bitrise.io">bitrise.io</a> in the Workflow Editor, under the Code signing &amp; Files section</em>):</p>
+<pre class="code"><code>android {
+    signingConfigs {
+        release {
+            keyAlias System.getenv(&quot;BITRISEIO_ANDROID_KEYSTORE_ALIAS&quot;)
+            keyPassword System.getenv(&quot;BITRISEIO_ANDROID_KEYSTORE_PRIVATE_KEY_PASSWORD&quot;)
+            storeFile file(System.getenv(&quot;HOME&quot;) + &quot;/keystores/my_keystore.jks&quot;)
+            storePassword System.getenv(&quot;BITRISEIO_ANDROID_KEYSTORE_PASSWORD&quot;)
+        }
+    }
+...</code></pre>
+
+
+<p>In this case do not forget to define these environments on bitrise too. </p>
+<p><strong>Working with Xamarin Studio :</strong> </p>
+<hr />
+<p>You <strong>can NOT use environment variables</strong> in keystore path, the path has to be relative to the android project's folder or <strong>you can use an</strong> absolute path. To use the same path on your local machine and bitrise, it might be a good idea to put your keystore into your repository <strong>but don't forget to .gitignore it!</strong></p>
+<h3 id="upload-your-keystore-to-bitrise">Upload your keystore to bitrise:<a class="headerlink" href="#upload-your-keystore-to-bitrise" title="Permanent link">⚓</a></h3>
+<ul>
+<li>Open your app on <a href="https://www.bitrise.io">bitrise.io</a></li>
+<li>Go to <strong>Workflow</strong> tab</li>
+<li>Click the <strong>MANAGE WORKFLOWS</strong> button</li>
+<li>On the left side of Workflow editor, select <strong>Code signing &amp; Files</strong></li>
+<li>Scroll down to <strong>Generic File Storage</strong> section and click on <strong>+ Add another File</strong></li>
+<li><strong>Select file type</strong>: Android Keystore</li>
+<li>Upload your file and fill the required data</li>
+</ul>
+<p>Bitrise will upload your file and assign an environment variable (<code>BITRISEIO_ANDROID_KEYSTORE_URL</code>) to the file's download url. A time limited, read only download URL will be set as the value of this Environment Variable for every build. You can use this URL to download the file during a build.</p>
+<h3 id="download-your-keystore-from-generic-file-storage">Download your keystore from Generic File Storage:<a class="headerlink" href="#download-your-keystore-from-generic-file-storage" title="Permanent link">⚓</a></h3>
+<p>The easiest way to download your keystore (<em>or any file you uploaded to generic file storage</em>) is to use a <a href="https://github.com/bitrise-steplib/steps-file-downloader">file-downloader</a> step:</p>
+<pre class="code"><code>...
+- file-downloader:
+    inputs:
+    - source: $BITRISEIO_ANDROID_KEYSTORE_URL
+    - destination: &quot;$HOME/keystores/my_keystore.jks&quot; #native android
+#    - destination: &quot;$BITRISE_SOURCE_DIR/keystores/my_keystore.jks&quot; #Xamarin android
+...</code></pre>
+
+
+<p>After this step <code>my_keystore.jks</code> will be available at <code>$HOME/keystores/my_keystore.jks</code> or <code>$BITRISE_SOURCE_DIR/keystores/my_keystore.jks</code>.</p>
+<h2 id="2-let-sign-apk-step-to-signresign-your-unsigneddebug-signed-apk">2. Let sign-apk step to sign/resign your unsigned/debug signed apk<a class="headerlink" href="#2-let-sign-apk-step-to-signresign-your-unsigneddebug-signed-apk" title="Permanent link">⚓</a></h2>
+<p>Advantage of this solution is that you <strong>don't have to set code signing in your project</strong>.  </p>
+<p>During the archive no signing/only debug signing will be performed.<br />
+You should place the <code>sign-apk</code> step <strong>after</strong> the step which generates your APK.</p>
+<p>To use this step, you have to upload your keystore to bitrise (see: <em>Upload your keystore to bitrise</em>), but you do not have to download it (<code>sign-apk</code> step can work with remote file paths (URLs) too)</p>
+<p>When you upload your keystore to bitrise's Generic File Storage, it will export:</p>
+<ul>
+<li>the Download URL in <code>BITRISEIO_ANDROID_KEYSTORE_URL</code></li>
+<li>the Keystore password in <code>BITRISEIO_ANDROID_KEYSTORE_PASSWORD</code></li>
+<li>the Keystore alias in <code>BITRISEIO_ANDROID_KEYSTORE_ALIAS</code></li>
+<li>the Private key password in <code>BITRISEIO_ANDROID_KEYSTORE_PRIVATE_KEY_PASSWORD</code></li>
+</ul>
+<p>Fortunately these environment variables are the default input values to <strong>sign-apk step</strong>, so you just have to add the step, no further configuration is required (in most cases).<br />
+If you want to configure the sign command, check the <code>jarsigner_options</code> input's description.</p>
           <aside class="copyright" role="note">
             
             Documentation built with
@@ -621,7 +695,7 @@
   <nav class="pagination" aria-label="Footer">
     <div class="previous">
       
-        <a href="../caching-cocoapods/" title="Caching Cocoapods">
+        <a href="../community-created/" title="Community Created">
           <span class="direction">
             Previous
           </span>
@@ -631,7 +705,7 @@
             </div>
             <div class="stretch">
               <div class="title">
-                Caching Cocoapods
+                Community Created
               </div>
             </div>
           </div>
@@ -640,14 +714,14 @@
     </div>
     <div class="next">
       
-        <a href="../caching-ruby-gems/" title="Caching Ruby GEMs">
+        <a href="../../team-management/" title="Adding a new team member">
           <span class="direction">
             Next
           </span>
           <div class="page">
             <div class="stretch">
               <div class="title">
-                Caching Ruby GEMs
+                Adding a new team member
               </div>
             </div>
             <div class="button button-next" role="button" aria-label="Next">
