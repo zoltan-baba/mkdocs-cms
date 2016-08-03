@@ -724,7 +724,7 @@ omits / does not present any error message.</p>
 if the output of <code>xcodebuild ..</code> is piped / redirected in any way.
 This means that <code>xcodebuild .. test .. | xcpretty</code> or even <code>tee</code> can be used to reproduce this issue.</p>
 <ul>
-<li><strong>Affected Xcode versions</strong>: so far it seems to be an <code>Xcode 8 beta</code> issue.</li>
+<li><strong>Affected Xcode versions</strong>: so far it seems to be an <code>Xcode 8 beta</code> only issue, and it was fixed in <code>Xcode 8 beta 4</code>.</li>
 <li>Related <a href="http://openradar.appspot.com/26872644">radar</a> and <a href="https://github.com/supermarin/xcpretty/issues/227">xcpretty</a> issues.</li>
 <li>Workaround: use a <code>Script</code> step instead of the Xcode Test step,
   and copy paste the <code>xcodebuild</code> command from the hanging Xcode Test step's log, without <code>| xcpretty</code> etc.
