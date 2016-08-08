@@ -639,18 +639,18 @@ as a shared volume with the docker container, and will make it available <strong
 container at the path <code>/bitrise/src</code>.</p>
 <p>The <code>--env CI=false</code> flag sets the environment variable <code>CI</code> to <code>false</code> - this will
 make Bitrise CLI to skip certain steps which only make sense to run in a Continuous Integration
-environment. A basic example is the Git Clone step - you already have your code, so
-no need to git clone it again inside the docker container (that's also why we
-shared it as a <code>--volume</code>).</p>
-<p>The <code>--rm</code> flag tells docker to discard the container immedately at the end of the <code>docker run</code>
-session. This means that if you run the command again, the only thing which will
+environment. An example is the <code>Git Clone</code> step - you already have your code, so there's
+no need to git clone it again inside the docker container (that's why we
+shared the code directory as a <code>--volume</code>).</p>
+<p>The <code>--rm</code> flag tells docker to discard the container after the <code>docker run</code>
+command finishes. This means that if you run the command again, the only thing which will
 persist between the <code>docker run ..</code> commands are the files stored at the shared <code>--volume</code>
 (in your repository's directory). Every other file which is generated into a temp
 or any other location will be discarded / won't be kept. If you want to
 debug the container after a failed build feel free to remove the <code>--rm</code> flag,
 and check out a Docker tutorial about how you can connect to an existing
-docker container - simply running the command again will not use the same container,
-but will create a new one!</p>
+docker container - <em>Note: simply running the command again <strong>will not</strong> use the same container,
+but <strong>will create a new one</strong></em>!</p>
           <aside class="copyright" role="note">
             
             Documentation built with
