@@ -494,6 +494,12 @@
         <ul>
           
             <li class="anchor">
+              <a title="TL;DR;" href="#tldr">
+                TL;DR;
+              </a>
+            </li>
+          
+            <li class="anchor">
               <a title="Getting started" href="#getting-started">
                 Getting started
               </a>
@@ -603,6 +609,16 @@ a wide variety of preinstalled tools. You'll need at <strong>least</strong> 20-2
 <p>If you're not familiar with the <a href="https://www.bitrise.io/cli">Bitrise CLI</a>
 you should try that first. You don't have to master the CLI,
 if you know what <code>bitrise run WORKFLOW</code> does, that should be enough for this tutorial.</p>
+<h2 id="tldr">TL;DR;<a class="headerlink" href="#tldr" title="Permanent link">⚓</a></h2>
+<p>If you're familiar with <code>docker</code> and the <code>bitrise</code> CLI:</p>
+<ol>
+<li>Install <a href="https://www.docker.com/">docker</a></li>
+<li>Make sure you have your <code>bitrise.yml</code> in your repository (you don't have to commit it, but the file have to exist in your repository's root directory)</li>
+<li><code>cd</code> into your repository's directory on your Mac/Linux</li>
+<li><code>docker pull bitriseio/docker-android:latest</code></li>
+<li><code>docker run --env CI=false --volume "$(pwd):/bitrise/src" --rm bitriseio/docker-android:latest bitrise run WORKFLOW</code></li>
+</ol>
+<p><em>Keep reading if you want to read more details and notes about the process and commands!</em></p>
 <h2 id="getting-started">Getting started<a class="headerlink" href="#getting-started" title="Permanent link">⚓</a></h2>
 <p>Open your Terminal / Command Line, and download the docker image you want to use.
 In general, if your project is an Android project but you don't use the Android NDK,
