@@ -551,21 +551,6 @@
             "title": "Run your builds"
         }, 
         {
-            "location": "/docker/how-we-build-our-images/", 
-            "text": "WIP\n\n\nDo not depend on Alpha images\n\u2693\n\n\nVersioning\n\u2693", 
-            "title": "How we build our images"
-        }, 
-        {
-            "location": "/docker/how-we-build-our-images/#do-not-depend-on-alpha-images", 
-            "text": "", 
-            "title": "Do not depend on Alpha images"
-        }, 
-        {
-            "location": "/docker/how-we-build-our-images/#versioning", 
-            "text": "", 
-            "title": "Versioning"
-        }, 
-        {
             "location": "/tips-and-tricks/attach-any-file-to-build/", 
             "text": "For this example we'll attach the OS X \nsystem.log\n to the Build as an Artifact, but this works for any file, even for ones that you generate during the build, you just have to replace the example path we use (\n/var/log/system.log\n) with the path you want to deploy. You can of course use Environment Variables in the path too, like \n$HOME/\n.\n\n\nDeployed Artifacts appear on the Build's page, in the Artifacts \n Apps section, and anyone who has access to the Build page can download it from there.\n\n\nTo do this:\n\n\n\n\nAdd a new \nDeploy to Bitrise.io\n step to your workflow, to any point you want to (can be the very last step in the workflow, but of course if you want to deploy a file which is generated during the build you should add the step \nafter\n the file is generated and available).\n\n\nChange the \nDeploy directory or file path\n input of the Step to: \n/var/log/system.log\n\n\n\n\nA YAML configuration example of the step \n input:\n\n\n    - deploy-to-bitrise-io@1.2.3:\n        inputs:\n        - deploy_path: \n/var/log/system.log\n\n\n\n\nThat's all, your next build will attach the OS X system log file\nto your build - you'll see it at the top of the Build's page.\n\n\n\n\nBy default the \nDeploy to Bitrise.io\n will always run\n\n\nBy default the \nDeploy to Bitrise.io\n will always run,\neven if a previous step fails, so you can deploy failed step/tool logs too.", 
             "title": "Attach any file as an Artifact to the Build"
