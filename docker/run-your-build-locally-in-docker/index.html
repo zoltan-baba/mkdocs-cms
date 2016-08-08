@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     
       
-        <title>Enable/Disable a step (optionally, based on a condition) - Bitrise DevCenter</title>
+        <title>How to run your build locally in Docker - Bitrise DevCenter</title>
       
       
       
@@ -95,12 +95,12 @@
           <span class="path">
             
               
-                Tips & Tricks <i class="icon icon-link"></i>
+                Docker <i class="icon icon-link"></i>
               
             
           </span>
         
-        Enable/Disable a step (optionally, based on a condition)
+        How to run your build locally in Docker
       </div>
     </div>
     
@@ -485,16 +485,35 @@
       
         
   <li>
-    <a class="" title="How to run your build locally in Docker" href="../../docker/run-your-build-locally-in-docker/">
+    <a class="current" title="How to run your build locally in Docker" href="./">
       How to run your build locally in Docker
     </a>
+    
+      
+      
+        <ul>
+          
+            <li class="anchor">
+              <a title="Getting started" href="#getting-started">
+                Getting started
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Run your builds" href="#run-your-builds">
+                Run your builds
+              </a>
+            </li>
+          
+        </ul>
+      
     
   </li>
 
       
         
   <li>
-    <a class="" title="How we build our images" href="../../docker/how-we-build-our-images/">
+    <a class="" title="How we build our images" href="../how-we-build-our-images/">
       How we build our images
     </a>
     
@@ -512,7 +531,7 @@
       
         
   <li>
-    <a class="" title="Attach any file as an Artifact to the Build" href="../attach-any-file-to-build/">
+    <a class="" title="Attach any file as an Artifact to the Build" href="../../tips-and-tricks/attach-any-file-to-build/">
       Attach any file as an Artifact to the Build
     </a>
     
@@ -521,7 +540,7 @@
       
         
   <li>
-    <a class="" title="Expose an Environment Variable and use it in another Step" href="../expose-environment-variable/">
+    <a class="" title="Expose an Environment Variable and use it in another Step" href="../../tips-and-tricks/expose-environment-variable/">
       Expose an Environment Variable and use it in another Step
     </a>
     
@@ -530,7 +549,7 @@
       
         
   <li>
-    <a class="" title="Don't mark the Build as failed if a given step would fail (ignore the error of the Step)" href="../dont-mark-build-failed-if-step-fails/">
+    <a class="" title="Don't mark the Build as failed if a given step would fail (ignore the error of the Step)" href="../../tips-and-tricks/dont-mark-build-failed-if-step-fails/">
       Don't mark the Build as failed if a given step would fail (ignore the error of the Step)
     </a>
     
@@ -539,35 +558,16 @@
       
         
   <li>
-    <a class="current" title="Enable/Disable a step (optionally, based on a condition)" href="./">
+    <a class="" title="Enable/Disable a step (optionally, based on a condition)" href="../../tips-and-tricks/disable-a-step-by-condition/">
       Enable/Disable a step (optionally, based on a condition)
     </a>
-    
-      
-      
-        <ul>
-          
-            <li class="anchor">
-              <a title="Disable a Step" href="#disable-a-step">
-                Disable a Step
-              </a>
-            </li>
-          
-            <li class="anchor">
-              <a title="Run a Step only if the Build failed" href="#run-a-step-only-if-the-build-failed">
-                Run a Step only if the Build failed
-              </a>
-            </li>
-          
-        </ul>
-      
     
   </li>
 
       
         
   <li>
-    <a class="" title="Xcode Archive: export options" href="../xcodebuild-export-options/">
+    <a class="" title="Xcode Archive: export options" href="../../tips-and-tricks/xcodebuild-export-options/">
       Xcode Archive: export options
     </a>
     
@@ -576,7 +576,7 @@
       
         
   <li>
-    <a class="" title="Install Any Additional Tool" href="../install-additional-tools/">
+    <a class="" title="Install Any Additional Tool" href="../../tips-and-tricks/install-additional-tools/">
       Install Any Additional Tool
     </a>
     
@@ -597,49 +597,69 @@
       <article class="article">
         <div class="wrapper">
           
-            <h1>Enable/Disable a step (optionally, based on a condition)</h1>
+            <h1>How to run your build locally in Docker</h1>
           
-          <h2 id="disable-a-step">Disable a Step<a class="headerlink" href="#disable-a-step" title="Permanent link">⚓</a></h2>
-<p>If you don't want to remove the Step from your Workflow and you don't want to duplicate the Workflow either (which is the preferred way if you want to experiment with new things; you can just create a "backup" clone of your original Workflow) then you can simply disable a Step by specifying <code>run_if: false</code> .</p>
-<p>Example:</p>
-<pre class="code"><code>- script:
-    run_if: false
-    inputs:
-    - content: |-
-        #!/bin/bash
-        echo &quot;This will never run, because of run_if:false&quot;</code></pre>
-
-
-<h2 id="run-a-step-only-if-the-build-failed">Run a Step only if the Build failed<a class="headerlink" href="#run-a-step-only-if-the-build-failed" title="Permanent link">⚓</a></h2>
-<p><em>To do this you have to switch to <code>bitrise.yml</code> mode (open the Workflow Editor on bitrise.io -&gt; left side: click on <code>bitrise.yml</code> to switch to the interactive <code>bitrise.yml</code> editor).</em></p>
-<p>You have to add two properties to the Step you <strong>only</strong> want to run when the Build failed (at that point, when the Step would run):</p>
-<ul>
-<li><code>is_always_run: true</code> (this enables the Step to be considered to run even if a previous Step failed)</li>
-<li><code>run_if: .IsBuildFailed</code> (you can find more examples of the <code>run_if</code> template at: <a href="https://github.com/bitrise-io/bitrise/blob/master/_examples/experimentals/templates/bitrise.yml">https://github.com/bitrise-io/bitrise/blob/master/_examples/experimentals/templates/bitrise.yml</a>).</li>
-</ul>
-<p>An example <code>script</code> step, which will only run if the Build failed:</p>
-<pre class="code"><code>- script:
-    is_always_run: true
-    run_if: .IsBuildFailed
-    inputs:
-    - content: |-
-        #!/bin/bash
-        echo &quot;Build Failed!&quot;</code></pre>
-
-
-<div class="admonition note">
-<p class="admonition-title">A <strong>run_if</strong> can be any valid <strong>Go</strong> template</p>
-<p>A <code>run_if</code> can be any valid <a href="https://golang.org/pkg/text/template/">Go template</a>, as long as it evaluates to <code>true</code> or <code>false</code> (or any of the String representation, e.g. <code>"True"</code>, <code>"t"</code>, <code>"yes"</code> or <code>"y"</code> are all considered to be <code>true</code>). If the template evaluates to <code>true</code> the Step will run, otherwise it won't.</p>
+          <p>To be able to run your Linux stack builds locally you'll need <a href="https://www.docker.com/">docker</a>.</p>
+<p>For Linux just follow the <a href="https://docs.docker.com/engine/installation/linux/">official install instructions</a>.</p>
+<p>For Mac you can use <a href="https://www.docker.com/products/docker#/mac">Docker for Mac</a>,
+which is probably the easiest way to get started.</p>
+<p>For this example we'll use <a href="https://github.com/bitrise-samples/sample-apps-android-sdk22">this Bitrise Android sample project</a>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Large images ahead</p>
+<p>The official Bitrise Docker images are quite large, due to the fact that it includes
+a wide variety of preinstalled tools. You'll need at least 15-20 GB free disk!</p>
 </div>
-<p>An example <code>run_if</code> to check a <strong>custom environment variable</strong> (you
-can expose environment variables from your scripts too,
-using <a href="https://github.com/bitrise-io/envman/">envman</a>):</p>
-<pre class="code"><code>run_if: |-
-  {{enveq &quot;CUSTOM_ENV_VAR_KEY&quot; &quot;test value to test against&quot;}}</code></pre>
+<p>If you're not familiar with the <a href="https://www.bitrise.io/cli">Bitrise CLI</a>
+you should try that first. You don't have to master the CLI,
+if you know what <code>bitrise run WORKFLOW</code> does, that should be enough for this tutorial.</p>
+<h2 id="getting-started">Getting started<a class="headerlink" href="#getting-started" title="Permanent link">⚓</a></h2>
+<p>Open your Terminal / Command Line, and download the docker image you want to use.
+In general, if your project is an Android project but you don't use the Android NDK,
+to preserve precious disk space you should use the
+<a href="https://hub.docker.com/r/bitriseio/docker-android/">bitriseio/docker-android</a> docker image.
+You can use other official Bitrise docker images <a href="https://hub.docker.com/u/bitriseio/">on our Docker Hub page</a>.
+For this example we'll use the <code>bitriseio/docker-android</code> one.</p>
+<p>Downloading docker images from the <a href="https://hub.docker.com">Docker Hub</a> is quite easy:</p>
+<pre class="code"><code>docker pull bitriseio/docker-android:latest</code></pre>
 
 
-<p>This <code>run_if</code> will skip the step in every case when the value of <code>CUSTOM_ENV_VAR_KEY</code>
-is not <code>test value to test against</code>.</p>
+<p>Be prepared, this can take quite a bit of time, as this image is over 10 GB.
+<em>If the download would fail or hang, you can restart it any time by running
+the same command again.</em></p>
+<p>Once the download succeeds you have everything prepared to run your build
+in Docker! The last thing you have to do is to download your Bitrise build
+configuration (<code>bitrise.yml</code>).</p>
+<div class="admonition note">
+<p class="admonition-title"><code>bitrise.yml</code></p>
+<p>You can download your project's <code>bitrise.yml</code> from the <strong>Workflow Editor</strong>
+on <a href="https://www.bitrise.io">bitrise.io</a>, under the <code>bitrise.yml</code> section.</p>
+</div>
+<p>In your Terminal / Command Line go to (<code>cd</code>) the root directory
+of <em>your repository</em>, and make sure your <code>bitrise.yml</code> is at this location.</p>
+<h2 id="run-your-builds">Run your builds<a class="headerlink" href="#run-your-builds" title="Permanent link">⚓</a></h2>
+<p>The only thing left to do is to actually run a build:</p>
+<pre class="code"><code>docker run --env CI=false --volume &quot;$(pwd):/bitrise/src&quot; --rm bitriseio/docker-android:latest bitrise run WORKFLOW</code></pre>
+
+
+<p><em>Don't forget to replace <code>WORKFLOW</code> with the actual ID of your workflow in your <code>bitrise.yml</code>,
+with something like <code>primary</code>!</em></p>
+<p>This command will share the current directory (the directory of your repository)
+as a shared volume with the docker container, and will make it available <strong>inside</strong> the
+container at the path <code>/bitrise/src</code>.</p>
+<p>The <code>--env CI=false</code> flag sets the environment variable <code>CI</code> to <code>false</code> - this will
+make Bitrise CLI to skip certain steps which only make sense to run in a Continuous Integration
+environment. A basic example is the Git Clone step - you already have your code, so
+no need to git clone it again inside the docker container (that's also why we
+shared it as a <code>--volume</code>).</p>
+<p>The <code>--rm</code> flag tells docker to discard the container immedately at the end of the <code>docker run</code>
+session. This means that if you run the command again, the only thing which will
+persist between the <code>docker run ..</code> commands are the files stored at the shared <code>--volume</code>
+(in your repository's directory). Every other file which is generated into a temp
+or any other location will be discarded / won't be kept. If you want to
+debug the container after a failed build feel free to remove the <code>--rm</code> flag,
+and check out a Docker tutorial about how you can connect to an existing
+docker container - simply running the command again will not use the same container,
+but will create a new one!</p>
           <aside class="copyright" role="note">
             
             Documentation built with
@@ -656,7 +676,7 @@ is not <code>test value to test against</code>.</p>
   <nav class="pagination" aria-label="Footer">
     <div class="previous">
       
-        <a href="../dont-mark-build-failed-if-step-fails/" title="Don't mark the Build as failed if a given step would fail (ignore the error of the Step)">
+        <a href="../../ios/known-xcode-issues/" title="List of known Xcode issues">
           <span class="direction">
             Previous
           </span>
@@ -666,7 +686,7 @@ is not <code>test value to test against</code>.</p>
             </div>
             <div class="stretch">
               <div class="title">
-                Don't mark the Build as failed if a given step would fail (ignore the error of the Step)
+                List of known Xcode issues
               </div>
             </div>
           </div>
@@ -675,14 +695,14 @@ is not <code>test value to test against</code>.</p>
     </div>
     <div class="next">
       
-        <a href="../xcodebuild-export-options/" title="Xcode Archive: export options">
+        <a href="../how-we-build-our-images/" title="How we build our images">
           <span class="direction">
             Next
           </span>
           <div class="page">
             <div class="stretch">
               <div class="title">
-                Xcode Archive: export options
+                How we build our images
               </div>
             </div>
             <div class="button button-next" role="button" aria-label="Next">
