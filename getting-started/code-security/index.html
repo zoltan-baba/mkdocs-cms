@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     
       
-        <title>Caching Ruby GEMs - Bitrise DevCenter</title>
+        <title>Code Security - Bitrise DevCenter</title>
       
       
       
@@ -95,12 +95,12 @@
           <span class="path">
             
               
-                Caching <i class="icon icon-link"></i>
+                Getting Started <i class="icon icon-link"></i>
               
             
           </span>
         
-        Caching Ruby GEMs
+        Code Security
       </div>
     </div>
     
@@ -188,7 +188,7 @@
       
         
   <li>
-    <a class="" title="What is Bitrise?" href="../../getting-started/">
+    <a class="" title="What is Bitrise?" href="../">
       What is Bitrise?
     </a>
     
@@ -197,7 +197,7 @@
       
         
   <li>
-    <a class="" title="Builds & Workflows" href="../../getting-started/builds-and-workflows/">
+    <a class="" title="Builds & Workflows" href="../builds-and-workflows/">
       Builds & Workflows
     </a>
     
@@ -206,9 +206,34 @@
       
         
   <li>
-    <a class="" title="Code Security" href="../../getting-started/code-security/">
+    <a class="current" title="Code Security" href="./">
       Code Security
     </a>
+    
+      
+      
+        <ul>
+          
+            <li class="anchor">
+              <a title="Source code" href="#source-code">
+                Source code
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Code signing and other files" href="#code-signing-and-other-files">
+                Code signing and other files
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Passwords" href="#passwords">
+                Passwords
+              </a>
+            </li>
+          
+        </ul>
+      
     
   </li>
 
@@ -422,7 +447,7 @@
       
         
   <li>
-    <a class="" title="About caching" href="../about-caching/">
+    <a class="" title="About caching" href="../../caching/about-caching/">
       About caching
     </a>
     
@@ -431,7 +456,7 @@
       
         
   <li>
-    <a class="" title="Caching Cocoapods" href="../caching-cocoapods/">
+    <a class="" title="Caching Cocoapods" href="../../caching/caching-cocoapods/">
       Caching Cocoapods
     </a>
     
@@ -440,7 +465,7 @@
       
         
   <li>
-    <a class="" title="Caching Gradle" href="../caching-gradle/">
+    <a class="" title="Caching Gradle" href="../../caching/caching-gradle/">
       Caching Gradle
     </a>
     
@@ -449,28 +474,9 @@
       
         
   <li>
-    <a class="current" title="Caching Ruby GEMs" href="./">
+    <a class="" title="Caching Ruby GEMs" href="../../caching/caching-ruby-gems/">
       Caching Ruby GEMs
     </a>
-    
-      
-      
-        <ul>
-          
-            <li class="anchor">
-              <a title="Technical note" href="#technical-note">
-                Technical note
-              </a>
-            </li>
-          
-            <li class="anchor">
-              <a title="Example workflow" href="#example-workflow">
-                Example workflow
-              </a>
-            </li>
-          
-        </ul>
-      
     
   </li>
 
@@ -615,48 +621,17 @@
       <article class="article">
         <div class="wrapper">
           
-            <h1>Caching Ruby GEMs</h1>
+            <h1>Code Security</h1>
           
-          <h2 id="technical-note">Technical note<a class="headerlink" href="#technical-note" title="Permanent link">⚓</a></h2>
-<p>Ruby GEMs are installed into a single directory by default. You can get the location of this directory with <code>gem environment gemdir</code>. If you want to change this directory you can set the <code>$GEM_HOME</code> environment variable, this will be picked up by <code>gem install</code> and it'll install the GEMs to the location specified by <code>$GEM_HOME</code>.</p>
-<p>Now that you know where the Ruby GEMs are stored you can easily cache the directory. As in any other previous case you need two steps:</p>
-<ol>
-<li>put the <code>Cache:Pull</code> step after the <code>Git Clone</code></li>
-<li>put the <code>Cache:Push</code> step to the very end of the Workflow</li>
-<li>You can now just select the <code>Cache:Push</code> step and add the Ruby GEM home directory to the Cache Paths input.</li>
-</ol>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>You can't just add <code>gem environment gemdir</code> to the input as you can only reference Environment Variables in the inputs directly, and <code>$GEM_HOME</code> is not set by default on the Bitrise.io VMs.</p>
-</div>
-<p>There are two simple solutions for this issue:</p>
-<ul>
-<li>Set <code>GEM_HOME</code> as an App Env Var to, let's say, <code>$HOME/.gem</code>.</li>
-<li>Add a <code>Script step</code> to your workflow and set the <code>$GEM_HOME</code> environment variable there</li>
-</ul>
-<p>The second option is usually more error proof as you don't change the location of gem home, you just set the environment variable to the path where it's located.</p>
-<h2 id="example-workflow">Example workflow<a class="headerlink" href="#example-workflow" title="Permanent link">⚓</a></h2>
-<pre class="code"><code class="language-yml">example:
-  steps:
-  - script@1.1.0:
-      title: GEM_HOME
-      inputs:
-      - content: |-
-          #!/bin/bash
-          set -ev
-
-          envman add --key GEM_HOME --value &quot;$(gem environment gemdir)&quot;
-  - git-clone@3.2.0: {}
-  - cache-pull: {}
-
-  # ... Add your steps here.
-  # You can `gem install` Ruby gems with Script steps here too,
-  # just make sure it's between the `cache-pull` and `cache-push` steps.
-
-  - cache-push:
-      inputs:
-      - cache_paths: |-
-          $GEM_HOME</code></pre>
+          <p>To guarantee the security of your builds we use <a href="../../infrastructure/virtual-machines">virtual machines</a> for builds. Every build runs in its own, clean virtual machine and we discard the whole virtual machine after the build finishes, erasing every file your build uses and every change you make during your build.</p>
+<p>This way your builds are always protected by changes made by others and from your previous builds, no one else can access your code and you can use a stable environment to define your build workflow (no state persists between builds).</p>
+<h2 id="source-code">Source code<a class="headerlink" href="#source-code" title="Permanent link">⚓</a></h2>
+<p>We don't store your source code. The source code is only accessed on the build machines (virtual machines) the way you define it in your Bitrise Configuration (workflow). If you don't have a Git Clone step in your configuration, then the source code won't be touched at all. At the end of the build the whole Virtual Machine is destroyed.</p>
+<h2 id="code-signing-and-other-files">Code signing and other files<a class="headerlink" href="#code-signing-and-other-files" title="Permanent link">⚓</a></h2>
+<p>The files you upload in the Workflow Editor (<strong>Code Signing &amp; Files</strong> section of the editor) are stored on <code>Amazon S3</code> in a way that it's only accessible for the web servers.</p>
+<p>The required credentials are not stored in any database, it is only available in the web servers' environment. Build servers can't access the files directly either. When a build starts the web server generates a read-only, time limited access URL for these files, using <a href="https://docs.aws.amazon.com/aws-sdk-php/v3/guide/service/s3-presigned-url.html">Amazon S3 presigned URLs</a>.</p>
+<h2 id="passwords">Passwords<a class="headerlink" href="#passwords" title="Permanent link">⚓</a></h2>
+<p>Passwords are stored in a hashed, encrypted form. We are encrypting the passwords with <a href="https://en.wikipedia.org/wiki/Bcrypt">bcrypt algorithm</a>, using multiple stretches.</p>
           <aside class="copyright" role="note">
             
             Documentation built with
@@ -673,7 +648,7 @@
   <nav class="pagination" aria-label="Footer">
     <div class="previous">
       
-        <a href="../caching-gradle/" title="Caching Gradle">
+        <a href="../builds-and-workflows/" title="Builds & Workflows">
           <span class="direction">
             Previous
           </span>
@@ -683,7 +658,7 @@
             </div>
             <div class="stretch">
               <div class="title">
-                Caching Gradle
+                Builds & Workflows
               </div>
             </div>
           </div>
@@ -692,14 +667,14 @@
     </div>
     <div class="next">
       
-        <a href="../../ios/code-signing/" title="Code Signing">
+        <a href="../../infrastructure/virtual-machines/" title="Virtual Machines">
           <span class="direction">
             Next
           </span>
           <div class="page">
             <div class="stretch">
               <div class="title">
-                Code Signing
+                Virtual Machines
               </div>
             </div>
             <div class="button button-next" role="button" aria-label="Next">
