@@ -486,6 +486,24 @@
       
         
   <li>
+    <a class="" title="Uploading certificates" href="../uploading-certificates/">
+      Uploading certificates
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Resigning an IPA" href="../resigning-an-ipa/">
+      Resigning an IPA
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
     <a class="" title="List of known Xcode issues" href="../known-xcode-issues/">
       List of known Xcode issues
     </a>
@@ -593,12 +611,12 @@
           <h2 id="how-ios-code-signing-works">How iOS code signing works<a class="headerlink" href="#how-ios-code-signing-works" title="Permanent link">⚓</a></h2>
 <p>iOS apps require code signing for every action/output which generates an app (<code>.ipa</code>) meant to
 run on a physical iOS device.</p>
-<p>When you create &amp; export an Archive (<code>.ipa</code>) of your app Xcode will sign it automatically,
+<p>When you create and export an Archive (<code>.ipa</code>) of your app Xcode will sign it automatically,
 based on the <strong>Code Signing</strong> settings you have in your Xcode project. There are, however,
 a couple of things you have to know about how Xcode selects the code signing
 files (unless you set a specific Identity and/or Provisioning Profile).</p>
 <p>If you have a Code Signing configuration in your Xcode project like this one:</p>
-<p><img alt="Recommended iOS Code Signing configuration in Xcode" src="../../img/recommended-ios-code-signing-settings.png" /></p>
+<p><img alt="Recommended iOS Code Signing configuration in Xcode" src="../../img/ios/recommended-ios-code-signing-settings.png" /></p>
 <p>where you don't set a specific Identity and Provisioning Profile, Xcode will
 select the ones which match the following points:</p>
 <ul>
@@ -685,7 +703,7 @@ compatible with the Identity you set. But if you'd need to control exactly
 which Provisioning Profile should be used for a given step, you can use
 the <code>Force code signing with Provisioning Profile</code> input of the steps.
 <em>This can be useful if you want to use multiple Distribution Provisioning Profiles
-in a single build, <strong>e.g. to create both an Ad-Hoc and an App Store signed app.</strong></em> </p>
+in a single build, <strong>e.g. to create both an Ad-Hoc and an App Store signed app.</strong></em></p>
           <aside class="copyright" role="note">
             
             Documentation built with
@@ -721,14 +739,14 @@ in a single build, <strong>e.g. to create both an Ad-Hoc and an App Store signed
     </div>
     <div class="next">
       
-        <a href="../known-xcode-issues/" title="List of known Xcode issues">
+        <a href="../uploading-certificates/" title="Uploading certificates">
           <span class="direction">
             Next
           </span>
           <div class="page">
             <div class="stretch">
               <div class="title">
-                List of known Xcode issues
+                Uploading certificates
               </div>
             </div>
             <div class="button button-next" role="button" aria-label="Next">
