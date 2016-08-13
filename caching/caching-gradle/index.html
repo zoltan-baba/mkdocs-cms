@@ -614,24 +614,14 @@
           <ol>
 <li>Put the <code>Cache:Pull</code> step after the Git Clone</li>
 <li>Put the <code>Cache:Push</code> step to the very end of the Workflow</li>
-<li>Select the <code>Cache:Push</code> step and specify the following paths for caching (Cache Paths input):<blockquote>
-<p><code>$HOME/.gradle</code></p>
-<blockquote>
-<p><code>./.gradle</code></p>
-</blockquote>
-</blockquote>
-</li>
-<li>Select the <code>Cache:Push</code> step and specify the following paths for update-check ignore (Ignore Paths from change check input):<blockquote>
-<p><code>$HOME/.gradle/caches/*.lock</code></p>
-<blockquote>
-<p><code>./.gradle/*.lock</code></p>
-<blockquote>
-<p><code>./.gradle/*.bin</code></p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
+<li>Select the <code>Cache:Push</code> step and specify the following paths for caching (Cache Paths input):</li>
 </ol>
+<p><code>$HOME/.gradle
+   ./.gradle</code>
+4. Select the <code>Cache:Push</code> step and specify the following paths for update-check ignore (Ignore Paths from change check input):</p>
+<p><code>$HOME/.gradle/caches/*.lock
+   ./.gradle/*.lock
+   ./.gradle/*.bin</code></p>
 <h2 id="example-workflow">Example workflow<a class="headerlink" href="#example-workflow" title="Permanent link">⚓</a></h2>
 <pre class="code"><code class="language-yml">example:
   steps:
