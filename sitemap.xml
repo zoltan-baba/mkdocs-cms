@@ -4,7 +4,7 @@
     
     <url>
      <loc>None/</loc>
-     <lastmod>2016-08-19</lastmod>
+     <lastmod>2016-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -13,19 +13,19 @@
         
     <url>
      <loc>None/getting-started/</loc>
-     <lastmod>2016-08-19</lastmod>
+     <lastmod>2016-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/getting-started/builds-and-workflows/</loc>
-     <lastmod>2016-08-19</lastmod>
+     <lastmod>2016-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/getting-started/code-security/</loc>
-     <lastmod>2016-08-19</lastmod>
+     <lastmod>2016-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -35,13 +35,13 @@
         
     <url>
      <loc>None/infrastructure/virtual-machines/</loc>
-     <lastmod>2016-08-19</lastmod>
+     <lastmod>2016-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/infrastructure/available-stacks/</loc>
-     <lastmod>2016-08-19</lastmod>
+     <lastmod>2016-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -51,25 +51,25 @@
         
     <url>
      <loc>None/signing-up/signing-up-with-github/</loc>
-     <lastmod>2016-08-19</lastmod>
+     <lastmod>2016-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/signing-up/signing-up-with-bitbucket/</loc>
-     <lastmod>2016-08-19</lastmod>
+     <lastmod>2016-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/signing-up/signing-up-with-email/</loc>
-     <lastmod>2016-08-19</lastmod>
+     <lastmod>2016-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/signing-up/trial-after-signing-up/</loc>
-     <lastmod>2016-08-19</lastmod>
+     <lastmod>2016-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -79,25 +79,25 @@
         
     <url>
      <loc>None/adding-a-new-app/</loc>
-     <lastmod>2016-08-19</lastmod>
+     <lastmod>2016-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/adding-a-new-app/connecting-a-repository/</loc>
-     <lastmod>2016-08-19</lastmod>
+     <lastmod>2016-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/adding-a-new-app/setting-up-ssh-keys/</loc>
-     <lastmod>2016-08-19</lastmod>
+     <lastmod>2016-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/adding-a-new-app/setting-up-configuration/</loc>
-     <lastmod>2016-08-19</lastmod>
+     <lastmod>2016-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -107,13 +107,13 @@
         
     <url>
      <loc>None/tutorials/community-created/</loc>
-     <lastmod>2016-08-19</lastmod>
+     <lastmod>2016-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/tutorials/create-signed-apk-on-bitrise/</loc>
-     <lastmod>2016-08-19</lastmod>
+     <lastmod>2016-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -123,13 +123,13 @@
         
     <url>
      <loc>None/team-management/</loc>
-     <lastmod>2016-08-19</lastmod>
+     <lastmod>2016-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/team-management/changing-the-owner-of-an-app/</loc>
-     <lastmod>2016-08-19</lastmod>
+     <lastmod>2016-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -139,13 +139,13 @@
         
     <url>
      <loc>None/webhooks/</loc>
-     <lastmod>2016-08-19</lastmod>
+     <lastmod>2016-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/webhooks/adding-a-github-webhook/</loc>
-     <lastmod>2016-08-19</lastmod>
+     <lastmod>2016-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -155,25 +155,25 @@
         
     <url>
      <loc>None/caching/about-caching/</loc>
-     <lastmod>2016-08-19</lastmod>
+     <lastmod>2016-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/caching/caching-cocoapods/</loc>
-     <lastmod>2016-08-19</lastmod>
+     <lastmod>2016-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/caching/caching-gradle/</loc>
-     <lastmod>2016-08-19</lastmod>
+     <lastmod>2016-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/caching/caching-ruby-gems/</loc>
-     <lastmod>2016-08-19</lastmod>
+     <lastmod>2016-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -183,25 +183,25 @@
         
     <url>
      <loc>None/ios/code-signing/</loc>
-     <lastmod>2016-08-19</lastmod>
+     <lastmod>2016-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/ios/uploading-certificates/</loc>
-     <lastmod>2016-08-19</lastmod>
+     <lastmod>2016-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/ios/resigning-an-ipa/</loc>
-     <lastmod>2016-08-19</lastmod>
+     <lastmod>2016-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/ios/known-xcode-issues/</loc>
-     <lastmod>2016-08-19</lastmod>
+     <lastmod>2016-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -211,7 +211,7 @@
         
     <url>
      <loc>None/docker/run-your-build-locally-in-docker/</loc>
-     <lastmod>2016-08-19</lastmod>
+     <lastmod>2016-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -221,37 +221,43 @@
         
     <url>
      <loc>None/tips-and-tricks/attach-any-file-to-build/</loc>
-     <lastmod>2016-08-19</lastmod>
+     <lastmod>2016-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/tips-and-tricks/expose-environment-variable/</loc>
-     <lastmod>2016-08-19</lastmod>
+     <lastmod>2016-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/tips-and-tricks/dont-mark-build-failed-if-step-fails/</loc>
-     <lastmod>2016-08-19</lastmod>
+     <lastmod>2016-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/tips-and-tricks/disable-a-step-by-condition/</loc>
-     <lastmod>2016-08-19</lastmod>
+     <lastmod>2016-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/tips-and-tricks/xcodebuild-export-options/</loc>
-     <lastmod>2016-08-19</lastmod>
+     <lastmod>2016-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>None/tips-and-tricks/install-additional-tools/</loc>
-     <lastmod>2016-08-19</lastmod>
+     <lastmod>2016-08-22</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>None/tips-and-tricks/how-to-configure-fastlane-match-for-bitrise/</loc>
+     <lastmod>2016-08-22</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
