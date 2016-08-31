@@ -632,20 +632,47 @@
           
             <h1>About caching</h1>
           
-          <p>The caching will tar all the cached directories and dependencies and store them securely in Amazon S3. Note that if you store files which are downloaded from a CDN / cloud storage you might not see any improvement, as downloading it from the Bitrise Build Cache storage will probably take about the same time as downloading it from its canonical CDN / cloud storage location. However Bitrise Caching still might help if you have reliability issues with the resource's, or dependency's canonical download location.</p>
+          <p>The caching will tar all the cached directories and dependencies and store them securely in Amazon S3.
+Note that if you store files which are downloaded from a CDN / cloud storage you might not see any improvement,
+as downloading it from the Bitrise Build Cache storage will probably take about the same time as downloading
+it from its canonical CDN / cloud storage location.
+However Bitrise Caching still might help if you have reliability issues with the resource's, or dependency's canonical download location.</p>
+<div class="admonition note">
+<p class="admonition-title">Cache Expiring</p>
+<p>The Build Cache related to a <strong><em>specific branch</em></strong> expires / is auto-deleted after 7 days,
+<strong>if there's no new build on that branch in the meantime</strong>.</p>
+<p>This means that <strong>if you do builds on a specific branch every day</strong> (more frequently than a week),
+<strong>it'll never expire / will never be deleted automatically</strong>,
+but if you don't start a build on that specific branch for more than 7 days then the related cache
+will be removed, and your next build will run like the first time, when there was no cache for that branch yet.</p>
+</div>
 <h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">⚓</a></h2>
 <p>All you need to get started is adding two Steps to your Workflow:</p>
 <ul>
 <li>One for downloading the previous cache (if any): <code>Cache:Pull</code></li>
 <li>One for checking the state of the cache and uploading it if required: <code>Cache:Push</code></li>
 </ul>
-<p>You should add the <code>Cache:Pull</code> (download) step right before you'd use the cache. For example, in case of an iOS app, this can be between the <code>Git Clone</code> and the <code>CocoaPods</code> install steps. If you intend to cache your <code>./Pods</code> directory you should not pull the cache before the <code>Git Clone</code>, because <code>Git Clone</code> will create the base directory for <code>./Pods</code>. Before the <code>Git Clone</code> step your code (and the directories your code creates when git cloned) is not available on the Virtual Machine.</p>
-<p>The <code>Cache:Push</code> step can be the very last step in the Workflow. The only thing you have to care about is that it should be after the step(s) which update the cached paths. For example in case of <code>CocoaPods</code> you should put the <code>Cache:Push</code> step anywhere after the <code>CocoaPods</code> install, because that's the step which generates, or updates the directory (<code>./Pods</code>) which is cached.</p>
+<p>You should add the <code>Cache:Pull</code> (download) step right before you'd use the cache.
+For example, in case of an iOS app, this can be between the <code>Git Clone</code> and the <code>CocoaPods</code> install steps.
+If you intend to cache your <code>./Pods</code> directory you should not pull the cache before the <code>Git Clone</code>,
+because <code>Git Clone</code> will create the base directory for <code>./Pods</code>.
+Before the <code>Git Clone</code> step your code (and the directories your code creates when git cloned) is not available on the Virtual Machine.</p>
+<p>The <code>Cache:Push</code> step can be the very last step in the Workflow.
+The only thing you have to care about is that it should be after the step(s) which update the cached paths.
+For example in case of <code>CocoaPods</code> you should put the <code>Cache:Push</code> step anywhere after the <code>CocoaPods</code> install,
+because that's the step which generates, or updates the directory (<code>./Pods</code>) which is cached.</p>
 <h2 id="technical-notes">Technical notes<a class="headerlink" href="#technical-notes" title="Permanent link">⚓</a></h2>
 <p>The Build Cache feature is split into two parts, the <code>Build Cache API</code> and the <code>Steps</code>.</p>
-<p>The <code>Build Cache API</code> is actually a really simple API, with only one responsibility: you can request a download or an upload URL from the API. Of course it also makes sure that you have the required access rights to the resource (Build Cache Archive), but other than that its only responsibility is providing the secure - time limited and expiring - download and upload URLs. It does not process the files.</p>
-<p>The <code>Steps</code> are the place where the "magic" happens. The whole logic of comparing caches to see if there was any relevant change and creating the cache archives is done by the Steps. This also means that you can write your own Steps and implement your own comparison and compression logic. The step just has to use the Build Cache API to get download and upload URLs, there's no restriction on the cache file format or on its content.</p>
-<div class="admonition note">
+<p>The <code>Build Cache API</code> is actually a really simple API, with only one responsibility:
+you can request a download or an upload URL from the API.
+Of course it also makes sure that you have the required access rights to the resource (Build Cache Archive),
+but other than that its only responsibility is providing the secure - time limited and expiring - download and upload URLs.
+It does not process the files.</p>
+<p>The <code>Steps</code> are the place where the "magic" happens.
+The whole logic of comparing caches to see if there was any relevant change and creating the cache archives is done by the Steps.
+This also means that you can write your own Steps and implement your own comparison and compression logic.
+The step just has to use the Build Cache API to get download and upload URLs, there's no restriction on the cache file format or on its content.</p>
+<div class="admonition idea">
 <p class="admonition-title">Advanced notes</p>
 <ul>
 <li>You can create your own Cache steps</li>
@@ -653,7 +680,8 @@
 </ul>
 </div>
 <h2 id="downloading-and-deleting-caches">Downloading and deleting caches<a class="headerlink" href="#downloading-and-deleting-caches" title="Permanent link">⚓</a></h2>
-<p>You can download and delete caches, for every branch which generated a cache, on the <code>Settings</code> tab of the app, under the <code>Manage Build Caches</code> section.</p>
+<p>You can download and delete caches, for every branch which generated a cache,
+on the <code>Settings</code> tab of the app, under the <code>Manage Build Caches</code> section.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>You can see the size of the caches and the last time a given cache was used in the popup.</p>
