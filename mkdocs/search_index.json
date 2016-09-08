@@ -724,6 +724,11 @@
             "location": "/tips-and-tricks/how-to-configure-fastlane-match-for-bitrise/", 
             "text": "If you want to use \nfastlane match\n\nin your \nbitrise.io\n build you only have to do two things:\n\n\n\n\nMake sure that a single SSH key can be used to \ngit clone\n both your main repository (the one\n   you register on \nbitrise.io\n) and the \nmatch\n repository.\n   You can find more info \nin this guide\n.\n\n\nAdd an environment variable \nMATCH_PASSWORD\n, as\n   \ndescribed in \nmatch\n's docs\n,\n   to specify the \nEncryption password\n you used for \nmatch\n.\n   On \nbitrise.io\n you should add this as a \nSecret Environment Variable\n,\n   in the \nWorkflow Editor\n.\n   \nMake sure to \ndisable\n the \nReplace variables in input?\n option of the environment\n   variable, to not to cause issues when the value includes the \n$\n (dollar) sign, which is used\n   for environment variable expansion.\n\n\n\n\n\n\nThat's all, you can now enjoy the utility of \nmatch\n, automated with \nbitrise.io\n \ud83d\ude80", 
             "title": "How to configure fastlane match for Bitrise"
+        }, 
+        {
+            "location": "/faq/android-x86-emulator/", 
+            "text": "A frequent question is whether it's possible to run the Android x86 emulator,\ninstead of the ARM emulators.\n\n\nUnfortunately, as far as we know, none of the public cloud environments expose the required\nhardware virtualization bit required for running the Android x86 emulator.\n\n\nIf you know about any solution, \nplease contact us\n!\n\n\nFor now, the best workaround seems to be \nOracle's Ravello\n.\n\n\nIf you know about any other, \nfeel free to contact us\n!", 
+            "title": "Android x86 Emulator"
         }
     ]
 }
