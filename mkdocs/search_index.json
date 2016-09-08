@@ -727,7 +727,7 @@
         }, 
         {
             "location": "/faq/android-x86-emulator/", 
-            "text": "A frequent question is whether it's possible to run the Android x86 emulator,\ninstead of the ARM emulators.\n\n\nUnfortunately, as far as we know, none of the public cloud environments expose the required\nhardware virtualization bit required for running the Android x86 emulator.\n\n\nIf you know about any solution, \nplease contact us\n!\n\n\nFor now, the best workaround seems to be \nOracle's Ravello\n.\n\n\nIf you know about any other, \nfeel free to contact us\n!", 
+            "text": "A frequent question is whether it's possible to run the Android x86 emulator,\ninstead of the ARM emulators.\n\n\nUnfortunately, as far as we know, none of the public cloud environments expose the required\nhardware virtualization bit required for running the Android x86 emulator.\n\n\nIf you know about any solution, \nplease contact us\n!\n\n\nFor now, the best workaround seems to be \nOracle's Ravello\n\nif you need a full emulator (with UI),\nor \nrobolectric\n for unit tests.\n\n\nIf you know about any other, \nfeel free to contact us\n!", 
             "title": "Android x86 Emulator"
         }
     ]
