@@ -705,20 +705,17 @@ Mac Mini.</p>
 </ul>
 <h3 id="possible-solutions">Possible solutions<a class="headerlink" href="#possible-solutions" title="Permanent link">⚓</a></h3>
 <ul>
-<li>Try another Simulator device (e.g. instead of running the test in "iPhone 6"
-  try it with "iPhone 6s Plus")</li>
-<li>Others reported that if you add a delay after <code>app.launch()</code> it can
-  leave enough time for Xcode / the iOS Simulator to initialize the Accessibility labels,
-  so that UI Tests can properly find the elements by the Accessibility labels.</li>
-<li><a href="http://stackoverflow.com/questions/32002330/ios-9-ui-testing-test-fails-because-target-control-isnt-available-yet">Use the Async testing APIs</a></li>
 <li>As reported <a href="http://stackoverflow.com/a/37866825/974381">in this StackOverflow answer</a> &amp;
   <a href="https://forums.developer.apple.com/thread/4472">in this Apple dev forum discussion</a>
   a possible workaround can be to <strong>not to store <code>XCUIApplication()</code> in a variable</strong>, instead
-  reference / use it directly. E.g. instead of:
-  <code>let app = XCUIApplication()
-  ...
-  app.launch()</code>
+  reference / use it directly. E.g. instead of: <code>let app = XCUIApplication() ; ... ; app.launch()</code>
   do: <code>XCUIApplication().launch()</code></li>
+<li>Others reported that if you add a delay after <code>app.launch()</code> it can
+  leave enough time for Xcode / the iOS Simulator to initialize the Accessibility labels,
+  so that UI Tests can properly find the elements by the Accessibility labels.</li>
+<li>Try another Simulator device (e.g. instead of running the test in "iPhone 6"
+  try it with "iPhone 6s Plus")</li>
+<li><a href="http://stackoverflow.com/a/32481202/974381">Use the Async testing APIs</a></li>
 <li>Some users had success with splitting the tests into multiple Schemes,
   and running those separately, with separate Test steps.<ul>
 <li>A great article about splitting tests into multiple Schemes:
