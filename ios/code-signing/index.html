@@ -485,14 +485,14 @@
         <ul>
           
             <li class="anchor">
-              <a title="How iOS code signing works" href="#how-ios-code-signing-works">
-                How iOS code signing works
+              <a title="How iOS code signing works (Xcode 7 &amp; Xcode 8 manual code signing mode)" href="#how-ios-code-signing-works-xcode-7-xcode-8-manual-code-signing-mode">
+                How iOS code signing works (Xcode 7 &amp; Xcode 8 manual code signing mode)
               </a>
             </li>
           
             <li class="anchor">
-              <a title="How to make the process easier, more manageable?" href="#how-to-make-the-process-easier-more-manageable">
-                How to make the process easier, more manageable?
+              <a title="How to make the process easier, more manageable? (Xcode 7 &amp; Xcode 8 manual code signing mode)" href="#how-to-make-the-process-easier-more-manageable-xcode-7-xcode-8-manual-code-signing-mode">
+                How to make the process easier, more manageable? (Xcode 7 &amp; Xcode 8 manual code signing mode)
               </a>
             </li>
           
@@ -662,7 +662,7 @@
           
             <h1>Code Signing</h1>
           
-          <h2 id="how-ios-code-signing-works">How iOS code signing works<a class="headerlink" href="#how-ios-code-signing-works" title="Permanent link">⚓</a></h2>
+          <h2 id="how-ios-code-signing-works-xcode-7-xcode-8-manual-code-signing-mode">How iOS code signing works (Xcode 7 &amp; Xcode 8 manual code signing mode)<a class="headerlink" href="#how-ios-code-signing-works-xcode-7-xcode-8-manual-code-signing-mode" title="Permanent link">⚓</a></h2>
 <p>iOS apps require code signing for every action/output which generates an app (<code>.ipa</code>) meant to
 run on a physical iOS device.</p>
 <p>When you create and export an Archive (<code>.ipa</code>) of your app Xcode will sign it automatically,
@@ -702,8 +702,39 @@ Provisioning Profile pair which fulfills all the requirements listed above.</p>
 <p>If you need help with exporting your iOS Code Signing files, you can find
 a step-by-step guide with screenshots <a href="https://bitrise.readme.io/docs/provprofile-cert-export">on our old DevCenter</a>.</p>
 </div>
-<h2 id="how-to-make-the-process-easier-more-manageable">How to make the process easier, more manageable?<a class="headerlink" href="#how-to-make-the-process-easier-more-manageable" title="Permanent link">⚓</a></h2>
-<p>There's an important "trick" which can make your code signing process much easier:
+<h2 id="how-to-make-the-process-easier-more-manageable-xcode-7-xcode-8-manual-code-signing-mode">How to make the process easier, more manageable? (Xcode 7 &amp; Xcode 8 manual code signing mode)<a class="headerlink" href="#how-to-make-the-process-easier-more-manageable-xcode-7-xcode-8-manual-code-signing-mode" title="Permanent link">⚓</a></h2>
+<h3 id="using-export-options-available-for-xcode-7-and-xcode-archive-step-v191">Using Export Options (available for Xcode 7+ and Xcode Archive step v1.9.1+)<a class="headerlink" href="#using-export-options-available-for-xcode-7-and-xcode-archive-step-v191" title="Permanent link">⚓</a></h3>
+<p>Since the <code>1.9.1</code> version of the <code>Xcode Archive</code> step you can set Xcode "export options"
+directly through the step!</p>
+<p>The thing you have to know about Xcode's Export Options or how archiving works
+when you do it from <code>Xcode.app</code> on your Mac:</p>
+<ol>
+<li>When you click "Archive" in Xcode first it creates an Xcode "archive" file (directory),
+   and <strong>it signs the archive with the code signing files set in your Xcode project settings</strong>!</li>
+<li>Then, when the Xcode "Organizer" window appears and you click "Export..." and
+   select an "export method" (App Store, Ad Hoc, Enterprise or Development Deployment)
+   <strong>Xcode does re-sign</strong> the archive with the final code signing files appropriate for the
+   export method you selected.</li>
+</ol>
+<p>This means that if you want to do the same on any Mac (e.g. on <a href="https://www.bitrise.io">bitrise.io</a> virtual machines)
+<strong>you'll need the code signing files for the final app/IPA</strong> (e.g. App Store or Ad Hoc distribution certificate and provisioning profile)
+<strong>and additionally the code signing files used for the initial signing</strong> (usually Development certificate and provisioning profile)!</p>
+<p>To do the same on <a href="https://www.bitrise.io">bitrise.io</a> all you have to do is:</p>
+<ol>
+<li>Upload all the certificates and provisioning profiles, including the ones required for the initial
+   code signing (usually your Development certificate and provisioning profile for the project).</li>
+<li>Open the Workflow Editor on <a href="https://www.bitrise.io">bitrise.io</a>, select the <code>Xcode Archive</code> step,
+   and make sure its version is at least <code>1.9.1</code></li>
+<li>Go to the step's <code>Select method for export</code> input, and set it to the "export method" you want to use,
+   just like you would in Xcode's Organizer.
+   <em>Note: you can add more than one <code>Xcode Archive</code> step to your workflow, if you want to create
+   e.g. both an Ad Hoc and an App Store signed app/IPA in the same build/workflow!</em></li>
+<li>Click <code>Save</code> in the Workflow Editor</li>
+</ol>
+<p>That's all. Run a new build and you're done ;)</p>
+<h3 id="full-manual-full-control">Full manual / full control<a class="headerlink" href="#full-manual-full-control" title="Permanent link">⚓</a></h3>
+<p>There's an important "trick" which can make your code signing process much easier
+(if you don't or can't use the Xcode 7+ Export Options - as described in the previous section):
 Xcode (Xcode's Command Line Tool, <code>xcodebuild</code>) has a command line parameter to
 override the Identity and Provisioning Profile configurations set in Xcode project settings!</p>
 <p>The <code>CODE_SIGN_IDENTITY</code> parameter can be used to override the <strong>Code Signing Identity</strong>,
