@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     
       
-        <title>How to run your build locally in Docker - Bitrise DevCenter</title>
+        <title>How to generate an SSH key pair - Bitrise DevCenter</title>
       
       
       
@@ -95,12 +95,12 @@
           <span class="path">
             
               
-                Docker <i class="icon icon-link"></i>
+                Frequently Asked Questions (FAQ) <i class="icon icon-link"></i>
               
             
           </span>
         
-        How to run your build locally in Docker
+        How to generate an SSH key pair
       </div>
     </div>
     
@@ -521,34 +521,9 @@
       
         
   <li>
-    <a class="current" title="How to run your build locally in Docker" href="./">
+    <a class="" title="How to run your build locally in Docker" href="../../docker/run-your-build-locally-in-docker/">
       How to run your build locally in Docker
     </a>
-    
-      
-      
-        <ul>
-          
-            <li class="anchor">
-              <a title="TL;DR;" href="#tldr">
-                TL;DR;
-              </a>
-            </li>
-          
-            <li class="anchor">
-              <a title="Getting started" href="#getting-started">
-                Getting started
-              </a>
-            </li>
-          
-            <li class="anchor">
-              <a title="Run your builds" href="#run-your-builds">
-                Run your builds
-              </a>
-            </li>
-          
-        </ul>
-      
     
   </li>
 
@@ -636,7 +611,7 @@
       
         
   <li>
-    <a class="" title="Android x86 Emulator" href="../../faq/android-x86-emulator/">
+    <a class="" title="Android x86 Emulator" href="../android-x86-emulator/">
       Android x86 Emulator
     </a>
     
@@ -645,9 +620,12 @@
       
         
   <li>
-    <a class="" title="How to generate an SSH key pair" href="../../faq/how-to-generate-ssh-keypair/">
+    <a class="current" title="How to generate an SSH key pair" href="./">
       How to generate an SSH key pair
     </a>
+    
+      
+      
     
   </li>
 
@@ -666,79 +644,22 @@
       <article class="article">
         <div class="wrapper">
           
-            <h1>How to run your build locally in Docker</h1>
+            <h1>How to generate an SSH key pair</h1>
           
-          <p>To be able to run your Linux stack builds locally you'll need <a href="https://www.docker.com/">docker</a>.</p>
-<p>For Linux just follow the <a href="https://docs.docker.com/engine/installation/linux/">official install instructions</a>.</p>
-<p>For Mac you can use <a href="https://www.docker.com/products/docker#/mac">Docker for Mac</a>,
-which is probably the easiest way to get started.</p>
-<p>For this example we'll use <a href="https://github.com/bitrise-samples/sample-apps-android-sdk22">this Bitrise Android sample project</a>.</p>
-<div class="admonition warning">
-<p class="admonition-title">Large images ahead</p>
-<p>The official Bitrise Docker images are quite large, due to the fact that it includes
-a wide variety of preinstalled tools. You'll need at <strong>least</strong> 20-25 GB free disk space!</p>
-</div>
-<p>If you're not familiar with the <a href="https://www.bitrise.io/cli">Bitrise CLI</a>
-you should try that first. You don't have to master the CLI,
-if you know what <code>bitrise run WORKFLOW</code> does, that should be enough for this tutorial.</p>
-<h2 id="tldr">TL;DR;<a class="headerlink" href="#tldr" title="Permanent link">⚓</a></h2>
-<p>If you're familiar with <code>docker</code> and the <code>bitrise</code> CLI:</p>
-<ol>
-<li>Install <a href="https://www.docker.com/">docker</a></li>
-<li>Make sure you have your <code>bitrise.yml</code> in your repository (you don't have to commit it, but the file have to exist in your repository's root directory)</li>
-<li><code>cd</code> into your repository's directory on your Mac/Linux</li>
-<li><code>docker pull bitriseio/docker-android:latest</code></li>
-<li><code>docker run --env CI=false --volume "$(pwd):/bitrise/src" --rm bitriseio/docker-android:latest bitrise run WORKFLOW</code></li>
-</ol>
-<p><em>Keep reading if you want to read more details and notes about the process and commands!</em></p>
-<h2 id="getting-started">Getting started<a class="headerlink" href="#getting-started" title="Permanent link">⚓</a></h2>
-<p>Open your Terminal / Command Line, and download the docker image you want to use.
-In general, if your project is an Android project but you don't use the Android NDK,
-to preserve precious disk space you should use the
-<a href="https://hub.docker.com/r/bitriseio/docker-android/">bitriseio/docker-android</a> docker image.
-You can find other official Bitrise docker images <a href="https://hub.docker.com/u/bitriseio/">on our Docker Hub page</a>.
-For this example we'll use the <code>bitriseio/docker-android</code> one.</p>
-<p>Downloading docker images from the <a href="https://hub.docker.com">Docker Hub</a> is quite easy:</p>
-<pre class="code"><code>docker pull bitriseio/docker-android:latest</code></pre>
+          <p>If you want to do manual SSH key configuration on <a href="https://www.bitrise.io">bitrise.io</a>
+you can generate an appropriate SSH keypair with a simple Command Line / Terminal command:</p>
+<pre class="code"><code>ssh-keygen -t rsa -b 4096 -P '' -f ./bitrise-ssh</code></pre>
 
 
-<p>Be prepared, this can take quite a bit of time, as this image is over 10 GB.
-<em>If the download would fail or hang, you can restart it any time by running
-the same command again.</em></p>
-<p>Once the download succeeds you have everything prepared to run your build
-in Docker! The last thing you have to do is to download your Bitrise build
-configuration (<code>bitrise.yml</code>).</p>
-<div class="admonition note">
-<p class="admonition-title"><code>bitrise.yml</code></p>
-<p>You can download your project's <code>bitrise.yml</code> from the <strong>Workflow Editor</strong>
-on <a href="https://www.bitrise.io">bitrise.io</a>, under the <code>bitrise.yml</code> section.</p>
-</div>
-<p>In your Terminal / Command Line go to (<code>cd</code>) the root directory
-of <em>your repository</em>, and make sure your <code>bitrise.yml</code> is at this location.</p>
-<h2 id="run-your-builds">Run your builds<a class="headerlink" href="#run-your-builds" title="Permanent link">⚓</a></h2>
-<p>The only thing left to do is to actually run a build:</p>
-<pre class="code"><code>docker run --env CI=false --volume &quot;$(pwd):/bitrise/src&quot; --rm bitriseio/docker-android:latest bitrise run WORKFLOW</code></pre>
-
-
-<p><em>Don't forget to replace <code>WORKFLOW</code> with the actual ID of your workflow in your <code>bitrise.yml</code>,
-with something like <code>primary</code>!</em></p>
-<p>This command will share the current directory (the directory of your repository)
-as a shared volume with the docker container, and will make it available <strong>inside</strong> the
-container at the path <code>/bitrise/src</code>.</p>
-<p>The <code>--env CI=false</code> flag sets the environment variable <code>CI</code> to <code>false</code> - this will
-make Bitrise CLI to skip certain steps which only make sense to run in a Continuous Integration
-environment. An example is the <code>Git Clone</code> step - you already have your code, so there's
-no need to git clone it again inside the docker container (that's why we
-shared the code directory as a <code>--volume</code>).</p>
-<p>The <code>--rm</code> flag tells docker to discard the container after the <code>docker run</code>
-command finishes. This means that if you run the command again, the only thing which will
-persist between the <code>docker run ..</code> commands are the files stored at the shared <code>--volume</code>
-(in your repository's directory). Every other file which is generated into a temp
-or any other location will be discarded / won't be kept. If you want to
-debug the container after a failed build feel free to remove the <code>--rm</code> flag,
-and check out a Docker tutorial about how you can connect to an existing
-docker container - <em>Note: simply running the command again <strong>will not</strong> use the same container,
-but <strong>will create a new one</strong></em>!</p>
+<p>This will generate two files in the current directory (the directory where
+you run the command):</p>
+<ul>
+<li><code>bitrise-ssh</code> (private key)</li>
+<li><code>bitrise-ssh.pub</code> (public key)</li>
+</ul>
+<p>You should copy paste the <strong>public key</strong> to your Git hosting service (GitHub, Bitbucket, etc.),
+and when you register your app on <a href="https://www.bitrise.io">bitrise.io</a>
+you'll have to provide the <strong>private key</strong>.</p>
           <aside class="copyright" role="note">
             
             Documentation built with
@@ -755,7 +676,7 @@ but <strong>will create a new one</strong></em>!</p>
   <nav class="pagination" aria-label="Footer">
     <div class="previous">
       
-        <a href="../../ios/known-xcode-issues/" title="List of known Xcode issues">
+        <a href="../android-x86-emulator/" title="Android x86 Emulator">
           <span class="direction">
             Previous
           </span>
@@ -765,7 +686,7 @@ but <strong>will create a new one</strong></em>!</p>
             </div>
             <div class="stretch">
               <div class="title">
-                List of known Xcode issues
+                Android x86 Emulator
               </div>
             </div>
           </div>
@@ -773,22 +694,6 @@ but <strong>will create a new one</strong></em>!</p>
       
     </div>
     <div class="next">
-      
-        <a href="../../tips-and-tricks/attach-any-file-to-build/" title="Attach any file as an Artifact to the Build">
-          <span class="direction">
-            Next
-          </span>
-          <div class="page">
-            <div class="stretch">
-              <div class="title">
-                Attach any file as an Artifact to the Build
-              </div>
-            </div>
-            <div class="button button-next" role="button" aria-label="Next">
-              <i class="icon icon-forward"></i>
-            </div>
-          </div>
-        </a>
       
     </div>
   </nav>

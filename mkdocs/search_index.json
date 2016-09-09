@@ -729,6 +729,11 @@
             "location": "/faq/android-x86-emulator/", 
             "text": "A frequent question is whether it's possible to run the Android x86 emulator,\ninstead of the ARM emulators.\n\n\nUnfortunately, as far as we know, none of the public cloud environments expose the required\nhardware virtualization bit required for running the Android x86 emulator.\n\n\nIf you know about any solution, \nplease contact us\n!\n\n\nFor now, the best workaround seems to be \nOracle's Ravello\n ( \na related blog post\n )\nif you need a full emulator (with UI),\nor \nrobolectric\n for unit tests.\n\n\nIf you know about any other, \nfeel free to contact us\n!", 
             "title": "Android x86 Emulator"
+        }, 
+        {
+            "location": "/faq/how-to-generate-ssh-keypair/", 
+            "text": "If you want to do manual SSH key configuration on \nbitrise.io\n\nyou can generate an appropriate SSH keypair with a simple Command Line / Terminal command:\n\n\nssh-keygen -t rsa -b 4096 -P '' -f ./bitrise-ssh\n\n\n\n\nThis will generate two files in the current directory (the directory where\nyou run the command):\n\n\n\n\nbitrise-ssh\n (private key)\n\n\nbitrise-ssh.pub\n (public key)\n\n\n\n\nYou should copy paste the \npublic key\n to your Git hosting service (GitHub, Bitbucket, etc.),\nand when you register your app on \nbitrise.io\n\nyou'll have to provide the \nprivate key\n.", 
+            "title": "How to generate an SSH key pair"
         }
     ]
 }
