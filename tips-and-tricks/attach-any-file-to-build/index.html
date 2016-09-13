@@ -554,6 +554,16 @@
     
       
       
+        <ul>
+          
+            <li class="anchor">
+              <a title="Deploy a directory" href="#deploy-a-directory">
+                Deploy a directory
+              </a>
+            </li>
+          
+        </ul>
+      
     
   </li>
 
@@ -663,7 +673,7 @@
 <li>Change the <code>Deploy directory or file path</code> input of the Step to: <code>/var/log/system.log</code></li>
 </ul>
 <p>A YAML configuration example of the step &amp; input:</p>
-<pre class="code"><code>    - deploy-to-bitrise-io@1.2.3:
+<pre class="code"><code>    - deploy-to-bitrise-io:
         inputs:
         - deploy_path: &quot;/var/log/system.log&quot;</code></pre>
 
@@ -673,8 +683,24 @@ to your build - you'll see it at the top of the Build's page.</p>
 <div class="admonition note">
 <p class="admonition-title">By default the <strong>Deploy to Bitrise.io</strong> will always run</p>
 <p>By default the <code>Deploy to Bitrise.io</code> will always run,
-even if a previous step fails, so you can deploy failed step/tool logs too.</p>
+even if a previous step fails, <strong>so you can deploy failed step/tool logs too.</strong></p>
 </div>
+<h2 id="deploy-a-directory">Deploy a directory<a class="headerlink" href="#deploy-a-directory" title="Permanent link">⚓</a></h2>
+<p>The <code>Deploy to Bitrise.io</code> step accepts both file and directory path as its input,
+but by default <strong>it does not deploy files recursively</strong>, from sub directories
+if you specify a directory as it's <code>deploy_path</code> input.</p>
+<p>If you want to do that and deploy the whole directory with every sub directory
+and the files in the sub directories, you have to enable the "Compress" option of the step.</p>
+<p>In this mode the step will compress (zip) the whole directory, and deploy
+the compressed file, instead of deploying files one by one.</p>
+<p>An example configuration:</p>
+<pre class="code"><code>    - deploy-to-bitrise-io:
+        inputs:
+        - deploy_path: /deploy/this/directory/recursively
+        - is_compress: 'true'</code></pre>
+
+
+<p><em>Note: as every input's, <code>is_compress</code>'s value have to be a string, that's why <code>true</code> is surrounded with quotes.</em></p>
           <aside class="copyright" role="note">
             
             Documentation built with
