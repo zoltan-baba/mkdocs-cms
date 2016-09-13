@@ -446,14 +446,14 @@
             </li>
           
             <li class="anchor">
-              <a title="Technical notes" href="#technical-notes">
-                Technical notes
+              <a title="Downloading and deleting caches" href="#downloading-and-deleting-caches">
+                Downloading and deleting caches
               </a>
             </li>
           
             <li class="anchor">
-              <a title="Downloading and deleting caches" href="#downloading-and-deleting-caches">
-                Downloading and deleting caches
+              <a title="Technical notes" href="#technical-notes">
+                Technical notes
               </a>
             </li>
           
@@ -706,6 +706,13 @@ Before the <code>Git Clone</code> step your code (and the directories your code 
 The only thing you have to care about is that it should be after the step(s) which update the cached paths.
 For example in case of <code>CocoaPods</code> you should put the <code>Cache:Push</code> step anywhere after the <code>CocoaPods</code> install,
 because that's the step which generates, or updates the directory (<code>./Pods</code>) which is cached.</p>
+<h2 id="downloading-and-deleting-caches">Downloading and deleting caches<a class="headerlink" href="#downloading-and-deleting-caches" title="Permanent link">⚓</a></h2>
+<p>You can download and delete caches, for every branch which generated a cache,
+on the <code>Settings</code> tab of the app, under the <code>Manage Build Caches</code> section.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can see the size of the caches and the last time a given cache was used in the popup.</p>
+</div>
 <h2 id="technical-notes">Technical notes<a class="headerlink" href="#technical-notes" title="Permanent link">⚓</a></h2>
 <p>The Build Cache feature is split into two parts, the <code>Build Cache API</code> and the <code>Steps</code>.</p>
 <p>The <code>Build Cache API</code> is actually a really simple API, with only one responsibility:
@@ -724,13 +731,28 @@ The step just has to use the Build Cache API to get download and upload URLs, th
 <li>You can create and use your own Build Cache server and API</li>
 </ul>
 </div>
-<h2 id="downloading-and-deleting-caches">Downloading and deleting caches<a class="headerlink" href="#downloading-and-deleting-caches" title="Permanent link">⚓</a></h2>
-<p>You can download and delete caches, for every branch which generated a cache,
-on the <code>Settings</code> tab of the app, under the <code>Manage Build Caches</code> section.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>You can see the size of the caches and the last time a given cache was used in the popup.</p>
-</div>
+<h3 id="the-cache-might-or-might-not-be-available">The cache might or might not be available<a class="headerlink" href="#the-cache-might-or-might-not-be-available" title="Permanent link">⚓</a></h3>
+<p>You should write your code in a way that it won't fail if the cache can't be accessed.</p>
+<h3 id="the-cache-is-downloaded-over-the-internet">The cache is downloaded over the internet<a class="headerlink" href="#the-cache-is-downloaded-over-the-internet" title="Permanent link">⚓</a></h3>
+<p>Which means that if you store files which are downloaded from a CDN / cloud storage you might not see
+any speed improvement,
+as downloading it from the Bitrise Build Cache storage will probably take about the same time as
+downloading it from it's canonical CDN / cloud storage location.</p>
+<p>One important note: storing a dependency in Bitrise Build Cache might help if you have <strong>reliability</strong>
+issues with the resource's / dependency's canonical download location.
+Popular tools / dependencies might get rate limited (<a href="https://github.com/Medium/phantomjs/issues/501">example: PhantomJS</a>).
+If that's the case, storing the dependency in Bitrise Build Cache might help.
+It might not improve the build time but <strong>it definitely can improve the reliability</strong>.</p>
+<h3 id="the-cache-is-stored-as-one-archive-file">The cache is stored as one archive file<a class="headerlink" href="#the-cache-is-stored-as-one-archive-file" title="Permanent link">⚓</a></h3>
+<p>So if you have multiple paths you want to cache and any
+of the paths gets updated <strong>it'll update the whole cache archive</strong>,
+including all the paths you cache.</p>
+<h3 id="if-a-build-runs-on-a-new-branch-the-first-time-itll-get-the-maindefault-branchs-cache">If a build runs on a new branch the first time it'll get the main/default Branch's cache.<a class="headerlink" href="#if-a-build-runs-on-a-new-branch-the-first-time-itll-get-the-maindefault-branchs-cache" title="Permanent link">⚓</a></h3>
+<p>The first build on a non primary/default branch, to speed up things,
+can access (read-only) the primary branch's cache.</p>
+<p><strong>If it pushes back to the cache that won't modify the main/default Branch's cache</strong>,
+that will be stored for the new branch directly,
+and the next time a build runs on this branch it'll use that cache.</p>
           <aside class="copyright" role="note">
             
             Documentation built with
