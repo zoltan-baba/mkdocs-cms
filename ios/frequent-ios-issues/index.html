@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="no-js ie6"><![endif]-->
+<!--[if IE 7 ]><html class="no-js ie7"><![endif]-->
+<!--[if IE 8 ]><html class="no-js ie8"><![endif]-->
+<!--[if IE 9 ]><html class="no-js ie9"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+    
+      
+        <title>Frequent iOS issues - Bitrise DevCenter</title>
+      
+      
+      
+      
+    
+    <meta property="og:url" content="None">
+    <meta property="og:title" content="Bitrise DevCenter">
+    <meta property="og:image" content="None/../../img/logo.svg">
+    <meta name="apple-mobile-web-app-title" content="Bitrise DevCenter">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+      <link rel="apple-touch-icon" href="../../img/logo.svg">
+    
+    
+    <link rel="shortcut icon" type="image/x-icon" href="../../assets/images/favicon-e565ddfa3b.ico">
+    <link rel="icon" type="image/x-icon" href="../../assets/images/favicon-e565ddfa3b.ico">
+    <style>
+      @font-face {
+      	font-family: 'Icon';
+      	src: url('../../assets/fonts/icon.eot?52m981');
+      	src: url('../../assets/fonts/icon.eot?#iefix52m981')
+               format('embedded-opentype'),
+      		   url('../../assets/fonts/icon.woff?52m981')
+               format('woff'),
+      		   url('../../assets/fonts/icon.ttf?52m981')
+               format('truetype'),
+      		   url('../../assets/fonts/icon.svg?52m981#icon')
+               format('svg');
+      	font-weight: normal;
+      	font-style: normal;
+      }
+    </style>
+    <link rel="stylesheet" href="../../assets/stylesheets/application-a422ff04cc.css">
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/palettes-05ab2406df.css">
+    
+    
+      
+      
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700|Source+Code+Pro">
+      <style>
+        body, input {
+          font-family: 'Roboto', Helvetica, Arial, sans-serif;
+        }
+        pre, code {
+          font-family: 'Source Code Pro', 'Courier New', 'Courier', monospace;
+        }
+      </style>
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script src="../../assets/javascripts/modernizr-4ab42b99fd.js"></script>
+    
+  </head>
+  
+  
+  
+  <body class="palette-primary-deep-purple palette-accent-deep-purple">
+    
+      
+      
+    
+    <div class="backdrop">
+      <div class="backdrop-paper"></div>
+    </div>
+    <input class="toggle" type="checkbox" id="toggle-drawer">
+    <input class="toggle" type="checkbox" id="toggle-search">
+    <label class="toggle-button overlay" for="toggle-drawer"></label>
+    <header class="header">
+      <nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        
+          <span class="path">
+            
+              
+                iOS <i class="icon icon-link"></i>
+              
+            
+          </span>
+        
+        Frequent iOS issues
+      </div>
+    </div>
+    
+    
+    <div class="button button-search" role="button" aria-label="Search">
+      <label class="toggle-button icon icon-search" title="Search" for="toggle-search"></label>
+    </div>
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+    </header>
+    <main class="main">
+      
+      <div class="drawer">
+        <nav aria-label="Navigation">
+  
+  <a href="https://github.com/bitrise-io/devcenter" class="project">
+    <div class="banner">
+      
+        <div class="logo">
+          <img src="../../img/logo.svg">
+        </div>
+      
+      <div class="name">
+        <strong>
+          Bitrise DevCenter
+          <span class="version">
+            
+          </span>
+        </strong>
+        
+          <br>
+          bitrise-io/devcenter
+        
+      </div>
+    </div>
+  </a>
+  <div class="scrollable">
+    <div class="wrapper">
+      
+        <ul class="repo">
+          <li class="repo-download">
+            
+            <a href="https://github.com/bitrise-io/devcenter/archive/master.zip" target="_blank" title="Download" data-action="download">
+              <i class="icon icon-download"></i> Download
+            </a>
+          </li>
+          <li class="repo-stars">
+            <a href="https://github.com/bitrise-io/devcenter/stargazers" target="_blank" title="Stargazers" data-action="star">
+              <i class="icon icon-star"></i> Stars
+              <span class="count">&ndash;</span>
+            </a>
+          </li>
+        </ul>
+        <hr>
+      
+      <div class="toc">
+        <ul>
+          
+            
+  <li>
+    <a class="" title="Bitrise DevCenter" href="../..">
+      Bitrise DevCenter
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Getting Started</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="What is Bitrise?" href="../../getting-started/">
+      What is Bitrise?
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Builds & Workflows" href="../../getting-started/builds-and-workflows/">
+      Builds & Workflows
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Code Security" href="../../getting-started/code-security/">
+      Code Security
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Infrastructure</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Virtual Machines" href="../../infrastructure/virtual-machines/">
+      Virtual Machines
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Available Stacks" href="../../infrastructure/available-stacks/">
+      Available Stacks
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Signing up</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Signing up with GitHub" href="../../signing-up/signing-up-with-github/">
+      Signing up with GitHub
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Signing up with Bitbucket" href="../../signing-up/signing-up-with-bitbucket/">
+      Signing up with Bitbucket
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Signing up with email" href="../../signing-up/signing-up-with-email/">
+      Signing up with email
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Trial after signing up" href="../../signing-up/trial-after-signing-up/">
+      Trial after signing up
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Adding a new app</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Adding a new app" href="../../adding-a-new-app/">
+      Adding a new app
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Connecting a repository" href="../../adding-a-new-app/connecting-a-repository/">
+      Connecting a repository
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Setting up SSH keys" href="../../adding-a-new-app/setting-up-ssh-keys/">
+      Setting up SSH keys
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Setting up configuration" href="../../adding-a-new-app/setting-up-configuration/">
+      Setting up configuration
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Tutorials</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Community Created" href="../../tutorials/community-created/">
+      Community Created
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Create signed APK on bitrise.io" href="../../tutorials/create-signed-apk-on-bitrise/">
+      Create signed APK on bitrise.io
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Configure and connect to your VPN" href="../../tutorials/vpn-configuration/">
+      Configure and connect to your VPN
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Team management</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Adding a new team member" href="../../team-management/">
+      Adding a new team member
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Changing the owner of an app" href="../../team-management/changing-the-owner-of-an-app/">
+      Changing the owner of an app
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Webhooks</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Adding webhooks" href="../../webhooks/">
+      Adding webhooks
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Adding a GitHub webhook" href="../../webhooks/adding-a-github-webhook/">
+      Adding a GitHub webhook
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Caching</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="About caching" href="../../caching/about-caching/">
+      About caching
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Caching Cocoapods" href="../../caching/caching-cocoapods/">
+      Caching Cocoapods
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Caching Gradle" href="../../caching/caching-gradle/">
+      Caching Gradle
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Caching Ruby GEMs" href="../../caching/caching-ruby-gems/">
+      Caching Ruby GEMs
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">iOS</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Code Signing" href="../code-signing/">
+      Code Signing
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Uploading certificates" href="../uploading-certificates/">
+      Uploading certificates
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Resigning an IPA" href="../resigning-an-ipa/">
+      Resigning an IPA
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="current" title="Frequent iOS issues" href="./">
+      Frequent iOS issues
+    </a>
+    
+      
+      
+        <ul>
+          
+            <li class="anchor">
+              <a title="Searching for errors and issues in Xcode generated output" href="#searching-for-errors-and-issues-in-xcode-generated-output">
+                Searching for errors and issues in Xcode generated output
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Xcode Scheme not found" href="#xcode-scheme-not-found">
+                Xcode Scheme not found
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="ld: library not found for -lPods-..." href="#ld-library-not-found-for-lpods-">
+                ld: library not found for -lPods-...
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Works in local but not on Bitrise.io" href="#works-in-local-but-not-on-bitriseio">
+                Works in local but not on Bitrise.io
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Step hangs (times out after a period without any logs)" href="#step-hangs-times-out-after-a-period-without-any-logs">
+                Step hangs (times out after a period without any logs)
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="CocoaPods frameworks signing issue" href="#cocoapods-frameworks-signing-issue">
+                CocoaPods frameworks signing issue
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Installing an Enterprise app: Untrusted Enterprise Developer" href="#installing-an-enterprise-app-untrusted-enterprise-developer">
+                Installing an Enterprise app: Untrusted Enterprise Developer
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="No dSYM found" href="#no-dsym-found">
+                No dSYM found
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Invalid IPA: get-task-allow values in the embedded .mobileprovision don't match your binary" href="#invalid-ipa-get-task-allow-values-in-the-embedded-mobileprovision-dont-match-your-binary">
+                Invalid IPA: get-task-allow values in the embedded .mobileprovision don't match your binary
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="No identity found" href="#no-identity-found">
+                No identity found
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="No mobileprovision_path found / No embedded.mobileprovision found in ..." href="#no-mobileprovision_path-found-no-embeddedmobileprovision-found-in">
+                No mobileprovision_path found / No embedded.mobileprovision found in ...
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Duplicated Schemes" href="#duplicated-schemes">
+                Duplicated Schemes
+              </a>
+            </li>
+          
+        </ul>
+      
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="List of known Xcode issues" href="../known-xcode-issues/">
+      List of known Xcode issues
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Docker</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="How to run your build locally in Docker" href="../../docker/run-your-build-locally-in-docker/">
+      How to run your build locally in Docker
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Tips & Tricks</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Attach any file as an Artifact to the Build" href="../../tips-and-tricks/attach-any-file-to-build/">
+      Attach any file as an Artifact to the Build
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Expose an Environment Variable and use it in another Step" href="../../tips-and-tricks/expose-environment-variable/">
+      Expose an Environment Variable and use it in another Step
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Don't mark the Build as failed if a given step would fail (ignore the error of the Step)" href="../../tips-and-tricks/dont-mark-build-failed-if-step-fails/">
+      Don't mark the Build as failed if a given step would fail (ignore the error of the Step)
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Enable/Disable a step (optionally, based on a condition)" href="../../tips-and-tricks/disable-a-step-by-condition/">
+      Enable/Disable a step (optionally, based on a condition)
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Xcode Archive: export options" href="../../tips-and-tricks/xcodebuild-export-options/">
+      Xcode Archive: export options
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Install Any Additional Tool" href="../../tips-and-tricks/install-additional-tools/">
+      Install Any Additional Tool
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="How to configure fastlane match for Bitrise" href="../../tips-and-tricks/how-to-configure-fastlane-match-for-bitrise/">
+      How to configure fastlane match for Bitrise
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Frequently Asked Questions (FAQ)</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Android x86 Emulator" href="../../faq/android-x86-emulator/">
+      Android x86 Emulator
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="How to generate an SSH key pair" href="../../faq/how-to-generate-ssh-keypair/">
+      How to generate an SSH key pair
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+      </div>
+      <article class="article">
+        <div class="wrapper">
+          
+            <h1>Frequent iOS issues</h1>
+          
+          <h2 id="searching-for-errors-and-issues-in-xcode-generated-output">Searching for errors and issues in Xcode generated output<a class="headerlink" href="#searching-for-errors-and-issues-in-xcode-generated-output" title="Permanent link">⚓</a></h2>
+<p><em>This applies only to the raw, unfiltered output of Xcode.
+If you can't find the error reason in the logs make sure to switch the <code>Output Tool</code> option
+of the Xcode ... step to <code>xcodebuild</code> (Xcode's Command Line Tool), which will
+result in a quite verbose output, but will include everything the way it's produced by
+Xcode's command line build tool (<code>xcodebuild</code>). All of the official Bitrise Xcode steps
+have an <code>Output Tool</code> input with a <code>xcodebuild</code> option.</em></p>
+<p>You should search for <code>error:</code> in the Xcode logs, in 99% of the cases that'll be the one which causes your issues.</p>
+<p>If that doesn't work you should also search for <code>warning:</code>, in rare cases Xcode doesn't print an <code>error:</code> even if it fails.</p>
+<p>If you have the logs on your own machine then you can run something like this in your Terminal:</p>
+<pre class="code"><code>grep --color 'error:' my.log
+grep --color 'warning:' my.log</code></pre>
+
+
+<h2 id="xcode-scheme-not-found">Xcode Scheme not found<a class="headerlink" href="#xcode-scheme-not-found" title="Permanent link">⚓</a></h2>
+<p>The first thing you should check if you can't see your Xcode project's scheme
+during setup, or if you get a <code>The project named "Foo" does not contain a scheme named "Bar"</code> error during build,
+is your Xcode project settings.</p>
+<ul>
+<li>Check if the desired Scheme is shared</li>
+<li>When you share your scheme the Xcode project changes. Don't forget to <strong>commit</strong> and to <strong>push</strong> your changes!</li>
+<li>If the related validation is still running on Bitrise abort it and try to run it again.</li>
+</ul>
+<p><img alt="Xcode shared scheme" src="../../img/ios/xcode-shared-scheme.png" /></p>
+<p><strong>Don't forget to commit &amp; push the changes</strong> if you just enabled the Shared option!
+This change should be reflected in your <code>git</code> repository,
+under you project / workspace
+(which is actually a directory, just seems like a file in Finder):
+<code>*.xcodeproj OR *.xcworkspace/xcshareddata/xcschemes/SchemeName.xcscheme</code>.</p>
+<p>If you still can't see the desired Scheme,
+try to look into your <code>.gitignore</code> file and check if you are ignoring the config files of your Xcode project.</p>
+<h2 id="ld-library-not-found-for-lpods-"><code>ld: library not found for -lPods-...</code><a class="headerlink" href="#ld-library-not-found-for-lpods-" title="Permanent link">⚓</a></h2>
+<h3 id="error">Error:<a class="headerlink" href="#error" title="Permanent link">⚓</a></h3>
+<pre class="code"><code>ld: library not found for -lPods-...
+clang: error: linker command failed with exit code 1 (use -v to see invocation)</code></pre>
+
+
+<h3 id="solution">Solution:<a class="headerlink" href="#solution" title="Permanent link">⚓</a></h3>
+<p>Most likely you use Cocoapods but you specified the Xcode project (.xcodeproj) file
+instead of the Workspace (<code>.xcworkspace</code>) file. Go to your App's <strong>Workflow tab</strong> on Bitrise,
+click <strong>Manage Workflows</strong>, click <strong>App Environments</strong> and change the <code>BITRISE_PROJECT_PATH</code> item.
+This will change the default Project Path configuration for every workflow.</p>
+<p><strong>If it worked before</strong> and the <code>BITRISE_PROJECT_PATH</code> did not solve the issue,
+then check your App's other environments - the project file path might be overwritten by a Workflow environment variable,
+or you might have specified a Project Path for the related Xcode step directly.</p>
+<h2 id="works-in-local-but-not-on-bitriseio">Works in local but not on Bitrise.io<a class="headerlink" href="#works-in-local-but-not-on-bitriseio" title="Permanent link">⚓</a></h2>
+<p><em>An example error: <code>ld: file not found ...</code></em></p>
+<p>First of all restart your Xcode and try a new build.</p>
+<p>If it doesn't help try a <strong>clean build</strong> in Xcode.</p>
+<p>If no error was displayed, try resetting your simulator(s).</p>
+<p>Another problem could be your CocoaPods version.
+Try updating your CocoaPods with the <code>[sudo] gem install cocoapods</code> command.
+Also make sure that your <code>Podfile.lock</code> is <strong>committed into your repository</strong>,
+as that's the file which describes the exact Pod versions you use.
+<em>Without this Bitrise might download newer versions of Pods than the ones you use.</em></p>
+<p>If there's still no error try deleting the <code>Pods</code> folder in your project and run the <code>pod install</code> command again.</p>
+<p>Finally, if none of the above helped, or you get an error with <code>ld: file not found</code> on Bitrise,
+and the path contains <code>DerivedData</code>, with no other error message, like this:</p>
+<pre class="code"><code>ld: file not found: /Users/vagrant/Library/Developer/Xcode/DerivedData/...
+clang: error: linker command failed with exit code 1 (use -v to see invocation)</code></pre>
+
+
+<p>Try deleting the Xcode local cache. After that the error should be reproducible on your local machine.</p>
+<p>You can delete the local Xcode cache using your Terminal:</p>
+<pre class="code"><code>rm -rf ~/Library/Developer/Xcode/DerivedData</code></pre>
+
+
+<h2 id="step-hangs-times-out-after-a-period-without-any-logs">Step hangs (times out after a period without any logs)<a class="headerlink" href="#step-hangs-times-out-after-a-period-without-any-logs" title="Permanent link">⚓</a></h2>
+<p>Check whether the scripts you use trigger any GUI prompts or popups, or wait for any user input.
+If a script waits for any user input it can cause the build to hang.</p>
+<p>Most frequent sources of this issue:</p>
+<ul>
+<li><code>Xcode</code> (command line tools) might hang if you try to build a Scheme which is not marked as <strong>shared</strong>.
+  Usually it hangs right after you start any <code>xcodebuild</code> command (e.g. <code>xcodebuild -list</code> or <code>xcodebuild .. archive</code>).<ul>
+<li><strong>Solution</strong>: Please make sure that you marked the Scheme as <strong>shared</strong>,
+  and that you actually committed &amp; pushed it into your repository.
+  For more information please follow this guide: <a href="#xcode-scheme-not-found">Xcode scheme not found</a>.</li>
+</ul>
+</li>
+<li>Your script tries to access an item in the OS X Keychain and the item is configured to
+  ask for permission before access (this is the default type of Access Control configuration
+  if you add an item - for example a password - to Keychain)</li>
+<li>You try to use a script or tool which requires permissions where OS X presents a popup
+  for acceptance (for example an <code>osascript</code>). You can use a workaround to allow the tool,
+  without manual interaction by the user, for example by using <a href="https://github.com/jacobsalmela/tccutil">https://github.com/jacobsalmela/tccutil</a>.<ul>
+<li>For example to add <code>osascript</code> to the allowed OS X Accessibility list you can call <strong>tccutil</strong> from
+  your script (don't forget to include it in your repository or download on-the-fly): <code>sudo python tccutil.py -i /usr/bin/osascript</code></li>
+<li>You can download the script from GitHub directly, for example: <code>wget https://raw.githubusercontent.com/jacobsalmela/tccutil/master/tccutil.py</code>.</li>
+</ul>
+</li>
+<li>It can also be <strong>something in your app's code</strong>.
+  An example: one of our user had a simple <strong>popup in the app, presented only at the first start of the app</strong>.
+  Once the popup was dismissed, the fact was stored in the app's local storage, and the popup was not shown anymore.
+  They did dismiss the popup on their iOS Simulator, but on Bitrise every build runs in a brand new,
+  clean environment, which means that the simulator is in the same state as if you'd hit <strong>"Reset Content and Settings"</strong> in the iOS Simulator's menu.<ul>
+<li><strong>Solution</strong>: try to clean out the simulator/emulator before you'd run the tests on your Mac/PC, to simulate the "first run" experience.</li>
+</ul>
+</li>
+</ul>
+<p>It might also be that the build does not hang, <strong>it just doesn't generate any log output</strong>.
+This can happen for various reasons;
+you can find an example in case of an <a href="https://github.com/bitrise-samples/xcodebuild-piped-output-issue-reproduction">iOS library project</a>.</p>
+<h2 id="cocoapods-frameworks-signing-issue">CocoaPods frameworks signing issue<a class="headerlink" href="#cocoapods-frameworks-signing-issue" title="Permanent link">⚓</a></h2>
+<p>When you get an error something like this:</p>
+<pre class="code"><code>=== CLEAN TARGET Pods-Xxxxxxxxx OF PROJECT Pods WITH CONFIGURATION Release ===
+
+Check dependencies
+[BEROR]Code Sign error: No code signing identities found: No valid signing identities (i.e. certificate and private key pair) matching the team ID “(null)” were found.
+[BEROR]CodeSign error: code signing is required for product type 'Framework' in SDK 'iOS 8.1'</code></pre>
+
+
+<p>This error is related to how CocoaPods expects code signing configurations for <strong>frameworks</strong>.</p>
+<h3 id="solution-1-make-sure-that-you-uploadincludeinstall-a-wildcard-development-provisioning-profile">Solution 1: make sure that you upload/include/install a wildcard development provisioning profile<a class="headerlink" href="#solution-1-make-sure-that-you-uploadincludeinstall-a-wildcard-development-provisioning-profile" title="Permanent link">⚓</a></h3>
+<p>Usually this issue does not happen on your local Mac, and this is the reason why it does not:
+When Xcode performs an initial code signing (when it compiles the framework projects)
+it requires a certificate and provisioning profile which can be used for
+signing the CocoaPods framework projects.</p>
+<p>On your Mac you most likely have your own Development certificate and
+<strong>Wildcard</strong> team provisioning profile, which is enough for Xcode to do the
+initial code signing for the framework projects.</p>
+<p>So, Solution #1 is exactly this, upload these (Development identity/certificate (.p12)
+and the Team <strong>wildcard</strong> provisioning profile) to <a href="https://www.bitrise.io">bitrise.io</a>,
+and Xcode will work the same way as it does on your Mac.
+It'll do an initial code signing with the development signing files,
+and then it'll resign the archive when it exports the final IPA.</p>
+<h3 id="solution-2-modifying-code-signing-settings-through-podfile">Solution 2: modifying code signing settings through <code>Podfile</code><a class="headerlink" href="#solution-2-modifying-code-signing-settings-through-podfile" title="Permanent link">⚓</a></h3>
+<p>One of our beloved user sent us the following fix for this problem.
+You should add the following script as a <code>Post script</code> to your <code>Podfile</code>:</p>
+<pre class="code"><code>post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['EXPANDED_CODE_SIGN_IDENTITY'] = &quot;&quot;
+      config.build_settings['CODE_SIGNING_REQUIRED'] = &quot;NO&quot;
+      config.build_settings['CODE_SIGNING_ALLOWED'] = &quot;NO&quot;
+    end
+  end
+end</code></pre>
+
+
+<p>You can find a related CocoaPods issue and discussion at:
+<a href="https://github.com/CocoaPods/CocoaPods/issues/4331">https://github.com/CocoaPods/CocoaPods/issues/4331</a></p>
+<p>You can also find possible solutions at CocoaPod's official GitHub issues page,
+like this one: <a href="https://github.com/CocoaPods/CocoaPods/issues/3063">https://github.com/CocoaPods/CocoaPods/issues/3063</a>.</p>
+<h2 id="installing-an-enterprise-app-untrusted-enterprise-developer">Installing an Enterprise app: <code>Untrusted Enterprise Developer</code><a class="headerlink" href="#installing-an-enterprise-app-untrusted-enterprise-developer" title="Permanent link">⚓</a></h2>
+<p>If you try to install an Enterprise distribution signed app you might get a
+popup when you try to run the app the first time, with the title <strong>Untrusted Enterprise Developer</strong>.</p>
+<p><img alt="iOS Untrusted Enterprise Developer popup" src="../../img/ios/ios-untrusted-enterprise-developer.png" /></p>
+<p>Starting with iOS 9 there's no option to "Trust" the developer right from the popup.</p>
+<p>You can Trust the developer and enable the app to run in iOS Settings:</p>
+<ol>
+<li>Open the Settings app on your iPhone or iPad</li>
+<li>Select the <code>General</code> category</li>
+<li>Select the <code>Profile</code> option<ul>
+<li>starting with iOS 9.2 the option was renamed to <code>Device Management</code> instead of <code>Profile</code></li>
+</ul>
+</li>
+<li>Tap on the Enterprise App option related to the app (the one mentioned in the popup)</li>
+<li>Tap the <code>Trust "The Developer's Name"</code> button</li>
+<li>A popup will appear, tap on <code>Trust</code> again</li>
+</ol>
+<p>You should now be able to run the app, and any other Enterprise app from the same developer.</p>
+<h2 id="no-dsym-found">No dSYM found<a class="headerlink" href="#no-dsym-found" title="Permanent link">⚓</a></h2>
+<p>A couple of services require the dSYM to be present for deployment but you might have disabled the dSYM generation in your Xcode project.</p>
+<h3 id="solution_1">Solution:<a class="headerlink" href="#solution_1" title="Permanent link">⚓</a></h3>
+<p>To generate debug symbols (dSYM) go to your <code>Xcode Project's Settings -&gt; Build Settings -&gt; Debug Information Format</code> and set it to <em>DWARF with dSYM File</em>.</p>
+<h2 id="invalid-ipa-get-task-allow-values-in-the-embedded-mobileprovision-dont-match-your-binary">Invalid IPA: get-task-allow values in the embedded .mobileprovision don't match your binary<a class="headerlink" href="#invalid-ipa-get-task-allow-values-in-the-embedded-mobileprovision-dont-match-your-binary" title="Permanent link">⚓</a></h2>
+<p><strong>Solution:</strong> Generate a new Certificate on the Apple Developer portal, <strong>not</strong> in Xcode.</p>
+<p>Another solution might be: make sure you have the proper Signing Identity and Provisioning Profile
+in Xcode project settings for both the target and for the project.</p>
+<h2 id="no-identity-found">No identity found<a class="headerlink" href="#no-identity-found" title="Permanent link">⚓</a></h2>
+<p>You uploaded the correct <em>Provisioning Profile</em> and <em>Certificate</em> pair,
+if you check the identity hash it matches with the one you can see in your Keychain,
+but you still get an error like:</p>
+<pre class="code"><code>22...D11: no identity found</code></pre>
+
+
+<p><strong>Solution:</strong></p>
+<p>You probably have a configuration in your Xcode project settings which specifies
+which keychain should be used for the build,
+your scheme might include something like <code>--keychain /../../xxx.keychain</code> code signing flag
+and a <code>CODE_SIGN_KEYCHAIN</code> variable set in the <em>.pbxproj</em>.</p>
+<p><em>This might happen if you migrate your Xcode Bot based setup into Bitrise.</em></p>
+<p>To fix the issue you have to remove the keychain selection configurations from your
+Xcode project settings.</p>
+<h2 id="no-mobileprovision_path-found-no-embeddedmobileprovision-found-in">No mobileprovision_path found / No embedded.mobileprovision found in ...<a class="headerlink" href="#no-mobileprovision_path-found-no-embeddedmobileprovision-found-in" title="Permanent link">⚓</a></h2>
+<p>Error: <code>No embedded.mobileprovision found in ...</code></p>
+<p>Or: <code>No mobileprovision_path found</code></p>
+<h3 id="possible-solution-1-skip-install-xcode-settings">Possible solution 1: <code>Skip Install</code> Xcode Settings<a class="headerlink" href="#possible-solution-1-skip-install-xcode-settings" title="Permanent link">⚓</a></h3>
+<p>If you get this error in the Xcode Archive step you should check your Xcode Projects settings. Most likely you have the <code>Skip Install</code> option set to <code>YES</code>.</p>
+<p>This should only be used for iOS frameworks, <strong>for iOS apps this should be set to <code>NO</code></strong>.</p>
+<p>You can find the official documentation at:
+<a href="https://developer.apple.com/library/ios/technotes/tn2215/_index.html">https://developer.apple.com/library/ios/technotes/tn2215/_index.html</a>
+- under the <em>Xcode successfully archived my application, but the Archives Organizer does not list my archive</em> section.</p>
+<h3 id="possible-solution-2-installation-directory-xcode-settings">Possible solution 2: <code>Installation Directory</code> Xcode Settings<a class="headerlink" href="#possible-solution-2-installation-directory-xcode-settings" title="Permanent link">⚓</a></h3>
+<p><strong>Another cause of the issue can be</strong> if you (or a tool you use) modifies
+the <code>Build Setting -&gt; Deployment -&gt; Installation Directory</code> settings in your Xcode Project.
+This can result in an <code>.xcarchive</code> where your app is not generated
+into the canonical <code>Products/Applications</code> folder, but instead into a <code>Products/Users/USERNAME/...</code> folder,
+including the full absolute path of an intermediate build.</p>
+<p><strong>Solution:</strong> Please make sure that the <code>Installation Directory</code> option is set to <code>$(LOCAL_APPS_DIR)</code>
+(the default value when you generate a new iOS Xcode Project) or <code>/Applications</code>
+(which is the default value of <code>$(LOCAL_APPS_DIR)</code>) in your Xcode Project settings,
+and that no build tool you use modifies this option.</p>
+<p><em>Huge thanks to <strong>Antje</strong>, who reported this solution!</em></p>
+<h2 id="duplicated-schemes">Duplicated Schemes<a class="headerlink" href="#duplicated-schemes" title="Permanent link">⚓</a></h2>
+<p>This is quite rare, but worth checking.
+If you have multiple Schemes in your Xcode Project or Workspace with the <strong>exact same name</strong>,
+when your project is built with Xcode's Command Line Tools Xcode will select one of these Schemes/Configurations,
+<strong>randomly</strong>. This can result in random build success / failure,
+and if you check the Raw Xcode output you'll see something like this:
+<code>xcodebuild: error: Scheme YOUR_DUPLICATED_SCHEME is not currently configured for the test action</code> when it fails.</p>
+<p>This might also happen if you use CocoaPods and one of your Pods have the same name as your project.</p>
+<p>In any way you can debug this by listing the available Schemes with Xcode's command line tool.
+In your project's directory run: <code>xcodebuild -workspace ./path/to/workspace/file -list</code> - or if you use a project file
+instead of a workspace file: <code>xcodebuild -project ./path/to/project/file -list</code>.
+There should be no duplicated Scheme in the printed list.
+You can run this command on your Mac and on bitrise.io too (just add it to a Script step), and ideally you should see the same list.</p>
+          <aside class="copyright" role="note">
+            
+            Documentation built with
+            <a href="http://www.mkdocs.org" target="_blank">MkDocs</a>
+            using the
+            <a href="http://squidfunk.github.io/mkdocs-material/" target="_blank">
+              Material
+            </a>
+            theme.
+          </aside>
+          
+            <footer class="footer">
+              
+  <nav class="pagination" aria-label="Footer">
+    <div class="previous">
+      
+        <a href="../resigning-an-ipa/" title="Resigning an IPA">
+          <span class="direction">
+            Previous
+          </span>
+          <div class="page">
+            <div class="button button-previous" role="button" aria-label="Previous">
+              <i class="icon icon-back"></i>
+            </div>
+            <div class="stretch">
+              <div class="title">
+                Resigning an IPA
+              </div>
+            </div>
+          </div>
+        </a>
+      
+    </div>
+    <div class="next">
+      
+        <a href="../known-xcode-issues/" title="List of known Xcode issues">
+          <span class="direction">
+            Next
+          </span>
+          <div class="page">
+            <div class="stretch">
+              <div class="title">
+                List of known Xcode issues
+              </div>
+            </div>
+            <div class="button button-next" role="button" aria-label="Next">
+              <i class="icon icon-forward"></i>
+            </div>
+          </div>
+        </a>
+      
+    </div>
+  </nav>
+
+            </footer>
+          
+        </div>
+      </article>
+      <div class="results" role="status" aria-live="polite">
+        <div class="scrollable">
+          <div class="wrapper">
+            <div class="meta"></div>
+            <div class="list"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      var base_url = '../..';
+      var repo_id  = 'bitrise-io/devcenter';
+    </script>
+    <script src="../../assets/javascripts/application-997097ee0c.js"></script>
+    
+    
+  </body>
+</html>
