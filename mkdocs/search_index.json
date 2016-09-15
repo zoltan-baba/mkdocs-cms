@@ -829,6 +829,46 @@
             "location": "/faq/how-to-generate-ssh-keypair/", 
             "text": "If you want to do manual SSH key configuration on \nbitrise.io\n\nyou can generate an appropriate SSH keypair with a simple Command Line / Terminal command:\n\n\nssh-keygen -t rsa -b 4096 -P '' -f ./bitrise-ssh\n\n\n\n\nThis will generate two files in the current directory (the directory where\nyou run the command):\n\n\n\n\nbitrise-ssh\n (private key)\n\n\nbitrise-ssh.pub\n (public key)\n\n\n\n\nYou should copy paste the \npublic key\n to your Git hosting service (GitHub, Bitbucket, etc.),\nand when you register your app on \nbitrise.io\n\nyou'll have to provide the \nprivate key\n.", 
             "title": "How to generate an SSH key pair"
+        }, 
+        {
+            "location": "/tools/bitrise-tools/", 
+            "text": "List of Open Source tools maintained by the Bitrise team.\n\n\n\n\nWhere can I find the repositories?\n\n\nFor historical reasons the core Bitrise CLI tools live in \ngithub.com/bitrise-io\n,\nbut most of our tools, and every new tool we create lives in\nthe \ngithub.com/bitrise-tools\n,\nand the CLI core components (plugins, etc.)\nin the \ngithub.com/bitrise-core\n GitHub organization.\n\n\n\n\nCore, Bitrise CLI tools\n\u2693\n\n\n\n\nbitrise\n -\n  the Bitrise CLI, which is used on \nbitrise.io\n\n  to run the builds, as well as you can install it on your own Mac/Linux and run your the build locally!\n\n\nstepman\n -\n  used for managing the Step Library, including\n  downloading and sharing steps.\n\n\nenvman\n -\n  environment variable manager, can be used independently\n  and Bitrise CLI uses it to isolate and manage environment variables during the build.\n\n\n\n\nBitrise CLI plugins\n\u2693\n\n\n\n\nAnalytics plugin\n\n\n\n\nInfrastructure\n\u2693\n\n\n\n\nbitrise-machine\n -\n  Manage bitrise CLI runner hosts (virtual machines). Create, destroy, cleanup based on configuration.\n\n\nbitrise-bridge\n -\n  Responsible for \"bridging\" a Bitrise CLI command\n  from a remote host to the local Bitrise CLI;\n  either directly or by creating a Docker container and running the Bitrise CLI command in it.\n\n\ncmd-bridge\n -\n  Helps bridging an outside (generic) command (e.g. any command, through SSH) into a host. Useful in cases\n  where the command have to be performed in a specific environment, e.g. the iOS Simulator\n  can't be started from an SSH session, it have to be started from a logged in \"GUI\" user.\n  In this case you start \ncmd-bridge\n's server in the environment, and then\n  you can use \ncmd-bridge\n through SSH or another way to send commands to the running\n  \ncmd-bridge\n server, which will perform the commands in its context / the environment\n  it is running in.\n\n\ngarden\n -\n  A tool to manage your template (plan) based directories.\n  You can perform a setup (plant) by running garden grow,\n  which'll create your garden (directories) based on your plans (temlates).\n\n\n\n\niOS\n\u2693\n\n\n\n\ncodesigndoc\n -\n  Your friendly iOS Code Signing Doctor.\n\n\n\n\nGeneric\n\u2693\n\n\n\n\ndepman\n -\n  Super Simple Dependency Manager\n\n\nreleaseman\n -\n  Your friendly Release Manager\n\n\n\n\nGo\n\u2693\n\n\nGo / golang related tools.\n\n\n\n\ngows\n -\n  Go Workspace / Environment Manager, to easily manage the Go Workspace during development.\n\n\ngoinst\n -\n  Go Install command line tools in an isolated environment.\n\n\n\n\nServer / service\n\u2693\n\n\n\n\nbitrise webhooks\n -\n  Bitrise Webhooks processor. Transforms various incoming webhooks (GitHub, Bitbucket, Slack, ...)\n  to \nbitrise.io\n's Build Trigger API format, and calls it to start a build.\n\n\nDATapi\n -\n  A very simple data series storage service.\n  Store and retrieve data series in a quick and simple way, based on timestamp and category of the data.\n\n\nDATapi Ruby Client", 
+            "title": "Bitrise Tools"
+        }, 
+        {
+            "location": "/tools/bitrise-tools/#core-bitrise-cli-tools", 
+            "text": "bitrise  -\n  the Bitrise CLI, which is used on  bitrise.io \n  to run the builds, as well as you can install it on your own Mac/Linux and run your the build locally!  stepman  -\n  used for managing the Step Library, including\n  downloading and sharing steps.  envman  -\n  environment variable manager, can be used independently\n  and Bitrise CLI uses it to isolate and manage environment variables during the build.", 
+            "title": "Core, Bitrise CLI tools"
+        }, 
+        {
+            "location": "/tools/bitrise-tools/#bitrise-cli-plugins", 
+            "text": "Analytics plugin", 
+            "title": "Bitrise CLI plugins"
+        }, 
+        {
+            "location": "/tools/bitrise-tools/#infrastructure", 
+            "text": "bitrise-machine  -\n  Manage bitrise CLI runner hosts (virtual machines). Create, destroy, cleanup based on configuration.  bitrise-bridge  -\n  Responsible for \"bridging\" a Bitrise CLI command\n  from a remote host to the local Bitrise CLI;\n  either directly or by creating a Docker container and running the Bitrise CLI command in it.  cmd-bridge  -\n  Helps bridging an outside (generic) command (e.g. any command, through SSH) into a host. Useful in cases\n  where the command have to be performed in a specific environment, e.g. the iOS Simulator\n  can't be started from an SSH session, it have to be started from a logged in \"GUI\" user.\n  In this case you start  cmd-bridge 's server in the environment, and then\n  you can use  cmd-bridge  through SSH or another way to send commands to the running\n   cmd-bridge  server, which will perform the commands in its context / the environment\n  it is running in.  garden  -\n  A tool to manage your template (plan) based directories.\n  You can perform a setup (plant) by running garden grow,\n  which'll create your garden (directories) based on your plans (temlates).", 
+            "title": "Infrastructure"
+        }, 
+        {
+            "location": "/tools/bitrise-tools/#ios", 
+            "text": "codesigndoc  -\n  Your friendly iOS Code Signing Doctor.", 
+            "title": "iOS"
+        }, 
+        {
+            "location": "/tools/bitrise-tools/#generic", 
+            "text": "depman  -\n  Super Simple Dependency Manager  releaseman  -\n  Your friendly Release Manager", 
+            "title": "Generic"
+        }, 
+        {
+            "location": "/tools/bitrise-tools/#go", 
+            "text": "Go / golang related tools.   gows  -\n  Go Workspace / Environment Manager, to easily manage the Go Workspace during development.  goinst  -\n  Go Install command line tools in an isolated environment.", 
+            "title": "Go"
+        }, 
+        {
+            "location": "/tools/bitrise-tools/#server-service", 
+            "text": "bitrise webhooks  -\n  Bitrise Webhooks processor. Transforms various incoming webhooks (GitHub, Bitbucket, Slack, ...)\n  to  bitrise.io 's Build Trigger API format, and calls it to start a build.  DATapi  -\n  A very simple data series storage service.\n  Store and retrieve data series in a quick and simple way, based on timestamp and category of the data.  DATapi Ruby Client", 
+            "title": "Server / service"
         }
     ]
 }
