@@ -802,6 +802,34 @@ workflows:
               which cmake</code></pre>
 
 
+<p>An advanced tip: if you want to declare a dependency which might be available from
+another source (not through the package manager), then you might also want to declare the
+related <code>binary name</code>. If that matches the package name (like in case of <code>cmake</code>) this is
+completely optional, but in case the package does not match the binary name you can
+declare it with <code>bin_name</code>. An example is AWS CLI, where the package name in both
+package managers is <code>awscli</code>, but the binary itself is <code>aws</code>.</p>
+<p>A minimal <code>bitrise.yml</code> for demonstration:</p>
+<pre class="code"><code>format_version: 1.3.0
+default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
+
+workflows:
+  test:
+    steps:
+    - script:
+        deps:
+          brew:
+          - name: awscli
+            bin_name: aws
+          apt_get:
+          - name: awscli
+            bin_name: aws
+        inputs:
+          - content: |-
+              #!/bin/bash
+              set -ex
+              which aws</code></pre>
+
+
 <h2 id="conditional-execution">Conditional execution<a class="headerlink" href="#conditional-execution" title="Permanent link">⚓</a></h2>
 <p>Additionally, you can use Environment Variables in your scripts too. As an example, using the base <a href="doc:available-environment-variables">Available Environment Variables</a> <code>PR</code> (but you can use any Environment Variable, like the ones exposed by previous steps in the Workflow), to run different scripts in case of a Pull Request and a non Pull Request build:</p>
 <pre class="code"><code class="language-bash linenums">#!/bin/bash
