@@ -869,7 +869,12 @@ as simple as <code>xcodebuild -list</code>.</p>
 <h5 id="solution">Solution<a class="headerlink" href="#solution" title="Permanent link">⚓</a></h5>
 <p><a href="http://devcenter.bitrise.io/v1.0/docs/scheme-cannot-be-found">Make sure that you marked the Scheme as shared, and that you actually committed &amp; pushed it into your repository</a>.</p>
 <h2 id="build-hangs">Build hangs<a class="headerlink" href="#build-hangs" title="Permanent link">⚓</a></h2>
-<p>It might also not Xcode related, but might be caused by something in your
+<h3 id="simulator-reset">Simulator reset<a class="headerlink" href="#simulator-reset" title="Permanent link">⚓</a></h3>
+<p>As reported <a href="https://github.com/bitrise-io/steps-xcode-test/issues/57#event-796203051">here</a>,
+if you do a simulator reset during the build, e.g. with a pre-action
+Build Phase Script <code>xcrun simctl erase all</code>, it can cause Xcode / the Simulator to hang.</p>
+<h3 id="other">Other<a class="headerlink" href="#other" title="Permanent link">⚓</a></h3>
+<p>It might also not be Xcode related, but might be caused by something in your
 project when it runs in an Xcode step (Xcode Test, Xcode Archive, ...).
 For example if you have a Run Phase Script in your Xcode project, that will
 run during Xcode build/test/archive, and that script hangs for some reason
