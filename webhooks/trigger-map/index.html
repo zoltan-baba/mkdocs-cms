@@ -443,8 +443,8 @@
             </li>
           
             <li class="anchor">
-              <a title="A very simple two workflow CI/CD setup" href="#a-very-simple-two-workflow-cicd-setup">
-                A very simple two workflow CI/CD setup
+              <a title="A very simple, two-workflow CI/CD setup" href="#a-very-simple-two-workflow-cicd-setup">
+                A very simple, two-workflow CI/CD setup
               </a>
             </li>
           
@@ -766,10 +766,10 @@ for every code push, but for nothing else (e.g. not for pull requests).</p>
 <h2 id="components-of-the-trigger_map">"Components" of the <code>trigger_map</code><a class="headerlink" href="#components-of-the-trigger_map" title="Permanent link">⚓</a></h2>
 <p>A <code>trigger_map</code> is a <em>list of filters</em>, and the <code>workflow</code> the given
 filters should select in case of a matching trigger.</p>
-<p><strong>Every filter item have to include at least one condition!</strong></p>
+<p><strong>Every filter item has to include at least one condition!</strong></p>
 <p>This means that you can't have an item which only specifies the <code>workflow</code>,
 at least one filter (<code>push_branch</code> / <code>pull_request_source_branch</code> / <code>pull_request_target_branch</code>)
-have to be specified!</p>
+has to be specified!</p>
 <h3 id="the-available-filters">The available filters:<a class="headerlink" href="#the-available-filters" title="Permanent link">⚓</a></h3>
 <ul>
 <li><code>push_branch</code> : A filter which is matched against Code Push events' "branch" parameter</li>
@@ -808,7 +808,7 @@ item. This would effectively mean that the workflow should be selected
 if the event is a Code Push and a Pull Request event <strong>at the same time</strong>.
 This is simply not possible, source code hosting services send separate
 webhooks for Pull Request (pre-merge state) and for Code Push events.
-<em>A single webhook even will never be Code Push and Pull Request at the same time.</em></p>
+<em>A single webhook event will never be Code Push and Pull Request at the same time.</em></p>
 <h2 id="how-to-build-only-a-single-branch">How to build only a single branch<a class="headerlink" href="#how-to-build-only-a-single-branch" title="Permanent link">⚓</a></h2>
 <p>If you want to build only a single branch, for every code push, but for nothing else (no push to
 any other branch should trigger a build, nor any pull request), then
@@ -849,7 +849,7 @@ all you have to do is to change the <code>workflow:</code> for that trigger map 
 <p>This configuration will use the workflow <code>deploy</code> for every code push on <code>master</code>,
 and the workflow <code>primary</code> for every code push on <code>feature/</code> branches,
 and <strong>will not start a build for anything else</strong>.</p>
-<h2 id="a-very-simple-two-workflow-cicd-setup">A very simple two workflow CI/CD setup<a class="headerlink" href="#a-very-simple-two-workflow-cicd-setup" title="Permanent link">⚓</a></h2>
+<h2 id="a-very-simple-two-workflow-cicd-setup">A very simple, two-workflow CI/CD setup<a class="headerlink" href="#a-very-simple-two-workflow-cicd-setup" title="Permanent link">⚓</a></h2>
 <p>A base CI/CD setup involves two workflows: one for integration tests,
 and one for distribution.</p>
 <p>If you have a workflow <code>primary</code> for doing the integration tests,
@@ -880,10 +880,10 @@ just from a branch of the repository),
 one for the code push and one for the pull request!</p>
 <p>An important note: although it might seem like both builds are the same,
 it might not be! The code push event/build builds the code
-of the branch, without any merging etc. It builds the exact same state of the code
+of the branch, without any merging, etc. It builds the exact same state of the code
 what you have when you checkout that branch.
 The Pull Request build on the other hand builds a "pre-merged" state of the code,
-which is expected to be the state of the code <strong>after</strong> you merge the pull request.</p>
+which is expected to be the state of the code <strong>after</strong> you merged the pull request.</p>
 <p>Whether you want to build both or just one of these in case of a pull request
 is up to you and depends on your project's requirements, but with <code>bitrise</code>
 you can decide whether you want it or not.</p>
