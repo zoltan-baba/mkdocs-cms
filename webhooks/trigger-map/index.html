@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     
       
-        <title>Setting up configuration - Bitrise DevCenter</title>
+        <title>Control what to build when, with the Trigger Map - Bitrise DevCenter</title>
       
       
       
@@ -95,12 +95,12 @@
           <span class="path">
             
               
-                Adding a new app <i class="icon icon-link"></i>
+                Webhooks <i class="icon icon-link"></i>
               
             
           </span>
         
-        Setting up configuration
+        Control what to build when, with the Trigger Map
       </div>
     </div>
     
@@ -296,7 +296,7 @@
       
         
   <li>
-    <a class="" title="Adding a new app" href="../">
+    <a class="" title="Adding a new app" href="../../adding-a-new-app/">
       Adding a new app
     </a>
     
@@ -305,7 +305,7 @@
       
         
   <li>
-    <a class="" title="Connecting a repository" href="../connecting-a-repository/">
+    <a class="" title="Connecting a repository" href="../../adding-a-new-app/connecting-a-repository/">
       Connecting a repository
     </a>
     
@@ -314,7 +314,7 @@
       
         
   <li>
-    <a class="" title="Setting up SSH keys" href="../setting-up-ssh-keys/">
+    <a class="" title="Setting up SSH keys" href="../../adding-a-new-app/setting-up-ssh-keys/">
       Setting up SSH keys
     </a>
     
@@ -323,28 +323,9 @@
       
         
   <li>
-    <a class="current" title="Setting up configuration" href="./">
+    <a class="" title="Setting up configuration" href="../../adding-a-new-app/setting-up-configuration/">
       Setting up configuration
     </a>
-    
-      
-      
-        <ul>
-          
-            <li class="anchor">
-              <a title="Project configuration with automatic repository scanner" href="#project-configuration-with-automatic-repository-scanner">
-                Project configuration with automatic repository scanner
-              </a>
-            </li>
-          
-            <li class="anchor">
-              <a title="Skipping the scanner - full manual configuration" href="#skipping-the-scanner-full-manual-configuration">
-                Skipping the scanner - full manual configuration
-              </a>
-            </li>
-          
-        </ul>
-      
     
   </li>
 
@@ -423,7 +404,7 @@
       
         
   <li>
-    <a class="" title="Adding webhooks" href="../../webhooks/">
+    <a class="" title="Adding webhooks" href="../">
       Adding webhooks
     </a>
     
@@ -432,7 +413,7 @@
       
         
   <li>
-    <a class="" title="Adding a GitHub webhook" href="../../webhooks/adding-a-github-webhook/">
+    <a class="" title="Adding a GitHub webhook" href="../adding-a-github-webhook/">
       Adding a GitHub webhook
     </a>
     
@@ -441,9 +422,40 @@
       
         
   <li>
-    <a class="" title="Control what to build when, with the Trigger Map" href="../../webhooks/trigger-map/">
+    <a class="current" title="Control what to build when, with the Trigger Map" href="./">
       Control what to build when, with the Trigger Map
     </a>
+    
+      
+      
+        <ul>
+          
+            <li class="anchor">
+              <a title=""Components" of the trigger_map" href="#components-of-the-trigger_map">
+                "Components" of the trigger_map
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="How to build only a single branch" href="#how-to-build-only-a-single-branch">
+                How to build only a single branch
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="A very simple two workflow CI/CD setup" href="#a-very-simple-two-workflow-cicd-setup">
+                A very simple two workflow CI/CD setup
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="How to build only pull requests" href="#how-to-build-only-pull-requests">
+                How to build only pull requests
+              </a>
+            </li>
+          
+        </ul>
+      
     
   </li>
 
@@ -696,29 +708,224 @@
       <article class="article">
         <div class="wrapper">
           
-            <h1>Setting up configuration</h1>
+            <h1>Control what to build when, with the Trigger Map</h1>
           
-          <p>After <a href="../../adding-a-new-app/setting-up-ssh-keys">Setting up the SSH key</a> for
-your project, Bitrise will download your code to make sure it can access the repository
-and will run an automatic repository scanner script to find the best initial configuration for your project.
-Currently Bitrise will detect <code>iOS</code>, <code>Android</code>, <code>Xamarin</code> and <code>fastlane</code> projects out of the box.</p>
-<p>You can configure other types of projects too, but that will require manual
-configuration.</p>
-<h2 id="project-configuration-with-automatic-repository-scanner">Project configuration with automatic repository scanner<a class="headerlink" href="#project-configuration-with-automatic-repository-scanner" title="Permanent link">⚓</a></h2>
-<p>To validate and automatically scan your project you only need to tell Bitrise
-the default branch of your repository.
-During validation Bitrise will make sure it has access to the given branch,
-using the <a href="../../adding-a-new-app/setting-up-ssh-keys">SSH key</a> you set up.</p>
-<p>After successful validation Bitrise will scan your repository and give you a default workflow</p>
-<h2 id="skipping-the-scanner-full-manual-configuration">Skipping the scanner - full manual configuration<a class="headerlink" href="#skipping-the-scanner-full-manual-configuration" title="Permanent link">⚓</a></h2>
-<p>If for some reason you want to skip the scanner, you can choose
-the <strong>Configure manually without project scanning</strong> option,
-in the <strong>Validation setup</strong> section.</p>
-<p><img alt="Configure manually without project scanning" src="../../img/adding-a-new-app/validation_configure_manually.png" /></p>
-<p>By choosing this option <a href="https://www.bitrise.io/">bitrise.io</a> will only
-validate the access to the repository, but it won't run the scanner.
-Instead, it'll present you the manual configuration options
-in the <em>Project build configuration</em> section.</p>
+          <p>Now that you have a <a href="../../webhooks/">webhook registered</a>,
+the next step is to define when to build what.</p>
+<p>When you register a webhook for an event or for multiple events (e.g. for <code>Code Push</code> and
+for <code>Pull Request</code> events), your source code hosting service will call the webhook
+every time the related event happens.</p>
+<p>On <a href="https://www.bitrise.io">bitrise.io</a> these webhooks calls are called "triggers",
+and can be mapped to different <code>Workflows</code>, or not mapped at all.
+If you don't map a trigger to any workflow, then <a href="https://www.bitrise.io">bitrise.io</a> won't
+start a build. If you map it to a workflow, then a build will be started
+with the selected workflow.</p>
+<p>In the following examples we'll use a very simple Bitrise configuration (<code>bitrise.yml</code>),
+which does nothing else just prints the selected workflow's ID:</p>
+<pre class="code"><code class="language-yaml">---
+format_version: 1.3.0
+default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
+trigger_map:
+- push_branch: &quot;*&quot;
+  workflow: primary
+- pull_request_target_branch: &quot;*&quot;
+  pull_request_source_branch: &quot;*&quot;
+  workflow: primary
+workflows:
+  primary:
+    steps:
+    - script:
+        inputs:
+        - content: |-
+            #!/bin/bash
+            echo &quot;$BITRISE_TRIGGERED_WORKFLOW_ID&quot;</code></pre>
+
+
+<div class="admonition note">
+<p class="admonition-title">What is bitrise.yml?</p>
+<p><code>bitrise.yml</code> is the representation of your app's configuration.
+In the workflow editor you can edit it in a visual way through the web UI,
+but you can always switch to <code>bitrise.yml</code> mode (left side of the workflow editor)
+to see the configuration in a YAML format, as well as you can edit the configuration
+in YAML format too. It's up to you which solution you prefer, the visual web UI
+or the YAML (<code>bitrise.yml</code>) representation, and you can switch between the two
+any time (the changes you do in the web UI will be reflected in the <code>bitrise.yml</code>,
+and vice versa).</p>
+</div>
+<p>The above example <code>bitrise.yml</code> will select the <code>primary</code> branch for every Code Push (<code>push_branch</code>)
+and for every Pull Request (<code>pull_request_target_branch</code>).</p>
+<p><em>If you remove the pull request item</em> from the <code>trigger_map</code> list, then
+no pull request will trigger a build anymore. Example:</p>
+<pre class="code"><code class="language-yaml">trigger_map:
+- push_branch: &quot;*&quot;
+  workflow: primary</code></pre>
+
+
+<p>This configuration will start a build with the <code>primary</code> workflow
+for every code push, but for nothing else (e.g. not for pull requests).</p>
+<h2 id="components-of-the-trigger_map">"Components" of the <code>trigger_map</code><a class="headerlink" href="#components-of-the-trigger_map" title="Permanent link">⚓</a></h2>
+<p>A <code>trigger_map</code> is a <em>list of filters</em>, and the <code>workflow</code> the given
+filters should select in case of a matching trigger.</p>
+<p><strong>Every filter item have to include at least one condition!</strong></p>
+<p>This means that you can't have an item which only specifies the <code>workflow</code>,
+at least one filter (<code>push_branch</code> / <code>pull_request_source_branch</code> / <code>pull_request_target_branch</code>)
+have to be specified!</p>
+<h3 id="the-available-filters">The available filters:<a class="headerlink" href="#the-available-filters" title="Permanent link">⚓</a></h3>
+<ul>
+<li><code>push_branch</code> : A filter which is matched against Code Push events' "branch" parameter</li>
+<li><code>pull_request_source_branch</code> : A filter which is matched against Pull Request events' "source branch"
+  parameter (the branch the pull request was started from)</li>
+<li><code>pull_request_target_branch</code> : A filter which is matched against Pull Request events' "target branch"
+  parameter - the branch the pull request will be <strong>merged into</strong></li>
+<li><code>pattern</code> : <strong>DEPRECATED</strong> - this filter was used for both code push and pull request events,
+  in combination with <code>is_pull_request_allowed</code>. This filter is now deprecated,
+  as the new filters allow better control over event mapping.</li>
+</ul>
+<p>If you define multiple filters in a single item then <strong>all filters have to match</strong>
+in order to select that item's workflow.
+For example:</p>
+<pre class="code"><code>trigger_map:
+- pull_request_target_branch: &quot;master&quot;
+  pull_request_source_branch: &quot;develop&quot;
+  workflow: primary</code></pre>
+
+
+<p>will only select the <code>primary</code> workflow if the pull request's source branch is <code>develop</code> <strong>AND</strong>
+the target branch is <code>master</code>.</p>
+<p>If you want to specify filters which should be treated separately, e.g. to
+select <code>primary</code> for pull requests where the source is <code>develop</code>, as well as select
+for the ones which target <code>master</code>:</p>
+<pre class="code"><code>trigger_map:
+- pull_request_target_branch: &quot;master&quot;
+  workflow: primary
+- pull_request_source_branch: &quot;develop&quot;
+  workflow: primary</code></pre>
+
+
+<p>One last note, which is hopefully not surprising after the previous example:
+you can't mix and match <code>push_branch</code> and the <code>pull_request_..</code> filters in the same
+item. This would effectively mean that the workflow should be selected
+if the event is a Code Push and a Pull Request event <strong>at the same time</strong>.
+This is simply not possible, source code hosting services send separate
+webhooks for Pull Request (pre-merge state) and for Code Push events.
+<em>A single webhook even will never be Code Push and Pull Request at the same time.</em></p>
+<h2 id="how-to-build-only-a-single-branch">How to build only a single branch<a class="headerlink" href="#how-to-build-only-a-single-branch" title="Permanent link">⚓</a></h2>
+<p>If you want to build only a single branch, for every code push, but for nothing else (no push to
+any other branch should trigger a build, nor any pull request), then
+all you have to do is to specify a <code>trigger_map</code> which does not map anything else
+to any workflow, only the branch you want to build.</p>
+<p>E.g. if you only want to build the <code>master</code> branch on code push:</p>
+<pre class="code"><code class="language-yaml">trigger_map:
+- push_branch: master
+  workflow: primary</code></pre>
+
+
+<p>Or if you only want to build <code>feature/</code> branches:</p>
+<pre class="code"><code class="language-yaml">trigger_map:
+- push_branch: feature/*
+  workflow: primary</code></pre>
+
+
+<p>Or the two together:</p>
+<pre class="code"><code class="language-yaml">trigger_map:
+- push_branch: master
+  workflow: primary
+- push_branch: feature/*
+  workflow: primary</code></pre>
+
+
+<p>This configuration will start a build for every code push which happens on
+either <code>master</code> or on a <code>feature/</code> branch, and will use the same workflow for
+both (<code>primary</code>).</p>
+<p>If you want to use a differentn workflow for your <code>master</code> branch, then
+all you have to do is to change the <code>workflow:</code> for that trigger map item:</p>
+<pre class="code"><code class="language-yaml">trigger_map:
+- push_branch: master
+  workflow: deploy
+- push_branch: feature/*
+  workflow: primary</code></pre>
+
+
+<p>This configuration will use the workflow <code>deploy</code> for every code push on <code>master</code>,
+and the workflow <code>primary</code> for every code push on <code>feature/</code> branches,
+and <strong>will not start a build for anything else</strong>.</p>
+<h2 id="a-very-simple-two-workflow-cicd-setup">A very simple two workflow CI/CD setup<a class="headerlink" href="#a-very-simple-two-workflow-cicd-setup" title="Permanent link">⚓</a></h2>
+<p>A base CI/CD setup involves two workflows: one for integration tests,
+and one for distribution.</p>
+<p>If you have a workflow <code>primary</code> for doing the integration tests,
+and <code>deploy</code> to do the deployment / distribution, and you want to
+run the integration test for code pushes and pull requests on every branch
+except the <code>master</code> branch, which should instead use the <code>deploy</code> workflow:</p>
+<pre class="code"><code class="language-yaml">trigger_map:
+- push_branch: master
+  workflow: deploy
+- push_branch: &quot;*&quot;
+  workflow: primary
+- pull_request_target_branch: &quot;*&quot;
+  workflow: primary</code></pre>
+
+
+<div class="admonition warning">
+<p class="admonition-title">Order of the items matter!</p>
+<p>When <code>bitrise</code> receives a webhook event (any kind) it'll match it against
+the app's <code>trigger_map</code>. <strong>The first item it matches will select the workflow for the build!</strong></p>
+</div>
+<p>This means that if you'd specify the <code>push_branch: master</code> <strong>after</strong> the
+<code>push_branch: "*"</code> item, <code>master</code> would never be selected as every code push
+event would match <code>push_branch: "*"</code> first!</p>
+<h3 id="dont-start-two-builds-for-pull-requests-from-the-same-repository">Don't start two builds for pull requests from the same repository<a class="headerlink" href="#dont-start-two-builds-for-pull-requests-from-the-same-repository" title="Permanent link">⚓</a></h3>
+<p>When you start a Pull Request from the same repository (not from a fork,
+just from a branch of the repository),
+<strong>the source code hosting service will send two webhooks</strong>,
+one for the code push and one for the pull request!</p>
+<p>An important note: although it might seem like both builds are the same,
+it might not be! The code push event/build builds the code
+of the branch, without any merging etc. It builds the exact same state of the code
+what you have when you checkout that branch.
+The Pull Request build on the other hand builds a "pre-merged" state of the code,
+which is expected to be the state of the code <strong>after</strong> you merge the pull request.</p>
+<p>Whether you want to build both or just one of these in case of a pull request
+is up to you and depends on your project's requirements, but with <code>bitrise</code>
+you can decide whether you want it or not.</p>
+<div class="admonition note">
+<p class="admonition-title">Code merge is treated as Code Push!</p>
+<p>Source code hosting services treat the event of "merge" as a code push
+event. For example if you merge a Pull Request from <code>feature/a</code> into <code>master</code>,
+when you merge the PR it will generate a code push to <code>master</code>.</p>
+</div>
+<p>An example to build only the pull request ("pre-merged") events/state,
+in addition to deploying <code>master</code>:</p>
+<pre class="code"><code class="language-yaml">trigger_map:
+- push_branch: master
+  workflow: deploy
+- pull_request_target_branch: &quot;*&quot;
+  workflow: primary</code></pre>
+
+
+<p>or if you don't want to start a build for pull requests, only for code push events:</p>
+<pre class="code"><code class="language-yaml">trigger_map:
+- push_branch: master
+  workflow: deploy
+- push_branch: &quot;*&quot;
+  workflow: primary</code></pre>
+
+
+<h2 id="how-to-build-only-pull-requests">How to build only pull requests<a class="headerlink" href="#how-to-build-only-pull-requests" title="Permanent link">⚓</a></h2>
+<p>If all you want is to run integration tests for pull requests, and you
+don't want to do anything else, then you can use a trigger map configuration
+like this:</p>
+<pre class="code"><code class="language-yaml">trigger_map:
+- pull_request_target_branch: &quot;*&quot;
+  workflow: primary</code></pre>
+
+
+<p>This will select the <code>primary</code> workflow for every and any pull request,
+and will not start a build for anything else.</p>
+<p>If you'd only want to build pull requests which are targeted to
+be merged into <code>master</code>, the configuration would look like this:</p>
+<pre class="code"><code class="language-yaml">trigger_map:
+- pull_request_target_branch: master
+  workflow: primary</code></pre>
           <aside class="copyright" role="note">
             
             Documentation built with
@@ -735,7 +942,7 @@ in the <em>Project build configuration</em> section.</p>
   <nav class="pagination" aria-label="Footer">
     <div class="previous">
       
-        <a href="../setting-up-ssh-keys/" title="Setting up SSH keys">
+        <a href="../adding-a-github-webhook/" title="Adding a GitHub webhook">
           <span class="direction">
             Previous
           </span>
@@ -745,7 +952,7 @@ in the <em>Project build configuration</em> section.</p>
             </div>
             <div class="stretch">
               <div class="title">
-                Setting up SSH keys
+                Adding a GitHub webhook
               </div>
             </div>
           </div>
@@ -754,14 +961,14 @@ in the <em>Project build configuration</em> section.</p>
     </div>
     <div class="next">
       
-        <a href="../../tutorials/community-created/" title="Community Created">
+        <a href="../../caching/about-caching/" title="About caching">
           <span class="direction">
             Next
           </span>
           <div class="page">
             <div class="stretch">
               <div class="title">
-                Community Created
+                About caching
               </div>
             </div>
             <div class="button button-next" role="button" aria-label="Next">
