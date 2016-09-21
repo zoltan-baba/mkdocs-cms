@@ -494,6 +494,12 @@
         <ul>
           
             <li class="anchor">
+              <a title="How iOS code signing works - if you use Xcode 8 automatic code signing" href="#how-ios-code-signing-works-if-you-use-xcode-8-automatic-code-signing">
+                How iOS code signing works - if you use Xcode 8 automatic code signing
+              </a>
+            </li>
+          
+            <li class="anchor">
               <a title="How iOS code signing works (Xcode 7 &amp; Xcode 8 manual code signing mode)" href="#how-ios-code-signing-works-xcode-7-xcode-8-manual-code-signing-mode">
                 How iOS code signing works (Xcode 7 &amp; Xcode 8 manual code signing mode)
               </a>
@@ -698,7 +704,104 @@
           
             <h1>Code Signing</h1>
           
-          <h2 id="how-ios-code-signing-works-xcode-7-xcode-8-manual-code-signing-mode">How iOS code signing works (Xcode 7 &amp; Xcode 8 manual code signing mode)<a class="headerlink" href="#how-ios-code-signing-works-xcode-7-xcode-8-manual-code-signing-mode" title="Permanent link">⚓</a></h2>
+          <h2 id="how-ios-code-signing-works-if-you-use-xcode-8-automatic-code-signing">How iOS code signing works - if you use Xcode 8 automatic code signing<a class="headerlink" href="#how-ios-code-signing-works-if-you-use-xcode-8-automatic-code-signing" title="Permanent link">⚓</a></h2>
+<p><em>If you're interested in all of the details, you should check this year's
+<a href="https://developer.apple.com/videos/play/wwdc2016/401/">WWDC video which covers the code signing changes</a>.
+We'll focus more on the basics and issue resolution here.</em></p>
+<p>In short, Xcode 8's automatic code signing works this way:</p>
+<ol>
+<li>When you do an Archive in Xcode, either in Xcode.app or on a CI server / through Xcode's command line tool (<code>xcodebuild</code>)
+   it first creates an archive <strong>signed with development code signing</strong>.</li>
+<li>Then, when you specify the distribution method (export method) it <strong>resigns the archive with distribution signing</strong>.</li>
+</ol>
+<p><img alt="Xcode Organizer - export method selector popup" src="../../img/ios/xcode-organizer-export-method.png" /></p>
+<p>This means that if you want to create for example an App Store signed IPA,
+on the Mac (e.g. on the <a href="https://www.bitrise.io">bitrise.io</a> virtual machine)
+you have to have <strong>both a Wildcard, Team / Development AND the App Store
+distribution certificates and provisioning profiles</strong>!</p>
+<div class="admonition note">
+<p class="admonition-title">Collecting all of these might take quite a bit of time</p>
+<p>but fortunately our updated <a href="https://github.com/bitrise-tools/codesigndoc">codesigndoc</a>
+can now collect all of these files for you, <strong>automatically</strong>!</p>
+</div>
+<p>So, <strong>does this automatic code signing worth all of this trouble</strong>?
+Should you instead opt to use manual code signing in Xcode 8?</p>
+<p>In general using Automatic code signing is a good idea, and you should
+migrate to it (as Apple suggests this is the new way, how you should do
+code signing in the future) if you can.</p>
+<p><strong>Does it worth the trouble?</strong> Well, <strong>the good thing about Automatic code signing</strong>
+is that once you collected all the code signing files
+<strong>it's incredibly easy to use these files / to select the right file(s) during your build!</strong></p>
+<p>All you need to do is specifying the "export method" (<code>app-store</code>, <code>ad-hoc</code>, etc.)
+in the <code>Xcode Archive</code> step, and that's all! <strong>Xcode will select the right certificate
+and provisioning profiles automatically</strong>, based on your project's
+Team and Bundle ID (if the signing files are available in the system of course ;) )!</p>
+<p><strong>Compare this with the previous solution</strong>, where you had to either create multiple Schemes
+in Xcode to be able to control where to use which code signing settings,
+or you had to specify "Force Identity / Provisioning Profile" options,
+which could lead to even more trouble when not configured properly.
+In Xcode 8 automatic code signing you don't have to (actually, you can't)
+mess with these configurations, initial code signing is always performed
+with Development code signing, and Xcode resignes the IPA during export
+based on the "export method".</p>
+<p>And, <strong>it works the same way on <a href="https://www.bitrise.io">bitrise.io</a> too</strong>!
+Once you've uploaded all the required signing files (e.g. with <a href="https://github.com/bitrise-tools/codesigndoc">codesigndoc</a>),
+all you have to do is to set the <code>export method</code> option
+of the <code>Xcode Archive</code> step to the option you want to use.
+<strong>That's all!</strong></p>
+<p>This is the same as what you do when you create/export an iOS app archive
+from Xcode.app - <em>the <code>Xcode Archive</code> step just runs Xcode's command line tool</em>.
+There's no "magic" here, <code>Xcode Archive</code> just passes the export options
+to Xcode, and Xcode creates the archive and IPA the same way it does on your Mac!</p>
+<h3 id="migrating-your-bitrise-configuration-to-automatic-code-signing">Migrating your Bitrise configuration to Automatic code signing<a class="headerlink" href="#migrating-your-bitrise-configuration-to-automatic-code-signing" title="Permanent link">⚓</a></h3>
+<p>First of all, you should upgrade your steps in your Workflow
+to the latest versions - especially the <code>Certificate and profile installer</code>
+and the <code>Xcode Archive</code> steps - as there are a couple of features
+only available in the latest versions.</p>
+<p>The second step is to <strong>remove every previous, now incompatible code signing input
+from the <code>Xcode Archive</code> step</strong>.
+In general you should try to <strong>reset every code signing related input option of the <code>Xcode Archive</code> step</strong>,
+e.g. "Force code signing with Identity" and "Force code signing with Provisioning Profile Specifier".</p>
+<p><em>Note: it might be easier to see which input options you defined a value for in <code>bitrise.yml</code> mode
+of the Workflow Editor. Just click on <code>bitrise.yml</code> on the left side of the Workflow Editor
+and search for the <code>xcode-archive</code> step. In <code>bitrise.yml</code> only those inputs are listed which
+you specified a value for / which are not set to their default value, so it should be pretty
+quick to check the list there, easier than on the Web UI.</em></p>
+<p><strong>You're almost ready</strong>, really! All you have to do is:</p>
+<ol>
+<li>Make sure that you've uploaded all the required code signing files, <strong>including a Wildcard Team Development</strong>
+   certificate and provisioning profile, as noted in the <strong>Description of how Xcode 8's new Automatic code signing feature works</strong> section.
+   You might want to use <a href="https://github.com/bitrise-tools/codesigndoc">codesigndoc</a> for this,
+   as it can export all the required files automatically from your Mac.</li>
+<li>Set the <code>Select method for export</code> input option of the <code>Xcode Archive</code> step to the
+   method you want to use (e.g. <code>app-store</code> or <code>ad-hoc</code>)</li>
+</ol>
+<p><strong>And that's all!</strong></p>
+<p><em>You can use multiple <code>Xcode Archive</code> steps to create multiple IPAs signed with different
+code signing methods in the same build, just by adding a second <code>Xcode Archive</code> step
+and setting the <code>Select method for export</code> option to the other method.
+Alternatively you can also use the <code>Re-sign IPA</code> step, to resign the IPA
+of a previous <code>Xcode Archive</code> step.</em></p>
+<p>One note: if you'd have to use a distribution provisioning profile &amp; certificate
+which is related to a different Team, not the one set in your Xcode project's
+settings, then you have to specify the <code>The Developer Portal team to use for this export</code>
+input option too, or else Xcode will search for code signing files with the same Team ID
+you have in your Xcode project's settings. Again, this is the same what you do in
+Xcode.app when you create an Archive and export it with a distribution signing - if you're
+part of more than one Apple Dev Portal team you'll be prompted to select one.</p>
+<p>Another note, especially if your project includes Extension project(s),
+for some reason, Xcode 8.0 might not accept just any Wildcard Development Provisioning Profile
+for the initial signing. It seems that in case of e.g. a Today Widget Extension
+Xcode 8.0 requires the Wildcard <strong>Team</strong> Provisioning Profile,
+or a specific development one which includes the Extension's <strong>full</strong> bundle ID.
+This might be just an Xcode 8.0 issue which will be fixed in an upcoming Xcode 8 update,
+but for now it's best to use the <strong>Team</strong> Provisioning Profile, which you can
+export from Xcode Preferences (Xcode -&gt; Preferences -&gt; select your Apple ID on the left side -&gt;
+select your Team on the right side -&gt; click "View Details" -&gt; search for
+<code>iOS Team Provisioning Profile: *</code> -&gt; right click "Show in Finder").
+<strong><em><a href="https://github.com/bitrise-tools/codesigndoc">codesigndoc</a> can help to
+export the proper one in this case too!</em></strong></p>
+<h2 id="how-ios-code-signing-works-xcode-7-xcode-8-manual-code-signing-mode">How iOS code signing works (Xcode 7 &amp; Xcode 8 manual code signing mode)<a class="headerlink" href="#how-ios-code-signing-works-xcode-7-xcode-8-manual-code-signing-mode" title="Permanent link">⚓</a></h2>
 <p>iOS apps require code signing for every action/output which generates an app (<code>.ipa</code>) meant to
 run on a physical iOS device.</p>
 <p>When you create and export an Archive (<code>.ipa</code>) of your app Xcode will sign it automatically,
