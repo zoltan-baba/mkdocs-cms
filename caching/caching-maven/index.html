@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     
       
-        <title>Changing the owner of an app - Bitrise DevCenter</title>
+        <title>Caching Maven - Bitrise DevCenter</title>
       
       
       
@@ -95,12 +95,12 @@
           <span class="path">
             
               
-                Team management <i class="icon icon-link"></i>
+                Caching <i class="icon icon-link"></i>
               
             
           </span>
         
-        Changing the owner of an app
+        Caching Maven
       </div>
     </div>
     
@@ -377,7 +377,7 @@
       
         
   <li>
-    <a class="" title="Adding a new team member" href="../">
+    <a class="" title="Adding a new team member" href="../../team-management/">
       Adding a new team member
     </a>
     
@@ -386,12 +386,9 @@
       
         
   <li>
-    <a class="current" title="Changing the owner of an app" href="./">
+    <a class="" title="Changing the owner of an app" href="../../team-management/changing-the-owner-of-an-app/">
       Changing the owner of an app
     </a>
-    
-      
-      
     
   </li>
 
@@ -443,7 +440,7 @@
       
         
   <li>
-    <a class="" title="About caching" href="../../caching/about-caching/">
+    <a class="" title="About caching" href="../about-caching/">
       About caching
     </a>
     
@@ -452,7 +449,7 @@
       
         
   <li>
-    <a class="" title="Caching Cocoapods" href="../../caching/caching-cocoapods/">
+    <a class="" title="Caching Cocoapods" href="../caching-cocoapods/">
       Caching Cocoapods
     </a>
     
@@ -461,7 +458,7 @@
       
         
   <li>
-    <a class="" title="Caching Gradle" href="../../caching/caching-gradle/">
+    <a class="" title="Caching Gradle" href="../caching-gradle/">
       Caching Gradle
     </a>
     
@@ -470,16 +467,29 @@
       
         
   <li>
-    <a class="" title="Caching Maven" href="../../caching/caching-maven/">
+    <a class="current" title="Caching Maven" href="./">
       Caching Maven
     </a>
+    
+      
+      
+        <ul>
+          
+            <li class="anchor">
+              <a title="Example workflow (gradle and maven caches)" href="#example-workflow-gradle-and-maven-caches">
+                Example workflow (gradle and maven caches)
+              </a>
+            </li>
+          
+        </ul>
+      
     
   </li>
 
       
         
   <li>
-    <a class="" title="Caching Ruby GEMs" href="../../caching/caching-ruby-gems/">
+    <a class="" title="Caching Ruby GEMs" href="../caching-ruby-gems/">
       Caching Ruby GEMs
     </a>
     
@@ -689,18 +699,38 @@
       <article class="article">
         <div class="wrapper">
           
-            <h1>Changing the owner of an app</h1>
+            <h1>Caching Maven</h1>
           
-          <p>It can happen that you need to transfer an application on <a href="https://www.bitrise.io">Bitrise</a> to another user. This can be done in a few seconds by following these quick steps:</p>
+          <p>Your build process may use <a href="https://maven.apache.org/">Apache Maven</a> repositories to fetch dependencies at runtime.
+For example <a href="http://robolectric.org">Roboelectric</a> testing framework uses <a href="https://oss.sonatype.org/content/groups/public/">Sonatype</a>
+to fetch target platforms and shadow-classes during a test run (unless explicitly <a href="http://robolectric.org/configuring/">configured</a>).
+Resolved dependencies are cached in a local Maven repository at <code>$HOME/.m2</code></p>
+<p>To cache it follow these steps:   </p>
 <ol>
-<li>Login with the <strong>current owner</strong> of the app</li>
-<li>Open the app's page and go to the <strong>Team</strong> tab</li>
-<li>Make sure the new owner of the app is in the team or add her/him if you need to</li>
-<li>Click the <code>Transfer ownership</code> button next to the current owner's username</li>
+<li>Put the <code>Cache:Pull</code> step after the Git Clone</li>
+<li>Put the <code>Cache:Push</code> step to the very end of the Workflow</li>
+<li>Select the <code>Cache:Push</code> step and add the following paths for caching (Cache Paths input):
+   <pre><code>$HOME/.m2</code></pre></li>
 </ol>
-<p>For transferring the ownership, select the new user to transfer the app to:</p>
-<p><img alt="Screenshot" src="https://www.filepicker.io/api/file/D4e0sF00SNeewMmmjCQ5" /></p>
-<p>You can use the toggle to stay the connected service user. This is important if you are the admin of the given repository on <code>GitHub</code>, or <code>Bitbucket</code> and the app needs your credentials to work on Bitrise.</p>
+<h2 id="example-workflow-gradle-and-maven-caches">Example workflow (gradle and maven caches)<a class="headerlink" href="#example-workflow-gradle-and-maven-caches" title="Permanent link">⚓</a></h2>
+<pre class="code"><code class="language-yml">example:
+  steps:
+  - git-clone: {}
+  - cache-pull: {}
+  - gradle-runner:
+      inputs:
+      - gradle_file: &quot;$BITRISE_PROJECT_PATH&quot;
+      - gradle_task: &quot;$GRADLE_TASK&quot;
+  - cache-push:
+      inputs:
+      - cache_paths: |-
+          $HOME/.gradle
+          ./.gradle
+          $HOME/.m2
+      - ignore_check_on_paths: |-
+          $HOME/.gradle/caches/*.lock
+          ./.gradle/*.lock
+          ./.gradle/*.bin</code></pre>
           <aside class="copyright" role="note">
             
             Documentation built with
@@ -717,7 +747,7 @@
   <nav class="pagination" aria-label="Footer">
     <div class="previous">
       
-        <a href="../" title="Adding a new team member">
+        <a href="../caching-gradle/" title="Caching Gradle">
           <span class="direction">
             Previous
           </span>
@@ -727,7 +757,7 @@
             </div>
             <div class="stretch">
               <div class="title">
-                Adding a new team member
+                Caching Gradle
               </div>
             </div>
           </div>
@@ -736,14 +766,14 @@
     </div>
     <div class="next">
       
-        <a href="../../webhooks/" title="Adding webhooks">
+        <a href="../caching-ruby-gems/" title="Caching Ruby GEMs">
           <span class="direction">
             Next
           </span>
           <div class="page">
             <div class="stretch">
               <div class="title">
-                Adding webhooks
+                Caching Ruby GEMs
               </div>
             </div>
             <div class="button button-next" role="button" aria-label="Next">

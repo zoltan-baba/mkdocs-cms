@@ -467,6 +467,15 @@
       
         
   <li>
+    <a class="" title="Caching Maven" href="../caching-maven/">
+      Caching Maven
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
     <a class="current" title="Caching Ruby GEMs" href="./">
       Caching Ruby GEMs
     </a>
@@ -699,7 +708,9 @@
             <h1>Caching Ruby GEMs</h1>
           
           <h2 id="technical-note">Technical note<a class="headerlink" href="#technical-note" title="Permanent link">⚓</a></h2>
-<p>Ruby GEMs are installed into a single directory by default. You can get the location of this directory with <code>gem environment gemdir</code>. If you want to change this directory you can set the <code>$GEM_HOME</code> environment variable, this will be picked up by <code>gem install</code> and it'll install the GEMs to the location specified by <code>$GEM_HOME</code>.</p>
+<p>Ruby GEMs are installed into a single directory by default. You can get the location of this directory
+with <code>gem environment gemdir</code>. If you want to change this directory you can set the <code>$GEM_HOME</code> environment variable,
+this will be picked up by <code>gem install</code> and it'll install the GEMs to the location specified by <code>$GEM_HOME</code>.</p>
 <p>Now that you know where the Ruby GEMs are stored you can easily cache the directory. As in any other previous case you need two steps:</p>
 <ol>
 <li>put the <code>Cache:Pull</code> step after the <code>Git Clone</code></li>
@@ -708,18 +719,21 @@
 </ol>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>You can't just add <code>gem environment gemdir</code> to the input as you can only reference Environment Variables in the inputs directly, and <code>$GEM_HOME</code> is not set by default on the Bitrise.io VMs.</p>
+<p>You can't just add <code>gem environment gemdir</code> to the input as you can only reference
+Environment Variables in the inputs directly,
+and <code>$GEM_HOME</code> is not set by default on the Bitrise.io VMs.</p>
 </div>
 <p>There are two simple solutions for this issue:</p>
 <ul>
 <li>Set <code>GEM_HOME</code> as an App Env Var to, let's say, <code>$HOME/.gem</code>.</li>
 <li>Add a <code>Script step</code> to your workflow and set the <code>$GEM_HOME</code> environment variable there</li>
 </ul>
-<p>The second option is usually more error proof as you don't change the location of gem home, you just set the environment variable to the path where it's located.</p>
+<p>The second option is usually more error proof as you don't change the location of gem home,
+you just set the environment variable to the path where it's located.</p>
 <h2 id="example-workflow">Example workflow<a class="headerlink" href="#example-workflow" title="Permanent link">⚓</a></h2>
 <pre class="code"><code class="language-yml">example:
   steps:
-  - script@1.1.0:
+  - script:
       title: GEM_HOME
       inputs:
       - content: |-
@@ -727,7 +741,7 @@
           set -ev
 
           envman add --key GEM_HOME --value &quot;$(gem environment gemdir)&quot;
-  - git-clone@3.2.0: {}
+  - git-clone: {}
   - cache-pull: {}
 
   # ... Add your steps here.
@@ -754,7 +768,7 @@
   <nav class="pagination" aria-label="Footer">
     <div class="previous">
       
-        <a href="../caching-gradle/" title="Caching Gradle">
+        <a href="../caching-maven/" title="Caching Maven">
           <span class="direction">
             Previous
           </span>
@@ -764,7 +778,7 @@
             </div>
             <div class="stretch">
               <div class="title">
-                Caching Gradle
+                Caching Maven
               </div>
             </div>
           </div>

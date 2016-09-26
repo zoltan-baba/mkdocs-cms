@@ -480,6 +480,15 @@
       
         
   <li>
+    <a class="" title="Caching Maven" href="../caching-maven/">
+      Caching Maven
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
     <a class="" title="Caching Ruby GEMs" href="../caching-ruby-gems/">
       Caching Ruby GEMs
     </a>
@@ -695,24 +704,24 @@
           <ol>
 <li>Put the <code>Cache:Pull</code> step after the <code>Git Clone</code>, and before the <code>CocoaPods Install</code> step</li>
 <li>Put the <code>Cache:Push</code> step to the very end of the Workflow</li>
-<li>Select the <code>Cache:Push</code> step and specify the following paths for caching: (Cache Paths inputs)<blockquote>
-<p><code>./Pods -&gt; ./Podfile.lock</code></p>
-</blockquote>
-</li>
+<li>Select the <code>Cache:Push</code> step and specify the following paths for caching (Cache Paths inputs):
+   <pre><code>./Pods -&gt; ./Podfile.lock</code></pre></li>
 </ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If your Podfile and Pods directory is not in the root of your repository then you should specify the path relative to the repository root, e.g. ./subdir/Pods -&gt; ./subdir/Podfile.lock</p>
+<p>If your Podfile and Pods directory is not in the root of your repository then you should specify the
+path relative to the repository root, e.g. <code>./subdir/Pods -&gt; ./subdir/Podfile.lock</code></p>
 </div>
-<p>That's all. This specification (using the <code>-&gt;</code> separator) means that the <code>./Pods</code> directory should be cached, and that the cache should be updated/uploaded only if the <code>./Podfile.lock</code> file changes.</p>
+<p>That's all. This specification (using the <code>-&gt;</code> separator) means that the <code>./Pods</code> directory
+should be cached, and that the cache should be updated/uploaded only if the <code>./Podfile.lock</code> file changes.</p>
 <h2 id="example-workflow">Example workflow<a class="headerlink" href="#example-workflow" title="Permanent link">⚓</a></h2>
 <pre class="code"><code class="language-yml">example:
   steps:
-  - git-clone@3.2.0: {}
+  - git-clone: {}
   - cache-pull: {}
   - cocoapods-install:
-  - certificate-and-profile-installer@1.4.0: {}
-  - xcode-archive@1.7.1:
+  - certificate-and-profile-installer: {}
+  - xcode-archive:
   - cache-push:
       inputs:
       - cache_paths: &quot;./Pods -&gt; ./Podfile.lock&quot;</code></pre>

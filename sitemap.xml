@@ -184,6 +184,12 @@
     </url>
         
     <url>
+     <loc>None/caching/caching-maven/</loc>
+     <lastmod>2016-09-26</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>None/caching/caching-ruby-gems/</loc>
      <lastmod>2016-09-26</lastmod>
      <changefreq>daily</changefreq>
