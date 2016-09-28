@@ -760,6 +760,38 @@ by one, but having all three in the script covers most of the cases related to t
 <p>so if the error is related to an outdated package, the workaround
 we describe here can be removed from your build after that weekend's update.</p>
 </div>
+<h3 id="alternative-solution-for-the-license-error">Alternative solution for the license error<a class="headerlink" href="#alternative-solution-for-the-license-error" title="Permanent link">⚓</a></h3>
+<p>An alternative solution for the <code>You have not accepted the license agreements of the following SDK components</code>
+error, as printed in the log:</p>
+<pre class="code"><code>Before building your project, you need to accept the license agreements and complete the installation of the missing components using the Android Studio SDK Manager.
+  Alternatively, to learn how to transfer the license agreements from one workstation to another, go to http://d.android.com/r/studio-ui/export-licenses.html</code></pre>
+
+
+<p>You can find more info at the link printed in the log (<a href="http://d.android.com/r/studio-ui/export-licenses.html">http://d.android.com/r/studio-ui/export-licenses.html</a>),
+but in short this can be done by:</p>
+<p><strong>Locate the licenses on your Mac/PC</strong>:</p>
+<blockquote>
+<p>If you have accepted the license agreements on one workstation, but wish to build your projects on a different one,
+you can export your licenses by copying the accepted licenses folder from the Android Sdk Home
+folder (this should be located at <code>&lt;android sdk home path&gt;/licenses</code>) of your current workstation,
+to the Android Sdk Home directory of the machine where you now want to build your projects.</p>
+</blockquote>
+<p><strong>Create an <code>android-licenses</code> directory in the root directory of your git repository,
+and copy the license files into this directory</strong>,
+then in your Workflow copy the licenses to the right location using a <code>Script</code> step.</p>
+<p><strong>Add the <code>Script</code> step right after the <code>Git Clone</code> step</strong> (that's when your code is available
+on the build virtual machine), with the content:</p>
+<pre class="code"><code class="language-bash linenums">#!/bin/bash
+# fail if any commands fails 
+set -e 
+# debug log 
+set -x
+
+rsync -avhP ./android-licenses/ &quot;$ANDROID_HOME/licenses/&quot;</code></pre>
+
+
+<p>That's all, this script copies the licenses from the <code>android-licenses</code> (from your repository)
+into the system's Android SDK Home path under <code>licenses</code> directory.</p>
           <aside class="copyright" role="note">
             
             Documentation built with
