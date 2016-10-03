@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     
       
-        <title>Signing up with GitHub - Bitrise DevCenter</title>
+        <title>Adding a Bitbucket webhook - Bitrise DevCenter</title>
       
       
       
@@ -95,12 +95,12 @@
           <span class="path">
             
               
-                Signing up <i class="icon icon-link"></i>
+                Webhooks <i class="icon icon-link"></i>
               
             
           </span>
         
-        Signing up with GitHub
+        Adding a Bitbucket webhook
       </div>
     </div>
     
@@ -251,41 +251,16 @@
       
         
   <li>
-    <a class="current" title="Signing up with GitHub" href="./">
+    <a class="" title="Signing up with GitHub" href="../../signing-up/signing-up-with-github/">
       Signing up with GitHub
     </a>
-    
-      
-      
-        <ul>
-          
-            <li class="anchor">
-              <a title="Sign up" href="#sign-up">
-                Sign up
-              </a>
-            </li>
-          
-            <li class="anchor">
-              <a title="Authorize Bitrise" href="#authorize-bitrise">
-                Authorize Bitrise
-              </a>
-            </li>
-          
-            <li class="anchor">
-              <a title="Finish signup" href="#finish-signup">
-                Finish signup
-              </a>
-            </li>
-          
-        </ul>
-      
     
   </li>
 
       
         
   <li>
-    <a class="" title="Signing up with Bitbucket" href="../signing-up-with-bitbucket/">
+    <a class="" title="Signing up with Bitbucket" href="../../signing-up/signing-up-with-bitbucket/">
       Signing up with Bitbucket
     </a>
     
@@ -294,7 +269,7 @@
       
         
   <li>
-    <a class="" title="Signing up with email" href="../signing-up-with-email/">
+    <a class="" title="Signing up with email" href="../../signing-up/signing-up-with-email/">
       Signing up with email
     </a>
     
@@ -303,7 +278,7 @@
       
         
   <li>
-    <a class="" title="Trial after signing up" href="../trial-after-signing-up/">
+    <a class="" title="Trial after signing up" href="../../signing-up/trial-after-signing-up/">
       Trial after signing up
     </a>
     
@@ -429,7 +404,7 @@
       
         
   <li>
-    <a class="" title="Adding webhooks" href="../../webhooks/">
+    <a class="" title="Adding webhooks" href="../">
       Adding webhooks
     </a>
     
@@ -438,7 +413,7 @@
       
         
   <li>
-    <a class="" title="Adding a GitHub webhook" href="../../webhooks/adding-a-github-webhook/">
+    <a class="" title="Adding a GitHub webhook" href="../adding-a-github-webhook/">
       Adding a GitHub webhook
     </a>
     
@@ -447,16 +422,35 @@
       
         
   <li>
-    <a class="" title="Adding a Bitbucket webhook" href="../../webhooks/adding-a-bitbucket-webhook/">
+    <a class="current" title="Adding a Bitbucket webhook" href="./">
       Adding a Bitbucket webhook
     </a>
+    
+      
+      
+        <ul>
+          
+            <li class="anchor">
+              <a title="Get the webhook URL for Bitbucket" href="#get-the-webhook-url-for-bitbucket">
+                Get the webhook URL for Bitbucket
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Setup webhook on Bitbucket" href="#setup-webhook-on-bitbucket">
+                Setup webhook on Bitbucket
+              </a>
+            </li>
+          
+        </ul>
+      
     
   </li>
 
       
         
   <li>
-    <a class="" title="Control what to build when, with the Trigger Map" href="../../webhooks/trigger-map/">
+    <a class="" title="Control what to build when, with the Trigger Map" href="../trigger-map/">
       Control what to build when, with the Trigger Map
     </a>
     
@@ -747,27 +741,26 @@
       <article class="article">
         <div class="wrapper">
           
-            <h1>Signing up with GitHub</h1>
+            <h1>Adding a Bitbucket webhook</h1>
           
-          <p>You are able to authenticate yourself with your GitHub user against Bitrise. It means some practical benefits, like logging in with one click and of course you won't have to authorize your GitHub account when adding repositories hosted by these providers again.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If you'd like to sign up with your email address, please follow the instructions in <a href="../../signing-up/signing-up-with-email">sign up with email address</a>.</p>
-</div>
-<h2 id="sign-up">Sign up<a class="headerlink" href="#sign-up" title="Permanent link">⚓</a></h2>
-<p>Go to the Sign up page with pressing <code>Sign up!</code> on the landing page of <a href="https://bitrise.io">bitrise.io</a>.</p>
-<p><img alt="Screenshot" src="../../img/signing-up/github_signup.png" /></p>
-<p>Select <code>GitHub</code> for authenticating yourself with one of these services.</p>
-<h2 id="authorize-bitrise">Authorize Bitrise<a class="headerlink" href="#authorize-bitrise" title="Permanent link">⚓</a></h2>
-<p>You have to authorize Bitrise before we can establish the connection. This means you give permissions to Bitrise to access (read) your repositories.</p>
-<p><img alt="Screenshot" src="../../img/signing-up/github_authorization.png" /></p>
-<p>If you press the <code>Authorize application</code> button, you will be redirected to Bitrise.</p>
-<h2 id="finish-signup">Finish signup<a class="headerlink" href="#finish-signup" title="Permanent link">⚓</a></h2>
-<p>You will have to pick a username and a password for your Bitrise account. This way you are free from relying on the given service's availability, you are also able to connect more accounts, GitHub <strong>and</strong> Bitbucket, for example. Last, but not least, you don't have to stick to your connected account's username.</p>
-<p><img alt="Screenshot" src="../../img/signing-up/signup_finish.png" /></p>
-<p>After that, you are ready to roll.</p>
-<p>From now on, you are able to sign in with a click of a button. Choose your favorite!</p>
-<p><img alt="Screenshot" src="../../img/signing-up/signup_success.png" /></p>
+          <p>To have Bitrise automatically start a build every time you push code into your repository you can set up a webhook at your code hosting service which will automatically trigger a build on Bitrise with the code you push to your repository.</p>
+<h2 id="get-the-webhook-url-for-bitbucket">Get the webhook URL for Bitbucket<a class="headerlink" href="#get-the-webhook-url-for-bitbucket" title="Permanent link">⚓</a></h2>
+<p>Navigate to the <code>Code</code> tab of your app's page and select <code>Bitbucket</code> from the dropdown at the webhooks section.</p>
+<p><img alt="Screenshot" src="../../img/webhooks/webhooks_bitbucket.png" /></p>
+<p>Copy the webhook URL for the selected service.</p>
+<h2 id="setup-webhook-on-bitbucket">Setup webhook on Bitbucket<a class="headerlink" href="#setup-webhook-on-bitbucket" title="Permanent link">⚓</a></h2>
+<p>Navigate to your Bitbucket repository and select <code>Settings</code>.</p>
+<p><img alt="Screenshot" src="../../img/webhooks/bitbucket_settings.png" /></p>
+<p>Select <code>Webhooks</code> from the left.</p>
+<p><img alt="Screenshot" src="../../img/webhooks/bitbucket_settings_webhooks.png" /></p>
+<p>Select <code>Add Webhook</code></p>
+<p><img alt="Screenshot" src="../../img/webhooks/bitbucket_add_webhooks.png" /></p>
+<p>Paste the Bitbucket Webhook URL from Bitrise to the <code>URL</code> and add a <code>Title</code>.</p>
+<p><img alt="Screenshot" src="../../img/webhooks/bitbucket_webhook_info.png" /></p>
+<p>Select <code>Choose from a full list of triggers</code>.</p>
+<p><img alt="Screenshot" src="../../img/webhooks/bitbucket_webhook_trigger.png" /></p>
+<p>Select Repository <code>Push</code> and Pull Request <code>Created</code> and <code>Updated</code> triggers. After you are ready press the <code>Save</code> button and you are ready to roll!</p>
+<p><img alt="Screenshot" src="../../img/webhooks/bitbucket_webhook_push_and_pr.png" /></p>
           <aside class="copyright" role="note">
             
             Documentation built with
@@ -784,7 +777,7 @@
   <nav class="pagination" aria-label="Footer">
     <div class="previous">
       
-        <a href="../../infrastructure/available-stacks/" title="Available Stacks">
+        <a href="../adding-a-github-webhook/" title="Adding a GitHub webhook">
           <span class="direction">
             Previous
           </span>
@@ -794,7 +787,7 @@
             </div>
             <div class="stretch">
               <div class="title">
-                Available Stacks
+                Adding a GitHub webhook
               </div>
             </div>
           </div>
@@ -803,14 +796,14 @@
     </div>
     <div class="next">
       
-        <a href="../signing-up-with-bitbucket/" title="Signing up with Bitbucket">
+        <a href="../trigger-map/" title="Control what to build when, with the Trigger Map">
           <span class="direction">
             Next
           </span>
           <div class="page">
             <div class="stretch">
               <div class="title">
-                Signing up with Bitbucket
+                Control what to build when, with the Trigger Map
               </div>
             </div>
             <div class="button button-next" role="button" aria-label="Next">

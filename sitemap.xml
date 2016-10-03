@@ -156,6 +156,12 @@
     </url>
         
     <url>
+     <loc>None/webhooks/adding-a-bitbucket-webhook/</loc>
+     <lastmod>2016-10-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>None/webhooks/trigger-map/</loc>
      <lastmod>2016-10-03</lastmod>
      <changefreq>daily</changefreq>
