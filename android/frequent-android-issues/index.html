@@ -571,6 +571,12 @@
               </a>
             </li>
           
+            <li class="anchor">
+              <a title="Install an additional Android package" href="#install-an-additional-android-package">
+                Install an additional Android package
+              </a>
+            </li>
+          
         </ul>
       
     
@@ -760,15 +766,15 @@ To do that add a <code>Script</code> step to your workflow -
 should be before the step where you get the error, it can be the very first step in the workflow -
 with the following content:</p>
 <pre class="code"><code class="language-bash linenums">#!/bin/bash
-# fail if any commands fails 
-set -e 
-# debug log 
+# fail if any commands fails
+set -e
+# debug log
 set -x
 
-# write your script here 
-echo y | android update sdk --no-ui --all --filter extra-android-support | grep 'package installed' 
+# write your script here
+echo y | android update sdk --no-ui --all --filter extra-android-support | grep 'package installed'
 echo y | android update sdk --no-ui --all --filter extra-android-m2repository | grep 'package installed'
-echo y | android update sdk --no-ui --all --filter extra-google-m2repository | grep 'package installed' </code></pre>
+echo y | android update sdk --no-ui --all --filter extra-google-m2repository | grep 'package installed'</code></pre>
 
 
 <p>In most cases you don't need all three packages to be updated, so you can try to remove them one
@@ -800,9 +806,9 @@ then in your Workflow copy the licenses to the right location using a <code>Scri
 <p><strong>Add the <code>Script</code> step right after the <code>Git Clone</code> step</strong> (that's when your code is available
 on the build virtual machine), with the content:</p>
 <pre class="code"><code class="language-bash linenums">#!/bin/bash
-# fail if any commands fails 
-set -e 
-# debug log 
+# fail if any commands fails
+set -e
+# debug log
 set -x
 
 rsync -avhP ./android-licenses/ &quot;$ANDROID_HOME/licenses/&quot;</code></pre>
@@ -810,6 +816,32 @@ rsync -avhP ./android-licenses/ &quot;$ANDROID_HOME/licenses/&quot;</code></pre>
 
 <p>That's all, this script copies the licenses from the <code>android-licenses</code> (from your repository)
 into the system's Android SDK Home path under <code>licenses</code> directory.</p>
+<h2 id="install-an-additional-android-package">Install an additional Android package<a class="headerlink" href="#install-an-additional-android-package" title="Permanent link">⚓</a></h2>
+<p>An Android package (e.g. a build tool version) is not preinstalled or missing?
+No problem at all, the solution is quite simple!</p>
+<p>Just add a <code>Script</code> step to your Workflow (can be the very first step)
+and run <code>android sdk update ..</code> with the package you want to install.</p>
+<p>An example <code>Script</code> step content which installs <code>build-tools-24.0.3</code>:</p>
+<pre class="code"><code class="language-bash linenums">#!/bin/bash
+# fail if any commands fails
+set -e
+# debug log
+set -x
+
+# write your script here
+echo y | android update sdk --no-ui --all --filter build-tools-24.0.3 | grep 'package installed'</code></pre>
+
+
+<p>This should work for any other Android package - you can
+get the full available Android package list by running this on your Mac/PC:</p>
+<pre class="code"><code>android list sdk --no-ui --all --extended</code></pre>
+
+
+<div class="admonition note">
+<p class="admonition-title">Request a package to be pre-installed</p>
+<p>If we missed an Android package which should be pre-installed,
+feel free to create a Pull Request here: <a href="https://github.com/bitrise-docker/android/blob/master/Dockerfile">https://github.com/bitrise-docker/android/blob/master/Dockerfile</a></p>
+</div>
           <aside class="copyright" role="note">
             
             Documentation built with
