@@ -458,6 +458,18 @@
             </li>
           
             <li class="anchor">
+              <a title="Don't start two builds for pull requests from the same repository" href="#dont-start-two-builds-for-pull-requests-from-the-same-repository">
+                Don't start two builds for pull requests from the same repository
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Three workflows: test, deploy to staging and deploy to production" href="#three-workflows-test-deploy-to-staging-and-deploy-to-production">
+                Three workflows: test, deploy to staging and deploy to production
+              </a>
+            </li>
+          
+            <li class="anchor">
               <a title="How to build only pull requests" href="#how-to-build-only-pull-requests">
                 How to build only pull requests
               </a>
@@ -782,6 +794,8 @@ trigger_map:
 - pull_request_target_branch: &quot;*&quot;
   pull_request_source_branch: &quot;*&quot;
   workflow: primary
+- tag: &quot;*&quot;
+  workflow: primary
 workflows:
   primary:
     steps:
@@ -803,8 +817,8 @@ or the YAML (<code>bitrise.yml</code>) representation, and you can switch betwee
 any time (the changes you do in the web UI will be reflected in the <code>bitrise.yml</code>,
 and vice versa).</p>
 </div>
-<p>The above example <code>bitrise.yml</code> will select the <code>primary</code> branch for every Code Push (<code>push_branch</code>)
-and for every Pull Request (<code>pull_request_target_branch</code>).</p>
+<p>The above example <code>bitrise.yml</code> will select the <code>primary</code> branch for every Code Push (<code>push_branch: "*"</code>), Tag Push (<code>tag: "*"</code>)
+and for every Pull Request (<code>pull_request_target_branch: "*"</code> &amp; <code>pull_request_source_branch: "*"</code>).</p>
 <p><em>If you remove the pull request item</em> from the <code>trigger_map</code> list, then
 no pull request will trigger a build anymore. Example:</p>
 <pre class="code"><code class="language-yaml">trigger_map:
@@ -819,7 +833,7 @@ for every code push, but for nothing else (e.g. not for pull requests).</p>
 filters should select in case of a matching trigger.</p>
 <p><strong>Every filter item has to include at least one condition!</strong></p>
 <p>This means that you can't have an item which only specifies the <code>workflow</code>,
-at least one filter (<code>push_branch</code> / <code>pull_request_source_branch</code> / <code>pull_request_target_branch</code>)
+at least one filter (<code>push_branch</code> / <code>pull_request_source_branch</code> / <code>pull_request_target_branch</code> / <code>tag</code>)
 has to be specified!</p>
 <h3 id="the-available-filters">The available filters:<a class="headerlink" href="#the-available-filters" title="Permanent link">⚓</a></h3>
 <ul>
@@ -828,6 +842,7 @@ has to be specified!</p>
   parameter (the branch the pull request was started from)</li>
 <li><code>pull_request_target_branch</code> : A filter which is matched against Pull Request events' "target branch"
   parameter - the branch the pull request will be <strong>merged into</strong></li>
+<li><code>tag</code> : A filter which is matched against Tag Push events' "tag" (name) parameter</li>
 <li><code>pattern</code> : <strong>DEPRECATED</strong> - this filter was used for both code push and pull request events,
   in combination with <code>is_pull_request_allowed</code>. This filter is now deprecated,
   as the new filters allow better control over event mapping.</li>
@@ -854,15 +869,16 @@ for the ones which target <code>master</code>:</p>
 
 
 <p>One last note, which is hopefully not surprising after the previous example:
-you can't mix and match <code>push_branch</code> and the <code>pull_request_..</code> filters in the same
-item. This would effectively mean that the workflow should be selected
-if the event is a Code Push and a Pull Request event <strong>at the same time</strong>.
+you can't mix and match <code>push_branch</code>, <code>tag</code> and the <code>pull_request_..</code> filters <strong>in the same item</strong>.
+This would effectively mean that the workflow should be selected
+if the event is a Code Push and a Pull Request (or Tag Push) event <strong>at the same time</strong>.
 This is simply not possible, source code hosting services send separate
-webhooks for Pull Request (pre-merge state) and for Code Push events.
-<em>A single webhook event will never be Code Push and Pull Request at the same time.</em></p>
+webhooks for Pull Request (pre-merge state), Tags and for Code Push events.
+<em>A single webhook event will never be Code Push, Tag Push and Pull Request at the same time</em>,
+a single webhook is always related to only one type (Code Push, Tag Push or Pull Request).</p>
 <h2 id="how-to-build-only-a-single-branch">How to build only a single branch<a class="headerlink" href="#how-to-build-only-a-single-branch" title="Permanent link">⚓</a></h2>
 <p>If you want to build only a single branch, for every code push, but for nothing else (no push to
-any other branch should trigger a build, nor any pull request), then
+any other branch should trigger a build, nor any pull request or tag), then
 all you have to do is to specify a <code>trigger_map</code> which does not map anything else
 to any workflow, only the branch you want to build.</p>
 <p>E.g. if you only want to build the <code>master</code> branch on code push:</p>
@@ -888,7 +904,7 @@ to any workflow, only the branch you want to build.</p>
 <p>This configuration will start a build for every code push which happens on
 either <code>master</code> or on a <code>feature/</code> branch, and will use the same workflow for
 both (<code>primary</code>).</p>
-<p>If you want to use a differentn workflow for your <code>master</code> branch, then
+<p>If you want to use a different workflow for your <code>master</code> branch, then
 all you have to do is to change the <code>workflow:</code> for that trigger map item:</p>
 <pre class="code"><code class="language-yaml">trigger_map:
 - push_branch: master
@@ -924,13 +940,13 @@ the app's <code>trigger_map</code>. <strong>The first item it matches will selec
 <p>This means that if you'd specify the <code>push_branch: master</code> <strong>after</strong> the
 <code>push_branch: "*"</code> item, <code>master</code> would never be selected as every code push
 event would match <code>push_branch: "*"</code> first!</p>
-<h3 id="dont-start-two-builds-for-pull-requests-from-the-same-repository">Don't start two builds for pull requests from the same repository<a class="headerlink" href="#dont-start-two-builds-for-pull-requests-from-the-same-repository" title="Permanent link">⚓</a></h3>
+<h2 id="dont-start-two-builds-for-pull-requests-from-the-same-repository">Don't start two builds for pull requests from the same repository<a class="headerlink" href="#dont-start-two-builds-for-pull-requests-from-the-same-repository" title="Permanent link">⚓</a></h2>
 <p>When you start a Pull Request from the same repository (not from a fork,
 just from a branch of the repository),
 <strong>the source code hosting service will send two webhooks</strong>,
 one for the code push and one for the pull request!</p>
 <p>An important note: although it might seem like both builds are the same,
-it might not be! The code push event/build builds the code
+it most likely isn't! The code push event/build builds the code
 of the branch, without any merging, etc. It builds the exact same state of the code
 what you have when you checkout that branch.
 The Pull Request build on the other hand builds a "pre-merged" state of the code,
@@ -939,7 +955,7 @@ which is expected to be the state of the code <strong>after</strong> you merged 
 is up to you and depends on your project's requirements, but with <code>bitrise</code>
 you can decide whether you want it or not.</p>
 <div class="admonition note">
-<p class="admonition-title">Code merge is treated as Code Push!</p>
+<p class="admonition-title">Pull Request merge is actually a Code Push!</p>
 <p>Source code hosting services treat the event of "merge" as a code push
 event. For example if you merge a Pull Request from <code>feature/a</code> into <code>master</code>,
 when you merge the PR it will generate a code push to <code>master</code>.</p>
@@ -961,6 +977,66 @@ in addition to deploying <code>master</code>:</p>
   workflow: primary</code></pre>
 
 
+<h2 id="three-workflows-test-deploy-to-staging-and-deploy-to-production">Three workflows: test, deploy to staging and deploy to production<a class="headerlink" href="#three-workflows-test-deploy-to-staging-and-deploy-to-production" title="Permanent link">⚓</a></h2>
+<p>Another common CI/CD pattern is to have three workflows:</p>
+<ul>
+<li>A Test workflow, which will run for every pull request, every code push on <code>feature/</code> branches etc.,
+  to test whether the test can be integrated into a release (branch)</li>
+<li>A Staging deployment workflow, to deploy the app/code to an internal/testing system. Examples:<ul>
+<li>In case of an iOS app this can be e.g. an Ad Hoc signed IPA deployed to HockeyApp, where your tester team can
+  download and test it, or a deploy to iTunes Connect / TestFlight for internal testing.</li>
+<li>In case of an Android app this can be a deploy to Google Play to a "beta" track.</li>
+<li>In case of a server code this can be a deploy to e.g. a staging Heroku server.</li>
+</ul>
+</li>
+<li>A Production deployment workflow, to deploy the app/code into production. Examples:<ul>
+<li>In case of an iOS app this can be an App Store signed IPA deployed to iTunes Connect/TestFlight,
+  enabled for "external testing".</li>
+<li>In case of an Android app this can be a deploy to Google Play as a public update of the app.</li>
+<li>In case of a server code this can be a deploy to e.g. the production Heroku server.</li>
+</ul>
+</li>
+</ul>
+<p>So, we have three workflows (<code>primary</code> (test), <code>deploy-to-staging</code> and <code>deploy-to-production</code>)
+and we'll specify three triggers, to select the right workflow for the right trigger.</p>
+<p>There are two similar approaches, depending whether you prefer tags of branches for
+production deployment:</p>
+<h3 id="using-tags-to-trigger-the-production-deployment">Using Tags to trigger the production deployment<a class="headerlink" href="#using-tags-to-trigger-the-production-deployment" title="Permanent link">⚓</a></h3>
+<pre class="code"><code class="language-yaml">trigger_map:
+- tag: v*.*.*
+  workflow: deploy-to-production
+- push_branch: master
+  workflow: deploy-to-staging
+- push_branch: &quot;*&quot;
+  workflow: primary
+- pull_request_target_branch: &quot;*&quot;
+  workflow: primary</code></pre>
+
+
+<p>This trigger map configuration will trigger a build:</p>
+<ul>
+<li>with the <code>deploy-to-production</code> workflow if a new tag (with the format <code>v*.*.*</code>, e.g. <code>v1.0.0</code>) is pushed</li>
+<li>with the <code>deploy-to-staging</code> workflow if a code push happens on the <code>master</code> branch (e.g. a pull request is merged into the <code>master</code> branch)</li>
+<li>with the <code>primary</code> workflow for any other branch and for pull requests</li>
+</ul>
+<h3 id="using-a-branch-to-trigger-the-production-deployment">Using a Branch to trigger the production deployment<a class="headerlink" href="#using-a-branch-to-trigger-the-production-deployment" title="Permanent link">⚓</a></h3>
+<pre class="code"><code class="language-yaml">trigger_map:
+- push_branch: master
+  workflow: deploy-to-production
+- push_branch: develop
+  workflow: deploy-to-staging
+- push_branch: &quot;*&quot;
+  workflow: primary
+- pull_request_target_branch: &quot;*&quot;
+  workflow: primary</code></pre>
+
+
+<p>This trigger map configuration will trigger a build:</p>
+<ul>
+<li>with the <code>deploy-to-production</code> workflow if a code push happens on the <code>master</code> branch (e.g. a git flow release branch merged into <code>master</code>)</li>
+<li>with the <code>deploy-to-staging</code> workflow if a code push happens on the <code>develop</code> branch (e.g. a pull request is merged into the <code>develop</code> branch)</li>
+<li>with the <code>primary</code> workflow for any other branch and for pull requests</li>
+</ul>
 <h2 id="how-to-build-only-pull-requests">How to build only pull requests<a class="headerlink" href="#how-to-build-only-pull-requests" title="Permanent link">⚓</a></h2>
 <p>If all you want is to run integration tests for pull requests, and you
 don't want to do anything else, then you can use a trigger map configuration
@@ -981,18 +1057,21 @@ be merged into <code>master</code>, the configuration would look like this:</p>
 
 <h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">⚓</a></h2>
 <p><strong>Debugging - what happens with webhooks related to un-mapped branches</strong></p>
-<p>You can't limit Webhooks by branch in most of the services,
+<p>You can't limit Webhooks by branch in most of the source code hosting services,
 so <a href="https://www.bitrise.io">bitrise.io</a> will still receive a webhook call for every code push of other branches,
 but it won't start a build unless it finds a matching filter in the <code>trigger_map</code>,
 which specifies a <code>workflow</code> to be selected for the build.
 <em>This is also true if you use the <strong>Build Trigger API</strong> directly.</em></p>
-<p>You can see all the ignored calls on your <a href="http://www.bitrise.io/activity">Activity page on bitrise.io</a>.</p>
+<p>You can see all the ignored calls on your <a href="http://www.bitrise.io/activity">Activity page on bitrise.io</a>.
+This means that if you think a given event should have started a build but it did not,
+you should check your <code>Activity</code> page (or your source code hosting service's Webhook history - more info a bit below)
+to find out why it did not trigger a build.</p>
 <p>An ignored build call entry in the Activity list looks like:</p>
 <pre class="code"><code>Build trigger failed: trigger-pattern (push_branch:) (pr_source_branch:prtest/t1) (pr_target_branch:develop) did not match any defined workflow in trigger_map
 PROJECT-NAME - Run triggered with params: push-branch: , pr-source-branch: prtest/t1, pr-target-branch: develop, but no matching workflow found</code></pre>
 
 
-<p>Bitrise returns the reason to the source code hosting service (the service which sent the webhook) too,
+<p><strong>Bitrise also returns the reason to the source code hosting service</strong> (the service which sent the webhook, e.g. GitHub) too,
 so if your service has a webhook history (e.g. GitHub, Bitbucket, ...)
 you can see the reason why a given webhook did not trigger a build there too!</p>
 <p>Simply open the webhook history on your source code hosting service,
@@ -1000,8 +1079,8 @@ and check the response Bitrise returned. It will be something like:</p>
 <pre class="code"><code>{&quot;success_responses&quot;:[],&quot;failed_responses&quot;:[{&quot;status&quot;:&quot;error&quot;,&quot;message&quot;:&quot;trigger pattern did not match any defined mapping: Run triggered with params: push-branch: , pr-source-branch: prtest/t1, pr-target-branch: develop, but no matching workflow found&quot;,&quot;service&quot;:&quot;bitrise&quot;,&quot;slug&quot;:&quot;...&quot;,&quot;build_slug&quot;:&quot;&quot;,&quot;build_number&quot;:0,&quot;build_url&quot;:&quot;&quot;,&quot;triggered_workflow&quot;:&quot;&quot;}]}</code></pre>
 
 
-<p><em>These detailed responses are only generated if you use
-the new <a href="https://hooks.bitrise.io">hooks.bitrise.io</a> webhook URL!
+<p><em><strong>These detailed responses are only generated if you use
+the new <a href="https://hooks.bitrise.io">hooks.bitrise.io</a> webhook URL!</strong>
 Initially we had a non open source <code>bitrise.io/hooks</code> endpoint
 for webhooks, but every new project registered should now get the new
 <code>hooks.bitrise.io</code> webhook URL automatically. If your webhook
@@ -1016,6 +1095,10 @@ using our <a href="https://www.bitrise.io/cli">open source, Bitrise CLI</a>.</p>
 
 <p>To simulate a Pull Request, you can run:</p>
 <pre class="code"><code>bitrise trigger-check --pr-source-branch=feature/a --pr-target-branch=master</code></pre>
+
+
+<p>To simulate a tag push, you can run:</p>
+<pre class="code"><code>bitrise trigger-check --tag 1.0.0</code></pre>
 
 
 <p>For more information and options run:</p>
