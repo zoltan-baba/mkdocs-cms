@@ -760,7 +760,7 @@ if you know what <code>bitrise run WORKFLOW</code> does, that should be enough f
 <li>Make sure you have your <code>bitrise.yml</code> in your repository (you don't have to commit it, but the file have to exist in your repository's root directory)</li>
 <li><code>cd</code> into your repository's directory on your Mac/Linux</li>
 <li><code>docker pull bitriseio/docker-android:latest</code></li>
-<li><code>docker run --env CI=false --volume "$(pwd):/bitrise/src" --rm bitriseio/docker-android:latest bitrise run WORKFLOW</code></li>
+<li><code>docker run --privileged --env CI=false --volume "$(pwd):/bitrise/src" --volume "/var/run/docker.sock:/var/run/docker.sock" --rm bitriseio/docker-android:latest bitrise run WORKFLOW</code></li>
 </ol>
 <p><em>Keep reading if you want to read more details and notes about the process and commands!</em></p>
 <h2 id="getting-started">Getting started<a class="headerlink" href="#getting-started" title="Permanent link">⚓</a></h2>
@@ -789,7 +789,7 @@ on <a href="https://www.bitrise.io">bitrise.io</a>, under the <code>bitrise.yml<
 of <em>your repository</em>, and make sure your <code>bitrise.yml</code> is at this location.</p>
 <h2 id="run-your-builds">Run your builds<a class="headerlink" href="#run-your-builds" title="Permanent link">⚓</a></h2>
 <p>The only thing left to do is to actually run a build:</p>
-<pre class="code"><code>docker run --env CI=false --volume &quot;$(pwd):/bitrise/src&quot; --rm bitriseio/docker-android:latest bitrise run WORKFLOW</code></pre>
+<pre class="code"><code>docker run --privileged --env CI=false --volume &quot;$(pwd):/bitrise/src&quot; --volume &quot;/var/run/docker.sock:/var/run/docker.sock&quot; --rm bitriseio/docker-android:latest bitrise run WORKFLOW</code></pre>
 
 
 <p><em>Don't forget to replace <code>WORKFLOW</code> with the actual ID of your workflow in your <code>bitrise.yml</code>,
@@ -811,6 +811,14 @@ debug the container after a failed build feel free to remove the <code>--rm</cod
 and check out a Docker tutorial about how you can connect to an existing
 docker container - <em>Note: simply running the command again <strong>will not</strong> use the same container,
 but <strong>will create a new one</strong></em>!</p>
+<p>The <code>--privileged</code> flag allows access control of the host (!) from the docker container,
+so you should never use this flag unless you trust the docker image you will use!
+This flag is required for allowing VPNs to work (to change network configs
+of the host) for example.</p>
+<p>The <code>--volume "/var/run/docker.sock:/var/run/docker.sock"</code> flag exposes the
+docker socket from the host for the container - this is required
+if you want to run other docker containers from whithin the container,
+or if you want to run any <code>docker</code> command during your build / inside the container.</p>
           <aside class="copyright" role="note">
             
             Documentation built with
