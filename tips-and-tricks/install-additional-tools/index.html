@@ -708,6 +708,15 @@
       
         
   <li>
+    <a class="" title="Available Environment Variables" href="../../faq/available-environment-variables/">
+      Available Environment Variables
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
     <a class="" title="Android x86 Emulator" href="../../faq/android-x86-emulator/">
       Android x86 Emulator
     </a>
@@ -834,7 +843,7 @@ will check if that tool is installed, and will install it for you if required.</
 will not (re)install the specified tool(s) if it's already available.
 That said, there are tools which are not available in the supported dependency managers,
 or you need a version of the tool which is not available in the dependency manager.
-In those cases you should simply install the tool inside the Script, as described above. </p>
+In those cases you should simply install the tool inside the Script, as described above.</p>
 </div>
 <p>An example, installing <code>cmake</code> with either <code>apt-get</code> (where <code>apt-get</code> is available),
 or with <code>brew</code> (on macOS):</p>
@@ -894,7 +903,11 @@ workflows:
 
 
 <h2 id="conditional-execution">Conditional execution<a class="headerlink" href="#conditional-execution" title="Permanent link">⚓</a></h2>
-<p>Additionally, you can use Environment Variables in your scripts too. As an example, using the base <a href="doc:available-environment-variables">Available Environment Variables</a> <code>PR</code> (but you can use any Environment Variable, like the ones exposed by previous steps in the Workflow), to run different scripts in case of a Pull Request and a non Pull Request build:</p>
+<p>Additionally, you can use Environment Variables in your scripts too.
+As an example, using the <code>PR</code> environment variable
+(but you can use any <a href="../../faq/available-environment-variables/">Available Environment Variable</a>,
+like the ones exposed by previous steps in the Workflow),
+to run different scripts in case of a Pull Request and a non Pull Request build:</p>
 <pre class="code"><code class="language-bash linenums">#!/bin/bash
 set -ex
 

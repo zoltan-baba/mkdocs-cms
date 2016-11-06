@@ -318,6 +318,12 @@
     
         
     <url>
+     <loc>/faq/available-environment-variables/</loc>
+     <lastmod>2016-11-06</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>/faq/android-x86-emulator/</loc>
      <lastmod>2016-11-06</lastmod>
      <changefreq>daily</changefreq>
