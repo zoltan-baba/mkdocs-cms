@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     
       
-        <title>Enable/Disable a step (optionally, based on a condition) - Bitrise DevCenter</title>
+        <title>Add your first Step to your Workflow - Bitrise DevCenter</title>
       
       
       
@@ -95,12 +95,12 @@
           <span class="path">
             
               
-                Tips & Tricks <i class="icon icon-link"></i>
+                Getting Started <i class="icon icon-link"></i>
               
             
           </span>
         
-        Enable/Disable a step (optionally, based on a condition)
+        Add your first Step to your Workflow
       </div>
     </div>
     
@@ -188,7 +188,7 @@
       
         
   <li>
-    <a class="" title="Builds & Workflows" href="../../getting-started/builds-and-workflows/">
+    <a class="" title="Builds & Workflows" href="../builds-and-workflows/">
       Builds & Workflows
     </a>
     
@@ -197,7 +197,7 @@
       
         
   <li>
-    <a class="" title="Code Security" href="../../getting-started/code-security/">
+    <a class="" title="Code Security" href="../code-security/">
       Code Security
     </a>
     
@@ -206,9 +206,22 @@
       
         
   <li>
-    <a class="" title="Add your first Step to your Workflow" href="../../getting-started/add-your-first-step-to-your-workflow/">
+    <a class="current" title="Add your first Step to your Workflow" href="./">
       Add your first Step to your Workflow
     </a>
+    
+      
+      
+        <ul>
+          
+            <li class="anchor">
+              <a title="Add a new Step to the Workflow" href="#add-a-new-step-to-the-workflow">
+                Add a new Step to the Workflow
+              </a>
+            </li>
+          
+        </ul>
+      
     
   </li>
 
@@ -602,7 +615,7 @@
       
         
   <li>
-    <a class="" title="Skip a Build (skip ci)" href="../skip-a-build/">
+    <a class="" title="Skip a Build (skip ci)" href="../../tips-and-tricks/skip-a-build/">
       Skip a Build (skip ci)
     </a>
     
@@ -611,7 +624,7 @@
       
         
   <li>
-    <a class="" title="Attach any file as an Artifact to the Build" href="../attach-any-file-to-build/">
+    <a class="" title="Attach any file as an Artifact to the Build" href="../../tips-and-tricks/attach-any-file-to-build/">
       Attach any file as an Artifact to the Build
     </a>
     
@@ -620,7 +633,7 @@
       
         
   <li>
-    <a class="" title="Expose an Environment Variable and use it in another Step" href="../expose-environment-variable/">
+    <a class="" title="Expose an Environment Variable and use it in another Step" href="../../tips-and-tricks/expose-environment-variable/">
       Expose an Environment Variable and use it in another Step
     </a>
     
@@ -629,7 +642,7 @@
       
         
   <li>
-    <a class="" title="Don't mark the Build as failed if a given step would fail (ignore the error of the Step)" href="../dont-mark-build-failed-if-step-fails/">
+    <a class="" title="Don't mark the Build as failed if a given step would fail (ignore the error of the Step)" href="../../tips-and-tricks/dont-mark-build-failed-if-step-fails/">
       Don't mark the Build as failed if a given step would fail (ignore the error of the Step)
     </a>
     
@@ -638,35 +651,16 @@
       
         
   <li>
-    <a class="current" title="Enable/Disable a step (optionally, based on a condition)" href="./">
+    <a class="" title="Enable/Disable a step (optionally, based on a condition)" href="../../tips-and-tricks/disable-a-step-by-condition/">
       Enable/Disable a step (optionally, based on a condition)
     </a>
-    
-      
-      
-        <ul>
-          
-            <li class="anchor">
-              <a title="Disable a Step" href="#disable-a-step">
-                Disable a Step
-              </a>
-            </li>
-          
-            <li class="anchor">
-              <a title="Run a Step only if the Build failed" href="#run-a-step-only-if-the-build-failed">
-                Run a Step only if the Build failed
-              </a>
-            </li>
-          
-        </ul>
-      
     
   </li>
 
       
         
   <li>
-    <a class="" title="Xcode Archive: export options" href="../xcodebuild-export-options/">
+    <a class="" title="Xcode Archive: export options" href="../../tips-and-tricks/xcodebuild-export-options/">
       Xcode Archive: export options
     </a>
     
@@ -675,7 +669,7 @@
       
         
   <li>
-    <a class="" title="Install Any Additional Tool" href="../install-additional-tools/">
+    <a class="" title="Install Any Additional Tool" href="../../tips-and-tricks/install-additional-tools/">
       Install Any Additional Tool
     </a>
     
@@ -684,7 +678,7 @@
       
         
   <li>
-    <a class="" title="How to configure fastlane match for Bitrise" href="../how-to-configure-fastlane-match-for-bitrise/">
+    <a class="" title="How to configure fastlane match for Bitrise" href="../../tips-and-tricks/how-to-configure-fastlane-match-for-bitrise/">
       How to configure fastlane match for Bitrise
     </a>
     
@@ -750,49 +744,36 @@
       <article class="article">
         <div class="wrapper">
           
-            <h1>Enable/Disable a step (optionally, based on a condition)</h1>
+            <h1>Add your first Step to your Workflow</h1>
           
-          <h2 id="disable-a-step">Disable a Step<a class="headerlink" href="#disable-a-step" title="Permanent link">⚓</a></h2>
-<p>If you don't want to remove the Step from your Workflow and you don't want to duplicate the Workflow either (which is the preferred way if you want to experiment with new things; you can just create a "backup" clone of your original Workflow) then you can simply disable a Step by specifying <code>run_if: false</code> .</p>
-<p>Example:</p>
-<pre class="code"><code>- script:
-    run_if: false
-    inputs:
-    - content: |-
-        #!/bin/bash
-        echo &quot;This will never run, because of run_if:false&quot;</code></pre>
-
-
-<h2 id="run-a-step-only-if-the-build-failed">Run a Step only if the Build failed<a class="headerlink" href="#run-a-step-only-if-the-build-failed" title="Permanent link">⚓</a></h2>
-<p><em>To do this you have to switch to <code>bitrise.yml</code> mode (open the Workflow Editor on bitrise.io -&gt; left side: click on <code>bitrise.yml</code> to switch to the interactive <code>bitrise.yml</code> editor).</em></p>
-<p>You have to add two properties to the Step you <strong>only</strong> want to run when the Build failed (at that point, when the Step would run):</p>
-<ul>
-<li><code>is_always_run: true</code> (this enables the Step to be considered to run even if a previous Step failed)</li>
-<li><code>run_if: .IsBuildFailed</code> (you can find more examples of the <code>run_if</code> template at: <a href="https://github.com/bitrise-io/bitrise/blob/master/_examples/experimentals/templates/bitrise.yml">https://github.com/bitrise-io/bitrise/blob/master/_examples/experimentals/templates/bitrise.yml</a>).</li>
-</ul>
-<p>An example <code>script</code> step, which will only run if the Build failed:</p>
-<pre class="code"><code>- script:
-    is_always_run: true
-    run_if: .IsBuildFailed
-    inputs:
-    - content: |-
-        #!/bin/bash
-        echo &quot;Build Failed!&quot;</code></pre>
-
-
+          <p>Once you register an app you can start to modify it's Workflow,
+to customize how a build should work.</p>
+<p>To edit your App's Workflow you should open the <code>Workflow Editor</code>:</p>
+<ol>
+<li>Select your App on <a href="https://www.bitrise.io">bitrise.io</a></li>
+<li>Select the <code>Workflow</code> tab</li>
+</ol>
+<p>Once you're in the Workflow Editor you can see the list of Steps which are already in your Workflow.</p>
+<h2 id="add-a-new-step-to-the-workflow">Add a new Step to the Workflow<a class="headerlink" href="#add-a-new-step-to-the-workflow" title="Permanent link">⚓</a></h2>
+<p>If you want to <strong>add a new Step</strong> to the Workflow,
+just click the <code>+</code> sign button between the Steps.</p>
+<p><img alt="Add step button in Workflow Editor" src="../../img/getting-started/add-new-step-button-in-workflow-editor.png" /></p>
+<p>This will show you a list of available Steps in our <strong>Step Library</strong>.
+You can search and filter these steps if you want to, or just browse through the collection.</p>
+<p>Adding a Step is as easy as clicking the <code>Add to Workflow</code> button
+in this Step Library popup.</p>
+<p>You can <strong>Drag and Drop</strong> to reorder your list of Steps. During a build,
+steps will be executed one by one, in top-to-bottom order.</p>
+<p>Once you're happy with your Workflow you should click the <code>Save</code> button on the left side.
+That's all, your next build will automatically use the current saved Workflow!</p>
 <div class="admonition note">
-<p class="admonition-title">A <strong>run_if</strong> can be any valid <strong>Go</strong> template</p>
-<p>A <code>run_if</code> can be any valid <a href="https://golang.org/pkg/text/template/">Go template</a>, as long as it evaluates to <code>true</code> or <code>false</code> (or any of the String representation, e.g. <code>"True"</code>, <code>"t"</code>, <code>"yes"</code> or <code>"y"</code> are all considered to be <code>true</code>). If the template evaluates to <code>true</code> the Step will run, otherwise it won't.</p>
+<p class="admonition-title">Multiple Workflows</p>
+<p>You can create as many workflows as you like, and then
+specify which one to use for which build trigger event in the <code>Triggers</code> section
+of the Workflow Editor.
+You can read more about Triggers and workflow selection in the
+<a href="../../webhooks/trigger-map/">Control what to build when, with the Trigger Map</a> guide.</p>
 </div>
-<p>An example <code>run_if</code> to check a <strong>custom environment variable</strong> (you
-can expose environment variables from your scripts too,
-using <a href="https://github.com/bitrise-io/envman/">envman</a>):</p>
-<pre class="code"><code>run_if: |-
-  {{enveq &quot;CUSTOM_ENV_VAR_KEY&quot; &quot;test value to test against&quot;}}</code></pre>
-
-
-<p>This <code>run_if</code> will skip the step in every case when the value of <code>CUSTOM_ENV_VAR_KEY</code>
-is not <code>test value to test against</code>.</p>
           <aside class="copyright" role="note">
             
             Documentation built with
@@ -809,7 +790,7 @@ is not <code>test value to test against</code>.</p>
   <nav class="pagination" aria-label="Footer">
     <div class="previous">
       
-        <a href="../dont-mark-build-failed-if-step-fails/" title="Don't mark the Build as failed if a given step would fail (ignore the error of the Step)">
+        <a href="../code-security/" title="Code Security">
           <span class="direction">
             Previous
           </span>
@@ -819,7 +800,7 @@ is not <code>test value to test against</code>.</p>
             </div>
             <div class="stretch">
               <div class="title">
-                Don't mark the Build as failed if a given step would fail (ignore the error of the Step)
+                Code Security
               </div>
             </div>
           </div>
@@ -828,14 +809,14 @@ is not <code>test value to test against</code>.</p>
     </div>
     <div class="next">
       
-        <a href="../xcodebuild-export-options/" title="Xcode Archive: export options">
+        <a href="../../infrastructure/available-stacks/" title="Available Stacks">
           <span class="direction">
             Next
           </span>
           <div class="page">
             <div class="stretch">
               <div class="title">
-                Xcode Archive: export options
+                Available Stacks
               </div>
             </div>
             <div class="button button-next" role="button" aria-label="Next">

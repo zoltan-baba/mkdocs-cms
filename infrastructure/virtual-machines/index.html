@@ -204,6 +204,15 @@
   </li>
 
       
+        
+  <li>
+    <a class="" title="Add your first Step to your Workflow" href="../../getting-started/add-your-first-step-to-your-workflow/">
+      Add your first Step to your Workflow
+    </a>
+    
+  </li>
+
+      
     </ul>
   </li>
 
@@ -212,6 +221,15 @@
   <li>
     <span class="section">Infrastructure</span>
     <ul>
+      
+        
+  <li>
+    <a class="" title="Available Stacks" href="../available-stacks/">
+      Available Stacks
+    </a>
+    
+  </li>
+
       
         
   <li>
@@ -236,34 +254,19 @@
             </li>
           
             <li class="anchor">
-              <a title="Open Source Stacks" href="#open-source-stacks">
-                Open Source Stacks
-              </a>
-            </li>
-          
-            <li class="anchor">
               <a title="Virtual machine updates" href="#virtual-machine-updates">
                 Virtual machine updates
               </a>
             </li>
           
             <li class="anchor">
-              <a title="Xcode version support guideline" href="#xcode-version-support-guideline">
-                Xcode version support guideline
+              <a title="iOS Simulator version &amp; SDK support" href="#ios-simulator-version-sdk-support">
+                iOS Simulator version &amp; SDK support
               </a>
             </li>
           
         </ul>
       
-    
-  </li>
-
-      
-        
-  <li>
-    <a class="" title="Available Stacks" href="../available-stacks/">
-      Available Stacks
-    </a>
     
   </li>
 
@@ -761,42 +764,55 @@
           
             <h1>Virtual Machines</h1>
           
-          <p>On Bitrise, we have <code>OS X</code> and <code>Linux</code> virtual machines hosted for your builds. You can select multiple stacks that holds different versions of these virtual machines. Read more about available stacks and stack prepare types in the <a href="doc:available-stacks">Available Stacks docs</a>.</p>
-<h2 id="security">Security<a class="headerlink" href="#security" title="Permanent link">⚓</a></h2>
-<p>Every build runs in its own virtual machine and the virtual machine is rolled back to a saved state, the base box state, after the build is finished. This way <strong>your builds are always protected</strong> by changes made by others and by your previous builds and you can use a <strong>stable environment</strong> to define your build workflow, since <em>no state persists between builds</em>.</p>
+          <p>On Bitrise, we have <code>macOS</code> and <code>Linux</code> virtual machines hosted for your builds.
+You can select from multiple stacks, each with its own list of preinstalled tool versions.
+Read more about available stacks and stack prepare types in the <a href="../../infrastructure/available-stacks/">Available Stacks docs</a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Passwordless sudo</p>
-<p>The user which is used for the builds is configured with <strong>passwordless sudo</strong> enabled, this way you are able to install all the extra things you need for your builds and for other automation.</p>
+<p>The user which is used for the builds is configured with <strong>passwordless sudo</strong> enabled,
+this way you are able to install all the extra things you need for your builds and for other automation.
+If a tool is not preinstalled on your Stack of choice,
+you can install it yourself - see the <a href="../../tips-and-tricks/install-additional-tools/">Install Any Additional Tool</a> guide.</p>
 </div>
+<h2 id="security">Security<a class="headerlink" href="#security" title="Permanent link">⚓</a></h2>
+<p>Every build runs in its own virtual machine and the virtual machine is rolled back to a saved state,
+the "base box" state, after the build is finished.
+This way <strong>your builds are always protected</strong> by changes made by others
+and by your previous builds and you can use a <strong>stable environment</strong> to define your build workflow,
+since <em>no state persists between builds</em>.</p>
+<p>For more information about Build/Code Security, see the <a href="../../getting-started/code-security/">Code Security</a> guide.</p>
 <h2 id="customization">Customization<a class="headerlink" href="#customization" title="Permanent link">⚓</a></h2>
-<p>You can find the <strong>OS X</strong> base box setup guide and automation scripts we use for building our OS X virtual machine base box in our <a href="https://github.com/bitrise-io/osx-box-bootstrap">OS X Box Bootstrap repository</a>. This way you are able to build your own virtual machine based on the ones used on Bitrise to match ours.</p>
+<p>You can find the <strong>macOS</strong> base box setup guide and automation scripts we use for building our
+macOS virtual machine base boxes in our <a href="https://github.com/bitrise-io/osx-box-bootstrap">OS X Box Bootstrap repository</a>.
+The repository includes every script we use for preparing these base virtual machine images.</p>
 <p>For our <strong>Linux</strong> machines, check out the <a href="https://github.com/bitrise-docker/bitrise-base">Bitrise Base Docker Image's repository</a>.</p>
 <div class="admonition note">
 <p class="admonition-title">System reports</p>
-<p>You can always check our current configurations in the <a href="https://github.com/bitrise-io/bitrise.io/tree/master/system_reports">system reports folder of our main repository</a>.</p>
-<p>These reports have been generated by the scripts indicated in the first lines of the report itself.</p>
+<p>You can always check our current configurations in the
+<a href="https://github.com/bitrise-io/bitrise.io/tree/master/system_reports">system reports folder of our main repository</a>,
+to see what tools and which versions are preinstalled.</p>
+<p>These reports have been generated by the scripts, linked in the first lines of the report.</p>
 </div>
-<h2 id="open-source-stacks">Open Source Stacks<a class="headerlink" href="#open-source-stacks" title="Permanent link">⚓</a></h2>
-<p>The repositories for our virtual machines are also the place for pull requests. If you'd like to have a tool pre-installed in our machines, feel free to add your changes and they will be included in the next release after merge.</p>
+<p>The repositories used for our virtual machine preparation are open source,
+and pull requests are welcome.
+If you'd like to have a tool pre-installed in our machines,
+feel free to add your changes and they will be included in the related Stack(s)
+at the next time the Stack is updated.</p>
 <h2 id="virtual-machine-updates">Virtual machine updates<a class="headerlink" href="#virtual-machine-updates" title="Permanent link">⚓</a></h2>
-<p>Updates are always announced on our <a href="http://blog.bitrise.io/">News Blog</a> and can be seen on <a href="https://www.bitrise.io/dashboard">your Bitrise Dashboard</a>. We will also send you a <em>Platform Updates</em> email about significant changes, unless you disable this feature under your <a href="https://www.bitrise.io/me/profile">account settings page</a>.</p>
-<h3 id="minor-updates">Minor updates<a class="headerlink" href="#minor-updates" title="Permanent link">⚓</a></h3>
-<p>Additional patches might be applied during the week in case we detect an issue with the current virtual machine environments. These patches do not change any pre-installed tool's version, unless it's really necessary.</p>
-<h2 id="xcode-version-support-guideline">Xcode version support guideline<a class="headerlink" href="#xcode-version-support-guideline" title="Permanent link">⚓</a></h2>
-<p>We have several setups available with different Xcode versions. The Xcode you have pre-installed in your dedicated VM is always the one specified in your app's Settings under the Stack selector menu. You are able to switch between Xcode versions with changing this setting. Read more about available stacks and stack prepare types in the <a href="http://devcenter.bitrise.io/v2.0/docs/available-stacks#section-os-x">Available Stacks docs</a>.</p>
-<p>When a new major version of Xcode gets released we keep supporting the previous major version until the first significant patch version of Xcode is released.</p>
-<p>As an example in case of Xcode major version 6: Xcode 6 is the major version and the first significant patch is Xcode 6.1. We kept the latest Xcode 5 installed on the Virtual Machines until Xcode 6.1 was released.</p>
-<h3 id="ios-simulator-version-sdk-support">iOS Simulator version &amp; SDK support<a class="headerlink" href="#ios-simulator-version-sdk-support" title="Permanent link">⚓</a></h3>
-<p>All the iOS Simulator versions which can be installed through <em>Xcode -&gt; Preferences -&gt; Downloads</em> are installed and available.</p>
-<h3 id="xctool-support">xctool support<a class="headerlink" href="#xctool-support" title="Permanent link">⚓</a></h3>
-<p><a href="https://github.com/facebook/xctool">xctool</a> is pre-installed on the OS X VMs, through <a href="http://brew.sh/">homebrew</a>. If you need to update it to be sure you have the latest version you can add a <a href="https://github.com/bitrise-io/steps-script">Script Step</a> with the following content:</p>
-<pre class="code"><code class="language-bash">#!/bin/bash
-brew update &amp;&amp; brew upgrade xctool</code></pre>
-
-
-<p>If you need the latest <code>xctool</code> version compiled from source you can do it by adding a <strong>Script Step</strong> to your workflow, right before your first Xcode build, Analyze, Unit test or Archive step, with the following content:</p>
-<pre class="code"><code class="language-bash">#!/bin/bash
-brew update &amp;&amp; brew uninstall xctool &amp;&amp; brew install xctool --build-from-source</code></pre>
+<p>Updates are always announced on our <a href="http://blog.bitrise.io/">News Blog</a>
+and can be seen on <a href="https://www.bitrise.io/dashboard">your Bitrise Dashboard</a>.
+We will also send you a <em>Platform Updates</em> email about significant changes,
+unless you disable this feature under your <a href="https://www.bitrise.io/me/profile">account settings page</a>.</p>
+<h3 id="stack-updates">Stack updates<a class="headerlink" href="#stack-updates" title="Permanent link">⚓</a></h3>
+<p>In general we do stack updates once a week, during the weekends.</p>
+<p>Minor patches might be applied during the week in case we detect an issue
+with the current virtual machine environment.
+These patches do not change any pre-installed tool version, unless it's really necessary.</p>
+<p>We try to test every stack change as much as we can, before it would be
+released, to avoid any change / update during the week.</p>
+<h2 id="ios-simulator-version-sdk-support">iOS Simulator version &amp; SDK support<a class="headerlink" href="#ios-simulator-version-sdk-support" title="Permanent link">⚓</a></h2>
+<p>All the iOS Simulator versions which can be installed
+through <em>Xcode -&gt; Preferences -&gt; Downloads</em> are installed and available.</p>
           <aside class="copyright" role="note">
             
             Documentation built with
@@ -813,7 +829,7 @@ brew update &amp;&amp; brew uninstall xctool &amp;&amp; brew install xctool --bu
   <nav class="pagination" aria-label="Footer">
     <div class="previous">
       
-        <a href="../../getting-started/code-security/" title="Code Security">
+        <a href="../available-stacks/" title="Available Stacks">
           <span class="direction">
             Previous
           </span>
@@ -823,7 +839,7 @@ brew update &amp;&amp; brew uninstall xctool &amp;&amp; brew install xctool --bu
             </div>
             <div class="stretch">
               <div class="title">
-                Code Security
+                Available Stacks
               </div>
             </div>
           </div>
@@ -832,14 +848,14 @@ brew update &amp;&amp; brew uninstall xctool &amp;&amp; brew install xctool --bu
     </div>
     <div class="next">
       
-        <a href="../available-stacks/" title="Available Stacks">
+        <a href="../../signing-up/signing-up-with-github/" title="Signing up with GitHub">
           <span class="direction">
             Next
           </span>
           <div class="page">
             <div class="stretch">
               <div class="title">
-                Available Stacks
+                Signing up with GitHub
               </div>
             </div>
             <div class="button button-next" role="button" aria-label="Next">

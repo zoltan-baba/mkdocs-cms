@@ -23,18 +23,24 @@
      <changefreq>daily</changefreq>
     </url>
         
+    <url>
+     <loc>/getting-started/add-your-first-step-to-your-workflow/</loc>
+     <lastmod>2016-11-06</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
     
 
     
         
     <url>
-     <loc>/infrastructure/virtual-machines/</loc>
+     <loc>/infrastructure/available-stacks/</loc>
      <lastmod>2016-11-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/infrastructure/available-stacks/</loc>
+     <loc>/infrastructure/virtual-machines/</loc>
      <lastmod>2016-11-06</lastmod>
      <changefreq>daily</changefreq>
     </url>

@@ -204,6 +204,15 @@
   </li>
 
       
+        
+  <li>
+    <a class="" title="Add your first Step to your Workflow" href="../../getting-started/add-your-first-step-to-your-workflow/">
+      Add your first Step to your Workflow
+    </a>
+    
+  </li>
+
+      
     </ul>
   </li>
 
@@ -212,15 +221,6 @@
   <li>
     <span class="section">Infrastructure</span>
     <ul>
-      
-        
-  <li>
-    <a class="" title="Virtual Machines" href="../virtual-machines/">
-      Virtual Machines
-    </a>
-    
-  </li>
-
       
         
   <li>
@@ -252,6 +252,15 @@
           
         </ul>
       
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Virtual Machines" href="../virtual-machines/">
+      Virtual Machines
+    </a>
     
   </li>
 
@@ -749,8 +758,20 @@
           
             <h1>Available Stacks</h1>
           
-          <p>The Stack indicates the virtual machine version that we will use to run your build. After adding your application to Bitrise we will detect the best image, but you can simply change it to a different one on the <code>Settings</code> tab of your app.</p>
+          <p>The Stack indicates the virtual machine version that we will use to run your build.
+After adding your application to Bitrise we will select an appropriate Stack for it,
+but you can simply change it to a different one on the <code>Settings</code> tab of your app.</p>
 <p><img alt="Screenshot" src="../../img/infrastructure/stack_selector.png" /></p>
+<p>After selecting the Stack you want to use you'll see a short description of the stack,
+with an additional link to learn more about that specific Stack (e.g. to see what
+tools are preinstalled, and which versions, on the selected Stack).</p>
+<div class="admonition note">
+<p class="admonition-title">The Stack won't be used until you click the <code>Save</code> button!</p>
+<p>You can see what tools are preinstalled on the Stacks by
+selecting the stack(s) in the selector, and following the
+<code>More information about this Stack</code> link. The Stack
+won't be activated for the app until you click the <code>Save</code> button.</p>
+</div>
 <h2 id="stack-status-types">Stack status types<a class="headerlink" href="#stack-status-types" title="Permanent link">⚓</a></h2>
 <table>
 <thead>
@@ -761,24 +782,12 @@
 </thead>
 <tbody>
 <tr>
-<td>Experimental</td>
-<td>Internal, expected to change, and eventually moved to <code>Preview</code>.</td>
-</tr>
-<tr>
-<td>Preview</td>
-<td>Public, users with a related beta flag can access it. Might change or moved to <code>Beta</code>.</td>
-</tr>
-<tr>
-<td>Beta</td>
-<td>Public beta, might change if there's a regression, otherwise will become <code>Stable</code></td>
-</tr>
-<tr>
 <td>Stable</td>
-<td>Generally available and expected to be supported for the foreseeable future.</td>
+<td>Generally available and expected to be supported for the foreseeable future. <strong>Updated when an update for the Stack's primary tool is available.</strong> Example: when Xcode 7.3.1 was released, the Xcode 7.3 stack was updated to have 7.3.1 instead of 7.3(.0). In case of <code>Xamarin</code> stacks, the Xamarin updates are applied weekly, during the weekends.</td>
 </tr>
 <tr>
-<td>LTS</td>
-<td>Same as Stable, except it has a specific remove date and no changes will be made to the stack until the removal date (except only really crucial changes, which affect security for example).</td>
+<td>LTS (Long Term Support)</td>
+<td>No changes (updates) will be made to the stack, except only really crucial changes, which affect security for example, and Bitrise CLI tool updates. Preinstalled tool versions will remain the same, until the Stack is removed from our collection.</td>
 </tr>
 </tbody>
 </table>
@@ -797,7 +806,7 @@
 </tr>
 <tr>
 <td>On-Demand</td>
-<td>If a Stack is available as on-demand configuration and there's no (available) pre-booted configuration for the Stack, our system will have to create a virtual machine for your selected configuration when your build starts. This means that your build will be in <code>preparing environment</code> state while the related Virtual Machine is created &amp; booted. For an OS X configuration the boot process usually takes about 1-2 minutes - we're working on improving this. <em>The prepare time (of course) is not counted into the build time, it won't affect how long your build can run.</em></td>
+<td>If a Stack is available as on-demand configuration and there's no (available) pre-booted configuration for the Stack, our system will have to create a virtual machine for your selected configuration <strong>when your build starts</strong>. This means that your build will be in <code>preparing environment</code> state while the related Virtual Machine is created &amp; booted. For a macOS configuration the boot process usually takes about 1 - 1.5 minutes. <em>The prepare time (of course) is not counted into the build time, it won't affect how long your build can run.</em></td>
 </tr>
 </tbody>
 </table>
@@ -823,7 +832,7 @@ or you want to add another tool / system check, feel free to send us a pull requ
   <nav class="pagination" aria-label="Footer">
     <div class="previous">
       
-        <a href="../virtual-machines/" title="Virtual Machines">
+        <a href="../../getting-started/add-your-first-step-to-your-workflow/" title="Add your first Step to your Workflow">
           <span class="direction">
             Previous
           </span>
@@ -833,7 +842,7 @@ or you want to add another tool / system check, feel free to send us a pull requ
             </div>
             <div class="stretch">
               <div class="title">
-                Virtual Machines
+                Add your first Step to your Workflow
               </div>
             </div>
           </div>
@@ -842,14 +851,14 @@ or you want to add another tool / system check, feel free to send us a pull requ
     </div>
     <div class="next">
       
-        <a href="../../signing-up/signing-up-with-github/" title="Signing up with GitHub">
+        <a href="../virtual-machines/" title="Virtual Machines">
           <span class="direction">
             Next
           </span>
           <div class="page">
             <div class="stretch">
               <div class="title">
-                Signing up with GitHub
+                Virtual Machines
               </div>
             </div>
             <div class="button button-next" role="button" aria-label="Next">
