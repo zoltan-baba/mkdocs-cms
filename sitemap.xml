@@ -4,7 +4,7 @@
     
     <url>
      <loc>/</loc>
-     <lastmod>2016-11-06</lastmod>
+     <lastmod>2016-11-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -13,19 +13,25 @@
         
     <url>
      <loc>/getting-started/builds-and-workflows/</loc>
-     <lastmod>2016-11-06</lastmod>
+     <lastmod>2016-11-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/getting-started/code-security/</loc>
-     <lastmod>2016-11-06</lastmod>
+     <lastmod>2016-11-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/getting-started/create-your-first-app-on-bitrise/</loc>
+     <lastmod>2016-11-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/getting-started/add-your-first-step-to-your-workflow/</loc>
-     <lastmod>2016-11-06</lastmod>
+     <lastmod>2016-11-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -35,13 +41,13 @@
         
     <url>
      <loc>/infrastructure/available-stacks/</loc>
-     <lastmod>2016-11-06</lastmod>
+     <lastmod>2016-11-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/infrastructure/virtual-machines/</loc>
-     <lastmod>2016-11-06</lastmod>
+     <lastmod>2016-11-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -51,25 +57,25 @@
         
     <url>
      <loc>/signing-up/signing-up-with-github/</loc>
-     <lastmod>2016-11-06</lastmod>
+     <lastmod>2016-11-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/signing-up/signing-up-with-bitbucket/</loc>
-     <lastmod>2016-11-06</lastmod>
+     <lastmod>2016-11-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/signing-up/signing-up-with-email/</loc>
-     <lastmod>2016-11-06</lastmod>
+     <lastmod>2016-11-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/signing-up/trial-after-signing-up/</loc>
-     <lastmod>2016-11-06</lastmod>
+     <lastmod>2016-11-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -79,25 +85,25 @@
         
     <url>
      <loc>/adding-a-new-app/</loc>
-     <lastmod>2016-11-06</lastmod>
+     <lastmod>2016-11-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/adding-a-new-app/connecting-a-repository/</loc>
-     <lastmod>2016-11-06</lastmod>
+     <lastmod>2016-11-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/adding-a-new-app/setting-up-ssh-keys/</loc>
-     <lastmod>2016-11-06</lastmod>
+     <lastmod>2016-11-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/adding-a-new-app/setting-up-configuration/</loc>
-     <lastmod>2016-11-06</lastmod>
+     <lastmod>2016-11-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -107,19 +113,19 @@
         
     <url>
      <loc>/tutorials/community-created/</loc>
-     <lastmod>2016-11-06</lastmod>
+     <lastmod>2016-11-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/tutorials/create-signed-apk-on-bitrise/</loc>
-     <lastmod>2016-11-06</lastmod>
+     <lastmod>2016-11-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/tutorials/vpn-configuration/</loc>
-     <lastmod>2016-11-06</lastmod>
+     <lastmod>2016-11-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -129,13 +135,13 @@
         
     <url>
      <loc>/team-management/</loc>
-     <lastmod>2016-11-06</lastmod>
+     <lastmod>2016-11-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/team-management/changing-the-owner-of-an-app/</loc>
-     <lastmod>2016-11-06</lastmod>
+     <lastmod>2016-11-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -145,25 +151,25 @@
         
     <url>
      <loc>/webhooks/</loc>
-     <lastmod>2016-11-06</lastmod>
+     <lastmod>2016-11-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/webhooks/adding-a-github-webhook/</loc>
-     <lastmod>2016-11-06</lastmod>
+     <lastmod>2016-11-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/webhooks/adding-a-bitbucket-webhook/</loc>
-     <lastmod>2016-11-06</lastmod>
+     <lastmod>2016-11-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/webhooks/trigger-map/</loc>
-     <lastmod>2016-11-06</lastmod>
+     <lastmod>2016-11-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -173,31 +179,31 @@
         
     <url>
      <loc>/caching/about-caching/</loc>
-     <lastmod>2016-11-06</lastmod>
+     <lastmod>2016-11-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/caching/caching-cocoapods/</loc>
-     <lastmod>2016-11-06</lastmod>
+     <lastmod>2016-11-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/caching/caching-gradle/</loc>
-     <lastmod>2016-11-06</lastmod>
+     <lastmod>2016-11-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/caching/caching-maven/</loc>
-     <lastmod>2016-11-06</lastmod>
+     <lastmod>2016-11-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/caching/caching-ruby-gems/</loc>
-     <lastmod>2016-11-06</lastmod>
+     <lastmod>2016-11-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -207,37 +213,37 @@
         
     <url>
      <loc>/ios/code-signing/</loc>
-     <lastmod>2016-11-06</lastmod>
+     <lastmod>2016-11-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/ios/uploading-certificates/</loc>
-     <lastmod>2016-11-06</lastmod>
+     <lastmod>2016-11-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/ios/export-certificate-and-provisioning-profile/</loc>
-     <lastmod>2016-11-06</lastmod>
+     <lastmod>2016-11-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/ios/resigning-an-ipa/</loc>
-     <lastmod>2016-11-06</lastmod>
+     <lastmod>2016-11-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/ios/frequent-ios-issues/</loc>
-     <lastmod>2016-11-06</lastmod>
+     <lastmod>2016-11-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/ios/known-xcode-issues/</loc>
-     <lastmod>2016-11-06</lastmod>
+     <lastmod>2016-11-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -247,7 +253,7 @@
         
     <url>
      <loc>/android/frequent-android-issues/</loc>
-     <lastmod>2016-11-06</lastmod>
+     <lastmod>2016-11-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -257,7 +263,7 @@
         
     <url>
      <loc>/docker/run-your-build-locally-in-docker/</loc>
-     <lastmod>2016-11-06</lastmod>
+     <lastmod>2016-11-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -267,49 +273,49 @@
         
     <url>
      <loc>/tips-and-tricks/skip-a-build/</loc>
-     <lastmod>2016-11-06</lastmod>
+     <lastmod>2016-11-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/tips-and-tricks/attach-any-file-to-build/</loc>
-     <lastmod>2016-11-06</lastmod>
+     <lastmod>2016-11-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/tips-and-tricks/expose-environment-variable/</loc>
-     <lastmod>2016-11-06</lastmod>
+     <lastmod>2016-11-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/tips-and-tricks/dont-mark-build-failed-if-step-fails/</loc>
-     <lastmod>2016-11-06</lastmod>
+     <lastmod>2016-11-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/tips-and-tricks/disable-a-step-by-condition/</loc>
-     <lastmod>2016-11-06</lastmod>
+     <lastmod>2016-11-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/tips-and-tricks/xcodebuild-export-options/</loc>
-     <lastmod>2016-11-06</lastmod>
+     <lastmod>2016-11-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/tips-and-tricks/install-additional-tools/</loc>
-     <lastmod>2016-11-06</lastmod>
+     <lastmod>2016-11-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/tips-and-tricks/how-to-configure-fastlane-match-for-bitrise/</loc>
-     <lastmod>2016-11-06</lastmod>
+     <lastmod>2016-11-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -319,19 +325,37 @@
         
     <url>
      <loc>/faq/available-environment-variables/</loc>
-     <lastmod>2016-11-06</lastmod>
+     <lastmod>2016-11-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/faq/how-to-change-the-owner-of-an-app/</loc>
+     <lastmod>2016-11-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/faq/organization-faq/</loc>
+     <lastmod>2016-11-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/faq/adding-projects-with-submodules/</loc>
+     <lastmod>2016-11-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/faq/android-x86-emulator/</loc>
-     <lastmod>2016-11-06</lastmod>
+     <lastmod>2016-11-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/faq/how-to-generate-ssh-keypair/</loc>
-     <lastmod>2016-11-06</lastmod>
+     <lastmod>2016-11-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -341,7 +365,7 @@
         
     <url>
      <loc>/tools/bitrise-tools/</loc>
-     <lastmod>2016-11-06</lastmod>
+     <lastmod>2016-11-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         

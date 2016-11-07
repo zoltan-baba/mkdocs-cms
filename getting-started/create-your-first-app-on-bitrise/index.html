@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     
       
-        <title>About caching - Bitrise DevCenter</title>
+        <title>Create your first App on Bitrise.io - Bitrise DevCenter</title>
       
       
       
@@ -95,12 +95,12 @@
           <span class="path">
             
               
-                Caching <i class="icon icon-link"></i>
+                Getting Started <i class="icon icon-link"></i>
               
             
           </span>
         
-        About caching
+        Create your first App on Bitrise.io
       </div>
     </div>
     
@@ -188,7 +188,7 @@
       
         
   <li>
-    <a class="" title="Builds & Workflows" href="../../getting-started/builds-and-workflows/">
+    <a class="" title="Builds & Workflows" href="../builds-and-workflows/">
       Builds & Workflows
     </a>
     
@@ -197,7 +197,7 @@
       
         
   <li>
-    <a class="" title="Code Security" href="../../getting-started/code-security/">
+    <a class="" title="Code Security" href="../code-security/">
       Code Security
     </a>
     
@@ -206,16 +206,65 @@
       
         
   <li>
-    <a class="" title="Create your first App on Bitrise.io" href="../../getting-started/create-your-first-app-on-bitrise/">
+    <a class="current" title="Create your first App on Bitrise.io" href="./">
       Create your first App on Bitrise.io
     </a>
+    
+      
+      
+        <ul>
+          
+            <li class="anchor">
+              <a title="1. Code repository setup" href="#1-code-repository-setup">
+                1. Code repository setup
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="1. Setup repository access" href="#1-setup-repository-access">
+                1. Setup repository access
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="3. Validation setup" href="#3-validation-setup">
+                3. Validation setup
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="4. Validating repository" href="#4-validating-repository">
+                4. Validating repository
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="5. Project build configuration" href="#5-project-build-configuration">
+                5. Project build configuration
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="6. Webhook setup" href="#6-webhook-setup">
+                6. Webhook setup
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="7. Finishing" href="#7-finishing">
+                7. Finishing
+              </a>
+            </li>
+          
+        </ul>
+      
     
   </li>
 
       
         
   <li>
-    <a class="" title="Add your first Step to your Workflow" href="../../getting-started/add-your-first-step-to-your-workflow/">
+    <a class="" title="Add your first Step to your Workflow" href="../add-your-first-step-to-your-workflow/">
       Add your first Step to your Workflow
     </a>
     
@@ -458,41 +507,16 @@
       
         
   <li>
-    <a class="current" title="About caching" href="./">
+    <a class="" title="About caching" href="../../caching/about-caching/">
       About caching
     </a>
-    
-      
-      
-        <ul>
-          
-            <li class="anchor">
-              <a title="Setup" href="#setup">
-                Setup
-              </a>
-            </li>
-          
-            <li class="anchor">
-              <a title="Downloading and deleting caches" href="#downloading-and-deleting-caches">
-                Downloading and deleting caches
-              </a>
-            </li>
-          
-            <li class="anchor">
-              <a title="Technical notes" href="#technical-notes">
-                Technical notes
-              </a>
-            </li>
-          
-        </ul>
-      
     
   </li>
 
       
         
   <li>
-    <a class="" title="Caching Cocoapods" href="../caching-cocoapods/">
+    <a class="" title="Caching Cocoapods" href="../../caching/caching-cocoapods/">
       Caching Cocoapods
     </a>
     
@@ -501,7 +525,7 @@
       
         
   <li>
-    <a class="" title="Caching Gradle" href="../caching-gradle/">
+    <a class="" title="Caching Gradle" href="../../caching/caching-gradle/">
       Caching Gradle
     </a>
     
@@ -510,7 +534,7 @@
       
         
   <li>
-    <a class="" title="Caching Maven" href="../caching-maven/">
+    <a class="" title="Caching Maven" href="../../caching/caching-maven/">
       Caching Maven
     </a>
     
@@ -519,7 +543,7 @@
       
         
   <li>
-    <a class="" title="Caching Ruby GEMs" href="../caching-ruby-gems/">
+    <a class="" title="Caching Ruby GEMs" href="../../caching/caching-ruby-gems/">
       Caching Ruby GEMs
     </a>
     
@@ -801,84 +825,106 @@
       <article class="article">
         <div class="wrapper">
           
-            <h1>About caching</h1>
+            <h1>Create your first App on Bitrise.io</h1>
           
-          <p>The caching will tar all the cached directories and dependencies and store them securely in Amazon S3.
-Note that if you store files which are downloaded from a CDN / cloud storage you might not see any improvement,
-as downloading it from the Bitrise Build Cache storage will probably take about the same time as downloading
-it from its canonical CDN / cloud storage location.
-However Bitrise Caching still might help if you have reliability issues with the resource's, or dependency's canonical download location.</p>
+          <p>We are always refining our UI and UX, to achieve the best and smoothest experience possible,
+but at the same time give you enough room for experimentation and customization.</p>
+<p>Because of the very reason of us believing that you should be able to do everything you want with Bitrise,
+it can seem a bit complex in a few parts.</p>
+<p>This guide will help you get your first app up and running on Bitrise. Let's dive in!</p>
+<p>First of all you have to open the <a href="https://www.bitrise.io/apps/add">Add New App page</a>,
+either by clicking the <code>Add</code> button on the <a href="https://www.bitrise.io/dashboard">Dashboard</a>,
+or selecting the <code>Add new App</code> option in the Account drop down menu (top right corner).</p>
+<h2 id="1-code-repository-setup">1. Code repository setup<a class="headerlink" href="#1-code-repository-setup" title="Permanent link">⚓</a></h2>
+<p>The first step of adding an app is to specify where its code is stored.</p>
+<p>You have two main options here:</p>
+<ol>
+<li>You store your code on <a href="https://github.com/">GitHub.com</a>, <a href="https://bitbucket.org/">Bitbucket.org</a> or <a href="https://gitlab.com/">GitLab.com</a></li>
+<li>You store your code somewhere else</li>
+</ol>
+<h3 id="github-bitbucket-gitlab">GitHub / Bitbucket / GitLab<a class="headerlink" href="#github-bitbucket-gitlab" title="Permanent link">⚓</a></h3>
+<p>This is fairly easy. Just click on the tab where you have the repo you want to add to Bitrise.
+If you haven't connected your GitHub, Bitbucket or GitLab account, click on the green button to do so.
+After that you'll see all your repos listed with an option to filter them.
+Your personal repos are separated from the ones that belong to an organization or other user.
+If you hover on the repository names, you can get a glimpse of its description, too.
+Select the repository from the list to proceed to the next step.</p>
 <div class="admonition note">
-<p class="admonition-title">Cache Expiring</p>
-<p>The Build Cache related to a <strong><em>specific branch</em></strong> expires / is auto-deleted after 7 days,
-<strong>if there's no new build on that branch in the meantime</strong>.</p>
-<p>This means that <strong>if you do builds on a specific branch every day</strong> (more frequently than a week),
-<strong>it'll never expire / will never be deleted automatically</strong>,
-but if you don't start a build on that specific branch for more than 7 days then the related cache
-will be removed, and your next build will run like the first time, when there was no cache for that branch yet.</p>
-</div>
-<h2 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">⚓</a></h2>
-<p>All you need to get started is adding two Steps to your Workflow:</p>
+<p class="admonition-title">Why does Bitrise need write permissions on Github/Bitbucket/GitLab?</p>
+<p>There are two things that Bitrise couldn't do without write permissions:</p>
 <ul>
-<li>One for downloading the previous cache (if any): <code>Cache:Pull</code></li>
-<li>One for checking the state of the cache and uploading it if required: <code>Cache:Push</code></li>
+<li>Adding an SSH key to the selected repository</li>
+<li>Registering a Webhook for the repository</li>
 </ul>
-<p>You should add the <code>Cache:Pull</code> (download) step right before you'd use the cache.
-For example, in case of an iOS app, this can be between the <code>Git Clone</code> and the <code>CocoaPods</code> install steps.
-If you intend to cache your <code>./Pods</code> directory you should not pull the cache before the <code>Git Clone</code>,
-because <code>Git Clone</code> will create the base directory for <code>./Pods</code>.
-Before the <code>Git Clone</code> step your code (and the directories your code creates when git cloned) is not available on the Virtual Machine.</p>
-<p>The <code>Cache:Push</code> step can be the very last step in the Workflow.
-The only thing you have to care about is that it should be after the step(s) which update the cached paths.
-For example in case of <code>CocoaPods</code> you should put the <code>Cache:Push</code> step anywhere after the <code>CocoaPods</code> install,
-because that's the step which generates, or updates the directory (<code>./Pods</code>) which is cached.</p>
-<h2 id="downloading-and-deleting-caches">Downloading and deleting caches<a class="headerlink" href="#downloading-and-deleting-caches" title="Permanent link">⚓</a></h2>
-<p>You can download and delete caches, for every branch which generated a cache,
-on the <code>Settings</code> tab of the app, under the <code>Manage Build Caches</code> section.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>You can see the size of the caches and the last time a given cache was used in the popup.</p>
+<p>Please note, that <strong>if you want to avoid giving Bitrise write permissions,
+you can select the <code>Other / Manual</code> option</strong>, and do the setup yourself.</p>
 </div>
-<h2 id="technical-notes">Technical notes<a class="headerlink" href="#technical-notes" title="Permanent link">⚓</a></h2>
-<p>The Build Cache feature is split into two parts, the <code>Build Cache API</code> and the <code>Steps</code>.</p>
-<p>The <code>Build Cache API</code> is actually a really simple API, with only one responsibility:
-you can request a download or an upload URL from the API.
-Of course it also makes sure that you have the required access rights to the resource (Build Cache Archive),
-but other than that its only responsibility is providing the secure - time limited and expiring - download and upload URLs.
-It does not process the files.</p>
-<p>The <code>Steps</code> are the place where the "magic" happens.
-The whole logic of comparing caches to see if there was any relevant change and creating the cache archives is done by the Steps.
-This also means that you can write your own Steps and implement your own comparison and compression logic.
-The step just has to use the Build Cache API to get download and upload URLs, there's no restriction on the cache file format or on its content.</p>
-<div class="admonition idea">
-<p class="admonition-title">Advanced notes</p>
-<ul>
-<li>You can create your own Cache steps</li>
-<li>You can create and use your own Build Cache server and API</li>
-</ul>
+<h3 id="other-manual-setup-option">Other / Manual setup option<a class="headerlink" href="#other-manual-setup-option" title="Permanent link">⚓</a></h3>
+<p>On this tab, you just have to paste your HTTPS git clone URL where Bitrise can access your code.
+Paste the URL and click on <code>Next</code> to proceed.</p>
+<h2 id="1-setup-repository-access">1. Setup repository access<a class="headerlink" href="#1-setup-repository-access" title="Permanent link">⚓</a></h2>
+<h3 id="auto-add-the-ssh-key-bitrise-generated-for-you">Auto-add the SSH key Bitrise generated for you<a class="headerlink" href="#auto-add-the-ssh-key-bitrise-generated-for-you" title="Permanent link">⚓</a></h3>
+<p><em>This option is available for GitHub, Bitbucket and GitLab.com repositories,
+if you have your account connected to your Bitrise account.</em></p>
+<p>This is the easieast, fastest way. You can just click on <code>Auto add</code>
+<strong>if you have admin rights to the repo</strong> you selected.</p>
+<h3 id="copy-the-public-key-bitrise-generated">Copy the public key Bitrise generated<a class="headerlink" href="#copy-the-public-key-bitrise-generated" title="Permanent link">⚓</a></h3>
+<p>Copy the <strong>public key</strong> to your provider's account (<em>not</em> as a deployment key).
+You can use this option if you don't have admin rights to the repo,
+or if the repository is not hosted on GitHub, Bitbucket or GitLab.com.</p>
+<p>Choose this option also if you use submodules and want to use the same SSH key for multiple repositories.
+If you use submodules or private Cocoapods,
+use this guide: <a href="../../faq/adding-projects-with-submodules/">Adding projects with submodules</a></p>
+<h3 id="use-your-own-keypair">Use your own keypair<a class="headerlink" href="#use-your-own-keypair" title="Permanent link">⚓</a></h3>
+<p>You can paste your existing SSH <strong>private key</strong> to the text area on the bottom of this section.
+<strong>Make sure it is an RSA private key without a passphrase,</strong>
+otherwise you won't be able to use it on Bitrise.</p>
+<p>You can find a guide <a href="../../faq/how-to-generate-ssh-keypair/">here</a> about
+how you can generate an SSH key like this.</p>
+<p>If you use submodules, private Cocoapods,
+or have to access more than one private repository
+during the build, you should check this guide: <a href="../../faq/adding-projects-with-submodules/">Adding projects with submodules</a></p>
+<h2 id="3-validation-setup">3. Validation setup<a class="headerlink" href="#3-validation-setup" title="Permanent link">⚓</a></h2>
+<p>In this section you have to specify a branch, which will be used in the next step:
+your repository will be cloned, the specified branch will be checked out,
+and our <a href="https://github.com/bitrise-core/bitrise-init">open source project scanner</a>
+will scan through the repository, and will construct base configuration(s)
+appropriate for your project.</p>
+<p><em>You can choose to configure your project manually.
+This is only recommended if you can't use the automatic
+project scanner to generate a good base configuration for you.
+Choose this option only if you really know what you're doing,
+or if you can't use the automatic scanner!</em></p>
+<h2 id="4-validating-repository">4. Validating repository<a class="headerlink" href="#4-validating-repository" title="Permanent link">⚓</a></h2>
+<p>You don't have to do anything in this section. A validation
+is started automatically after you finished in the previous section.
+You can check the progress and the logs of the validation while it runs,
+and the errors and warnings in case the scanner would generate any.</p>
+<h2 id="5-project-build-configuration">5. Project build configuration<a class="headerlink" href="#5-project-build-configuration" title="Permanent link">⚓</a></h2>
+<p>Platform selection: We try to detect on validation whether you added an Android, iOS, or Xamarin project,
+or any other project type the <a href="https://github.com/bitrise-core/bitrise-init">scanner</a> supports.
+If we succeed, only the one, corresponding tab will be active.
+If we fail to detect it, you have to select one and configure it manually.</p>
+<p>We will also try to detect your build configuration automatically, based on your project settings / project
+files in the repository.</p>
+<h2 id="6-webhook-setup">6. Webhook setup<a class="headerlink" href="#6-webhook-setup" title="Permanent link">⚓</a></h2>
+<p>If we have support for adding webhooks automatically to the source code hosting
+service you use, you can add the webhook in this section with a single click.</p>
+<div class="admonition warning">
+<p class="admonition-title">Error: Webhook registration failed</p>
+<p>If you see a message like this, that means that you don't have admin rights to the repo,
+so no webhook could be created. Contact the administrator, register the webhook manually as described below
+or skip this step if you're OK with starting builds manually (not advised).</p>
 </div>
-<h3 id="the-cache-might-or-might-not-be-available">The cache might or might not be available<a class="headerlink" href="#the-cache-might-or-might-not-be-available" title="Permanent link">⚓</a></h3>
-<p>You should write your code in a way that it won't fail if the cache can't be accessed.</p>
-<h3 id="the-cache-is-downloaded-over-the-internet">The cache is downloaded over the internet<a class="headerlink" href="#the-cache-is-downloaded-over-the-internet" title="Permanent link">⚓</a></h3>
-<p>Which means that if you store files which are downloaded from a CDN / cloud storage you might not see
-any speed improvement,
-as downloading it from the Bitrise Build Cache storage will probably take about the same time as
-downloading it from it's canonical CDN / cloud storage location.</p>
-<p>One important note: storing a dependency in Bitrise Build Cache might help if you have <strong>reliability</strong>
-issues with the resource's / dependency's canonical download location.
-Popular tools / dependencies might get rate limited (<a href="https://github.com/Medium/phantomjs/issues/501">example: PhantomJS</a>).
-If that's the case, storing the dependency in Bitrise Build Cache might help.
-It might not improve the build time but <strong>it definitely can improve the reliability</strong>.</p>
-<h3 id="the-cache-is-stored-as-one-archive-file">The cache is stored as one archive file<a class="headerlink" href="#the-cache-is-stored-as-one-archive-file" title="Permanent link">⚓</a></h3>
-<p>So if you have multiple paths you want to cache and any
-of the paths gets updated <strong>it'll update the whole cache archive</strong>,
-including all the paths you cache.</p>
-<h3 id="if-a-build-runs-on-a-new-branch-the-first-time-itll-get-the-maindefault-branchs-cache">If a build runs on a new branch the first time it'll get the main/default Branch's cache.<a class="headerlink" href="#if-a-build-runs-on-a-new-branch-the-first-time-itll-get-the-maindefault-branchs-cache" title="Permanent link">⚓</a></h3>
-<p>The first build on a non primary/default branch, to speed up things,
-can access (read-only) the primary branch's cache.</p>
-<p><strong>If it pushes back to the cache that won't modify the main/default Branch's cache</strong>,
-that will be stored for the new branch directly,
-and the next time a build runs on this branch it'll use that cache.</p>
+<p>Otherwise you'll see information about how you can do this manually in this section.</p>
+<p>You can find the webhook setup guide <a href="../../webhooks/">here</a>,
+if you'd have to do this manually.</p>
+<h2 id="7-finishing">7. Finishing<a class="headerlink" href="#7-finishing" title="Permanent link">⚓</a></h2>
+<p>After you finish in the "webhook" section, a build is triggered automatically
+for your app, with the base configuration detected and generated by
+the "Repository validator / scanner". At this point you should have
+a base working configuration, which you'll be able to improve and change
+to fit your project's development process.</p>
           <aside class="copyright" role="note">
             
             Documentation built with
@@ -895,7 +941,7 @@ and the next time a build runs on this branch it'll use that cache.</p>
   <nav class="pagination" aria-label="Footer">
     <div class="previous">
       
-        <a href="../../webhooks/trigger-map/" title="Control what to build when, with the Trigger Map">
+        <a href="../code-security/" title="Code Security">
           <span class="direction">
             Previous
           </span>
@@ -905,7 +951,7 @@ and the next time a build runs on this branch it'll use that cache.</p>
             </div>
             <div class="stretch">
               <div class="title">
-                Control what to build when, with the Trigger Map
+                Code Security
               </div>
             </div>
           </div>
@@ -914,14 +960,14 @@ and the next time a build runs on this branch it'll use that cache.</p>
     </div>
     <div class="next">
       
-        <a href="../caching-cocoapods/" title="Caching Cocoapods">
+        <a href="../add-your-first-step-to-your-workflow/" title="Add your first Step to your Workflow">
           <span class="direction">
             Next
           </span>
           <div class="page">
             <div class="stretch">
               <div class="title">
-                Caching Cocoapods
+                Add your first Step to your Workflow
               </div>
             </div>
             <div class="button button-next" role="button" aria-label="Next">
