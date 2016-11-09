@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     
       
-        <title>Uploading certificates - Bitrise DevCenter</title>
+        <title>Manage your Bitrise workflow - Bitrise DevCenter</title>
       
       
       
@@ -95,12 +95,12 @@
           <span class="path">
             
               
-                iOS <i class="icon icon-link"></i>
+                Getting Started <i class="icon icon-link"></i>
               
             
           </span>
         
-        Uploading certificates
+        Manage your Bitrise workflow
       </div>
     </div>
     
@@ -188,7 +188,7 @@
       
         
   <li>
-    <a class="" title="Builds & Workflows" href="../../getting-started/builds-and-workflows/">
+    <a class="" title="Builds & Workflows" href="../builds-and-workflows/">
       Builds & Workflows
     </a>
     
@@ -197,7 +197,7 @@
       
         
   <li>
-    <a class="" title="Code Security" href="../../getting-started/code-security/">
+    <a class="" title="Code Security" href="../code-security/">
       Code Security
     </a>
     
@@ -206,7 +206,7 @@
       
         
   <li>
-    <a class="" title="Create your first App on Bitrise.io" href="../../getting-started/create-your-first-app-on-bitrise/">
+    <a class="" title="Create your first App on Bitrise.io" href="../create-your-first-app-on-bitrise/">
       Create your first App on Bitrise.io
     </a>
     
@@ -215,7 +215,7 @@
       
         
   <li>
-    <a class="" title="Add your first Step to your Workflow" href="../../getting-started/add-your-first-step-to-your-workflow/">
+    <a class="" title="Add your first Step to your Workflow" href="../add-your-first-step-to-your-workflow/">
       Add your first Step to your Workflow
     </a>
     
@@ -224,9 +224,46 @@
       
         
   <li>
-    <a class="" title="Manage your Bitrise workflow" href="../../getting-started/manage-your-bitrise-workflow/">
+    <a class="current" title="Manage your Bitrise workflow" href="./">
       Manage your Bitrise workflow
     </a>
+    
+      
+      
+        <ul>
+          
+            <li class="anchor">
+              <a title="To change a step" href="#to-change-a-step">
+                To change a step
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="To remove a step" href="#to-remove-a-step">
+                To remove a step
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="To add a new step" href="#to-add-a-new-step">
+                To add a new step
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Create a new Workflow" href="#create-a-new-workflow">
+                Create a new Workflow
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Step inputs" href="#step-inputs">
+                Step inputs
+              </a>
+            </li>
+          
+        </ul>
+      
     
   </li>
 
@@ -539,7 +576,7 @@
       
         
   <li>
-    <a class="" title="Code Signing" href="../code-signing/">
+    <a class="" title="Code Signing" href="../../ios/code-signing/">
       Code Signing
     </a>
     
@@ -548,35 +585,16 @@
       
         
   <li>
-    <a class="current" title="Uploading certificates" href="./">
+    <a class="" title="Uploading certificates" href="../../ios/uploading-certificates/">
       Uploading certificates
     </a>
-    
-      
-      
-        <ul>
-          
-            <li class="anchor">
-              <a title="Easiest way to export code signing identities" href="#easiest-way-to-export-code-signing-identities">
-                Easiest way to export code signing identities
-              </a>
-            </li>
-          
-            <li class="anchor">
-              <a title="Uploading the exported code signing files to Bitrise" href="#uploading-the-exported-code-signing-files-to-bitrise">
-                Uploading the exported code signing files to Bitrise
-              </a>
-            </li>
-          
-        </ul>
-      
     
   </li>
 
       
         
   <li>
-    <a class="" title="How to export Certificates and Provisioning Profiles" href="../export-certificate-and-provisioning-profile/">
+    <a class="" title="How to export Certificates and Provisioning Profiles" href="../../ios/export-certificate-and-provisioning-profile/">
       How to export Certificates and Provisioning Profiles
     </a>
     
@@ -585,7 +603,7 @@
       
         
   <li>
-    <a class="" title="Resigning an IPA" href="../resigning-an-ipa/">
+    <a class="" title="Resigning an IPA" href="../../ios/resigning-an-ipa/">
       Resigning an IPA
     </a>
     
@@ -594,7 +612,7 @@
       
         
   <li>
-    <a class="" title="Frequent iOS issues" href="../frequent-ios-issues/">
+    <a class="" title="Frequent iOS issues" href="../../ios/frequent-ios-issues/">
       Frequent iOS issues
     </a>
     
@@ -603,7 +621,7 @@
       
         
   <li>
-    <a class="" title="List of known Xcode issues" href="../known-xcode-issues/">
+    <a class="" title="List of known Xcode issues" href="../../ios/known-xcode-issues/">
       List of known Xcode issues
     </a>
     
@@ -822,20 +840,96 @@
       <article class="article">
         <div class="wrapper">
           
-            <h1>Uploading certificates</h1>
+            <h1>Manage your Bitrise workflow</h1>
           
-          <h2 id="easiest-way-to-export-code-signing-identities">Easiest way to export code signing identities<a class="headerlink" href="#easiest-way-to-export-code-signing-identities" title="Permanent link">⚓</a></h2>
-<p>You can easily locate the needed certificates and provisioning profiles for your project with our <code>codesigndoc</code> tool.</p>
-<p>Simply open your <code>Terminal.app</code> on your Mac and run the following command:</p>
-<pre class="code"><code>bash -l -c &quot;$(curl -sfL https://raw.githubusercontent.com/bitrise-tools/codesigndoc/master/_scripts/install_wrap.sh)&quot;.</code></pre>
+          <p>To start editing your workflow you first have to open it
+in the <strong>Workflow Editor</strong> on Bitrise.io:</p>
+<ol>
+<li>Open your App's page on <a href="https://www.bitrise.io/">Bitrise.io</a></li>
+<li>Select the <code>Workflow</code> tab</li>
+</ol>
+<p>This is your app's <strong>Workflow Editor</strong>. You can change, delete and add steps here.</p>
+<h2 id="to-change-a-step">To change a step<a class="headerlink" href="#to-change-a-step" title="Permanent link">⚓</a></h2>
+<p>Select the step here (in the Workflow Editor), on the left side.
+You can change the selected Step's inputs and other configs on the right side.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Steps are executed top-to-bottom, you can reorder them with <strong>Drag and Drop</strong>.</p>
+</div>
+<h2 id="to-remove-a-step">To remove a step<a class="headerlink" href="#to-remove-a-step" title="Permanent link">⚓</a></h2>
+<p>Select the step on the left side and click on the <strong>trash can</strong> button on the right side.</p>
+<h2 id="to-add-a-new-step">To add a new step<a class="headerlink" href="#to-add-a-new-step" title="Permanent link">⚓</a></h2>
+<p>Click on the <code>+</code> sign at the left side to add or insert a new step.</p>
+<p>Once you clicked the <code>+</code> sign you'll see a list of available steps on the right side.
+You can select a filter (ex: <code>deploy</code>) to show only a group of the available steps.</p>
+<p>Once you selected the step you want to add, just click on the <strong>Add to Workflow</strong> button.
+The new step will be selected automatically,
+and all you have to do is fill in its required inputs
+(on the right side you'll see which inputs are required - marked with an orange border).</p>
+<h2 id="create-a-new-workflow">Create a new Workflow<a class="headerlink" href="#create-a-new-workflow" title="Permanent link">⚓</a></h2>
+<p>To create a new Workflow just click on the <code>+</code> sign <strong>at the top, where your workflows are listed.</strong></p>
+<div class="admonition note">
+<p class="admonition-title">You can create as many workflows for an app as you like.</p>
+<p>Using multiple workflows can be beneficial in case you want to do different
+things based on which <em>branch</em> you push new code.
+To see how you can control what event should <em>trigger</em>
+which <em>workflow</em>, see: <a href="../../webhooks/trigger-map/">Control what to build when, with the Trigger Map</a></p>
+</div>
+<p>New workflows are created as a copy of the active workflow when you click the <code>+</code> button.</p>
+<p><strong>You can delete the current active workflow</strong> with the orange <code>Delete</code> button
+at the top right corner of the workflow area.</p>
+<h2 id="step-inputs">Step inputs<a class="headerlink" href="#step-inputs" title="Permanent link">⚓</a></h2>
+<h3 id="inserting-environment-variables-into-step-inputs">Inserting Environment Variables into Step inputs<a class="headerlink" href="#inserting-environment-variables-into-step-inputs" title="Permanent link">⚓</a></h3>
+<p>Click into any input field of a Step and a green <code>Insert Variable</code> button will appear.
+Click this button and you'll get a full list of available Environment Variables.
+You can search in this list, and when you find the one you're looking for just click it,
+and it'll be inserted into the input field for you.</p>
+<h3 id="environment-variable-replace-mode">Environment Variable replace mode<a class="headerlink" href="#environment-variable-replace-mode" title="Permanent link">⚓</a></h3>
+<p>Under every Step input field you can see one of these two indicators:</p>
+<ul>
+<li><code>Environment Variables will be replaced in input</code></li>
+<li>or <code>Environment Variables won't be replaced in input</code></li>
+</ul>
+<p>It's the status of the <code>is_expand</code> option of the input.
+<em>You can change this only through in YAML mode (<code>bitrise.yml</code> mode of the editor - left side).</em></p>
+<p>What does this option do?</p>
+<ul>
+<li>If <strong>enabled</strong> it'll replace Environment Variables (e.g. <code>$HOME</code> or <code>${HOME}</code>)
+  inside the input text with the Environment Variable's value <strong>before</strong> it would be passed to the Step.</li>
+<li>If <strong>disabled</strong> it won't replace anything in the input text, the whole text will be passed to the Step "as-it-is".</li>
+</ul>
+<p><strong>What does this mean?</strong> For example, if you have <code>$HOME</code> in the input text
+and you enable this option, it'll replace every occurrence of <code>$HOME</code> in that input
+with the value of the <code>HOME</code> environment variable
+(in this case, the home folder's path, e.g. <code>/Users/[user]</code> or <code>/home/[user]</code>).
+If it's disabled then it won't be replaced,
+the value you specify for the input will be passed as the text <code>$HOME</code>,
+and <em>the Step itself might or might not expand</em> the value.</p>
+<p><strong>Usually you should leave this option on the default value, the one defined by the Step for the input</strong>.</p>
+<p>In general you should <em>not</em> change this option, but if you have to,
+you can do that in YML mode, by adding <code>is_expand: true</code> or <code>is_expand: false</code> to the input's <code>opts</code> list. Example:</p>
+<pre class="code"><code>- some_input: My Value
+  opts:
+    is_expand: false</code></pre>
 
 
-<p>After that open your <code>Finder.app</code> and drag-and-drop your project's <code>.xcodeproj</code> or <code>.xcworkspace</code> file into the command line in your terminal.
-<img alt="codesigndoc" src="../../img/ios/codesigndoc.png" />
-Once it's done you'll have all the required files exported, ready for upload.</p>
-<h2 id="uploading-the-exported-code-signing-files-to-bitrise">Uploading the exported code signing files to Bitrise<a class="headerlink" href="#uploading-the-exported-code-signing-files-to-bitrise" title="Permanent link">⚓</a></h2>
-<p>Once you have all the needed files, head to your dashboard on <a href="https://www.bitrise.io">bitrise.io</a> and select your app.</p>
-<p>Go to <strong>Workflow</strong> &gt; <strong>Manage Workflows</strong> &gt; and select the <strong>Code Signing &amp; Files</strong> tab on the left. Upload your code signing certificate (p12) and provisioning profiles and you are ready to go! 🚀</p>
+<h4 id="a-practical-example-guideline">A practical example / guideline<a class="headerlink" href="#a-practical-example-guideline" title="Permanent link">⚓</a></h4>
+<p>As a general guideline, this option should almost always be <strong>enabled</strong>,
+unless you have a specific reason to disable it.</p>
+<p><strong>What can be a reason to disable it?</strong> There's pretty much only a single reason:
+if your input includes the <code>$</code> character (in a password for example),
+and you want to keep the <code>$</code> character in the input, instead of
+replacing it with an environment variable.</p>
+<p>If you have this expand option enabled and you have a password like <code>pas$word</code>
+it'll most likely result in <code>pas</code> after the value expansion,
+because there's no <code>$word</code> environment variable available (unless you defined it somewhere).
+There might be other cases when you explicitly want to include the <code>$</code> character in the input,
+in these cases you should disable the expand option.</p>
+<p><em><strong>Note</strong>: if you want to reference another environment variable,
+even if that one's value includes the <code>$</code> character, you have to <strong>enable</strong> this option,
+or else your reference won't work.
+<strong>In a case like this you should disable this option where you specify the value</strong> with <code>$</code> in it,
+and enable the option everywhere else, where you reference that environment variable.</em></p>
           <aside class="copyright" role="note">
             
             Documentation built with
@@ -852,7 +946,7 @@ Once it's done you'll have all the required files exported, ready for upload.</p
   <nav class="pagination" aria-label="Footer">
     <div class="previous">
       
-        <a href="../code-signing/" title="Code Signing">
+        <a href="../add-your-first-step-to-your-workflow/" title="Add your first Step to your Workflow">
           <span class="direction">
             Previous
           </span>
@@ -862,7 +956,7 @@ Once it's done you'll have all the required files exported, ready for upload.</p
             </div>
             <div class="stretch">
               <div class="title">
-                Code Signing
+                Add your first Step to your Workflow
               </div>
             </div>
           </div>
@@ -871,14 +965,14 @@ Once it's done you'll have all the required files exported, ready for upload.</p
     </div>
     <div class="next">
       
-        <a href="../export-certificate-and-provisioning-profile/" title="How to export Certificates and Provisioning Profiles">
+        <a href="../../infrastructure/available-stacks/" title="Available Stacks">
           <span class="direction">
             Next
           </span>
           <div class="page">
             <div class="stretch">
               <div class="title">
-                How to export Certificates and Provisioning Profiles
+                Available Stacks
               </div>
             </div>
             <div class="button button-next" role="button" aria-label="Next">

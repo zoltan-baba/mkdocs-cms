@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     
       
-        <title>Uploading certificates - Bitrise DevCenter</title>
+        <title>HipChat message with build status and details - Bitrise DevCenter</title>
       
       
       
@@ -95,12 +95,12 @@
           <span class="path">
             
               
-                iOS <i class="icon icon-link"></i>
+                Tutorials <i class="icon icon-link"></i>
               
             
           </span>
         
-        Uploading certificates
+        HipChat message with build status and details
       </div>
     </div>
     
@@ -359,7 +359,7 @@
       
         
   <li>
-    <a class="" title="Community Created Tutorials" href="../../tutorials/community-created/">
+    <a class="" title="Community Created Tutorials" href="../community-created/">
       Community Created Tutorials
     </a>
     
@@ -368,7 +368,7 @@
       
         
   <li>
-    <a class="" title="Create signed APK on bitrise.io" href="../../tutorials/create-signed-apk-on-bitrise/">
+    <a class="" title="Create signed APK on bitrise.io" href="../create-signed-apk-on-bitrise/">
       Create signed APK on bitrise.io
     </a>
     
@@ -377,7 +377,7 @@
       
         
   <li>
-    <a class="" title="Configure and connect to your VPN" href="../../tutorials/vpn-configuration/">
+    <a class="" title="Configure and connect to your VPN" href="../vpn-configuration/">
       Configure and connect to your VPN
     </a>
     
@@ -386,16 +386,19 @@
       
         
   <li>
-    <a class="" title="HipChat message with build status and details" href="../../tutorials/hipchat-message/">
+    <a class="current" title="HipChat message with build status and details" href="./">
       HipChat message with build status and details
     </a>
+    
+      
+      
     
   </li>
 
       
         
   <li>
-    <a class="" title="Efficient Continuous Integration and Deployment Workflow for iOS development" href="../../tutorials/efficient-continuous-integration-and-deployment-workflow-for-ios/">
+    <a class="" title="Efficient Continuous Integration and Deployment Workflow for iOS development" href="../efficient-continuous-integration-and-deployment-workflow-for-ios/">
       Efficient Continuous Integration and Deployment Workflow for iOS development
     </a>
     
@@ -539,7 +542,7 @@
       
         
   <li>
-    <a class="" title="Code Signing" href="../code-signing/">
+    <a class="" title="Code Signing" href="../../ios/code-signing/">
       Code Signing
     </a>
     
@@ -548,35 +551,16 @@
       
         
   <li>
-    <a class="current" title="Uploading certificates" href="./">
+    <a class="" title="Uploading certificates" href="../../ios/uploading-certificates/">
       Uploading certificates
     </a>
-    
-      
-      
-        <ul>
-          
-            <li class="anchor">
-              <a title="Easiest way to export code signing identities" href="#easiest-way-to-export-code-signing-identities">
-                Easiest way to export code signing identities
-              </a>
-            </li>
-          
-            <li class="anchor">
-              <a title="Uploading the exported code signing files to Bitrise" href="#uploading-the-exported-code-signing-files-to-bitrise">
-                Uploading the exported code signing files to Bitrise
-              </a>
-            </li>
-          
-        </ul>
-      
     
   </li>
 
       
         
   <li>
-    <a class="" title="How to export Certificates and Provisioning Profiles" href="../export-certificate-and-provisioning-profile/">
+    <a class="" title="How to export Certificates and Provisioning Profiles" href="../../ios/export-certificate-and-provisioning-profile/">
       How to export Certificates and Provisioning Profiles
     </a>
     
@@ -585,7 +569,7 @@
       
         
   <li>
-    <a class="" title="Resigning an IPA" href="../resigning-an-ipa/">
+    <a class="" title="Resigning an IPA" href="../../ios/resigning-an-ipa/">
       Resigning an IPA
     </a>
     
@@ -594,7 +578,7 @@
       
         
   <li>
-    <a class="" title="Frequent iOS issues" href="../frequent-ios-issues/">
+    <a class="" title="Frequent iOS issues" href="../../ios/frequent-ios-issues/">
       Frequent iOS issues
     </a>
     
@@ -603,7 +587,7 @@
       
         
   <li>
-    <a class="" title="List of known Xcode issues" href="../known-xcode-issues/">
+    <a class="" title="List of known Xcode issues" href="../../ios/known-xcode-issues/">
       List of known Xcode issues
     </a>
     
@@ -822,20 +806,42 @@
       <article class="article">
         <div class="wrapper">
           
-            <h1>Uploading certificates</h1>
+            <h1>HipChat message with build status and details</h1>
           
-          <h2 id="easiest-way-to-export-code-signing-identities">Easiest way to export code signing identities<a class="headerlink" href="#easiest-way-to-export-code-signing-identities" title="Permanent link">⚓</a></h2>
-<p>You can easily locate the needed certificates and provisioning profiles for your project with our <code>codesigndoc</code> tool.</p>
-<p>Simply open your <code>Terminal.app</code> on your Mac and run the following command:</p>
-<pre class="code"><code>bash -l -c &quot;$(curl -sfL https://raw.githubusercontent.com/bitrise-tools/codesigndoc/master/_scripts/install_wrap.sh)&quot;.</code></pre>
+          <p>You can send <a href="https://www.hipchat.com/">HipChat</a> messages during your build.</p>
+<p>You can, for example, send a <code>HipChat</code> message with the Build's <a href="https://www.bitrise.io">bitrise.io</a> URL,
+the build's status (at the point where you include the HipChat step - usually it's best to
+make it the very last step of the Workflow) and with the Public Install Page for the app.</p>
+<p>To do this all you have to do is:</p>
+<ol>
+<li>add a <code>Send HipChat message</code> step to your app's Workflow, after the <code>Deploy to Bitrise.io step</code>,</li>
+<li>fill out the required inputs (authentication token, the room's ID you want to send the message to,
+   color of the message, ...),</li>
+<li>and in the <em>Message</em> input field you can include environment variables
+   defined by Bitrise and by the steps which run before the HipChat Message step.</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you click into any Step input field, an <strong>Insert Variable</strong> button will appear.
+With this you can insert environment variables defined by Bitrise
+(for example the App's title, the Build's unique ID or the Build's URL on Bitrise)
+and environment variables exported by Steps which ran before this step
+(for example an Xcode Build's status or the generated IPA path).</p>
+</div>
+<p>Fill out the HipChat steps' required input fields, and for the HipChat Message
+step's <code>Message</code> input include the build's url with the <code>$BITRISE_BUILD_URL</code> environment variable,
+the build's status at that point with the <code>$BITRISE_BUILD_STATUS</code> variable,
+and the related Public Install Page URL with <code>$BITRISE_PUBLIC_INSTALL_PAGE_URL</code>.</p>
+<p>An example <code>Message</code> input:</p>
+<pre class="code"><code>Your build's details can be found at: $BITRISE_BUILD_URL,
+and the Public Install page at: $BITRISE_PUBLIC_INSTALL_PAGE_URL
+
+Build status: $BITRISE_BUILD_STATUS</code></pre>
 
 
-<p>After that open your <code>Finder.app</code> and drag-and-drop your project's <code>.xcodeproj</code> or <code>.xcworkspace</code> file into the command line in your terminal.
-<img alt="codesigndoc" src="../../img/ios/codesigndoc.png" />
-Once it's done you'll have all the required files exported, ready for upload.</p>
-<h2 id="uploading-the-exported-code-signing-files-to-bitrise">Uploading the exported code signing files to Bitrise<a class="headerlink" href="#uploading-the-exported-code-signing-files-to-bitrise" title="Permanent link">⚓</a></h2>
-<p>Once you have all the needed files, head to your dashboard on <a href="https://www.bitrise.io">bitrise.io</a> and select your app.</p>
-<p>Go to <strong>Workflow</strong> &gt; <strong>Manage Workflows</strong> &gt; and select the <strong>Code Signing &amp; Files</strong> tab on the left. Upload your code signing certificate (p12) and provisioning profiles and you are ready to go! 🚀</p>
+<p>That's all. Once you configure your Workflow this way and start a new build,
+you'll be notified about the build and deploy on HipChat,
+including both the build's details url and the app's Public Install Page url.</p>
           <aside class="copyright" role="note">
             
             Documentation built with
@@ -852,7 +858,7 @@ Once it's done you'll have all the required files exported, ready for upload.</p
   <nav class="pagination" aria-label="Footer">
     <div class="previous">
       
-        <a href="../code-signing/" title="Code Signing">
+        <a href="../vpn-configuration/" title="Configure and connect to your VPN">
           <span class="direction">
             Previous
           </span>
@@ -862,7 +868,7 @@ Once it's done you'll have all the required files exported, ready for upload.</p
             </div>
             <div class="stretch">
               <div class="title">
-                Code Signing
+                Configure and connect to your VPN
               </div>
             </div>
           </div>
@@ -871,14 +877,14 @@ Once it's done you'll have all the required files exported, ready for upload.</p
     </div>
     <div class="next">
       
-        <a href="../export-certificate-and-provisioning-profile/" title="How to export Certificates and Provisioning Profiles">
+        <a href="../efficient-continuous-integration-and-deployment-workflow-for-ios/" title="Efficient Continuous Integration and Deployment Workflow for iOS development">
           <span class="direction">
             Next
           </span>
           <div class="page">
             <div class="stretch">
               <div class="title">
-                How to export Certificates and Provisioning Profiles
+                Efficient Continuous Integration and Deployment Workflow for iOS development
               </div>
             </div>
             <div class="button button-next" role="button" aria-label="Next">
