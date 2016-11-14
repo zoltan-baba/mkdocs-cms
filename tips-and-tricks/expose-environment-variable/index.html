@@ -671,6 +671,16 @@
     
       
       
+        <ul>
+          
+            <li class="anchor">
+              <a title="Overwrite an Environment Variable if another one is set" href="#overwrite-an-environment-variable-if-another-one-is-set">
+                Overwrite an Environment Variable if another one is set
+              </a>
+            </li>
+          
+        </ul>
+      
     
   </li>
 
@@ -884,6 +894,51 @@ workflows:
         - channel: ...
         - webhook_url: ...
         - message: &quot;Release Notes: $MY_RELEASE_NOTE&quot;</code></pre>
+
+
+<h2 id="overwrite-an-environment-variable-if-another-one-is-set">Overwrite an Environment Variable if another one is set<a class="headerlink" href="#overwrite-an-environment-variable-if-another-one-is-set" title="Permanent link">⚓</a></h2>
+<p>E.g. if a custom environment variable is set through the Build Trigger API.</p>
+<p>The best way to do this, to make sure that no matter what, you overwrite the other env var,
+is to use a Script step, as described above, and check whether the custom env var is set.</p>
+<p>As an example, if you want to overwrite the <code>PROJECT_SCHEME</code> environment variable,
+if, let's say, a <code>API_PROJECT_SCHEME</code> env var is set, just drop in a <code>Script</code> step (can be the very first one
+in the workflow), with the content:</p>
+<pre class="code"><code class="language-bash linenums">#!/bin/bash
+set -ex
+if [ ! -z &quot;$API_PROJECT_SCHEME&quot; ] ; then
+  envman add --key PROJECT_SCHEME --value &quot;$API_PROJECT_SCHEME&quot;
+fi</code></pre>
+
+
+<p>This script will check whether the <code>API_PROJECT_SCHEME</code> env var is defined,
+and if it is, then its value will be assigned to the <code>PROJECT_SCHEME</code> environment variable,
+overwriting the original value of <code>PROJECT_SCHEME</code>.</p>
+<h3 id="alternative-solution-use-workflow-env-vars">Alternative solution: use Workflow Env Vars<a class="headerlink" href="#alternative-solution-use-workflow-env-vars" title="Permanent link">⚓</a></h3>
+<p>Alternatively you can set environment variables for Workflows too.
+The Env Vars you set for a workflow will overwrite the env var
+if defined as an App Env Var or Secret Env Var.</p>
+<p>An example workflow which defined an environment variable, and then runs another workflow
+which can use those env vars:</p>
+<pre class="code"><code>workflows:
+
+  deploy-alpha:
+    envs:
+    - ENV_TYPE: alpha
+    after_run:
+    - _deploy
+
+  _deploy:
+    steps:
+    - script:
+        inputs:
+        - content: |
+            #!/bin/bash
+            echo &quot;ENV_TYPE: $ENV_TYPE&quot;</code></pre>
+
+
+<p>If you run the <code>deploy-alpha</code> workflow, that will set the <code>ENV_TYPE</code> env var to <code>alpha</code>,
+then it will run the <code>_deploy</code> workflow, which can use that environment variable -
+in this example it will simply print its value (the printed text will be: <code>ENV_TYPE: alpha</code>).</p>
           <aside class="copyright" role="note">
             
             Documentation built with
