@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     
       
-        <title>Efficient Continuous Integration and Deployment Workflow for iOS development - Bitrise DevCenter</title>
+        <title>Auto deploy your Middleman blog / static website - Bitrise DevCenter</title>
       
       
       
@@ -100,7 +100,7 @@
             
           </span>
         
-        Efficient Continuous Integration and Deployment Workflow for iOS development
+        Auto deploy your Middleman blog / static website
       </div>
     </div>
     
@@ -404,36 +404,9 @@
       
         
   <li>
-    <a class="current" title="Efficient Continuous Integration and Deployment Workflow for iOS development" href="./">
+    <a class="" title="Efficient Continuous Integration and Deployment Workflow for iOS development" href="../efficient-continuous-integration-and-deployment-workflow-for-ios/">
       Efficient Continuous Integration and Deployment Workflow for iOS development
     </a>
-    
-      
-        
-      
-      
-        <ul>
-          
-            <li class="anchor">
-              <a title="Requirements" href="#requirements">
-                Requirements
-              </a>
-            </li>
-          
-            <li class="anchor">
-              <a title="Let's do it!" href="#lets-do-it">
-                Let's do it!
-              </a>
-            </li>
-          
-            <li class="anchor">
-              <a title="Git + Bitrise" href="#git-bitrise">
-                Git + Bitrise
-              </a>
-            </li>
-          
-        </ul>
-      
     
   </li>
 
@@ -449,9 +422,64 @@
       
         
   <li>
-    <a class="" title="Auto deploy your Middleman blog / static website" href="../auto-deploy-middleman-project/">
+    <a class="current" title="Auto deploy your Middleman blog / static website" href="./">
       Auto deploy your Middleman blog / static website
     </a>
+    
+      
+      
+        <ul>
+          
+            <li class="anchor">
+              <a title="1. Create and clone a repository on Github" href="#1-create-and-clone-a-repository-on-github">
+                1. Create and clone a repository on Github
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="2. Install Middleman" href="#2-install-middleman">
+                2. Install Middleman
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="3. Create a Middleman project" href="#3-create-a-middleman-project">
+                3. Create a Middleman project
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="4. Connect your repository with Bitrise" href="#4-connect-your-repository-with-bitrise">
+                4. Connect your repository with Bitrise
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="5. Prepare your Workflow" href="#5-prepare-your-workflow">
+                5. Prepare your Workflow
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="6. Deploy to Amazon S3: Add an Amazon S3 bucket sync to your Workflow steps" href="#6-deploy-to-amazon-s3-add-an-amazon-s3-bucket-sync-to-your-workflow-steps">
+                6. Deploy to Amazon S3: Add an Amazon S3 bucket sync to your Workflow steps
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="7. Run build manually" href="#7-run-build-manually">
+                7. Run build manually
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="8. Run builds automatically" href="#8-run-builds-automatically">
+                8. Run builds automatically
+              </a>
+            </li>
+          
+        </ul>
+      
     
   </li>
 
@@ -893,102 +921,88 @@
       <article class="article">
         <div class="wrapper">
           
-          <h1 id="an-efficient-cicd-workflow-for-ios-development">An efficient CI/CD Workflow for iOS development<a class="headerlink" href="#an-efficient-cicd-workflow-for-ios-development" title="Permanent link">⚓</a></h1>
-<p>To achieve an efficient workflow for rapid iOS app development you have to specify the
-automation scenarios and the triggers to start specific scenarios.</p>
-<p>Additionally you most likely want to minimize the number of tools, configurations and
-manual steps required to achieve your automated development workflow.</p>
-<p>To make the whole process as easy as possible (and still flexible enough to support a
-broad range of tasks you might want to perform as part of your automation) was one of
-the fundamental principles when we started <a href="https://www.bitrise.io/">Bitrise.io</a>.</p>
-<h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">⚓</a></h2>
-<p><a href="http://git-scm.com/">Git</a> is the most popular modern
-<a href="http://en.wikipedia.org/wiki/Distributed_revision_control">Distributed Version Control System (DVCS)</a> at the moment,
-its branching system provides the flexibility to efficiently organize your app's code repository.</p>
-<p>Through <strong>hooks</strong> <em>git</em> is ideal to be the trigger of your automation scenarios, <strong>no other tools required</strong>.</p>
-<p>Well, actually there's one more thing: you have to organize your git repository
-branches in a way which is easy to manage and also which can be used to identify
-what automation scenario should be performed when a change happens on a specific branch.</p>
-<h2 id="lets-do-it">Let's do it!<a class="headerlink" href="#lets-do-it" title="Permanent link">⚓</a></h2>
-<p>The most popular git branching model which fulfills these requirements is
-<a href="http://nvie.com/posts/a-successful-git-branching-model/">Gitflow</a>.
-You can use other branching models but we'll use Gitflow jargon to describe the concepts.</p>
-<p>A very minimalistic summary of how Gitflow works:</p>
+            <h1>Auto deploy your Middleman blog / static website</h1>
+          
+          <p>This tutorial helps you create a basic static website project (e.g. a Blog) with <a href="https://middlemanapp.com/">Middleman</a>,
+connect and deploy it with Bitrise.</p>
+<h2 id="1-create-and-clone-a-repository-on-github">1. Create and clone a repository on Github<a class="headerlink" href="#1-create-and-clone-a-repository-on-github" title="Permanent link">⚓</a></h2>
+<p>To create a new repository on Github, <a href="https://github.com/repositories/new">click here</a>.
+You need to sign in with your Github account, or sign up if you don't have one yet.
+Once you created your repository, clone it.</p>
+<h2 id="2-install-middleman">2. Install Middleman<a class="headerlink" href="#2-install-middleman" title="Permanent link">⚓</a></h2>
+<p>Middleman is distributed using the RubyGems package manager.
+This means you will need both the Ruby language runtime installed and RubyGems to begin using Middleman.</p>
+<p>MacOS comes prepackaged with Ruby, however, some of the Middleman's dependencies need to be compiled
+during installation and on macOS that requires Xcode.
+Xcode can be installed via the <a href="http://itunes.apple.com/us/app/xcode/id497799835?ls=1&amp;mt=12">Mac App Store</a>.
+Alternately you can just install the Xcode Command Line Tools, that should be enough
+if you don't want to install the full Xcode.app.</p>
+<p>Once you have Ruby and Xcode (Command Line Tools), execute the following from the command line:</p>
+<pre class="code"><code>gem install middleman</code></pre>
+
+
+<p>This will install Middleman, its dependencies and the command-line tools for using Middleman.</p>
+<h2 id="3-create-a-middleman-project">3. Create a Middleman project<a class="headerlink" href="#3-create-a-middleman-project" title="Permanent link">⚓</a></h2>
+<p>To create a Middleman project, navigate to the root folder of your repository and execute the following from the command line:</p>
+<pre class="code"><code>middleman init my_new_project</code></pre>
+
+
+<p>Once the setup is finished, commit and push your changes.</p>
+<h2 id="4-connect-your-repository-with-bitrise">4. Connect your repository with Bitrise<a class="headerlink" href="#4-connect-your-repository-with-bitrise" title="Permanent link">⚓</a></h2>
+<p>To connect your repository with Bitrise, visit the <a href="https://www.bitrise.io/">Bitrise</a> site.
+You need to sign in with your Bitrise account, or sign up if you don't have one yet.
+Once you're signed in, select <a href="https://www.bitrise.io/apps/add">Add new App</a> in the top dropdown menu.</p>
+<p>In the first step, you need to select the provider, where you store your code, in this case, GitHub.</p>
+<p>In the second step, you will see a list of all your repositories on GitHub. Select the one you just created.</p>
+<p>In the third step, you will get an alert, since the repository you are connecting is not an Xcode project.
+Select "Configure Manually", then enter the branch name "master".</p>
+<h2 id="5-prepare-your-workflow">5. Prepare your Workflow<a class="headerlink" href="#5-prepare-your-workflow" title="Permanent link">⚓</a></h2>
+<p>Once you created your project, select it in the <a href="https://www.bitrise.io/dashboard">Dashboard</a>
+and select the <code>Workflow</code> tab from the top menu.
+We are going to add a bash script that will be executed on each build.
+First, delete all the automatically created steps (if any).
+Next, we need to add new steps.
+You can add new steps by clicking on the <code>+</code> sign button between steps / in the step list and selecting the step
+from the step list popup. Add the following steps to your Workflow, in this order:</p>
+<ol>
+<li><code>Activate SSH key</code> - unless you used the public, non SSH URL of the repository during the Add New App process</li>
+<li><code>Git Clone Repository</code></li>
+<li><code>Script</code></li>
+</ol>
+<p>Select the <code>Script</code> step and add the following lines:</p>
+<pre class="code"><code class="language-bash linenums">#!/bin/bash
+set -ex
+bundle install
+bundle exec middleman build --verbose</code></pre>
+
+
+<p>The above code installs the dependencies specified in your <code>Gemfile</code>, and runs a Middleman build on the virtual machine.</p>
+<h2 id="6-deploy-to-amazon-s3-add-an-amazon-s3-bucket-sync-to-your-workflow-steps">6. Deploy to Amazon S3: Add an Amazon S3 bucket sync to your Workflow steps<a class="headerlink" href="#6-deploy-to-amazon-s3-add-an-amazon-s3-bucket-sync-to-your-workflow-steps" title="Permanent link">⚓</a></h2>
+<p>Now we are going to add and customize an Amazon S3 bucket sync to the Workflow steps.
+Click on the <em>Add new Step</em> button and select <code>Amazon S3 bucket sync</code> from the step list.</p>
+<p>Select the step to customize it.</p>
 <ul>
-<li>You have two fixed, main branches:<ul>
-<li><strong>master</strong> : it should only contain the code of release versions</li>
-<li><strong>develop</strong> : it's the root branch for development, the integration or synchronization branch for developers</li>
+<li>Enter your AWS access key</li>
+<li>Your AWS secret key</li>
+<li>And enter a name for your S3 bucket.</li>
+<li>For your local path, enter the following: <code>$BITRISE_SOURCE_DIR/build/</code></li>
 </ul>
-</li>
-<li>You work on <strong>feature</strong> branches:<ul>
-<li>Always start the feature branch from the <em>develop</em> branch.</li>
-<li>Once a feature (issue / task) is finished you close the related feature branch, merging
-  the feature's code back to the integration <em>develop</em> branch.</li>
-</ul>
-</li>
-<li>Once you're ready for a release, you merge from <em>develop</em> to <em>master</em> (through a Gitflow <em>release</em>)</li>
-</ul>
-<p>With this model you can always see the active tasks (<em>feature</em> branches), the latest "staging" or "beta" code (<em>develop</em> branch) and the released versions (<em>master</em> branch).</p>
-<p>Your branches have separate meanings / purposes, which make this branching model a naturally good fit for automation.</p>
-<p>So with a branching model like Gitflow and through <a href="../../webhooks/">webhooks</a>,
-you can define and automate three main scenarios:</p>
-<ol>
-<li>Change on a <em>feature</em> branch: while a feature is under active development you mostly
-   want to continuously <strong>test the code</strong>, checking whether it still fulfills
-   the defined tests, so when it's finished and you merge it back to the <em>develop</em> branch,
-   it won't break anything.</li>
-<li>Change on <em>develop</em> branch: this is the main integration point of finished features / tasks.
-   If you or your team works on multiple features simultaneously, those independent features might introduce
-   conflicting changes, so you want to always <strong>test</strong> the code changes on <em>develop</em> to detect these breaking changes.
-   If the tests do pass, you or your testers might want to give a manual spin for that particular version
-   of the app, so you configure an <strong>automatic deployment</strong> which should make the version accessible
-   for those use are in charge of testing the new versions.
-   It's also a good idea to <strong>notify the testers</strong> when a new test version is available.</li>
-<li>Everything worked, your app is rock solid, was tested both automatically with unit and other tests
-   and manually by your internal testers, and now it's ready for prime time.
-   Fantastic! Now you can create a <em>release</em>, which in Gitflow will merge the code from <em>develop</em> into
-   the <em>master</em> branch. As always, just to be absolutely sure, you want to run
-   your <strong>automatic tests</strong> one last time.
-   If it passes you want to <strong>build the release version of the App</strong>,
-   <strong>deploy it</strong> for your external beta testers / your project manager / anyone who agreed
-   to test your precious app before the App Store submission.
-   And of course you don't want to forget to <strong>invite your testers</strong>, do you?</li>
-</ol>
-<p>The beauty of Gitflow (or a similar branching model) is that if you use an automation service
-like <a href="https://www.bitrise.io/">Bitrise</a> you can define these scenarios,
-connect to the related branches and you'll never have to do these tasks manually.</p>
-<p><strong>You can just work on your code</strong>, organized into branches and that's all.
-<strong>Everything else will happen automatically</strong>, based on which branch changed.</p>
-<h2 id="git-bitrise">Git + Bitrise<a class="headerlink" href="#git-bitrise" title="Permanent link">⚓</a></h2>
-<p>Bitrise is built specifically to help you with this kind of automation.
-To achieve an automated workflow like the one described in the previous section this is all what you have to do:</p>
-<ol>
-<li><strong>Register your App's repository</strong> on <a href="https://www.bitrise.io/">Bitrise</a>
-   (<em>Don't forget to setup a <a href="../../webhooks/">webhook</a>!</em> If you connect your repository through
-   our GitHub or Bitbucket integration options, Bitrise will do this automatically for you).</li>
-<li>Prepare your App's <strong>Primary Workflow</strong> to include the <em>tests</em> you would like to run on every code change.</li>
-<li>Create a <strong>new Workflow for your develop branch</strong> and add the <em>deployment</em>
-   and <em>notification</em> steps you would like to use.
-   For example, you can use Bitrise's built in App Deployment system
-   and send email and Slack notifications when a test build is available -
-   you can find dozens of Steps in our library or you can just add <em>script</em> steps
-   and do anything you want to.</li>
-<li>Create another <strong>Workflow for your master branch</strong> and configure it for
-   the <em>deployment</em> of release versions, <em>notifying</em> your beta testers or project manager,
-   maybe even <a href="https://github.com/bitrise-io/steps-sms-text-message">Send a Text message</a>.</li>
-</ol>
-<p><em>That's all, no other setup is required</em>.
-You can customize your Workflows the way you want and you can
-<strong>control everything with nothing but your code repository!</strong></p>
+<p>This will select the <em>contents</em> of the build folder in the project source path on the virtual machine.
+It will be uploaded on every build.</p>
+<p>For access control, enter <code>public-read</code> or <code>private</code>, as advised.</p>
 <div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>You can create unlimited number of Workflows
-so if you have a more complex branching model
-you can configure your automations to support the way you work.</p>
+<p class="admonition-title">Alternative deploy destinations</p>
+<p>You can of course use <code>Heroku</code>, GitHub pages or any other service
+as your deployment target.</p>
 </div>
-<p>We have a great amount of Steps you can choose from
-and <strong>all of these Steps are open source</strong>,
-so if you want to modify one or create a brand new Step you can do that too!</p>
+<h2 id="7-run-build-manually">7. Run build manually<a class="headerlink" href="#7-run-build-manually" title="Permanent link">⚓</a></h2>
+<p>Once the configuration of your Workflow is complete,
+you can run a build manually by clicking on the <code>Start a build</code> button on the app's page (where you see the
+<code>Builds</code>, <code>Workflow</code>, <code>Team</code>, ... tabs).</p>
+<h2 id="8-run-builds-automatically">8. Run builds automatically<a class="headerlink" href="#8-run-builds-automatically" title="Permanent link">⚓</a></h2>
+<p>If you chose GitHub when adding your repository, each code change (commit) on GitHub will automatically trigger a Bitrise build.
+Otherwise you can find more information about how you can setup a Webhook, to trigger builds
+automatically for code push, pull request and tags <a href="../../webhooks/">here</a>.</p>
           <aside class="copyright" role="note">
             
             Documentation built with
@@ -1005,7 +1019,7 @@ so if you want to modify one or create a brand new Step you can do that too!</p>
   <nav class="pagination" aria-label="Footer">
     <div class="previous">
       
-        <a href="../download-or-replace-project-resources/" title="Download or replace project resources">
+        <a href="../vpn-configuration/" title="Configure and connect to your VPN">
           <span class="direction">
             Previous
           </span>
@@ -1015,7 +1029,7 @@ so if you want to modify one or create a brand new Step you can do that too!</p>
             </div>
             <div class="stretch">
               <div class="title">
-                Download or replace project resources
+                Configure and connect to your VPN
               </div>
             </div>
           </div>
@@ -1024,14 +1038,14 @@ so if you want to modify one or create a brand new Step you can do that too!</p>
     </div>
     <div class="next">
       
-        <a href="../vpn-configuration/" title="Configure and connect to your VPN">
+        <a href="../deploy/bitrise-app-deployment/" title="Bitrise OTA App Deployment">
           <span class="direction">
             Next
           </span>
           <div class="page">
             <div class="stretch">
               <div class="title">
-                Configure and connect to your VPN
+                Bitrise OTA App Deployment
               </div>
             </div>
             <div class="button button-next" role="button" aria-label="Next">

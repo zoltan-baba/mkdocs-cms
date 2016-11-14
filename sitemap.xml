@@ -159,6 +159,12 @@
      <changefreq>daily</changefreq>
     </url>
         
+    <url>
+     <loc>/tutorials/auto-deploy-middleman-project/</loc>
+     <lastmod>2016-11-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
     
 
     
