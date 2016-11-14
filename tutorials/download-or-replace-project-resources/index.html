@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     
       
-        <title>How to configure fastlane match for Bitrise - Bitrise DevCenter</title>
+        <title>Download or replace project resources - Bitrise DevCenter</title>
       
       
       
@@ -95,12 +95,12 @@
           <span class="path">
             
               
-                Tips & Tricks <i class="icon icon-link"></i>
+                Tutorials <i class="icon icon-link"></i>
               
             
           </span>
         
-        How to configure fastlane match for Bitrise
+        Download or replace project resources
       </div>
     </div>
     
@@ -359,7 +359,7 @@
       
         
   <li>
-    <a class="" title="Community Created Tutorials" href="../../tutorials/community-created/">
+    <a class="" title="Community Created Tutorials" href="../community-created/">
       Community Created Tutorials
     </a>
     
@@ -368,7 +368,7 @@
       
         
   <li>
-    <a class="" title="Create signed APK on bitrise.io" href="../../tutorials/create-signed-apk-on-bitrise/">
+    <a class="" title="Create signed APK on bitrise.io" href="../create-signed-apk-on-bitrise/">
       Create signed APK on bitrise.io
     </a>
     
@@ -377,7 +377,7 @@
       
         
   <li>
-    <a class="" title="HipChat message with build status and details" href="../../tutorials/hipchat-message/">
+    <a class="" title="HipChat message with build status and details" href="../hipchat-message/">
       HipChat message with build status and details
     </a>
     
@@ -386,16 +386,41 @@
       
         
   <li>
-    <a class="" title="Download or replace project resources" href="../../tutorials/download-or-replace-project-resources/">
+    <a class="current" title="Download or replace project resources" href="./">
       Download or replace project resources
     </a>
+    
+      
+      
+        <ul>
+          
+            <li class="anchor">
+              <a title="Using the ZIP resource archive downloader step" href="#using-the-zip-resource-archive-downloader-step">
+                Using the ZIP resource archive downloader step
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Single file - using the File Downloader step" href="#single-file-using-the-file-downloader-step">
+                Single file - using the File Downloader step
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="The "manual" way" href="#the-manual-way">
+                The "manual" way
+              </a>
+            </li>
+          
+        </ul>
+      
     
   </li>
 
       
         
   <li>
-    <a class="" title="Efficient Continuous Integration and Deployment Workflow for iOS development" href="../../tutorials/efficient-continuous-integration-and-deployment-workflow-for-ios/">
+    <a class="" title="Efficient Continuous Integration and Deployment Workflow for iOS development" href="../efficient-continuous-integration-and-deployment-workflow-for-ios/">
       Efficient Continuous Integration and Deployment Workflow for iOS development
     </a>
     
@@ -404,7 +429,7 @@
       
         
   <li>
-    <a class="" title="Configure and connect to your VPN" href="../../tutorials/vpn-configuration/">
+    <a class="" title="Configure and connect to your VPN" href="../vpn-configuration/">
       Configure and connect to your VPN
     </a>
     
@@ -647,7 +672,7 @@
       
         
   <li>
-    <a class="" title="Skip a Build (skip ci)" href="../skip-a-build/">
+    <a class="" title="Skip a Build (skip ci)" href="../../tips-and-tricks/skip-a-build/">
       Skip a Build (skip ci)
     </a>
     
@@ -656,7 +681,7 @@
       
         
   <li>
-    <a class="" title="Attach any file as an Artifact to the Build" href="../attach-any-file-to-build/">
+    <a class="" title="Attach any file as an Artifact to the Build" href="../../tips-and-tricks/attach-any-file-to-build/">
       Attach any file as an Artifact to the Build
     </a>
     
@@ -665,7 +690,7 @@
       
         
   <li>
-    <a class="" title="Expose an Environment Variable and use it in another Step" href="../expose-environment-variable/">
+    <a class="" title="Expose an Environment Variable and use it in another Step" href="../../tips-and-tricks/expose-environment-variable/">
       Expose an Environment Variable and use it in another Step
     </a>
     
@@ -674,7 +699,7 @@
       
         
   <li>
-    <a class="" title="Don't mark the Build as failed if a given step would fail (ignore the error of the Step)" href="../dont-mark-build-failed-if-step-fails/">
+    <a class="" title="Don't mark the Build as failed if a given step would fail (ignore the error of the Step)" href="../../tips-and-tricks/dont-mark-build-failed-if-step-fails/">
       Don't mark the Build as failed if a given step would fail (ignore the error of the Step)
     </a>
     
@@ -683,7 +708,7 @@
       
         
   <li>
-    <a class="" title="Enable/Disable a step (optionally, based on a condition)" href="../disable-a-step-by-condition/">
+    <a class="" title="Enable/Disable a step (optionally, based on a condition)" href="../../tips-and-tricks/disable-a-step-by-condition/">
       Enable/Disable a step (optionally, based on a condition)
     </a>
     
@@ -692,7 +717,7 @@
       
         
   <li>
-    <a class="" title="Xcode Archive: export options" href="../xcodebuild-export-options/">
+    <a class="" title="Xcode Archive: export options" href="../../tips-and-tricks/xcodebuild-export-options/">
       Xcode Archive: export options
     </a>
     
@@ -701,7 +726,7 @@
       
         
   <li>
-    <a class="" title="Install Any Additional Tool" href="../install-additional-tools/">
+    <a class="" title="Install Any Additional Tool" href="../../tips-and-tricks/install-additional-tools/">
       Install Any Additional Tool
     </a>
     
@@ -710,12 +735,9 @@
       
         
   <li>
-    <a class="current" title="How to configure fastlane match for Bitrise" href="./">
+    <a class="" title="How to configure fastlane match for Bitrise" href="../../tips-and-tricks/how-to-configure-fastlane-match-for-bitrise/">
       How to configure fastlane match for Bitrise
     </a>
-    
-      
-      
     
   </li>
 
@@ -815,33 +837,60 @@
       <article class="article">
         <div class="wrapper">
           
-            <h1>How to configure fastlane match for Bitrise</h1>
+            <h1>Download or replace project resources</h1>
           
-          <p>If you want to use <a href="https://github.com/fastlane/fastlane/tree/master/match">fastlane match</a>
-in your <a href="https://www.bitrise.io/">bitrise.io</a> build you only have to do three things:</p>
-<ol>
-<li>Make sure that a single SSH key can be used to <code>git clone</code> both your main repository (the one
-   you register on <a href="https://www.bitrise.io/">bitrise.io</a>) and the <code>match</code> repository.
-   You can find more info <a href="http://devcenter.bitrise.io/docs/adding-projects-with-submodules">in this guide</a>.</li>
-<li>Add an environment variable <code>MATCH_PASSWORD</code>, as
-   <a href="https://github.com/fastlane/fastlane/tree/master/match#encryption-password">described in <code>match</code>'s docs</a>,
-   to specify the <code>Encryption password</code> you used for <code>match</code>.
-   On <a href="https://www.bitrise.io/">bitrise.io</a> you should add this as a <code>Secret Environment Variable</code>,
-   in the <a href="http://devcenter.bitrise.io/docs/add-your-first-step-to-your-apps-workflow">Workflow Editor</a>.
-   <em>Make sure to <strong>disable</strong> the <code>Replace variables in input?</code> option of the environment
-   variable, to not to cause issues when the value includes the <code>$</code> (dollar) sign, which is used
-   for environment variable expansion.</em>
-   <img alt="Screenshot - Fastlane match secret env var setup" src="../../img/tips-and-tricks/fastlane-match-password-secret-env.png" /></li>
-<li>Make sure to use <code>match</code>'s <code>readonly</code> mode, or else <code>match</code> will try to connect
-   to the Apple Developer Portal, which requires further authorization (providing additional
-   username and password for Apple Dev Portal login)!<ul>
-<li>If you use <code>match</code> in your <code>Fastfile</code> or <code>fastlane</code> config: <code>match(app_identifier: "my.domain", type: "appstore", readonly: true)</code></li>
-<li>If you use it as a command line tool: <code>match development --readonly</code></li>
-<li>More info in <code>match</code>'s <a href="https://github.com/fastlane/fastlane/tree/master/match">official readme / docs</a></li>
+          <p>You can do this in quite a few ways, these are probably the easiest ones:</p>
+<ul>
+<li>use the <code>ZIP resource archive downloader</code> Step</li>
+<li>use a <code>Script</code> Step</li>
 </ul>
-</li>
-</ol>
-<p>That's all, you can now enjoy the utility of <code>match</code>, automated with <a href="https://www.bitrise.io/">bitrise.io</a> 🚀</p>
+<div class="admonition note">
+<p class="admonition-title">Store the resources file on <a href="https://www.bitrise.io">bitrise.io</a></p>
+<p>You can store the resources file on <a href="https://www.bitrise.io">bitrise.io</a>.
+In the Workflow Editor select the "Code signing &amp; Files" section,
+and upload the archive file in the "Generic File Storage" section.
+Bitrise will automatically generate a (time limited, expiring) download URL
+for the files you upload here, and will expose the download URL
+as an Environment Variable.</p>
+</div>
+<h2 id="using-the-zip-resource-archive-downloader-step">Using the <code>ZIP resource archive downloader</code> step<a class="headerlink" href="#using-the-zip-resource-archive-downloader-step" title="Permanent link">⚓</a></h2>
+<p>If you have your resources on your server in a zip archive, all you have to do
+is to add the <code>ZIP resource archive downloader</code> Step to your Workflow,
+specify the URL of the ZIP and the destination where the zip's content should be uncompressed.</p>
+<p>The <em>source code of your app</em> will be (by default) downloaded into the folder
+defined in the <code>$BITRISE_SOURCE_DIR</code> environment variable.</p>
+<p>If you want to place the content of your ZIP archive into a folder called <em>myresource</em>
+inside your app's source code directory, you can define the extract target folder
+(of the <code>ZIP resource archive downloader</code> step) as <code>${BITRISE_SOURCE_DIR}/myresource</code>,
+or <code>./myresource</code> (as the default working directory is the source code directory).</p>
+<h2 id="single-file-using-the-file-downloader-step">Single file - using the <code>File Downloader</code> step<a class="headerlink" href="#single-file-using-the-file-downloader-step" title="Permanent link">⚓</a></h2>
+<p>If you only want to download a single file, you can of course ZIP it up and
+use the <code>ZIP resource archive downloader</code> step as described in the previous section,
+but there's also a step for single file downloads.</p>
+<p>The <code>File Downloader</code> step can be used for this use case. Works very similarly as the
+<code>ZIP resource archive downloader</code> step, except it does not require a ZIP file,
+it simply downloads the specified file to the location you set.</p>
+<pre class="code"><code>...
+- file-downloader:
+    inputs:
+    - source: $BITRISEIO_my_file_id_URL
+    - destination: &quot;$BITRISE_SOURCE_DIR/path/to/store/the/file&quot;
+...</code></pre>
+
+
+<h2 id="the-manual-way">The "manual" way<a class="headerlink" href="#the-manual-way" title="Permanent link">⚓</a></h2>
+<p>If you want to control the whole download process, you can use the <code>Script</code> step
+and write your own download code, something like this:</p>
+<pre class="code"><code class="language-bash linenums">#!/bin/bash
+set -ex
+# Download your resource
+curl -fo &quot;download/path&quot; &quot;https://url/of/your/resource&quot;
+# Uncompress it
+unzip -u &quot;download/path&quot; -d &quot;uncompress/target/path&quot;</code></pre>
+
+
+<p><em>If you'd need an additional tool to download or uncompress the resources file,
+please see the <a href="../../tips-and-tricks/install-additional-tools/">Install Any Additional Tool</a> guide.</em></p>
           <aside class="copyright" role="note">
             
             Documentation built with
@@ -858,7 +907,7 @@ in your <a href="https://www.bitrise.io/">bitrise.io</a> build you only have to 
   <nav class="pagination" aria-label="Footer">
     <div class="previous">
       
-        <a href="../install-additional-tools/" title="Install Any Additional Tool">
+        <a href="../hipchat-message/" title="HipChat message with build status and details">
           <span class="direction">
             Previous
           </span>
@@ -868,7 +917,7 @@ in your <a href="https://www.bitrise.io/">bitrise.io</a> build you only have to 
             </div>
             <div class="stretch">
               <div class="title">
-                Install Any Additional Tool
+                HipChat message with build status and details
               </div>
             </div>
           </div>
@@ -877,14 +926,14 @@ in your <a href="https://www.bitrise.io/">bitrise.io</a> build you only have to 
     </div>
     <div class="next">
       
-        <a href="../../faq/available-environment-variables/" title="Available Environment Variables">
+        <a href="../efficient-continuous-integration-and-deployment-workflow-for-ios/" title="Efficient Continuous Integration and Deployment Workflow for iOS development">
           <span class="direction">
             Next
           </span>
           <div class="page">
             <div class="stretch">
               <div class="title">
-                Available Environment Variables
+                Efficient Continuous Integration and Deployment Workflow for iOS development
               </div>
             </div>
             <div class="button button-next" role="button" aria-label="Next">

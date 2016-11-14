@@ -233,20 +233,26 @@
         <ul>
           
             <li class="anchor">
-              <a title="To change a step" href="#to-change-a-step">
-                To change a step
+              <a title="Change a step" href="#change-a-step">
+                Change a step
               </a>
             </li>
           
             <li class="anchor">
-              <a title="To remove a step" href="#to-remove-a-step">
-                To remove a step
+              <a title="Upgrade a Step to the latest version" href="#upgrade-a-step-to-the-latest-version">
+                Upgrade a Step to the latest version
               </a>
             </li>
           
             <li class="anchor">
-              <a title="To add a new step" href="#to-add-a-new-step">
-                To add a new step
+              <a title="Remove a step" href="#remove-a-step">
+                Remove a step
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Add a new step" href="#add-a-new-step">
+                Add a new step
               </a>
             </li>
           
@@ -414,15 +420,6 @@
       
         
   <li>
-    <a class="" title="Configure and connect to your VPN" href="../../tutorials/vpn-configuration/">
-      Configure and connect to your VPN
-    </a>
-    
-  </li>
-
-      
-        
-  <li>
     <a class="" title="HipChat message with build status and details" href="../../tutorials/hipchat-message/">
       HipChat message with build status and details
     </a>
@@ -432,8 +429,26 @@
       
         
   <li>
+    <a class="" title="Download or replace project resources" href="../../tutorials/download-or-replace-project-resources/">
+      Download or replace project resources
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
     <a class="" title="Efficient Continuous Integration and Deployment Workflow for iOS development" href="../../tutorials/efficient-continuous-integration-and-deployment-workflow-for-ios/">
       Efficient Continuous Integration and Deployment Workflow for iOS development
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Configure and connect to your VPN" href="../../tutorials/vpn-configuration/">
+      Configure and connect to your VPN
     </a>
     
   </li>
@@ -849,16 +864,25 @@ in the <strong>Workflow Editor</strong> on Bitrise.io:</p>
 <li>Select the <code>Workflow</code> tab</li>
 </ol>
 <p>This is your app's <strong>Workflow Editor</strong>. You can change, delete and add steps here.</p>
-<h2 id="to-change-a-step">To change a step<a class="headerlink" href="#to-change-a-step" title="Permanent link">⚓</a></h2>
+<h2 id="change-a-step">Change a step<a class="headerlink" href="#change-a-step" title="Permanent link">⚓</a></h2>
 <p>Select the step here (in the Workflow Editor), on the left side.
 You can change the selected Step's inputs and other configs on the right side.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Steps are executed top-to-bottom, you can reorder them with <strong>Drag and Drop</strong>.</p>
 </div>
-<h2 id="to-remove-a-step">To remove a step<a class="headerlink" href="#to-remove-a-step" title="Permanent link">⚓</a></h2>
+<h2 id="upgrade-a-step-to-the-latest-version">Upgrade a Step to the latest version<a class="headerlink" href="#upgrade-a-step-to-the-latest-version" title="Permanent link">⚓</a></h2>
+<p>When a new version is available for a Step in your Workflow,
+you can update the Step to the new version by selecting the Step in the Workflow Editor and</p>
+<ol>
+<li>Click the orange "update indicator" icon, to upgrade the Step to the latest available version</li>
+<li>Or select the new version manually, on the right side, where you can see the step's details (<code>Version</code> section).</li>
+</ol>
+<p><em>Your settings / provided input values for the Step will be kept for the new version, and you can
+also discard the change, by clicking the <code>Discard</code> button on the left side.</em></p>
+<h2 id="remove-a-step">Remove a step<a class="headerlink" href="#remove-a-step" title="Permanent link">⚓</a></h2>
 <p>Select the step on the left side and click on the <strong>trash can</strong> button on the right side.</p>
-<h2 id="to-add-a-new-step">To add a new step<a class="headerlink" href="#to-add-a-new-step" title="Permanent link">⚓</a></h2>
+<h2 id="add-a-new-step">Add a new step<a class="headerlink" href="#add-a-new-step" title="Permanent link">⚓</a></h2>
 <p>Click on the <code>+</code> sign at the left side to add or insert a new step.</p>
 <p>Once you clicked the <code>+</code> sign you'll see a list of available steps on the right side.
 You can select a filter (ex: <code>deploy</code>) to show only a group of the available steps.</p>
