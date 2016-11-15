@@ -889,10 +889,8 @@
           
           <h2 id="easiest-way-to-export-code-signing-identities">Easiest way to export code signing identities<a class="headerlink" href="#easiest-way-to-export-code-signing-identities" title="Permanent link">⚓</a></h2>
 <p>You can easily locate the needed certificates and provisioning profiles for your project with our <code>codesigndoc</code> tool.</p>
-<p>Simply open your <code>Terminal.app</code> on your Mac and run the following command:</p>
-<pre class="code"><code>bash -l -c &quot;$(curl -sfL https://raw.githubusercontent.com/bitrise-tools/codesigndoc/master/_scripts/install_wrap.sh)&quot;.</code></pre>
-
-
+<p>Simply open your <code>Terminal.app</code> on your Mac and
+<a href="https://github.com/bitrise-tools/codesigndoc#one-liner">run the one liner "install" command</a>.</p>
 <p>After that open your <code>Finder.app</code> and drag-and-drop your project's <code>.xcodeproj</code> or <code>.xcworkspace</code> file into the command line in your terminal.
 <img alt="codesigndoc" src="../../img/ios/codesigndoc.png" />
 Once it's done you'll have all the required files exported, ready for upload.</p>
