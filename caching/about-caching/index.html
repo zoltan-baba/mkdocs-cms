@@ -925,6 +925,14 @@ because that's the step which generates, or updates the directory (<code>./Pods<
 <h2 id="downloading-and-deleting-caches">Downloading and deleting caches<a class="headerlink" href="#downloading-and-deleting-caches" title="Permanent link">⚓</a></h2>
 <p>You can download and delete caches, for every branch which generated a cache,
 on the <code>Settings</code> tab of the app, under the <code>Manage Build Caches</code> section.</p>
+<div class="admonition warning">
+<p class="admonition-title">Delete a single branch's cache</p>
+<p>If you only want to delete the cache which is related to a single branch,
+you should also delete the default branch's cache too!
+For more detail see the
+<a href="#if-a-build-runs-on-a-branch-which-doesnt-have-a-cache-yet-itll-get-the-maindefault-branchs-cache">If a build runs on a branch which doesn't have a cache yet, it'll get the main/default Branch's cache</a>
+section.</p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>You can see the size of the caches and the last time a given cache was used in the popup.</p>
@@ -963,12 +971,17 @@ It might not improve the build time but <strong>it definitely can improve the re
 <p>So if you have multiple paths you want to cache and any
 of the paths gets updated <strong>it'll update the whole cache archive</strong>,
 including all the paths you cache.</p>
-<h3 id="if-a-build-runs-on-a-new-branch-the-first-time-itll-get-the-maindefault-branchs-cache">If a build runs on a new branch the first time it'll get the main/default Branch's cache.<a class="headerlink" href="#if-a-build-runs-on-a-new-branch-the-first-time-itll-get-the-maindefault-branchs-cache" title="Permanent link">⚓</a></h3>
-<p>The first build on a non primary/default branch, to speed up things,
-can access (read-only) the primary branch's cache.</p>
-<p><strong>If it pushes back to the cache that won't modify the main/default Branch's cache</strong>,
-that will be stored for the new branch directly,
-and the next time a build runs on this branch it'll use that cache.</p>
+<h3 id="if-a-build-runs-on-a-branch-which-doesnt-have-a-cache-yet-itll-get-the-maindefault-branchs-cache">If a build runs on a branch which doesn't have a cache yet, it'll get the main/default Branch's cache<a class="headerlink" href="#if-a-build-runs-on-a-branch-which-doesnt-have-a-cache-yet-itll-get-the-maindefault-branchs-cache" title="Permanent link">⚓</a></h3>
+<p>The build on a non default branch, to speed up things,
+can (read-only) access the <code>primary</code> branch's cache, until a successful
+build on the new branch. Once a build on the new branch
+pushes a cache, new builds on that branch will get the branch's cache.
+<em>Caches are stored and available for every branch separately.</em></p>
+<div class="admonition note">
+<p class="admonition-title">Default branch</p>
+<p>You can see which is your <strong>default branch</strong> on your
+<a href="https://www.bitrise.io">bitrise.io</a> app's <code>Settings</code> tab.</p>
+</div>
           <aside class="copyright" role="note">
             
             Documentation built with
