@@ -672,6 +672,15 @@
   </li>
 
       
+        
+  <li>
+    <a class="" title="Android tips and tricks" href="../../android/android-tips-and-tricks/">
+      Android tips and tricks
+    </a>
+    
+  </li>
+
+      
     </ul>
   </li>
 
@@ -929,7 +938,11 @@ if you know what <code>bitrise run WORKFLOW</code> does, that should be enough f
 <ol>
 <li>Install <a href="https://www.docker.com/">docker</a></li>
 <li>Make sure you have your <code>bitrise.yml</code> in your repository (you don't have to commit it, but the file have to exist in your repository's root directory)</li>
-<li><code>cd</code> into your repository's directory on your Mac/Linux</li>
+<li><code>cd</code> into your repository's directory on your Mac/Linux<ul>
+<li><em>If you try to reproduce an issue, you should <code>git clone</code> your repository into a <strong>new directory</strong>,
+  so that the directory will only contain the files which are committed into the repository!</em></li>
+</ul>
+</li>
 <li><code>docker pull bitriseio/docker-android:latest</code></li>
 <li><code>docker run --privileged --env CI=false --volume "$(pwd):/bitrise/src" --volume "/var/run/docker.sock:/var/run/docker.sock" --rm bitriseio/docker-android:latest bitrise run WORKFLOW</code></li>
 </ol>
@@ -958,6 +971,11 @@ on <a href="https://www.bitrise.io">bitrise.io</a>, under the <code>bitrise.yml<
 </div>
 <p>In your Terminal / Command Line go to (<code>cd</code>) the root directory
 of <em>your repository</em>, and make sure your <code>bitrise.yml</code> is at this location.</p>
+<p><strong>If you try to reproduce an issue, you should <code>git clone</code> your repository into a new directory,
+so that the directory will only contain the files which are committed into the repository!</strong>
+It's a frequent reproducibility issue that you try to run the commands in your
+normal working directory, where you most likely have files which are not
+committed into your repository, e.g. files which are in <code>.gitignore</code>.</p>
 <h2 id="run-your-builds">Run your builds<a class="headerlink" href="#run-your-builds" title="Permanent link">⚓</a></h2>
 <p>The only thing left to do is to actually run a build:</p>
 <pre class="code"><code>docker run --privileged --env CI=false --volume &quot;$(pwd):/bitrise/src&quot; --volume &quot;/var/run/docker.sock:/var/run/docker.sock&quot; --rm bitriseio/docker-android:latest bitrise run WORKFLOW</code></pre>

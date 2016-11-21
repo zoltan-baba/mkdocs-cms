@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     
       
-        <title>Uploading certificates - Bitrise DevCenter</title>
+        <title>Android tips and tricks - Bitrise DevCenter</title>
       
       
       
@@ -95,12 +95,12 @@
           <span class="path">
             
               
-                iOS <i class="icon icon-link"></i>
+                Android <i class="icon icon-link"></i>
               
             
           </span>
         
-        Uploading certificates
+        Android tips and tricks
       </div>
     </div>
     
@@ -602,7 +602,7 @@
       
         
   <li>
-    <a class="" title="Code Signing" href="../code-signing/">
+    <a class="" title="Code Signing" href="../../ios/code-signing/">
       Code Signing
     </a>
     
@@ -611,35 +611,16 @@
       
         
   <li>
-    <a class="current" title="Uploading certificates" href="./">
+    <a class="" title="Uploading certificates" href="../../ios/uploading-certificates/">
       Uploading certificates
     </a>
-    
-      
-      
-        <ul>
-          
-            <li class="anchor">
-              <a title="Easiest way to export code signing identities" href="#easiest-way-to-export-code-signing-identities">
-                Easiest way to export code signing identities
-              </a>
-            </li>
-          
-            <li class="anchor">
-              <a title="Uploading the exported code signing files to Bitrise" href="#uploading-the-exported-code-signing-files-to-bitrise">
-                Uploading the exported code signing files to Bitrise
-              </a>
-            </li>
-          
-        </ul>
-      
     
   </li>
 
       
         
   <li>
-    <a class="" title="How to export Certificates and Provisioning Profiles" href="../export-certificate-and-provisioning-profile/">
+    <a class="" title="How to export Certificates and Provisioning Profiles" href="../../ios/export-certificate-and-provisioning-profile/">
       How to export Certificates and Provisioning Profiles
     </a>
     
@@ -648,7 +629,7 @@
       
         
   <li>
-    <a class="" title="Resigning an IPA" href="../resigning-an-ipa/">
+    <a class="" title="Resigning an IPA" href="../../ios/resigning-an-ipa/">
       Resigning an IPA
     </a>
     
@@ -657,7 +638,7 @@
       
         
   <li>
-    <a class="" title="Frequent iOS issues" href="../frequent-ios-issues/">
+    <a class="" title="Frequent iOS issues" href="../../ios/frequent-ios-issues/">
       Frequent iOS issues
     </a>
     
@@ -666,7 +647,7 @@
       
         
   <li>
-    <a class="" title="List of known Xcode issues" href="../known-xcode-issues/">
+    <a class="" title="List of known Xcode issues" href="../../ios/known-xcode-issues/">
       List of known Xcode issues
     </a>
     
@@ -684,7 +665,7 @@
       
         
   <li>
-    <a class="" title="Frequent Android issues" href="../../android/frequent-android-issues/">
+    <a class="" title="Frequent Android issues" href="../frequent-android-issues/">
       Frequent Android issues
     </a>
     
@@ -693,9 +674,58 @@
       
         
   <li>
-    <a class="" title="Android tips and tricks" href="../../android/android-tips-and-tricks/">
+    <a class="current" title="Android tips and tricks" href="./">
       Android tips and tricks
     </a>
+    
+      
+      
+        <ul>
+          
+            <li class="anchor">
+              <a title="What are Gradle tasks and how can I get the list of available tasks in my project?" href="#what-are-gradle-tasks-and-how-can-i-get-the-list-of-available-tasks-in-my-project">
+                What are Gradle tasks and how can I get the list of available tasks in my project?
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="How to install an additional Android SDK package" href="#how-to-install-an-additional-android-sdk-package">
+                How to install an additional Android SDK package
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Enable Gradle debug options" href="#enable-gradle-debug-options">
+                Enable Gradle debug options
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Run a bitrise Android build on your Mac/PC, with Docker" href="#run-a-bitrise-android-build-on-your-macpc-with-docker">
+                Run a bitrise Android build on your Mac/PC, with Docker
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Memory (RAM) limit" href="#memory-ram-limit">
+                Memory (RAM) limit
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Emulators" href="#emulators">
+                Emulators
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Installing / Using Java version X" href="#installing-using-java-version-x">
+                Installing / Using Java version X
+              </a>
+            </li>
+          
+        </ul>
+      
     
   </li>
 
@@ -912,18 +942,158 @@
       <article class="article">
         <div class="wrapper">
           
-            <h1>Uploading certificates</h1>
+            <h1>Android tips and tricks</h1>
           
-          <h2 id="easiest-way-to-export-code-signing-identities">Easiest way to export code signing identities<a class="headerlink" href="#easiest-way-to-export-code-signing-identities" title="Permanent link">⚓</a></h2>
-<p>You can easily locate the needed certificates and provisioning profiles for your project with our <code>codesigndoc</code> tool.</p>
-<p>Simply open your <code>Terminal.app</code> on your Mac and
-<a href="https://github.com/bitrise-tools/codesigndoc#one-liner">run the one liner "install" command</a>.</p>
-<p>After that open your <code>Finder.app</code> and drag-and-drop your project's <code>.xcodeproj</code> or <code>.xcworkspace</code> file into the command line in your terminal.
-<img alt="codesigndoc" src="../../img/ios/codesigndoc.png" />
-Once it's done you'll have all the required files exported, ready for upload.</p>
-<h2 id="uploading-the-exported-code-signing-files-to-bitrise">Uploading the exported code signing files to Bitrise<a class="headerlink" href="#uploading-the-exported-code-signing-files-to-bitrise" title="Permanent link">⚓</a></h2>
-<p>Once you have all the needed files, head to your dashboard on <a href="https://www.bitrise.io">bitrise.io</a> and select your app.</p>
-<p>Go to <strong>Workflow</strong> &gt; <strong>Manage Workflows</strong> &gt; and select the <strong>Code Signing &amp; Files</strong> tab on the left. Upload your code signing certificate (p12) and provisioning profiles and you are ready to go! 🚀</p>
+          <h2 id="what-are-gradle-tasks-and-how-can-i-get-the-list-of-available-tasks-in-my-project">What are Gradle tasks and how can I get the list of available tasks in my project?<a class="headerlink" href="#what-are-gradle-tasks-and-how-can-i-get-the-list-of-available-tasks-in-my-project" title="Permanent link">⚓</a></h2>
+<p>A <code>gradle</code> task is a process you can run with <code>gradle</code>.
+You can run these tasks by running <code>gradle TASK-TO-RUN</code> in your Command Line / Terminal.</p>
+<p>A standard Android Gradle project includes a lot of tasks by default, things like:</p>
+<ul>
+<li><code>androidDependencies - Displays the Android dependencies of the project.</code></li>
+<li><code>assemble - Assembles all variants of all applications and secondary packages.</code></li>
+<li><code>assembleAndroidTest - Assembles all the Test applications.</code></li>
+<li><code>clean - Deletes the build directory</code></li>
+</ul>
+<p>You can get the base task list by calling <code>gradle tasks</code> in your Android app's directory,
+or to see all the available tasks you can call <code>gradle tasks --all</code>.</p>
+<p>Running <code>gradle tasks</code> you'll get a list of available Gradle tasks in the format:</p>
+<pre class="code"><code>$ gradle task
+
+:tasks
+
+------------------------------------------------------------
+All tasks runnable from root project
+------------------------------------------------------------
+
+Android tasks
+-------------
+androidDependencies - Displays the Android dependencies of the project.
+signingReport - Displays the signing info for each variant.
+sourceSets - Prints out all the source sets defined in this project.
+
+Build tasks
+-----------
+assemble - Assembles all variants of all applications and secondary packages.
+assembleAndroidTest - Assembles all the Test applications.
+assembleDebug - Assembles all Debug builds.
+assembleRelease - Assembles all Release builds.
+...</code></pre>
+
+
+<p>You can run any of the tasks on bitrise from a <code>Script</code> step by calling <code>gradle task-name-to-run</code> (for example: <code>gradle assemle</code>)
+or by using our <code>Gradle Runner</code> step (<a href="https://github.com/bitrise-io/steps-gradle-runner">https://github.com/bitrise-io/steps-gradle-runner</a>)
+and specifying the task as the value of the <code>gradle_task</code> input.</p>
+<p><strong>Instead of running <code>gradle</code> directly, you should run the gradle commands through <code>gradlew</code> (the Gradle Wrapper)!</strong>
+The <code>Gradle Runner</code> step does this, and as you can see it in the related input description of the step:</p>
+<blockquote>
+<p>Using a Gradle Wrapper (gradlew) is strongly suggested, as the wrapper is what makes sure
+that the right Gradle version is installed and used for the build.</p>
+<p><strong>You can find more information about the Gradle Wrapper (gradlew),
+and about how you can generate one (if you would not have one already)</strong>
+in the official guide at: <a href="https://docs.gradle.org/current/userguide/gradle_wrapper.html">https://docs.gradle.org/current/userguide/gradle_wrapper.html</a>.</p>
+</blockquote>
+<h2 id="how-to-install-an-additional-android-sdk-package">How to install an additional Android SDK package<a class="headerlink" href="#how-to-install-an-additional-android-sdk-package" title="Permanent link">⚓</a></h2>
+<p>All you have to do is to add a <code>Script</code> step to your workflow,
+and use <code>android update sdk</code> to install the additional SDKs or packages you want to.</p>
+<p>As an example, to install the Android SDK v18 and the related <code>build-tools</code> v18.0.1,
+you can add a <code>Script</code> step (can be the very first step in the Workflow)
+with the following content:</p>
+<pre class="code"><code class="language-bash linenums">#!/bin/bash
+# fail if any commands fails
+set -e
+# debug log
+set -x
+
+# write your script here
+echo y | android update sdk --no-ui --all --filter android-18 | grep 'package installed
+echo y | android update sdk --no-ui --all --filter build-tools-18.0.1 | grep 'package installed</code></pre>
+
+
+<p><em>The <code>echo y |</code> prefix is really important.
+If you miss to include this your build will hang waiting for your input,
+to accept the license agreements presented during an Android SDK / package install.</em></p>
+<p><strong>You can get the full list of available packages</strong> by running:
+<code>android list sdk --no-ui --all --extended</code>. You can run this on your own machine if you have <code>android</code> in your <code>$PATH</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You should only install the Android tools which are <em>not</em> yet installed.
+Calling <code>android update</code> for an already installed tool might fail if it can't create a backup -
+which is the case if you use the default <code>Docker</code> file system driver (<code>aufs</code>).</p>
+<p><em>This issue does not affect builds running on <a href="https://www.bitrise.io">bitrise.io</a>,
+as the filesystem driver for <code>docker</code> is set to <code>btrfs</code> instead of the default <code>aufs</code>.</em></p>
+<p>You can check all the pre-installed tools in the official Bitrise Android Dockerfile:
+<a href="https://github.com/bitrise-docker/android/blob/master/Dockerfile">https://github.com/bitrise-docker/android/blob/master/Dockerfile</a></p>
+</div>
+<h2 id="enable-gradle-debug-options">Enable Gradle debug options<a class="headerlink" href="#enable-gradle-debug-options" title="Permanent link">⚓</a></h2>
+<p>If your Gradle build fails and you can't find any information in the logs you can try to call it with
+<code>--stacktrace --debug</code> flags (ex: <code>gradle ... --stacktrace --debug</code>) to get more detailed logs.</p>
+<p>In most cases <code>--stacktrace</code> should be enough, and the <code>Gradle Runner</code> step includes
+this flag by default.</p>
+<h2 id="run-a-bitrise-android-build-on-your-macpc-with-docker">Run a bitrise Android build on your Mac/PC, with Docker<a class="headerlink" href="#run-a-bitrise-android-build-on-your-macpc-with-docker" title="Permanent link">⚓</a></h2>
+<p>You can run your build on your Mac/PC, inside the same <code>docker</code> container you use on <a href="https://www.bitrise.io">bitrise.io</a>,
+to fully test your build in an identical environment! You can find the detailed guide here:
+<a href="../../docker/run-your-build-locally-in-docker/">How to run your build locally in Docker</a></p>
+<h2 id="memory-ram-limit">Memory (RAM) limit<a class="headerlink" href="#memory-ram-limit" title="Permanent link">⚓</a></h2>
+<p>You can specify the amount allowed RAM for the JVM by adding two <strong>Environment Variables</strong> to your Workflow,
+e.g. as <code>App Env Var</code>s:</p>
+<ul>
+<li><code>GRADLE_OPTS: '-Dorg.gradle.jvmargs="-Xmx2048m -XX:+HeapDumpOnOutOfMemoryError"'</code></li>
+<li><code>_JAVA_OPTIONS: "-Xms512m -Xmx1024m"</code></li>
+</ul>
+<p>This method can be used to limit the allowed RAM the Gradle JVM process can use,
+which can be useful in case there's not enough RAM available in the system.</p>
+<h2 id="emulators">Emulators<a class="headerlink" href="#emulators" title="Permanent link">⚓</a></h2>
+<p>You can use our Android emulator steps to create &amp; boot emulators:
+<a href="http://www.bitrise.io/integrations#?filter=emulator">http://www.bitrise.io/integrations#?filter=emulator</a>.</p>
+<p>First you have to create an emulator with a <code>Create Android emulator</code> step,
+where you can set the Android version and a couple of other parameters for the new emulator,
+then you can boot this emulator with the <code>Start Android emulator</code> step,
+which makes sure that the emulator is booted and ready for subsequent steps.</p>
+<h3 id="emulator-with-google-apis">Emulator with Google APIs<a class="headerlink" href="#emulator-with-google-apis" title="Permanent link">⚓</a></h3>
+<p>To create an Android Emulator with Google APIs,
+you can use the following code snippet instead of the <code>Create Android emulator</code> step:</p>
+<pre class="code"><code class="language-bash linenums">#!/bin/bash
+set -ex
+
+echo y | android update sdk --no-ui --all --filter addon-google_apis-google-21
+
+echo y | android update sdk --no-ui --all --filter sys-img-armeabi-v7a-google_apis-21
+
+echo no | android create avd --force --name YOUR_EMULATOR_NAME --target &quot;android-21&quot; --abi &quot;google_apis/armeabi-v7a&quot;</code></pre>
+
+
+<p><strong>Note about Android SDK versions:</strong> at this time there are lots of known issues reported for Android Emulators
+with Android SDK version 22 &amp; 23 when combined with Google Play services
+(see <a href="http://stackoverflow.com/questions/32856919/androidstudio-emulator-wont-run-unless-you-update-google-play-services">1</a>
+and <a href="https://code.google.com/p/android/issues/detail?id=176348">2</a>).
+The script above creates an emulator with SDK version 21, which should work properly with Google Play services.</p>
+<p><em>There are possible workarounds for newer versions
+(see <a href="http://stackoverflow.com/questions/34329363/app-wont-run-unless-you-update-google-play-services-with-google-maps-api-andr">1</a>
+and <a href="http://stackoverflow.com/questions/33114112/app-wont-run-unless-you-update-google-play-services">2</a>),
+but that requires some customization in your project.</em></p>
+<h2 id="installing-using-java-version-x">Installing / Using Java version X<a class="headerlink" href="#installing-using-java-version-x" title="Permanent link">⚓</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Java 8 is now pre-installed</p>
+<p>Java 8 is now the pre-installed Java version on the Bitrise.io Linux Stack.
+This section is kept here for future reference, in case you'd need another Java version.</p>
+</div>
+<p><em>If you'd need a Java / JDK version which is not preinstalled on the Android stacks,
+you can follow this guide to install it. This example will install Java/JDK 8,
+please adapt it to the version you need.</em></p>
+<p>If your build requires JDK 8, you can install and activate it with a <code>Script</code> step:</p>
+<pre class="code"><code class="language-bash linenums">#!/bin/bash
+set -ex
+
+add-apt-repository -y ppa:openjdk-r/ppa
+apt-get update -qq
+apt-get install -y openjdk-8-jdk
+update-java-alternatives -s /usr/lib/jvm/java-1.8.0-openjdk-amd64
+echo &quot;done&quot;</code></pre>
+
+
+<p>That's all, just add the <code>Script</code> step to the Workflow with the content above,
+and start a new build. <em>This <code>Script</code> step can be the very first step in the Workflow,
+as it does not depend on anything else.</em></p>
           <aside class="copyright" role="note">
             
             Documentation built with
@@ -940,7 +1110,7 @@ Once it's done you'll have all the required files exported, ready for upload.</p
   <nav class="pagination" aria-label="Footer">
     <div class="previous">
       
-        <a href="../code-signing/" title="Code Signing">
+        <a href="../frequent-android-issues/" title="Frequent Android issues">
           <span class="direction">
             Previous
           </span>
@@ -950,7 +1120,7 @@ Once it's done you'll have all the required files exported, ready for upload.</p
             </div>
             <div class="stretch">
               <div class="title">
-                Code Signing
+                Frequent Android issues
               </div>
             </div>
           </div>
@@ -959,14 +1129,14 @@ Once it's done you'll have all the required files exported, ready for upload.</p
     </div>
     <div class="next">
       
-        <a href="../export-certificate-and-provisioning-profile/" title="How to export Certificates and Provisioning Profiles">
+        <a href="../../docker/" title="Docker support on bitrise.io">
           <span class="direction">
             Next
           </span>
           <div class="page">
             <div class="stretch">
               <div class="title">
-                How to export Certificates and Provisioning Profiles
+                Docker support on bitrise.io
               </div>
             </div>
             <div class="button button-next" role="button" aria-label="Next">
