@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     
       
-        <title>Expose an Environment Variable and use it in another Step - Bitrise DevCenter</title>
+        <title>Optimize your build times - Bitrise DevCenter</title>
       
       
       
@@ -100,7 +100,7 @@
             
           </span>
         
-        Expose an Environment Variable and use it in another Step
+        Optimize your build times
       </div>
     </div>
     
@@ -755,22 +755,9 @@
       
         
   <li>
-    <a class="current" title="Expose an Environment Variable and use it in another Step" href="./">
+    <a class="" title="Expose an Environment Variable and use it in another Step" href="../expose-environment-variable/">
       Expose an Environment Variable and use it in another Step
     </a>
-    
-      
-      
-        <ul>
-          
-            <li class="anchor">
-              <a title="Overwrite an Environment Variable if another one is set" href="#overwrite-an-environment-variable-if-another-one-is-set">
-                Overwrite an Environment Variable if another one is set
-              </a>
-            </li>
-          
-        </ul>
-      
     
   </li>
 
@@ -822,9 +809,34 @@
       
         
   <li>
-    <a class="" title="Optimize your build times" href="../optimize-your-build-times/">
+    <a class="current" title="Optimize your build times" href="./">
       Optimize your build times
     </a>
+    
+      
+      
+        <ul>
+          
+            <li class="anchor">
+              <a title="Include your dependencies in your repository" href="#include-your-dependencies-in-your-repository">
+                Include your dependencies in your repository
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Use the Build Cache" href="#use-the-build-cache">
+                Use the Build Cache
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Turn off the "Clean build" option of Xcode steps" href="#turn-off-the-clean-build-option-of-xcode-steps">
+                Turn off the "Clean build" option of Xcode steps
+              </a>
+            </li>
+          
+        </ul>
+      
     
   </li>
 
@@ -933,120 +945,29 @@
       <article class="article">
         <div class="wrapper">
           
-            <h1>Expose an Environment Variable and use it in another Step</h1>
+            <h1>Optimize your build times</h1>
           
-          <p>You can expose Environment Variables from one Step,
-to make it available for every other Step performed after the Step during the build.
-An example might be that you want to generate a
-release note which you want to use in a message or deploy step.
-Exposing environment variables is really easy,
-you just have to use <a href="https://github.com/bitrise-io/envman/">envman</a> if you want to make it available for every other Step.</p>
-<p>A very simple example might be:</p>
-<pre class="code"><code>envman add --key MY_RELEASE_NOTE --value &quot;This is the release note&quot;</code></pre>
-
-
-<p>You can call <code>envman</code> in any Step, including a script step,
-or even in your own script (stored in your repository) if you call it from a <code>bitrise</code> build.</p>
-<p>Envman can be used in a couple of ways.
-You can specify the value as the <code>--value</code> parameter (you can see this in the previous example),
-pipe the value:</p>
-<pre class="code"><code>echo 'hi' | envman add --key MY_RELEASE_NOTE</code></pre>
-
-
-<p>or read the value from a file:</p>
-<pre class="code"><code>envman add --key MY_RELEASE_NOTE --valuefile ./some/file/path</code></pre>
-
-
-<p><em>You can read more about how <code>envman</code> can
-be used on it's <a href="https://github.com/bitrise-io/envman/">GitHub page</a>.</em></p>
-<div class="admonition warning">
-<p class="admonition-title">Env Var value size limit</p>
-<p>Environment Variable values set through <code>envman</code> are limited to 10KB by default.
-This is done in order to prevent issues with common tools.
-Different tools have different environment size constraints,
-e.g. <code>Bash</code> will start to fail on OS X once the environments set
-exceed ~120KB (<strong>in total, not a single variable!</strong>).</p>
-<p>For larger data you should use files or other solutions,
-and use environment variables to point to the file / to the
-ID or location of where the data is stored.</p>
-</div>
-<p>Once the environment variable is exposed you can use it like
-any other environment variable. In <code>bash</code> you can reference
-the previous example environment as: <code>$MY_RELEASE_NOTE</code>.</p>
-<p>You can of course use these exposed environment variables in the inputs of other Steps.
-For example the <strong>HockeyApp Deploy</strong> step has a <code>notes</code> input,
-you can reference the previous example variable by inserting <code>$MY_RELEASE_NOTE</code> into the input,
-like: <code>The Release Note: $MY_RELEASE_NOTE</code>,
-which will be resolved as <code>The Release Note: This is the release note</code> (if you used
-the first example to set the value of <code>MY_RELEASE_NOTE</code>).</p>
-<p>A simple example, exposing the release note and then using it in another <code>Script step</code>,
-and in a <code>Slack step</code>:</p>
-<pre class="code"><code>format_version: 1.1.0
-default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
-
-workflows:
-  example:
-    steps:
-    - script:
-        inputs:
-        - content: |
-            #!/bin/bash
-            envman add --key MY_RELEASE_NOTE --value &quot;This is the release note&quot;
-    - script:
-        inputs:
-        - content: |
-            #!/bin/bash
-            echo &quot;My Release Note: $MY_RELEASE_NOTE&quot;
-    - slack:
-        inputs:
-        - channel: ...
-        - webhook_url: ...
-        - message: &quot;Release Notes: $MY_RELEASE_NOTE&quot;</code></pre>
-
-
-<h2 id="overwrite-an-environment-variable-if-another-one-is-set">Overwrite an Environment Variable if another one is set<a class="headerlink" href="#overwrite-an-environment-variable-if-another-one-is-set" title="Permanent link">⚓</a></h2>
-<p>E.g. if a custom environment variable is set through the Build Trigger API.</p>
-<p>The best way to do this, to make sure that no matter what, you overwrite the other env var,
-is to use a Script step, as described above, and check whether the custom env var is set.</p>
-<p>As an example, if you want to overwrite the <code>PROJECT_SCHEME</code> environment variable,
-if, let's say, a <code>API_PROJECT_SCHEME</code> env var is set, just drop in a <code>Script</code> step (can be the very first one
-in the workflow), with the content:</p>
-<pre class="code"><code class="language-bash linenums">#!/bin/bash
-set -ex
-if [ ! -z &quot;$API_PROJECT_SCHEME&quot; ] ; then
-  envman add --key PROJECT_SCHEME --value &quot;$API_PROJECT_SCHEME&quot;
-fi</code></pre>
-
-
-<p>This script will check whether the <code>API_PROJECT_SCHEME</code> env var is defined,
-and if it is, then its value will be assigned to the <code>PROJECT_SCHEME</code> environment variable,
-overwriting the original value of <code>PROJECT_SCHEME</code>.</p>
-<h3 id="alternative-solution-use-workflow-env-vars">Alternative solution: use Workflow Env Vars<a class="headerlink" href="#alternative-solution-use-workflow-env-vars" title="Permanent link">⚓</a></h3>
-<p>Alternatively you can set environment variables for Workflows too.
-The Env Vars you set for a workflow will overwrite the env var
-if defined as an App Env Var or Secret Env Var.</p>
-<p>An example workflow which defined an environment variable, and then runs another workflow
-which can use those env vars:</p>
-<pre class="code"><code>workflows:
-
-  deploy-alpha:
-    envs:
-    - ENV_TYPE: alpha
-    after_run:
-    - _deploy
-
-  _deploy:
-    steps:
-    - script:
-        inputs:
-        - content: |
-            #!/bin/bash
-            echo &quot;ENV_TYPE: $ENV_TYPE&quot;</code></pre>
-
-
-<p>If you run the <code>deploy-alpha</code> workflow, that will set the <code>ENV_TYPE</code> env var to <code>alpha</code>,
-then it will run the <code>_deploy</code> workflow, which can use that environment variable -
-in this example it will simply print its value (the printed text will be: <code>ENV_TYPE: alpha</code>).</p>
+          <p>You can improve your build times with the following tips.</p>
+<p><em>Feel free to suggest other ways of optimizations!</em></p>
+<h2 id="include-your-dependencies-in-your-repository">Include your dependencies in your repository<a class="headerlink" href="#include-your-dependencies-in-your-repository" title="Permanent link">⚓</a></h2>
+<p>Including your dependencies (like CocoaPods) in your repository can speed up your builds.
+Once the <code>git clone</code> of your repository is done, everything will be in place to do your build.</p>
+<p>For example, in case of CocoaPods, you can delete the CocoaPods Install step from your workflow
+if you include your <code>Pods</code> directory <strong>and</strong> the CocoaPods generated <code>.xcworkspace</code> file in your repository.</p>
+<p>You can read more about the pros &amp; cons of including your dependencies in your repository at:
+<a href="../../tips-and-tricks/should-i-commit-my-dependencies-into-my-repository/">Should I commit my dependencies into my repository?</a></p>
+<h2 id="use-the-build-cache">Use the Build Cache<a class="headerlink" href="#use-the-build-cache" title="Permanent link">⚓</a></h2>
+<p>In some cases using the <a href="../../caching/about-caching/">Build Cache</a> feature can also help to speed up your builds.
+Note: the efficiency of the Build Cache depends on the size of the files you want to cache,
+as well as on the number of files you want to cache.
+For more information see the <a href="../../caching/about-caching/">Build Cache documentation</a>.</p>
+<h2 id="turn-off-the-clean-build-option-of-xcode-steps">Turn off the "Clean build" option of Xcode steps<a class="headerlink" href="#turn-off-the-clean-build-option-of-xcode-steps" title="Permanent link">⚓</a></h2>
+<p>All of our Xcode steps (Xcode Test, Xcode Archive and Xcode Analyze) have a "Do a clean Xcode build ...?" option.
+You can usually turn off this option without causing any issues.</p>
+<p>By turning off "clean build" you can speed up subsequent Xcode steps.
+The first one will still have to do a full, clean build, because there's no build cache at the time it runs
+(as every build runs in a brand new, clean Virtual Machine, as descibed in <a href="../../getting-started/code-security/">Code Security</a>),
+but subsequent Xcode steps can use the build cache of the previous Xcode step(s), reducing the compilation time of the step.</p>
           <aside class="copyright" role="note">
             
             Documentation built with
@@ -1063,7 +984,7 @@ in this example it will simply print its value (the printed text will be: <code>
   <nav class="pagination" aria-label="Footer">
     <div class="previous">
       
-        <a href="../attach-any-file-to-build/" title="Attach any file as an Artifact to the Build">
+        <a href="../how-to-configure-fastlane-match-for-bitrise/" title="How to configure fastlane match for Bitrise">
           <span class="direction">
             Previous
           </span>
@@ -1073,7 +994,7 @@ in this example it will simply print its value (the printed text will be: <code>
             </div>
             <div class="stretch">
               <div class="title">
-                Attach any file as an Artifact to the Build
+                How to configure fastlane match for Bitrise
               </div>
             </div>
           </div>
@@ -1082,14 +1003,14 @@ in this example it will simply print its value (the printed text will be: <code>
     </div>
     <div class="next">
       
-        <a href="../dont-mark-build-failed-if-step-fails/" title="Don't mark the Build as failed if a given step would fail (ignore the error of the Step)">
+        <a href="../should-i-commit-my-dependencies-into-my-repository/" title="Should I commit my dependencies into my repository?">
           <span class="direction">
             Next
           </span>
           <div class="page">
             <div class="stretch">
               <div class="title">
-                Don't mark the Build as failed if a given step would fail (ignore the error of the Step)
+                Should I commit my dependencies into my repository?
               </div>
             </div>
             <div class="button button-next" role="button" aria-label="Next">
