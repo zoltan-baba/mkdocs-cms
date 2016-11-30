@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     
       
-        <title>Caching Cocoapods - Bitrise DevCenter</title>
+        <title>How to configure fastlane match for Bitrise - Bitrise DevCenter</title>
       
       
       
@@ -95,12 +95,12 @@
           <span class="path">
             
               
-                Caching <i class="icon icon-link"></i>
+                Fastlane <i class="icon icon-link"></i>
               
             
           </span>
         
-        Caching Cocoapods
+        How to configure fastlane match for Bitrise
       </div>
     </div>
     
@@ -431,7 +431,7 @@
       
         
   <li>
-    <a class="" title="About caching" href="../about-caching/">
+    <a class="" title="About caching" href="../../caching/about-caching/">
       About caching
     </a>
     
@@ -440,29 +440,16 @@
       
         
   <li>
-    <a class="current" title="Caching Cocoapods" href="./">
+    <a class="" title="Caching Cocoapods" href="../../caching/caching-cocoapods/">
       Caching Cocoapods
     </a>
-    
-      
-      
-        <ul>
-          
-            <li class="anchor">
-              <a title="Example workflow" href="#example-workflow">
-                Example workflow
-              </a>
-            </li>
-          
-        </ul>
-      
     
   </li>
 
       
         
   <li>
-    <a class="" title="Caching Gradle" href="../caching-gradle/">
+    <a class="" title="Caching Gradle" href="../../caching/caching-gradle/">
       Caching Gradle
     </a>
     
@@ -471,7 +458,7 @@
       
         
   <li>
-    <a class="" title="Caching Maven" href="../caching-maven/">
+    <a class="" title="Caching Maven" href="../../caching/caching-maven/">
       Caching Maven
     </a>
     
@@ -480,7 +467,7 @@
       
         
   <li>
-    <a class="" title="Caching Ruby GEMs" href="../caching-ruby-gems/">
+    <a class="" title="Caching Ruby GEMs" href="../../caching/caching-ruby-gems/">
       Caching Ruby GEMs
     </a>
     
@@ -723,7 +710,7 @@
       
         
   <li>
-    <a class="" title="fastlane tools integration" href="../../fastlane/fastlane-tools-integration/">
+    <a class="" title="fastlane tools integration" href="../fastlane-tools-integration/">
       fastlane tools integration
     </a>
     
@@ -732,9 +719,12 @@
       
         
   <li>
-    <a class="" title="How to configure fastlane match for Bitrise" href="../../fastlane/how-to-configure-fastlane-match-for-bitrise/">
+    <a class="current" title="How to configure fastlane match for Bitrise" href="./">
       How to configure fastlane match for Bitrise
     </a>
+    
+      
+      
     
   </li>
 
@@ -1041,32 +1031,33 @@
       <article class="article">
         <div class="wrapper">
           
-            <h1>Caching Cocoapods</h1>
+            <h1>How to configure fastlane match for Bitrise</h1>
           
-          <ol>
-<li>Put the <code>Cache:Pull</code> step after the <code>Git Clone</code>, and before the <code>CocoaPods Install</code> step</li>
-<li>Put the <code>Cache:Push</code> step to the very end of the Workflow</li>
-<li>Select the <code>Cache:Push</code> step and specify the following paths for caching (Cache Paths inputs):
-   <pre><code>./Pods -&gt; ./Podfile.lock</code></pre></li>
+          <p>If you want to use <a href="https://github.com/fastlane/fastlane/tree/master/match">fastlane match</a>
+in your <a href="https://www.bitrise.io/">bitrise.io</a> build you only have to do three things:</p>
+<ol>
+<li>Make sure that a single SSH key can be used to <code>git clone</code> both your main repository (the one
+   you register on <a href="https://www.bitrise.io/">bitrise.io</a>) and the <code>match</code> repository.
+   You can find more info <a href="../../faq/adding-projects-with-submodules/">in this guide</a>.</li>
+<li>Add an environment variable <code>MATCH_PASSWORD</code>, as
+   <a href="https://github.com/fastlane/fastlane/tree/master/match#encryption-password">described in <code>match</code>'s docs</a>,
+   to specify the <code>Encryption password</code> you used for <code>match</code>.
+   On <a href="https://www.bitrise.io/">bitrise.io</a> you should add this as a <code>Secret Environment Variable</code>,
+   in the <a href="http://devcenter.bitrise.io/docs/add-your-first-step-to-your-apps-workflow">Workflow Editor</a>.
+   <em>Make sure to <strong>disable</strong> the <code>Replace variables in input?</code> option of the environment
+   variable, to not to cause issues when the value includes the <code>$</code> (dollar) sign, which is used
+   for environment variable expansion.</em>
+   <img alt="Screenshot - Fastlane match secret env var setup" src="../../img/tips-and-tricks/fastlane-match-password-secret-env.png" /></li>
+<li>Make sure to use <code>match</code>'s <code>readonly</code> mode, or else <code>match</code> will try to connect
+   to the Apple Developer Portal, which requires further authorization (providing additional
+   username and password for Apple Dev Portal login)!<ul>
+<li>If you use <code>match</code> in your <code>Fastfile</code> or <code>fastlane</code> config: <code>match(app_identifier: "my.domain", type: "appstore", readonly: true)</code></li>
+<li>If you use it as a command line tool: <code>match development --readonly</code></li>
+<li>More info in <code>match</code>'s <a href="https://github.com/fastlane/fastlane/tree/master/match">official readme / docs</a></li>
+</ul>
+</li>
 </ol>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If your Podfile and Pods directory is not in the root of your repository then you should specify the
-path relative to the repository root, e.g. <code>./subdir/Pods -&gt; ./subdir/Podfile.lock</code></p>
-</div>
-<p>That's all. This specification (using the <code>-&gt;</code> separator) means that the <code>./Pods</code> directory
-should be cached, and that the cache should be updated/uploaded only if the <code>./Podfile.lock</code> file changes.</p>
-<h2 id="example-workflow">Example workflow<a class="headerlink" href="#example-workflow" title="Permanent link">⚓</a></h2>
-<pre class="code"><code class="language-yml">example:
-  steps:
-  - git-clone: {}
-  - cache-pull: {}
-  - cocoapods-install:
-  - certificate-and-profile-installer: {}
-  - xcode-archive:
-  - cache-push:
-      inputs:
-      - cache_paths: &quot;./Pods -&gt; ./Podfile.lock&quot;</code></pre>
+<p>That's all, you can now enjoy the utility of <code>match</code>, automated with <a href="https://www.bitrise.io/">bitrise.io</a> 🚀</p>
           <aside class="copyright" role="note">
             
             Documentation built with
@@ -1083,7 +1074,7 @@ should be cached, and that the cache should be updated/uploaded only if the <cod
   <nav class="pagination" aria-label="Footer">
     <div class="previous">
       
-        <a href="../about-caching/" title="About caching">
+        <a href="../fastlane-tools-integration/" title="fastlane tools integration">
           <span class="direction">
             Previous
           </span>
@@ -1093,7 +1084,7 @@ should be cached, and that the cache should be updated/uploaded only if the <cod
             </div>
             <div class="stretch">
               <div class="title">
-                About caching
+                fastlane tools integration
               </div>
             </div>
           </div>
@@ -1102,14 +1093,14 @@ should be cached, and that the cache should be updated/uploaded only if the <cod
     </div>
     <div class="next">
       
-        <a href="../caching-gradle/" title="Caching Gradle">
+        <a href="../../tutorials/community-created/" title="Community Created Tutorials">
           <span class="direction">
             Next
           </span>
           <div class="page">
             <div class="stretch">
               <div class="title">
-                Caching Gradle
+                Community Created Tutorials
               </div>
             </div>
             <div class="button button-next" role="button" aria-label="Next">
