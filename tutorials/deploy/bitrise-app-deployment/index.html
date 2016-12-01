@@ -1,32 +1,60 @@
 <!DOCTYPE html>
-<!--[if lt IE 7 ]><html class="no-js ie6"><![endif]-->
-<!--[if IE 7 ]><html class="no-js ie7"><![endif]-->
-<!--[if IE 8 ]><html class="no-js ie8"><![endif]-->
-<!--[if IE 9 ]><html class="no-js ie9"><![endif]-->
+<!--[if lt IE 7 ]> <html class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html class="no-js ie9"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js"> <!--<![endif]-->
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
+
+    <!-- Charset and viewport -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,
+      user-scalable=no, initial-scale=1, maximum-scale=1" />
+
+    <!-- General meta tags -->
     
+
+      <!-- Site title -->
       
         <title>Bitrise OTA App Deployment - Bitrise DevCenter</title>
       
+
+      <!-- Site description -->
       
+
+      <!-- Canonical -->
       
+
+      <!-- Author -->
       
     
-    <meta property="og:url" content="None">
-    <meta property="og:title" content="Bitrise DevCenter">
-    <meta property="og:image" content="None/../../../img/logo.svg">
-    <meta name="apple-mobile-web-app-title" content="Bitrise DevCenter">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <!-- Open graph tags -->
+    <meta property="og:url" content="None" />
+    <meta property="og:title" content="Bitrise DevCenter"/>
+    <meta property="og:image"
+      content="None/../../../img/logo.svg" />
+
+    <!-- Web application capability on iOS -->
+    <meta name="apple-mobile-web-app-title" content="Bitrise DevCenter" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent" />
+
+    <!-- Web application icon on iOS -->
     
-      <link rel="apple-touch-icon" href="../../../img/logo.svg">
+      <link rel="apple-touch-icon"
+        href="../../../img/logo.svg">
     
+
+    <!-- Favicon -->
     
-    <link rel="shortcut icon" type="image/x-icon" href="../../../assets/images/favicon-e565ddfa3b.ico">
-    <link rel="icon" type="image/x-icon" href="../../../assets/images/favicon-e565ddfa3b.ico">
+    <link rel="shortcut icon" type="image/x-icon"
+      href="../../../assets/images/favicon.ico" />
+    <link rel="icon" type="image/x-icon"
+      href="../../../assets/images/favicon.ico" />
+
+    <!-- Configure icons (placed here to omit issues with subdirectories) -->
     <style>
       @font-face {
       	font-family: 'Icon';
@@ -43,15 +71,24 @@
       	font-style: normal;
       }
     </style>
-    <link rel="stylesheet" href="../../../assets/stylesheets/application-a422ff04cc.css">
+
+    <!-- Theme-related stylesheets -->
+    <link rel="stylesheet" type="text/css"
+      href="../../../assets/stylesheets/application.css" />
+
+    <!-- Extra palettes -->
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/palettes-05ab2406df.css">
+      <link rel="stylesheet" type="text/css"
+        href="../../../assets/stylesheets/palettes.css" />
     
+
+    <!-- Configure webfonts -->
     
       
       
       
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700|Source+Code+Pro">
+      <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css?family=Roboto:400,700|Source+Code+Pro" />
       <style>
         body, input {
           font-family: 'Roboto', Helvetica, Arial, sans-serif;
@@ -61,26 +98,51 @@
         }
       </style>
     
+
+    <!-- Custom stylesheets -->
     
-      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+      <link rel="stylesheet" type="text/css" href="../../../stylesheets/extra.css" />
     
-    <script src="../../../assets/javascripts/modernizr-4ab42b99fd.js"></script>
+
+    <!-- Modernizr -->
+    <script src="../../../assets/javascripts/modernizr.js"></script>
+
+    <!-- Custom header -->
     
   </head>
+
+  <!-- Define palette -->
   
   
   
-  <body class="palette-primary-deep-purple palette-accent-deep-purple">
+  <body class="
+    palette-primary-deep-purple
+    palette-accent-deep-purple
+  ">
+
+    <!--
+      Sadly the jinja template engine is not very flexible - it doesn't support
+      regular expressions out-of-the-box. Since there might be a slash at the
+      end of the repository name, we just do a string comparison and kill it.
+    -->
     
       
       
     
+
+    <!-- Backdrop -->
     <div class="backdrop">
       <div class="backdrop-paper"></div>
     </div>
-    <input class="toggle" type="checkbox" id="toggle-drawer">
-    <input class="toggle" type="checkbox" id="toggle-search">
+
+    <!-- State toggles -->
+    <input class="toggle" type="checkbox" id="toggle-drawer" />
+    <input class="toggle" type="checkbox" id="toggle-search" />
+
+    <!-- Overlay for expanded drawer -->
     <label class="toggle-button overlay" for="toggle-drawer"></label>
+
+    <!-- Header -->
     <header class="header">
       <nav aria-label="Header">
   <div class="bar default">
@@ -124,8 +186,19 @@
   </div>
 </nav>
     </header>
+
+    <!-- Main content -->
     <main class="main">
+
+      <!--
+        This is a nasty hack that checks whether the content contains a
+        h1 headline. If it does, the variable h1 is set to true. This is
+        necessary for correctly rendering the table of contents which is
+        embedded into the navigation and the actual headline.
+      -->
       
+
+      <!-- Drawer with navigation -->
       <div class="drawer">
         <nav aria-label="Navigation">
   
@@ -1050,11 +1123,17 @@
   </div>
 </nav>
       </div>
+
+      <!-- Article -->
       <article class="article">
         <div class="wrapper">
+
+          <!-- Headline -->
           
             <h1>Bitrise OTA App Deployment</h1>
           
+
+          <!-- Article content -->
           <p>Bitrise has an integrated App Deployment system you can use for App and other build artifact file distribution.</p>
 <p>With this you can distribute your iOS and Android app, over the air, for your testers (<strong>even for those who don't have a Bitrise account</strong>)
 or you can just use it for archiving your App and other build artifact files (these files will
@@ -1128,16 +1207,24 @@ and specify the list of groups and emails to automatically notify in the <code>N
 Bitrise won't send install invite emails for the emails you specify,
 only to those who are in the App's Team,
 because in this case only your team members can access the App (on the Build's page).</p>
+
+          <!-- Copyright and theme information -->
           <aside class="copyright" role="note">
             
-            Documentation built with
-            <a href="http://www.mkdocs.org" target="_blank">MkDocs</a>
-            using the
-            <a href="http://squidfunk.github.io/mkdocs-material/" target="_blank">
-              Material
-            </a>
-            theme.
+            <hr />
+            <p>
+              <b><a href="https://github.com/bitrise-io/devcenter/blob/master/docs/tutorials/deploy/bitrise-app-deployment.md">Feel free to edit any page of this DevCenter on GitHub, in your browser directly!</a></b>
+              <br />
+              You can edit the pages on <a href="https://github.com/bitrise-io/devcenter/blob/master/docs/tutorials/deploy/bitrise-app-deployment.md">GitHub</a> directly, you don't have to git clone the repository.
+              <br />
+              Just select the file on <a href="https://github.com/bitrise-io/devcenter/blob/master/docs/tutorials/deploy/bitrise-app-deployment.md">GitHub</a> and click the <b>pencil/edit icon</b>,
+              which will open the GitHub editor for the file.
+              <br />
+              If you don't want to edit the page on GitHub, feel free to <a href="https://www.bitrise.io/contact">contact us</a>, and we'll do the change for you!
+            </p>
           </aside>
+
+          <!-- Footer -->
           
             <footer class="footer">
               
@@ -1186,6 +1273,8 @@ because in this case only your team members can access the App (on the Build's p
           
         </div>
       </article>
+
+      <!-- Search results -->
       <div class="results" role="status" aria-live="polite">
         <div class="scrollable">
           <div class="wrapper">
@@ -1195,12 +1284,16 @@ because in this case only your team members can access the App (on the Build's p
         </div>
       </div>
     </main>
+
+    <!-- Theme-related and custom javascripts -->
     <script>
       var base_url = '../../..';
       var repo_id  = 'bitrise-io/devcenter';
     </script>
-    <script src="../../../assets/javascripts/application-997097ee0c.js"></script>
+    <script src="../../../assets/javascripts/application.js"></script>
     
+
+    <!-- Google Analytics -->
     
   </body>
 </html>
