@@ -144,13 +144,20 @@
 
     <!-- Header -->
     <header class="header">
-      <nav aria-label="Header">
+      <!-- Top-level navigation -->
+<nav aria-label="Header">
+
+  <!-- Default bar -->
   <div class="bar default">
+
+    <!-- Toggle drawer -->
     <div class="button button-menu" role="button" aria-label="Menu">
       <label class="toggle-button icon icon-menu" for="toggle-drawer">
         <span></span>
       </label>
     </div>
+
+    <!-- Page title -->
     <div class="stretch">
       <div class="title">
         
@@ -163,25 +170,45 @@
           </span>
         
         How to configure fastlane match for Bitrise
+        <a style="color: #bfbfbf; font-size: 11px; margin-left: 2px" href="https://github.com/bitrise-io/devcenter/blob/master/docs/fastlane/how-to-configure-fastlane-match-for-bitrise.md">Edit this page on GitHub</a>
       </div>
     </div>
+
+    <!-- Twitter -->
     
+
+    <!-- GitHub -->
     
+
+    <!-- Open search -->
     <div class="button button-search" role="button" aria-label="Search">
-      <label class="toggle-button icon icon-search" title="Search" for="toggle-search"></label>
+      <label class="toggle-button icon icon-search" title="Search"
+        for="toggle-search"></label>
     </div>
   </div>
+
+  <!-- Search bar -->
   <div class="bar search">
+
+    <!-- Close search -->
     <div class="button button-close" role="button" aria-label="Close">
-      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+      <label class="toggle-button icon icon-back"
+        for="toggle-search"></label>
     </div>
+
+    <!-- Search form -->
     <div class="stretch">
       <div class="field">
-        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+        <input class="query" type="text" placeholder="Search"
+          autocapitalize="off" autocorrect="off" autocomplete="off"
+          spellcheck="false" />
       </div>
     </div>
+
+    <!-- Empty search -->
     <div class="button button-reset" role="button" aria-label="Search">
-      <button class="toggle-button icon icon-close" id="reset-search"></button>
+      <button class="toggle-button icon icon-close"
+        id="reset-search"></button>
     </div>
   </div>
 </nav>
