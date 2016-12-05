@@ -1,0 +1,1390 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+
+    <!-- Charset and viewport -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,
+      user-scalable=no, initial-scale=1, maximum-scale=1" />
+
+    <!-- General meta tags -->
+    
+
+      <!-- Site title -->
+      
+        <title>Why my build takes longer on Bitrise than on my Mac? - Bitrise DevCenter</title>
+      
+
+      <!-- Site description -->
+      
+
+      <!-- Canonical -->
+      
+
+      <!-- Author -->
+      
+    
+
+    <!-- Open graph tags -->
+    <meta property="og:url" content="None" />
+    <meta property="og:title" content="Bitrise DevCenter"/>
+    <meta property="og:image"
+      content="None/../../img/logo.svg" />
+
+    <!-- Web application capability on iOS -->
+    <meta name="apple-mobile-web-app-title" content="Bitrise DevCenter" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent" />
+
+    <!-- Web application icon on iOS -->
+    
+      <link rel="apple-touch-icon"
+        href="../../img/logo.svg">
+    
+
+    <!-- Favicon -->
+    
+    <link rel="shortcut icon" type="image/x-icon"
+      href="../../assets/images/favicon.ico" />
+    <link rel="icon" type="image/x-icon"
+      href="../../assets/images/favicon.ico" />
+
+    <!-- Configure icons (placed here to omit issues with subdirectories) -->
+    <style>
+      @font-face {
+      	font-family: 'Icon';
+      	src: url('../../assets/fonts/icon.eot?52m981');
+      	src: url('../../assets/fonts/icon.eot?#iefix52m981')
+               format('embedded-opentype'),
+      		   url('../../assets/fonts/icon.woff?52m981')
+               format('woff'),
+      		   url('../../assets/fonts/icon.ttf?52m981')
+               format('truetype'),
+      		   url('../../assets/fonts/icon.svg?52m981#icon')
+               format('svg');
+      	font-weight: normal;
+      	font-style: normal;
+      }
+    </style>
+
+    <!-- Theme-related stylesheets -->
+    <link rel="stylesheet" type="text/css"
+      href="../../assets/stylesheets/application.css" />
+
+    <!-- Extra palettes -->
+    
+      <link rel="stylesheet" type="text/css"
+        href="../../assets/stylesheets/palettes.css" />
+    
+
+    <!-- Configure webfonts -->
+    
+      
+      
+      
+      <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css?family=Roboto:400,700|Source+Code+Pro" />
+      <style>
+        body, input {
+          font-family: 'Roboto', Helvetica, Arial, sans-serif;
+        }
+        pre, code {
+          font-family: 'Source Code Pro', 'Courier New', 'Courier', monospace;
+        }
+      </style>
+    
+
+    <!-- Custom stylesheets -->
+    
+      <link rel="stylesheet" type="text/css" href="../../stylesheets/extra.css" />
+    
+
+    <!-- Modernizr -->
+    <script src="../../assets/javascripts/modernizr.js"></script>
+
+    <!-- Custom header -->
+    
+  </head>
+
+  <!-- Define palette -->
+  
+  
+  
+  <body class="
+    palette-primary-deep-purple
+    palette-accent-deep-purple
+  ">
+
+    <!--
+      Sadly the jinja template engine is not very flexible - it doesn't support
+      regular expressions out-of-the-box. Since there might be a slash at the
+      end of the repository name, we just do a string comparison and kill it.
+    -->
+    
+      
+      
+    
+
+    <!-- Backdrop -->
+    <div class="backdrop">
+      <div class="backdrop-paper"></div>
+    </div>
+
+    <!-- State toggles -->
+    <input class="toggle" type="checkbox" id="toggle-drawer" />
+    <input class="toggle" type="checkbox" id="toggle-search" />
+
+    <!-- Overlay for expanded drawer -->
+    <label class="toggle-button overlay" for="toggle-drawer"></label>
+
+    <!-- Header -->
+    <header class="header">
+      <!-- Top-level navigation -->
+<nav aria-label="Header">
+
+  <!-- Default bar -->
+  <div class="bar default">
+
+    <!-- Toggle drawer -->
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+
+    <!-- Page title -->
+    <div class="stretch">
+      <div class="title">
+        
+          <span class="path">
+            
+              
+                Frequently Asked Questions (FAQ) <i class="icon icon-link"></i>
+              
+            
+          </span>
+        
+        Why my build takes longer on Bitrise than on my Mac?
+        <a style="color: #bfbfbf; font-size: 11px; margin-left: 2px" href="https://github.com/bitrise-io/devcenter/blob/master/docs/faq/why-my-build-takes-longer-on-bitrise-than-on-my-mac.md">Edit this page on GitHub</a>
+      </div>
+    </div>
+
+    <!-- Twitter -->
+    
+
+    <!-- GitHub -->
+    
+
+    <!-- Open search -->
+    <div class="button button-search" role="button" aria-label="Search">
+      <label class="toggle-button icon icon-search" title="Search"
+        for="toggle-search"></label>
+    </div>
+  </div>
+
+  <!-- Search bar -->
+  <div class="bar search">
+
+    <!-- Close search -->
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back"
+        for="toggle-search"></label>
+    </div>
+
+    <!-- Search form -->
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search"
+          autocapitalize="off" autocorrect="off" autocomplete="off"
+          spellcheck="false" />
+      </div>
+    </div>
+
+    <!-- Empty search -->
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close"
+        id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+    </header>
+
+    <!-- Main content -->
+    <main class="main">
+
+      <!--
+        This is a nasty hack that checks whether the content contains a
+        h1 headline. If it does, the variable h1 is set to true. This is
+        necessary for correctly rendering the table of contents which is
+        embedded into the navigation and the actual headline.
+      -->
+      
+
+      <!-- Drawer with navigation -->
+      <div class="drawer">
+        <nav aria-label="Navigation">
+  
+  <a href="https://github.com/bitrise-io/devcenter" class="project">
+    <div class="banner">
+      
+        <div class="logo">
+          <img src="../../img/logo.svg">
+        </div>
+      
+      <div class="name">
+        <strong>
+          Bitrise DevCenter
+          <span class="version">
+            
+          </span>
+        </strong>
+        
+          <br>
+          bitrise-io/devcenter
+        
+      </div>
+    </div>
+  </a>
+  <div class="scrollable">
+    <div class="wrapper">
+      
+        <ul class="repo">
+          <li class="repo-download">
+            
+            <a href="https://github.com/bitrise-io/devcenter/archive/master.zip" target="_blank" title="Download" data-action="download">
+              <i class="icon icon-download"></i> Download
+            </a>
+          </li>
+          <li class="repo-stars">
+            <a href="https://github.com/bitrise-io/devcenter/stargazers" target="_blank" title="Stargazers" data-action="star">
+              <i class="icon icon-star"></i> Stars
+              <span class="count">&ndash;</span>
+            </a>
+          </li>
+        </ul>
+        <hr>
+      
+      <div class="toc">
+        <ul>
+          
+            
+  <li>
+    <a class="" title="Bitrise DevCenter - What is Bitrise?" href="../..">
+      Bitrise DevCenter - What is Bitrise?
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Getting Started</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Builds & Workflows" href="../../getting-started/builds-and-workflows/">
+      Builds & Workflows
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Code Security" href="../../getting-started/code-security/">
+      Code Security
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Create your first App on Bitrise.io" href="../../getting-started/create-your-first-app-on-bitrise/">
+      Create your first App on Bitrise.io
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Add your first Step to your Workflow" href="../../getting-started/add-your-first-step-to-your-workflow/">
+      Add your first Step to your Workflow
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Manage your Bitrise workflow" href="../../getting-started/manage-your-bitrise-workflow/">
+      Manage your Bitrise workflow
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Infrastructure</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Available Stacks" href="../../infrastructure/available-stacks/">
+      Available Stacks
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Virtual Machines" href="../../infrastructure/virtual-machines/">
+      Virtual Machines
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Signing up</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Signing up with GitHub" href="../../signing-up/signing-up-with-github/">
+      Signing up with GitHub
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Signing up with Bitbucket" href="../../signing-up/signing-up-with-bitbucket/">
+      Signing up with Bitbucket
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Signing up with email" href="../../signing-up/signing-up-with-email/">
+      Signing up with email
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Trial after signing up" href="../../signing-up/trial-after-signing-up/">
+      Trial after signing up
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Adding a new app</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Adding a new app" href="../../adding-a-new-app/">
+      Adding a new app
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Connecting a repository" href="../../adding-a-new-app/connecting-a-repository/">
+      Connecting a repository
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Setting up SSH keys" href="../../adding-a-new-app/setting-up-ssh-keys/">
+      Setting up SSH keys
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Setting up configuration" href="../../adding-a-new-app/setting-up-configuration/">
+      Setting up configuration
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Team management</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Adding a new team member" href="../../team-management/">
+      Adding a new team member
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Changing the owner of an app" href="../../team-management/changing-the-owner-of-an-app/">
+      Changing the owner of an app
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Webhooks</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Adding webhooks" href="../../webhooks/">
+      Adding webhooks
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Adding a GitHub webhook" href="../../webhooks/adding-a-github-webhook/">
+      Adding a GitHub webhook
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Adding a Bitbucket webhook" href="../../webhooks/adding-a-bitbucket-webhook/">
+      Adding a Bitbucket webhook
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Control what to build when, with the Trigger Map" href="../../webhooks/trigger-map/">
+      Control what to build when, with the Trigger Map
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Webhook Troubleshooting" href="../../webhooks/troubleshooting/">
+      Webhook Troubleshooting
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Caching</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="About caching" href="../../caching/about-caching/">
+      About caching
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Caching Cocoapods" href="../../caching/caching-cocoapods/">
+      Caching Cocoapods
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Caching Gradle" href="../../caching/caching-gradle/">
+      Caching Gradle
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Caching Maven" href="../../caching/caching-maven/">
+      Caching Maven
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Caching Ruby GEMs" href="../../caching/caching-ruby-gems/">
+      Caching Ruby GEMs
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">iOS</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="iOS Code Signing" href="../../ios/code-signing/">
+      iOS Code Signing
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="iOS Code Signing - Technical details" href="../../ios/code-signing-technical-details/">
+      iOS Code Signing - Technical details
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Uploading certificates" href="../../ios/uploading-certificates/">
+      Uploading certificates
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="How to export Certificates and Provisioning Profiles" href="../../ios/export-certificate-and-provisioning-profile/">
+      How to export Certificates and Provisioning Profiles
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Resigning an IPA" href="../../ios/resigning-an-ipa/">
+      Resigning an IPA
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Frequent iOS issues" href="../../ios/frequent-ios-issues/">
+      Frequent iOS issues
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="List of known Xcode issues" href="../../ios/known-xcode-issues/">
+      List of known Xcode issues
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Android</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Android Code Signing" href="../../android/code-signing/">
+      Android Code Signing
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="The Android/Linux/Docker environment" href="../../android/the-environment/">
+      The Android/Linux/Docker environment
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Android tips and tricks" href="../../android/android-tips-and-tricks/">
+      Android tips and tricks
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Frequent Android issues" href="../../android/frequent-android-issues/">
+      Frequent Android issues
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Docker</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Docker support on bitrise.io" href="../../docker/">
+      Docker support on bitrise.io
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="How to run your build locally in Docker" href="../../docker/run-your-build-locally-in-docker/">
+      How to run your build locally in Docker
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Use your own Docker image" href="../../docker/use-your-own-docker-image/">
+      Use your own Docker image
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Xamarin</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="About Xamarin" href="../../xamarin/">
+      About Xamarin
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Connect your Xamarin account to Bitrise" href="../../xamarin/connect-your-xamarin-account-to-bitrise/">
+      Connect your Xamarin account to Bitrise
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Restore NuGet packages and Xamarin Components" href="../../xamarin/restore-nuget-packages-and-xamarin-components/">
+      Restore NuGet packages and Xamarin Components
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Deploy your Xamarin app" href="../../xamarin/deploy-your-xamarin-app/">
+      Deploy your Xamarin app
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Add UITest to your Xamarin app" href="../../xamarin/add-unit-test-to-your-xamarin-app/">
+      Add UITest to your Xamarin app
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Run your tests in the Xamarin Test Cloud" href="../../xamarin/run-your-tests-in-the-xamarin-test-cloud/">
+      Run your tests in the Xamarin Test Cloud
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Add custom sources to NuGet" href="../../xamarin/add-custom-sources-to-nuget/">
+      Add custom sources to NuGet
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Fastlane</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="fastlane tools integration" href="../../fastlane/fastlane-tools-integration/">
+      fastlane tools integration
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="How to configure fastlane match for Bitrise" href="../../fastlane/how-to-configure-fastlane-match-for-bitrise/">
+      How to configure fastlane match for Bitrise
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Tutorials</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Community Created Tutorials" href="../../tutorials/community-created/">
+      Community Created Tutorials
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="HipChat message with build status and details" href="../../tutorials/hipchat-message/">
+      HipChat message with build status and details
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="How to use the Generic File Storage" href="../../tutorials/how-to-use-the-generic-file-storage/">
+      How to use the Generic File Storage
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Download or replace project resources" href="../../tutorials/download-or-replace-project-resources/">
+      Download or replace project resources
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Efficient Continuous Integration and Deployment Workflow for iOS development" href="../../tutorials/efficient-continuous-integration-and-deployment-workflow-for-ios/">
+      Efficient Continuous Integration and Deployment Workflow for iOS development
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Configure and connect to your VPN" href="../../tutorials/vpn-configuration/">
+      Configure and connect to your VPN
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Auto deploy your Middleman blog / static website" href="../../tutorials/auto-deploy-middleman-project/">
+      Auto deploy your Middleman blog / static website
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Build with FAKE (F# Make)" href="../../tutorials/build-with-fake/">
+      Build with FAKE (F# Make)
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Deployment Tutorials</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Bitrise OTA App Deployment" href="../../tutorials/deploy/bitrise-app-deployment/">
+      Bitrise OTA App Deployment
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Publish your app to Appaloosa" href="../../tutorials/deploy/publish-your-app-to-appaloosa/">
+      Publish your app to Appaloosa
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Deploy to TestFairy with Bitrise" href="../../tutorials/deploy/deploy-to-testfairy-with-bitrise/">
+      Deploy to TestFairy with Bitrise
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Tips & Tricks</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Skip a Build (skip ci)" href="../../tips-and-tricks/skip-a-build/">
+      Skip a Build (skip ci)
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Attach any file as an Artifact to the Build" href="../../tips-and-tricks/attach-any-file-to-build/">
+      Attach any file as an Artifact to the Build
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Expose an Environment Variable and use it in another Step" href="../../tips-and-tricks/expose-environment-variable/">
+      Expose an Environment Variable and use it in another Step
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Don't mark the Build as failed if a given step would fail (ignore the error of the Step)" href="../../tips-and-tricks/dont-mark-build-failed-if-step-fails/">
+      Don't mark the Build as failed if a given step would fail (ignore the error of the Step)
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Enable/Disable a step (optionally, based on a condition)" href="../../tips-and-tricks/disable-a-step-by-condition/">
+      Enable/Disable a step (optionally, based on a condition)
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Xcode Archive: export options" href="../../tips-and-tricks/xcodebuild-export-options/">
+      Xcode Archive: export options
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Install Any Additional Tool" href="../../tips-and-tricks/install-additional-tools/">
+      Install Any Additional Tool
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Optimize your build times" href="../../tips-and-tricks/optimize-your-build-times/">
+      Optimize your build times
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Should I commit my dependencies into my repository?" href="../../tips-and-tricks/should-i-commit-my-dependencies-into-my-repository/">
+      Should I commit my dependencies into my repository?
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Frequently Asked Questions (FAQ)</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Available Environment Variables" href="../available-environment-variables/">
+      Available Environment Variables
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="How to change the owner of an app" href="../how-to-change-the-owner-of-an-app/">
+      How to change the owner of an app
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Organization FAQ" href="../organization-faq/">
+      Organization FAQ
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Adding projects with submodules or with private CocoaPods repos" href="../adding-projects-with-submodules/">
+      Adding projects with submodules or with private CocoaPods repos
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Android x86 Emulator" href="../android-x86-emulator/">
+      Android x86 Emulator
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="How to generate an SSH key pair" href="../how-to-generate-ssh-keypair/">
+      How to generate an SSH key pair
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Grant access to a GitHub Organization" href="../grant-access-to-github-organization/">
+      Grant access to a GitHub Organization
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="I can't see my GitHub organization / repository on the Add New App page" href="../i-cant-see-my-github-organization-repository-on-the-add-new-app-page/">
+      I can't see my GitHub organization / repository on the Add New App page
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="GitHub Pull Request / build Status indicator troubleshooting" href="../github-pull-request-status-troubleshooting/">
+      GitHub Pull Request / build Status indicator troubleshooting
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="No builds are triggered when I push code into the repository" href="../no-builds-are-triggered-automatically/">
+      No builds are triggered when I push code into the repository
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="current" title="Why my build takes longer on Bitrise than on my Mac?" href="./">
+      Why my build takes longer on Bitrise than on my Mac?
+    </a>
+    
+      
+      
+        <ul>
+          
+            <li class="anchor">
+              <a title="Local build caches" href="#local-build-caches">
+                Local build caches
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Network Resources" href="#network-resources">
+                Network Resources
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Raw performance" href="#raw-performance">
+                Raw performance
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Tips &amp; Tricks to optimize build times" href="#tips-tricks-to-optimize-build-times">
+                Tips &amp; Tricks to optimize build times
+              </a>
+            </li>
+          
+        </ul>
+      
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Troubleshooting</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Workflow Editor doesn't load" href="../../troubleshooting/workflow-editor-doesnt-load/">
+      Workflow Editor doesn't load
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Tools</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Bitrise Tools" href="../../tools/bitrise-tools/">
+      Bitrise Tools
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+        </ul>
+        
+      </div>
+    </div>
+  </div>
+</nav>
+      </div>
+
+      <!-- Article -->
+      <article class="article">
+        <div class="wrapper">
+
+          <!-- Headline -->
+          
+            <h1>Why my build takes longer on Bitrise than on my Mac?</h1>
+          
+
+          <!-- Article content -->
+          <p>First of all you have to determine which step(s) consume significant time,
+to identify what can possibly be improved.</p>
+<p>If your dependency step (e.g. CocoaPods) is the one which takes a long time then you might be able to speed it up
+by using the Bitrise Build Cache feature.
+You can find more information at <a href="../../caching/about-caching">Using the Build Cache</a>.
+This is also true for any step which might include network communication, addressing 3rd party web services,
+which might temporarily not be available or might be slow due to high demand.</p>
+<p>If the long build time is not related to a dependency step or to a step which accesses a 3rd party service,
+and it's related to an Archive or Test step, which only performs calculations on the Virtual Machine
+and does not access an outside service then you should check this list which explains
+why it might take more time on Bitrise.io than on your Mac/PC:</p>
+<h2 id="local-build-caches">Local build caches<a class="headerlink" href="#local-build-caches" title="Permanent link">⚓</a></h2>
+<p>Local build caches on your Mac/PC: most of the tools you use (e.g. Xcode) does generate a lot of local build cache,
+to speed up subsequent builds.
+These caches help a lot to decrease the build time on your Mac/PC, but these are not available on <a href="https://www.bitrise.io">bitrise.io</a>.</p>
+<p><em>Note: You can test how much these caches improve the build time by running the same step (e.g. Xcode Archive) two times during your build.
+The second one will be significantly faster than the first one,
+because of the available local build caches Xcode generates.</em></p>
+<p>On <a href="https://www.bitrise.io">bitrise.io</a> every build runs in a clean Virtual Machine.
+No file is stored after your build finishes, the whole Virtual Machine is destroyed,
+and the next build will start in a clean Virtual Machine again.</p>
+<p><strong>The lack of local build caches is important to improve the reliability of your project</strong>,
+but it slows down the build process. Why it's important?
+In your local build caches there might be files which are not under version control.
+This can result in a situation where although you can build your project on your Mac/PC someone
+who just git clones it and builds it the first time will have an error.
+You can find more information about this issue at:
+<a href="../../ios/frequent-ios-issues/#works-in-local-but-not-on-bitriseio">Works in local but not on Bitrise.io</a>.</p>
+<p>This issue is eliminated by using clean virtual machines on <a href="https://www.bitrise.io">bitrise.io</a>,
+where only the code and dependencies you specify (which are under version control, and are reproducible) are available.
+If it works there then it'll work on a brand new Mac/PC too,
+when a new colleague joins your team and starts to work on the project. </p>
+<h2 id="network-resources">Network Resources<a class="headerlink" href="#network-resources" title="Permanent link">⚓</a></h2>
+<p>Additionally to Local build caches, if your project requires dependencies
+which have to be retrieved from the Internet it'll add time to the build process.</p>
+<p>For example, when you build your iOS project on your Mac and you use CocoaPods,
+you usually don't have to run <code>pod install</code>, only when your CocoaPods dependency list changes.
+If you don't commit your Pods into your repository then this process (to download the required dependencies)
+have to be performed for every build in a clean environment.</p>
+<p>Possible solutions:</p>
+<ul>
+<li>Commit your dependencies into your repository -
+  read more: <a href="../../tips-and-tricks/should-i-commit-my-dependencies-into-my-repository">Should I commit my dependencies into my repository?</a> </li>
+<li>Cache your dependencies in Bitrise Build Cache -
+  read more: <a href="../../caching/about-caching">Using the Build Cache</a></li>
+</ul>
+<h2 id="raw-performance">Raw performance<a class="headerlink" href="#raw-performance" title="Permanent link">⚓</a></h2>
+<p>We always try to improve the overall performance of the build infrastructure,
+but you'll most likely have more powerful hardware.</p>
+<p>Right now we use a private vSphere network for hosting the OS X virtual machines,
+and Google Compute Engine for hosting the Linux (Android) virtual machines.</p>
+<p>Cloud environments are fantastic to provide reproducible build environments,
+but virtualization requires additional resources on top of the resources exposed to the virtual machine / build environment.
+You can try this on your own Mac/PC: running the same compilation directly on your Mac/PC
+will be faster than doing it in a Virtual Machine.</p>
+<p><em>We do our best to improve the performance whenever we can, and feel free to reach out to us if you have any suggestion!</em></p>
+<h2 id="tips-tricks-to-optimize-build-times">Tips &amp; Tricks to optimize build times<a class="headerlink" href="#tips-tricks-to-optimize-build-times" title="Permanent link">⚓</a></h2>
+<p>You can also find a guide <a href="../../tips-and-tricks/optimize-your-build-times">here</a>
+about how you can optimize your build times.</p>
+
+          <!-- Copyright and theme information -->
+          <aside class="copyright" role="note">
+            
+            <hr />
+            <p>
+              <b><a href="https://github.com/bitrise-io/devcenter/blob/master/docs/faq/why-my-build-takes-longer-on-bitrise-than-on-my-mac.md">Feel free to edit any page of this DevCenter on GitHub, in your browser directly!</a></b>
+              <br />
+              You can edit the pages on <a href="https://github.com/bitrise-io/devcenter/blob/master/docs/faq/why-my-build-takes-longer-on-bitrise-than-on-my-mac.md">GitHub</a> directly, you don't have to git clone the repository.
+              <br />
+              Just select the file on <a href="https://github.com/bitrise-io/devcenter/blob/master/docs/faq/why-my-build-takes-longer-on-bitrise-than-on-my-mac.md">GitHub</a> and click the <b>pencil/edit icon</b>,
+              which will open the GitHub editor for the file.
+              <br />
+              If you don't want to edit the page on GitHub, feel free to <a href="https://www.bitrise.io/contact">contact us</a>, and we'll do the change for you!
+            </p>
+          </aside>
+
+          <!-- Footer -->
+          
+            <footer class="footer">
+              
+  <nav class="pagination" aria-label="Footer">
+    <div class="previous">
+      
+        <a href="../no-builds-are-triggered-automatically/" title="No builds are triggered when I push code into the repository">
+          <span class="direction">
+            Previous
+          </span>
+          <div class="page">
+            <div class="button button-previous" role="button" aria-label="Previous">
+              <i class="icon icon-back"></i>
+            </div>
+            <div class="stretch">
+              <div class="title">
+                No builds are triggered when I push code into the repository
+              </div>
+            </div>
+          </div>
+        </a>
+      
+    </div>
+    <div class="next">
+      
+        <a href="../../troubleshooting/workflow-editor-doesnt-load/" title="Workflow Editor doesn't load">
+          <span class="direction">
+            Next
+          </span>
+          <div class="page">
+            <div class="stretch">
+              <div class="title">
+                Workflow Editor doesn't load
+              </div>
+            </div>
+            <div class="button button-next" role="button" aria-label="Next">
+              <i class="icon icon-forward"></i>
+            </div>
+          </div>
+        </a>
+      
+    </div>
+  </nav>
+
+            </footer>
+          
+        </div>
+      </article>
+
+      <!-- Search results -->
+      <div class="results" role="status" aria-live="polite">
+        <div class="scrollable">
+          <div class="wrapper">
+            <div class="meta"></div>
+            <div class="list"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Theme-related and custom javascripts -->
+    <script>
+      var base_url = '../..';
+      var repo_id  = 'bitrise-io/devcenter';
+    </script>
+    <script src="../../assets/javascripts/application.js"></script>
+    
+
+    <!-- Google Analytics -->
+    
+  </body>
+</html>

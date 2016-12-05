@@ -520,6 +520,15 @@
   </li>
 
       
+        
+  <li>
+    <a class="" title="Webhook Troubleshooting" href="../../webhooks/troubleshooting/">
+      Webhook Troubleshooting
+    </a>
+    
+  </li>
+
+      
     </ul>
   </li>
 
@@ -1043,6 +1052,12 @@
               </a>
             </li>
           
+            <li class="anchor">
+              <a title="Other" href="#other">
+                Other
+              </a>
+            </li>
+          
         </ul>
       
     
@@ -1121,6 +1136,69 @@
   </li>
 
       
+        
+  <li>
+    <a class="" title="Grant access to a GitHub Organization" href="../../faq/grant-access-to-github-organization/">
+      Grant access to a GitHub Organization
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="I can't see my GitHub organization / repository on the Add New App page" href="../../faq/i-cant-see-my-github-organization-repository-on-the-add-new-app-page/">
+      I can't see my GitHub organization / repository on the Add New App page
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="GitHub Pull Request / build Status indicator troubleshooting" href="../../faq/github-pull-request-status-troubleshooting/">
+      GitHub Pull Request / build Status indicator troubleshooting
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="No builds are triggered when I push code into the repository" href="../../faq/no-builds-are-triggered-automatically/">
+      No builds are triggered when I push code into the repository
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Why my build takes longer on Bitrise than on my Mac?" href="../../faq/why-my-build-takes-longer-on-bitrise-than-on-my-mac/">
+      Why my build takes longer on Bitrise than on my Mac?
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Troubleshooting</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Workflow Editor doesn't load" href="../../troubleshooting/workflow-editor-doesnt-load/">
+      Workflow Editor doesn't load
+    </a>
+    
+  </li>
+
+      
     </ul>
   </li>
 
@@ -1162,7 +1240,7 @@
 
           <!-- Article content -->
           <p>You can improve your build times with the following tips.</p>
-<p><em>Feel free to suggest other ways of optimizations!</em></p>
+<p><strong>Feel free to suggest other ways of optimization!</strong></p>
 <h2 id="include-your-dependencies-in-your-repository">Include your dependencies in your repository<a class="headerlink" href="#include-your-dependencies-in-your-repository" title="Permanent link">⚓</a></h2>
 <p>Including your dependencies (like CocoaPods) in your repository can speed up your builds.
 Once the <code>git clone</code> of your repository is done, everything will be in place to do your build.</p>
@@ -1182,6 +1260,8 @@ You can usually turn off this option without causing any issues.</p>
 The first one will still have to do a full, clean build, because there's no build cache at the time it runs
 (as every build runs in a brand new, clean Virtual Machine, as descibed in <a href="../../getting-started/code-security/">Code Security</a>),
 but subsequent Xcode steps can use the build cache of the previous Xcode step(s), reducing the compilation time of the step.</p>
+<h2 id="other">Other<a class="headerlink" href="#other" title="Permanent link">⚓</a></h2>
+<p><strong>Feel free to suggest other ways of optimization!</strong></p>
 
           <!-- Copyright and theme information -->
           <aside class="copyright" role="note">

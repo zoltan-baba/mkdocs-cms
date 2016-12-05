@@ -520,6 +520,15 @@
   </li>
 
       
+        
+  <li>
+    <a class="" title="Webhook Troubleshooting" href="../../webhooks/troubleshooting/">
+      Webhook Troubleshooting
+    </a>
+    
+  </li>
+
+      
     </ul>
   </li>
 
@@ -981,6 +990,12 @@
         <ul>
           
             <li class="anchor">
+              <a title="Copy an environment variable to another key" href="#copy-an-environment-variable-to-another-key">
+                Copy an environment variable to another key
+              </a>
+            </li>
+          
+            <li class="anchor">
               <a title="Overwrite an Environment Variable if another one is set" href="#overwrite-an-environment-variable-if-another-one-is-set">
                 Overwrite an Environment Variable if another one is set
               </a>
@@ -1109,6 +1124,69 @@
   </li>
 
       
+        
+  <li>
+    <a class="" title="Grant access to a GitHub Organization" href="../../faq/grant-access-to-github-organization/">
+      Grant access to a GitHub Organization
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="I can't see my GitHub organization / repository on the Add New App page" href="../../faq/i-cant-see-my-github-organization-repository-on-the-add-new-app-page/">
+      I can't see my GitHub organization / repository on the Add New App page
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="GitHub Pull Request / build Status indicator troubleshooting" href="../../faq/github-pull-request-status-troubleshooting/">
+      GitHub Pull Request / build Status indicator troubleshooting
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="No builds are triggered when I push code into the repository" href="../../faq/no-builds-are-triggered-automatically/">
+      No builds are triggered when I push code into the repository
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Why my build takes longer on Bitrise than on my Mac?" href="../../faq/why-my-build-takes-longer-on-bitrise-than-on-my-mac/">
+      Why my build takes longer on Bitrise than on my Mac?
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Troubleshooting</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Workflow Editor doesn't load" href="../../troubleshooting/workflow-editor-doesnt-load/">
+      Workflow Editor doesn't load
+    </a>
+    
+  </li>
+
+      
     </ul>
   </li>
 
@@ -1218,6 +1296,25 @@ workflows:
         - message: &quot;Release Notes: $MY_RELEASE_NOTE&quot;</code></pre>
 
 
+<h2 id="copy-an-environment-variable-to-another-key">Copy an environment variable to another key<a class="headerlink" href="#copy-an-environment-variable-to-another-key" title="Permanent link">⚓</a></h2>
+<p>If you want to expose the value of an environment variable to be accessible
+through another environment variable key, you can simply expose the value with a new key.</p>
+<p>For example, if you want to copy the value of the <code>BITRISE_BUILD_NUMBER</code> environment variable
+and make it available under the environment variable key <code>MY_BUILD_NUMBER</code>, you just have to
+read the current value and expose it under the new key.</p>
+<p>To modify the first example here, which exposed a fix value:</p>
+<pre class="code"><code>envman add --key MY_RELEASE_NOTE --value &quot;This is the release note&quot;</code></pre>
+
+
+<p>simply reference/read the value of the other environment variable in the <code>envman add ...</code> command.</p>
+<p>To expose the value of <code>BITRISE_BUILD_NUMBER</code> under the key <code>MY_BUILD_NUMBER</code>:</p>
+<pre class="code"><code>envman add --key MY_BUILD_NUMBER --value &quot;${BITRISE_BUILD_NUMBER}&quot;</code></pre>
+
+
+<p>After this, subsequent steps can get the value of <code>BITRISE_BUILD_NUMBER</code> from the
+<code>MY_BUILD_NUMBER</code> environment variable.</p>
+<p><em>Note: if you change the value of <code>BITRISE_BUILD_NUMBER</code> after this, the
+value of <code>MY_BUILD_NUMBER</code> won't be modified, that will still hold the original value!</em></p>
 <h2 id="overwrite-an-environment-variable-if-another-one-is-set">Overwrite an Environment Variable if another one is set<a class="headerlink" href="#overwrite-an-environment-variable-if-another-one-is-set" title="Permanent link">⚓</a></h2>
 <p>E.g. if a custom environment variable is set through the Build Trigger API.</p>
 <p>The best way to do this, to make sure that no matter what, you overwrite the other env var,
