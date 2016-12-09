@@ -144,20 +144,13 @@
 
     <!-- Header -->
     <header class="header">
-      <!-- Top-level navigation -->
-<nav aria-label="Header">
-
-  <!-- Default bar -->
+      <nav aria-label="Header">
   <div class="bar default">
-
-    <!-- Toggle drawer -->
     <div class="button button-menu" role="button" aria-label="Menu">
       <label class="toggle-button icon icon-menu" for="toggle-drawer">
         <span></span>
       </label>
     </div>
-
-    <!-- Page title -->
     <div class="stretch">
       <div class="title">
         
@@ -170,45 +163,25 @@
           </span>
         
         No builds are triggered when I push code into the repository
-        <a style="color: #bfbfbf; font-size: 11px; margin-left: 2px" href="https://github.com/bitrise-io/devcenter/blob/master/docs/faq/no-builds-are-triggered-automatically.md">Edit this page on GitHub</a>
       </div>
     </div>
-
-    <!-- Twitter -->
     
-
-    <!-- GitHub -->
     
-
-    <!-- Open search -->
     <div class="button button-search" role="button" aria-label="Search">
-      <label class="toggle-button icon icon-search" title="Search"
-        for="toggle-search"></label>
+      <label class="toggle-button icon icon-search" title="Search" for="toggle-search"></label>
     </div>
   </div>
-
-  <!-- Search bar -->
   <div class="bar search">
-
-    <!-- Close search -->
     <div class="button button-close" role="button" aria-label="Close">
-      <label class="toggle-button icon icon-back"
-        for="toggle-search"></label>
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
     </div>
-
-    <!-- Search form -->
     <div class="stretch">
       <div class="field">
-        <input class="query" type="text" placeholder="Search"
-          autocapitalize="off" autocorrect="off" autocomplete="off"
-          spellcheck="false" />
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
       </div>
     </div>
-
-    <!-- Empty search -->
     <div class="button button-reset" role="button" aria-label="Search">
-      <button class="toggle-button icon icon-close"
-        id="reset-search"></button>
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
     </div>
   </div>
 </nav>
@@ -227,15 +200,24 @@
 
       <!-- Drawer with navigation -->
       <div class="drawer">
-        <nav aria-label="Navigation">
+        <!-- Navigation -->
+<nav aria-label="Navigation">
   
+
+  <!-- Project information -->
   <a href="https://github.com/bitrise-io/devcenter" class="project">
+
+    <!-- Name and logo -->
     <div class="banner">
+
+      <!-- Version -->
       
         <div class="logo">
-          <img src="../../img/logo.svg">
+          <img src="../../img/logo.svg" />
         </div>
       
+
+      <!-- Project name and verison -->
       <div class="name">
         <strong>
           Bitrise DevCenter
@@ -243,32 +225,44 @@
             
           </span>
         </strong>
+
+        <!-- Project repository name -->
         
-          <br>
+          <br />
           bitrise-io/devcenter
         
       </div>
     </div>
   </a>
+
+  <!-- Repository and table of contents -->
   <div class="scrollable">
     <div class="wrapper">
-      
+
+      <!-- Repository -->
+      <!--
         <ul class="repo">
           <li class="repo-download">
             
-            <a href="https://github.com/bitrise-io/devcenter/archive/master.zip" target="_blank" title="Download" data-action="download">
-              <i class="icon icon-download"></i> Download
-            </a>
+              
+              <a href="https://github.com/bitrise-io/devcenter/archive/master.zip" target="_blank"
+                title="Download" data-action="download">
+                <i class="icon icon-download"></i> Download
+              </a>
+            
           </li>
           <li class="repo-stars">
-            <a href="https://github.com/bitrise-io/devcenter/stargazers" target="_blank" title="Stargazers" data-action="star">
+            <a href="https://github.com/bitrise-io/devcenter/stargazers" target="_blank"
+              title="Stargazers" data-action="star">
               <i class="icon icon-star"></i> Stars
               <span class="count">&ndash;</span>
             </a>
           </li>
         </ul>
-        <hr>
-      
+        <hr />
+      -->
+
+      <!-- Table of contents -->
       <div class="toc">
         <ul>
           
@@ -578,6 +572,96 @@
   <li>
     <a class="" title="Caching Ruby GEMs" href="../../caching/caching-ruby-gems/">
       Caching Ruby GEMs
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Bitrise CLI and bitrise.yml</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Intro" href="../../bitrise-cli/">
+      Intro
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Install the Bitrise CLI" href="../../bitrise-cli/installation/">
+      Install the Bitrise CLI
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Run your first build" href="../../bitrise-cli/run-your-first-build/">
+      Run your first build
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Basics of bitrise.yml" href="../../bitrise-cli/basics-of-bitrise-yml/">
+      Basics of bitrise.yml
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Workflows" href="../../bitrise-cli/workflows/">
+      Workflows
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Steps" href="../../bitrise-cli/steps/">
+      Steps
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Secrets" href="../../bitrise-cli/secrets/">
+      Secrets
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Most important concepts" href="../../bitrise-cli/most-important-concepts/">
+      Most important concepts
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Create your own Step" href="../../bitrise-cli/create-your-own-step/">
+      Create your own Step
     </a>
     
   </li>
@@ -1194,6 +1278,8 @@
 
           
         </ul>
+
+        <!-- Author-related links -->
         
       </div>
     </div>
@@ -1207,7 +1293,10 @@
 
           <!-- Headline -->
           
-            <h1>No builds are triggered when I push code into the repository</h1>
+            <h1>
+              No builds are triggered when I push code into the repository
+              <a class="headerlink" href="https://github.com/bitrise-io/devcenter/blob/master/docs/faq/no-builds-are-triggered-automatically.md">Edit this page on GitHub!</a>
+            </h1>
           
 
           <!-- Article content -->
@@ -1231,7 +1320,10 @@ check the <a href="../../webhooks/troubleshooting">Troubleshooting section of th
               Just select the file on <a href="https://github.com/bitrise-io/devcenter/blob/master/docs/faq/no-builds-are-triggered-automatically.md">GitHub</a> and click the <b>pencil/edit icon</b>,
               which will open the GitHub editor for the file.
               <br />
-              If you don't want to edit the page on GitHub, feel free to <a href="https://www.bitrise.io/contact">contact us</a>, and we'll do the change for you!
+              If you don't want to edit the page on GitHub,
+              feel free to <a href="https://www.bitrise.io/contact">contact us</a>,
+              or to create an issue on the <a href="https://github.com/bitrise-io/devcenter">DevCenter's GitHub page</a>
+              and we'll do the change for you!
             </p>
           </aside>
 

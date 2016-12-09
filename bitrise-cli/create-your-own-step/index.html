@@ -1,0 +1,1410 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+
+    <!-- Charset and viewport -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,
+      user-scalable=no, initial-scale=1, maximum-scale=1" />
+
+    <!-- General meta tags -->
+    
+
+      <!-- Site title -->
+      
+        <title>Create your own Step - Bitrise DevCenter</title>
+      
+
+      <!-- Site description -->
+      
+
+      <!-- Canonical -->
+      
+
+      <!-- Author -->
+      
+    
+
+    <!-- Open graph tags -->
+    <meta property="og:url" content="None" />
+    <meta property="og:title" content="Bitrise DevCenter"/>
+    <meta property="og:image"
+      content="None/../../img/logo.svg" />
+
+    <!-- Web application capability on iOS -->
+    <meta name="apple-mobile-web-app-title" content="Bitrise DevCenter" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent" />
+
+    <!-- Web application icon on iOS -->
+    
+      <link rel="apple-touch-icon"
+        href="../../img/logo.svg">
+    
+
+    <!-- Favicon -->
+    
+    <link rel="shortcut icon" type="image/x-icon"
+      href="../../assets/images/favicon.ico" />
+    <link rel="icon" type="image/x-icon"
+      href="../../assets/images/favicon.ico" />
+
+    <!-- Configure icons (placed here to omit issues with subdirectories) -->
+    <style>
+      @font-face {
+      	font-family: 'Icon';
+      	src: url('../../assets/fonts/icon.eot?52m981');
+      	src: url('../../assets/fonts/icon.eot?#iefix52m981')
+               format('embedded-opentype'),
+      		   url('../../assets/fonts/icon.woff?52m981')
+               format('woff'),
+      		   url('../../assets/fonts/icon.ttf?52m981')
+               format('truetype'),
+      		   url('../../assets/fonts/icon.svg?52m981#icon')
+               format('svg');
+      	font-weight: normal;
+      	font-style: normal;
+      }
+    </style>
+
+    <!-- Theme-related stylesheets -->
+    <link rel="stylesheet" type="text/css"
+      href="../../assets/stylesheets/application.css" />
+
+    <!-- Extra palettes -->
+    
+      <link rel="stylesheet" type="text/css"
+        href="../../assets/stylesheets/palettes.css" />
+    
+
+    <!-- Configure webfonts -->
+    
+      
+      
+      
+      <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css?family=Roboto:400,700|Source+Code+Pro" />
+      <style>
+        body, input {
+          font-family: 'Roboto', Helvetica, Arial, sans-serif;
+        }
+        pre, code {
+          font-family: 'Source Code Pro', 'Courier New', 'Courier', monospace;
+        }
+      </style>
+    
+
+    <!-- Custom stylesheets -->
+    
+      <link rel="stylesheet" type="text/css" href="../../stylesheets/extra.css" />
+    
+
+    <!-- Modernizr -->
+    <script src="../../assets/javascripts/modernizr.js"></script>
+
+    <!-- Custom header -->
+    
+  </head>
+
+  <!-- Define palette -->
+  
+  
+  
+  <body class="
+    palette-primary-deep-purple
+    palette-accent-deep-purple
+  ">
+
+    <!--
+      Sadly the jinja template engine is not very flexible - it doesn't support
+      regular expressions out-of-the-box. Since there might be a slash at the
+      end of the repository name, we just do a string comparison and kill it.
+    -->
+    
+      
+      
+    
+
+    <!-- Backdrop -->
+    <div class="backdrop">
+      <div class="backdrop-paper"></div>
+    </div>
+
+    <!-- State toggles -->
+    <input class="toggle" type="checkbox" id="toggle-drawer" />
+    <input class="toggle" type="checkbox" id="toggle-search" />
+
+    <!-- Overlay for expanded drawer -->
+    <label class="toggle-button overlay" for="toggle-drawer"></label>
+
+    <!-- Header -->
+    <header class="header">
+      <nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        
+          <span class="path">
+            
+              
+                Bitrise CLI and bitrise.yml <i class="icon icon-link"></i>
+              
+            
+          </span>
+        
+        Create your own Step
+      </div>
+    </div>
+    
+    
+    <div class="button button-search" role="button" aria-label="Search">
+      <label class="toggle-button icon icon-search" title="Search" for="toggle-search"></label>
+    </div>
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+    </header>
+
+    <!-- Main content -->
+    <main class="main">
+
+      <!--
+        This is a nasty hack that checks whether the content contains a
+        h1 headline. If it does, the variable h1 is set to true. This is
+        necessary for correctly rendering the table of contents which is
+        embedded into the navigation and the actual headline.
+      -->
+      
+
+      <!-- Drawer with navigation -->
+      <div class="drawer">
+        <!-- Navigation -->
+<nav aria-label="Navigation">
+  
+
+  <!-- Project information -->
+  <a href="https://github.com/bitrise-io/devcenter" class="project">
+
+    <!-- Name and logo -->
+    <div class="banner">
+
+      <!-- Version -->
+      
+        <div class="logo">
+          <img src="../../img/logo.svg" />
+        </div>
+      
+
+      <!-- Project name and verison -->
+      <div class="name">
+        <strong>
+          Bitrise DevCenter
+          <span class="version">
+            
+          </span>
+        </strong>
+
+        <!-- Project repository name -->
+        
+          <br />
+          bitrise-io/devcenter
+        
+      </div>
+    </div>
+  </a>
+
+  <!-- Repository and table of contents -->
+  <div class="scrollable">
+    <div class="wrapper">
+
+      <!-- Repository -->
+      <!--
+        <ul class="repo">
+          <li class="repo-download">
+            
+              
+              <a href="https://github.com/bitrise-io/devcenter/archive/master.zip" target="_blank"
+                title="Download" data-action="download">
+                <i class="icon icon-download"></i> Download
+              </a>
+            
+          </li>
+          <li class="repo-stars">
+            <a href="https://github.com/bitrise-io/devcenter/stargazers" target="_blank"
+              title="Stargazers" data-action="star">
+              <i class="icon icon-star"></i> Stars
+              <span class="count">&ndash;</span>
+            </a>
+          </li>
+        </ul>
+        <hr />
+      -->
+
+      <!-- Table of contents -->
+      <div class="toc">
+        <ul>
+          
+            
+  <li>
+    <a class="" title="Bitrise DevCenter - What is Bitrise?" href="../..">
+      Bitrise DevCenter - What is Bitrise?
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Getting Started</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Builds & Workflows" href="../../getting-started/builds-and-workflows/">
+      Builds & Workflows
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Code Security" href="../../getting-started/code-security/">
+      Code Security
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Create your first App on Bitrise.io" href="../../getting-started/create-your-first-app-on-bitrise/">
+      Create your first App on Bitrise.io
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Add your first Step to your Workflow" href="../../getting-started/add-your-first-step-to-your-workflow/">
+      Add your first Step to your Workflow
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Manage your Bitrise workflow" href="../../getting-started/manage-your-bitrise-workflow/">
+      Manage your Bitrise workflow
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Infrastructure</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Available Stacks" href="../../infrastructure/available-stacks/">
+      Available Stacks
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Virtual Machines" href="../../infrastructure/virtual-machines/">
+      Virtual Machines
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Signing up</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Signing up with GitHub" href="../../signing-up/signing-up-with-github/">
+      Signing up with GitHub
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Signing up with Bitbucket" href="../../signing-up/signing-up-with-bitbucket/">
+      Signing up with Bitbucket
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Signing up with email" href="../../signing-up/signing-up-with-email/">
+      Signing up with email
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Trial after signing up" href="../../signing-up/trial-after-signing-up/">
+      Trial after signing up
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Adding a new app</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Adding a new app" href="../../adding-a-new-app/">
+      Adding a new app
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Connecting a repository" href="../../adding-a-new-app/connecting-a-repository/">
+      Connecting a repository
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Setting up SSH keys" href="../../adding-a-new-app/setting-up-ssh-keys/">
+      Setting up SSH keys
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Setting up configuration" href="../../adding-a-new-app/setting-up-configuration/">
+      Setting up configuration
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Team management</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Adding a new team member" href="../../team-management/">
+      Adding a new team member
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Changing the owner of an app" href="../../team-management/changing-the-owner-of-an-app/">
+      Changing the owner of an app
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Webhooks</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Adding webhooks" href="../../webhooks/">
+      Adding webhooks
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Adding a GitHub webhook" href="../../webhooks/adding-a-github-webhook/">
+      Adding a GitHub webhook
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Adding a Bitbucket webhook" href="../../webhooks/adding-a-bitbucket-webhook/">
+      Adding a Bitbucket webhook
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Control what to build when, with the Trigger Map" href="../../webhooks/trigger-map/">
+      Control what to build when, with the Trigger Map
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Webhook Troubleshooting" href="../../webhooks/troubleshooting/">
+      Webhook Troubleshooting
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Caching</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="About caching" href="../../caching/about-caching/">
+      About caching
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Caching Cocoapods" href="../../caching/caching-cocoapods/">
+      Caching Cocoapods
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Caching Gradle" href="../../caching/caching-gradle/">
+      Caching Gradle
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Caching Maven" href="../../caching/caching-maven/">
+      Caching Maven
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Caching Ruby GEMs" href="../../caching/caching-ruby-gems/">
+      Caching Ruby GEMs
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Bitrise CLI and bitrise.yml</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Intro" href="../">
+      Intro
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Install the Bitrise CLI" href="../installation/">
+      Install the Bitrise CLI
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Run your first build" href="../run-your-first-build/">
+      Run your first build
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Basics of bitrise.yml" href="../basics-of-bitrise-yml/">
+      Basics of bitrise.yml
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Workflows" href="../workflows/">
+      Workflows
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Steps" href="../steps/">
+      Steps
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Secrets" href="../secrets/">
+      Secrets
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Most important concepts" href="../most-important-concepts/">
+      Most important concepts
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="current" title="Create your own Step" href="./">
+      Create your own Step
+    </a>
+    
+      
+      
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">iOS</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="iOS Code Signing" href="../../ios/code-signing/">
+      iOS Code Signing
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="iOS Code Signing - Technical details" href="../../ios/code-signing-technical-details/">
+      iOS Code Signing - Technical details
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Uploading certificates" href="../../ios/uploading-certificates/">
+      Uploading certificates
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="How to export Certificates and Provisioning Profiles" href="../../ios/export-certificate-and-provisioning-profile/">
+      How to export Certificates and Provisioning Profiles
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Resigning an IPA" href="../../ios/resigning-an-ipa/">
+      Resigning an IPA
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Frequent iOS issues" href="../../ios/frequent-ios-issues/">
+      Frequent iOS issues
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="List of known Xcode issues" href="../../ios/known-xcode-issues/">
+      List of known Xcode issues
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Android</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Android Code Signing" href="../../android/code-signing/">
+      Android Code Signing
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="The Android/Linux/Docker environment" href="../../android/the-environment/">
+      The Android/Linux/Docker environment
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Android tips and tricks" href="../../android/android-tips-and-tricks/">
+      Android tips and tricks
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Frequent Android issues" href="../../android/frequent-android-issues/">
+      Frequent Android issues
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Docker</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Docker support on bitrise.io" href="../../docker/">
+      Docker support on bitrise.io
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="How to run your build locally in Docker" href="../../docker/run-your-build-locally-in-docker/">
+      How to run your build locally in Docker
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Use your own Docker image" href="../../docker/use-your-own-docker-image/">
+      Use your own Docker image
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Xamarin</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="About Xamarin" href="../../xamarin/">
+      About Xamarin
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Connect your Xamarin account to Bitrise" href="../../xamarin/connect-your-xamarin-account-to-bitrise/">
+      Connect your Xamarin account to Bitrise
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Restore NuGet packages and Xamarin Components" href="../../xamarin/restore-nuget-packages-and-xamarin-components/">
+      Restore NuGet packages and Xamarin Components
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Deploy your Xamarin app" href="../../xamarin/deploy-your-xamarin-app/">
+      Deploy your Xamarin app
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Add UITest to your Xamarin app" href="../../xamarin/add-unit-test-to-your-xamarin-app/">
+      Add UITest to your Xamarin app
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Run your tests in the Xamarin Test Cloud" href="../../xamarin/run-your-tests-in-the-xamarin-test-cloud/">
+      Run your tests in the Xamarin Test Cloud
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Add custom sources to NuGet" href="../../xamarin/add-custom-sources-to-nuget/">
+      Add custom sources to NuGet
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Fastlane</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="fastlane tools integration" href="../../fastlane/fastlane-tools-integration/">
+      fastlane tools integration
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="How to configure fastlane match for Bitrise" href="../../fastlane/how-to-configure-fastlane-match-for-bitrise/">
+      How to configure fastlane match for Bitrise
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Tutorials</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Community Created Tutorials" href="../../tutorials/community-created/">
+      Community Created Tutorials
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="HipChat message with build status and details" href="../../tutorials/hipchat-message/">
+      HipChat message with build status and details
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="How to use the Generic File Storage" href="../../tutorials/how-to-use-the-generic-file-storage/">
+      How to use the Generic File Storage
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Download or replace project resources" href="../../tutorials/download-or-replace-project-resources/">
+      Download or replace project resources
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Efficient Continuous Integration and Deployment Workflow for iOS development" href="../../tutorials/efficient-continuous-integration-and-deployment-workflow-for-ios/">
+      Efficient Continuous Integration and Deployment Workflow for iOS development
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Configure and connect to your VPN" href="../../tutorials/vpn-configuration/">
+      Configure and connect to your VPN
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Auto deploy your Middleman blog / static website" href="../../tutorials/auto-deploy-middleman-project/">
+      Auto deploy your Middleman blog / static website
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Build with FAKE (F# Make)" href="../../tutorials/build-with-fake/">
+      Build with FAKE (F# Make)
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Deployment Tutorials</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Bitrise OTA App Deployment" href="../../tutorials/deploy/bitrise-app-deployment/">
+      Bitrise OTA App Deployment
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Publish your app to Appaloosa" href="../../tutorials/deploy/publish-your-app-to-appaloosa/">
+      Publish your app to Appaloosa
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Deploy to TestFairy with Bitrise" href="../../tutorials/deploy/deploy-to-testfairy-with-bitrise/">
+      Deploy to TestFairy with Bitrise
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Tips & Tricks</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Skip a Build (skip ci)" href="../../tips-and-tricks/skip-a-build/">
+      Skip a Build (skip ci)
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Attach any file as an Artifact to the Build" href="../../tips-and-tricks/attach-any-file-to-build/">
+      Attach any file as an Artifact to the Build
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Expose an Environment Variable and use it in another Step" href="../../tips-and-tricks/expose-environment-variable/">
+      Expose an Environment Variable and use it in another Step
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Don't mark the Build as failed if a given step would fail (ignore the error of the Step)" href="../../tips-and-tricks/dont-mark-build-failed-if-step-fails/">
+      Don't mark the Build as failed if a given step would fail (ignore the error of the Step)
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Enable/Disable a step (optionally, based on a condition)" href="../../tips-and-tricks/disable-a-step-by-condition/">
+      Enable/Disable a step (optionally, based on a condition)
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Xcode Archive: export options" href="../../tips-and-tricks/xcodebuild-export-options/">
+      Xcode Archive: export options
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Install Any Additional Tool" href="../../tips-and-tricks/install-additional-tools/">
+      Install Any Additional Tool
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Optimize your build times" href="../../tips-and-tricks/optimize-your-build-times/">
+      Optimize your build times
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Should I commit my dependencies into my repository?" href="../../tips-and-tricks/should-i-commit-my-dependencies-into-my-repository/">
+      Should I commit my dependencies into my repository?
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Frequently Asked Questions (FAQ)</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Available Environment Variables" href="../../faq/available-environment-variables/">
+      Available Environment Variables
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="How to change the owner of an app" href="../../faq/how-to-change-the-owner-of-an-app/">
+      How to change the owner of an app
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Organization FAQ" href="../../faq/organization-faq/">
+      Organization FAQ
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Adding projects with submodules or with private CocoaPods repos" href="../../faq/adding-projects-with-submodules/">
+      Adding projects with submodules or with private CocoaPods repos
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Android x86 Emulator" href="../../faq/android-x86-emulator/">
+      Android x86 Emulator
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="How to generate an SSH key pair" href="../../faq/how-to-generate-ssh-keypair/">
+      How to generate an SSH key pair
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Grant access to a GitHub Organization" href="../../faq/grant-access-to-github-organization/">
+      Grant access to a GitHub Organization
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="I can't see my GitHub organization / repository on the Add New App page" href="../../faq/i-cant-see-my-github-organization-repository-on-the-add-new-app-page/">
+      I can't see my GitHub organization / repository on the Add New App page
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="GitHub Pull Request / build Status indicator troubleshooting" href="../../faq/github-pull-request-status-troubleshooting/">
+      GitHub Pull Request / build Status indicator troubleshooting
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="No builds are triggered when I push code into the repository" href="../../faq/no-builds-are-triggered-automatically/">
+      No builds are triggered when I push code into the repository
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Why my build takes longer on Bitrise than on my Mac?" href="../../faq/why-my-build-takes-longer-on-bitrise-than-on-my-mac/">
+      Why my build takes longer on Bitrise than on my Mac?
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Troubleshooting</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Workflow Editor doesn't load" href="../../troubleshooting/workflow-editor-doesnt-load/">
+      Workflow Editor doesn't load
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Tools</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Bitrise Tools" href="../../tools/bitrise-tools/">
+      Bitrise Tools
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+        </ul>
+
+        <!-- Author-related links -->
+        
+      </div>
+    </div>
+  </div>
+</nav>
+      </div>
+
+      <!-- Article -->
+      <article class="article">
+        <div class="wrapper">
+
+          <!-- Headline -->
+          
+            <h1>
+              Create your own Step
+              <a class="headerlink" href="https://github.com/bitrise-io/devcenter/blob/master/docs/bitrise-cli/create-your-own-step.md">Edit this page on GitHub!</a>
+            </h1>
+          
+
+          <!-- Article content -->
+          <p>We're working on a Bitrise CLI plugin which will make the process even easier,
+for now the fastest way to create and share your own step is:</p>
+<ol>
+<li>Check the <a href="https://github.com/bitrise-steplib/step-template">Step Template</a></li>
+<li>Create a new repository on GitHub</li>
+<li><code>git clone</code> your repository, and copy paste all the files from the <a href="https://github.com/bitrise-steplib/step-template">Step Template</a></li>
+<li>Follow the <a href="https://github.com/bitrise-steplib/step-template#how-to-create-your-own-step">How to create your own step</a>
+   guide which you can find in the Step Template's README</li>
+</ol>
+<p>The Step Template's README also described how you can run your step locally,
+before you'd even commit the code, as well as how you can test your step
+in any build by using the <code>git::</code> step reference, before sharing the step
+in a Step Library, and finally how you can share your step with others
+through the Bitrise StepLib.</p>
+<p><em>If you'd have any question, please <a href="https://www.bitrise.io/contact">contact us</a>!</em></p>
+
+          <!-- Copyright and theme information -->
+          <aside class="copyright" role="note">
+            
+            <hr />
+            <p>
+              <b><a href="https://github.com/bitrise-io/devcenter/blob/master/docs/bitrise-cli/create-your-own-step.md">Feel free to edit any page of this DevCenter on GitHub, in your browser directly!</a></b>
+              <br />
+              You can edit the pages on <a href="https://github.com/bitrise-io/devcenter/blob/master/docs/bitrise-cli/create-your-own-step.md">GitHub</a> directly, you don't have to git clone the repository.
+              <br />
+              Just select the file on <a href="https://github.com/bitrise-io/devcenter/blob/master/docs/bitrise-cli/create-your-own-step.md">GitHub</a> and click the <b>pencil/edit icon</b>,
+              which will open the GitHub editor for the file.
+              <br />
+              If you don't want to edit the page on GitHub,
+              feel free to <a href="https://www.bitrise.io/contact">contact us</a>,
+              or to create an issue on the <a href="https://github.com/bitrise-io/devcenter">DevCenter's GitHub page</a>
+              and we'll do the change for you!
+            </p>
+          </aside>
+
+          <!-- Footer -->
+          
+            <footer class="footer">
+              
+  <nav class="pagination" aria-label="Footer">
+    <div class="previous">
+      
+        <a href="../most-important-concepts/" title="Most important concepts">
+          <span class="direction">
+            Previous
+          </span>
+          <div class="page">
+            <div class="button button-previous" role="button" aria-label="Previous">
+              <i class="icon icon-back"></i>
+            </div>
+            <div class="stretch">
+              <div class="title">
+                Most important concepts
+              </div>
+            </div>
+          </div>
+        </a>
+      
+    </div>
+    <div class="next">
+      
+        <a href="../../ios/code-signing/" title="iOS Code Signing">
+          <span class="direction">
+            Next
+          </span>
+          <div class="page">
+            <div class="stretch">
+              <div class="title">
+                iOS Code Signing
+              </div>
+            </div>
+            <div class="button button-next" role="button" aria-label="Next">
+              <i class="icon icon-forward"></i>
+            </div>
+          </div>
+        </a>
+      
+    </div>
+  </nav>
+
+            </footer>
+          
+        </div>
+      </article>
+
+      <!-- Search results -->
+      <div class="results" role="status" aria-live="polite">
+        <div class="scrollable">
+          <div class="wrapper">
+            <div class="meta"></div>
+            <div class="list"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Theme-related and custom javascripts -->
+    <script>
+      var base_url = '../..';
+      var repo_id  = 'bitrise-io/devcenter';
+    </script>
+    <script src="../../assets/javascripts/application.js"></script>
+    
+
+    <!-- Google Analytics -->
+    
+  </body>
+</html>

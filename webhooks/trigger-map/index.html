@@ -144,20 +144,13 @@
 
     <!-- Header -->
     <header class="header">
-      <!-- Top-level navigation -->
-<nav aria-label="Header">
-
-  <!-- Default bar -->
+      <nav aria-label="Header">
   <div class="bar default">
-
-    <!-- Toggle drawer -->
     <div class="button button-menu" role="button" aria-label="Menu">
       <label class="toggle-button icon icon-menu" for="toggle-drawer">
         <span></span>
       </label>
     </div>
-
-    <!-- Page title -->
     <div class="stretch">
       <div class="title">
         
@@ -170,45 +163,25 @@
           </span>
         
         Control what to build when, with the Trigger Map
-        <a style="color: #bfbfbf; font-size: 11px; margin-left: 2px" href="https://github.com/bitrise-io/devcenter/blob/master/docs/webhooks/trigger-map.md">Edit this page on GitHub</a>
       </div>
     </div>
-
-    <!-- Twitter -->
     
-
-    <!-- GitHub -->
     
-
-    <!-- Open search -->
     <div class="button button-search" role="button" aria-label="Search">
-      <label class="toggle-button icon icon-search" title="Search"
-        for="toggle-search"></label>
+      <label class="toggle-button icon icon-search" title="Search" for="toggle-search"></label>
     </div>
   </div>
-
-  <!-- Search bar -->
   <div class="bar search">
-
-    <!-- Close search -->
     <div class="button button-close" role="button" aria-label="Close">
-      <label class="toggle-button icon icon-back"
-        for="toggle-search"></label>
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
     </div>
-
-    <!-- Search form -->
     <div class="stretch">
       <div class="field">
-        <input class="query" type="text" placeholder="Search"
-          autocapitalize="off" autocorrect="off" autocomplete="off"
-          spellcheck="false" />
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
       </div>
     </div>
-
-    <!-- Empty search -->
     <div class="button button-reset" role="button" aria-label="Search">
-      <button class="toggle-button icon icon-close"
-        id="reset-search"></button>
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
     </div>
   </div>
 </nav>
@@ -227,15 +200,24 @@
 
       <!-- Drawer with navigation -->
       <div class="drawer">
-        <nav aria-label="Navigation">
+        <!-- Navigation -->
+<nav aria-label="Navigation">
   
+
+  <!-- Project information -->
   <a href="https://github.com/bitrise-io/devcenter" class="project">
+
+    <!-- Name and logo -->
     <div class="banner">
+
+      <!-- Version -->
       
         <div class="logo">
-          <img src="../../img/logo.svg">
+          <img src="../../img/logo.svg" />
         </div>
       
+
+      <!-- Project name and verison -->
       <div class="name">
         <strong>
           Bitrise DevCenter
@@ -243,32 +225,44 @@
             
           </span>
         </strong>
+
+        <!-- Project repository name -->
         
-          <br>
+          <br />
           bitrise-io/devcenter
         
       </div>
     </div>
   </a>
+
+  <!-- Repository and table of contents -->
   <div class="scrollable">
     <div class="wrapper">
-      
+
+      <!-- Repository -->
+      <!--
         <ul class="repo">
           <li class="repo-download">
             
-            <a href="https://github.com/bitrise-io/devcenter/archive/master.zip" target="_blank" title="Download" data-action="download">
-              <i class="icon icon-download"></i> Download
-            </a>
+              
+              <a href="https://github.com/bitrise-io/devcenter/archive/master.zip" target="_blank"
+                title="Download" data-action="download">
+                <i class="icon icon-download"></i> Download
+              </a>
+            
           </li>
           <li class="repo-stars">
-            <a href="https://github.com/bitrise-io/devcenter/stargazers" target="_blank" title="Stargazers" data-action="star">
+            <a href="https://github.com/bitrise-io/devcenter/stargazers" target="_blank"
+              title="Stargazers" data-action="star">
               <i class="icon icon-star"></i> Stars
               <span class="count">&ndash;</span>
             </a>
           </li>
         </ul>
-        <hr>
-      
+        <hr />
+      -->
+
+      <!-- Table of contents -->
       <div class="toc">
         <ul>
           
@@ -528,6 +522,12 @@
             </li>
           
             <li class="anchor">
+              <a title="One trigger = one build" href="#one-trigger-one-build">
+                One trigger = one build
+              </a>
+            </li>
+          
+            <li class="anchor">
               <a title="How to build only a single branch" href="#how-to-build-only-a-single-branch">
                 How to build only a single branch
               </a>
@@ -621,6 +621,96 @@
   <li>
     <a class="" title="Caching Ruby GEMs" href="../../caching/caching-ruby-gems/">
       Caching Ruby GEMs
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Bitrise CLI and bitrise.yml</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Intro" href="../../bitrise-cli/">
+      Intro
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Install the Bitrise CLI" href="../../bitrise-cli/installation/">
+      Install the Bitrise CLI
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Run your first build" href="../../bitrise-cli/run-your-first-build/">
+      Run your first build
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Basics of bitrise.yml" href="../../bitrise-cli/basics-of-bitrise-yml/">
+      Basics of bitrise.yml
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Workflows" href="../../bitrise-cli/workflows/">
+      Workflows
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Steps" href="../../bitrise-cli/steps/">
+      Steps
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Secrets" href="../../bitrise-cli/secrets/">
+      Secrets
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Most important concepts" href="../../bitrise-cli/most-important-concepts/">
+      Most important concepts
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Create your own Step" href="../../bitrise-cli/create-your-own-step/">
+      Create your own Step
     </a>
     
   </li>
@@ -1234,6 +1324,8 @@
 
           
         </ul>
+
+        <!-- Author-related links -->
         
       </div>
     </div>
@@ -1247,7 +1339,10 @@
 
           <!-- Headline -->
           
-            <h1>Control what to build when, with the Trigger Map</h1>
+            <h1>
+              Control what to build when, with the Trigger Map
+              <a class="headerlink" href="https://github.com/bitrise-io/devcenter/blob/master/docs/webhooks/trigger-map.md">Edit this page on GitHub!</a>
+            </h1>
           
 
           <!-- Article content -->
@@ -1354,6 +1449,17 @@ This is simply not possible, source code hosting services send separate
 webhooks for Pull Request (pre-merge state), Tags and for Code Push events.
 <em>A single webhook event will never be Code Push, Tag Push and Pull Request at the same time</em>,
 a single webhook is always related to only one type (Code Push, Tag Push or Pull Request).</p>
+<h2 id="one-trigger-one-build">One trigger = one build<a class="headerlink" href="#one-trigger-one-build" title="Permanent link">⚓</a></h2>
+<p>One trigger can only select a single workflow / can only start a single build.
+<strong>The first item which matches the trigger will select the workflow for the build!</strong></p>
+<p><strong>If you want to run more than one workflow</strong>, you can
+<a href="../../bitrise-cli/workflows/#chaining-workflows-and-reusing-workflows">Chaining workflows</a>
+after each other. <em>The workflows chained this way won't run in parallel</em>,
+but the full chain of workflows will be executed, in the order you chain them.</p>
+<p><strong>The order of the items</strong> also matter: if you'd specify a <code>push_branch: master</code> item <strong>after</strong> a
+<code>push_branch: "*"</code> item, the <code>push_branch: master</code> <em>would never be selected</em>
+as every code push event would match <code>push_branch: "*"</code> first,
+and <strong>the first item which matches the trigger will select the workflow for the build!</strong></p>
 <h2 id="how-to-build-only-a-single-branch">How to build only a single branch<a class="headerlink" href="#how-to-build-only-a-single-branch" title="Permanent link">⚓</a></h2>
 <p>If you want to build only a single branch, for every code push, but for nothing else (no push to
 any other branch should trigger a build, nor any pull request or tag), then
@@ -1544,7 +1650,10 @@ be merged into <code>master</code>, the configuration would look like this:</p>
               Just select the file on <a href="https://github.com/bitrise-io/devcenter/blob/master/docs/webhooks/trigger-map.md">GitHub</a> and click the <b>pencil/edit icon</b>,
               which will open the GitHub editor for the file.
               <br />
-              If you don't want to edit the page on GitHub, feel free to <a href="https://www.bitrise.io/contact">contact us</a>, and we'll do the change for you!
+              If you don't want to edit the page on GitHub,
+              feel free to <a href="https://www.bitrise.io/contact">contact us</a>,
+              or to create an issue on the <a href="https://github.com/bitrise-io/devcenter">DevCenter's GitHub page</a>
+              and we'll do the change for you!
             </p>
           </aside>
 

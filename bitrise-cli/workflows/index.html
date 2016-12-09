@@ -1,0 +1,1671 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+
+    <!-- Charset and viewport -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,
+      user-scalable=no, initial-scale=1, maximum-scale=1" />
+
+    <!-- General meta tags -->
+    
+
+      <!-- Site title -->
+      
+        <title>Workflows - Bitrise DevCenter</title>
+      
+
+      <!-- Site description -->
+      
+
+      <!-- Canonical -->
+      
+
+      <!-- Author -->
+      
+    
+
+    <!-- Open graph tags -->
+    <meta property="og:url" content="None" />
+    <meta property="og:title" content="Bitrise DevCenter"/>
+    <meta property="og:image"
+      content="None/../../img/logo.svg" />
+
+    <!-- Web application capability on iOS -->
+    <meta name="apple-mobile-web-app-title" content="Bitrise DevCenter" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent" />
+
+    <!-- Web application icon on iOS -->
+    
+      <link rel="apple-touch-icon"
+        href="../../img/logo.svg">
+    
+
+    <!-- Favicon -->
+    
+    <link rel="shortcut icon" type="image/x-icon"
+      href="../../assets/images/favicon.ico" />
+    <link rel="icon" type="image/x-icon"
+      href="../../assets/images/favicon.ico" />
+
+    <!-- Configure icons (placed here to omit issues with subdirectories) -->
+    <style>
+      @font-face {
+      	font-family: 'Icon';
+      	src: url('../../assets/fonts/icon.eot?52m981');
+      	src: url('../../assets/fonts/icon.eot?#iefix52m981')
+               format('embedded-opentype'),
+      		   url('../../assets/fonts/icon.woff?52m981')
+               format('woff'),
+      		   url('../../assets/fonts/icon.ttf?52m981')
+               format('truetype'),
+      		   url('../../assets/fonts/icon.svg?52m981#icon')
+               format('svg');
+      	font-weight: normal;
+      	font-style: normal;
+      }
+    </style>
+
+    <!-- Theme-related stylesheets -->
+    <link rel="stylesheet" type="text/css"
+      href="../../assets/stylesheets/application.css" />
+
+    <!-- Extra palettes -->
+    
+      <link rel="stylesheet" type="text/css"
+        href="../../assets/stylesheets/palettes.css" />
+    
+
+    <!-- Configure webfonts -->
+    
+      
+      
+      
+      <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css?family=Roboto:400,700|Source+Code+Pro" />
+      <style>
+        body, input {
+          font-family: 'Roboto', Helvetica, Arial, sans-serif;
+        }
+        pre, code {
+          font-family: 'Source Code Pro', 'Courier New', 'Courier', monospace;
+        }
+      </style>
+    
+
+    <!-- Custom stylesheets -->
+    
+      <link rel="stylesheet" type="text/css" href="../../stylesheets/extra.css" />
+    
+
+    <!-- Modernizr -->
+    <script src="../../assets/javascripts/modernizr.js"></script>
+
+    <!-- Custom header -->
+    
+  </head>
+
+  <!-- Define palette -->
+  
+  
+  
+  <body class="
+    palette-primary-deep-purple
+    palette-accent-deep-purple
+  ">
+
+    <!--
+      Sadly the jinja template engine is not very flexible - it doesn't support
+      regular expressions out-of-the-box. Since there might be a slash at the
+      end of the repository name, we just do a string comparison and kill it.
+    -->
+    
+      
+      
+    
+
+    <!-- Backdrop -->
+    <div class="backdrop">
+      <div class="backdrop-paper"></div>
+    </div>
+
+    <!-- State toggles -->
+    <input class="toggle" type="checkbox" id="toggle-drawer" />
+    <input class="toggle" type="checkbox" id="toggle-search" />
+
+    <!-- Overlay for expanded drawer -->
+    <label class="toggle-button overlay" for="toggle-drawer"></label>
+
+    <!-- Header -->
+    <header class="header">
+      <nav aria-label="Header">
+  <div class="bar default">
+    <div class="button button-menu" role="button" aria-label="Menu">
+      <label class="toggle-button icon icon-menu" for="toggle-drawer">
+        <span></span>
+      </label>
+    </div>
+    <div class="stretch">
+      <div class="title">
+        
+          <span class="path">
+            
+              
+                Bitrise CLI and bitrise.yml <i class="icon icon-link"></i>
+              
+            
+          </span>
+        
+        Workflows
+      </div>
+    </div>
+    
+    
+    <div class="button button-search" role="button" aria-label="Search">
+      <label class="toggle-button icon icon-search" title="Search" for="toggle-search"></label>
+    </div>
+  </div>
+  <div class="bar search">
+    <div class="button button-close" role="button" aria-label="Close">
+      <label class="toggle-button icon icon-back" for="toggle-search"></label>
+    </div>
+    <div class="stretch">
+      <div class="field">
+        <input class="query" type="text" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck>
+      </div>
+    </div>
+    <div class="button button-reset" role="button" aria-label="Search">
+      <button class="toggle-button icon icon-close" id="reset-search"></button>
+    </div>
+  </div>
+</nav>
+    </header>
+
+    <!-- Main content -->
+    <main class="main">
+
+      <!--
+        This is a nasty hack that checks whether the content contains a
+        h1 headline. If it does, the variable h1 is set to true. This is
+        necessary for correctly rendering the table of contents which is
+        embedded into the navigation and the actual headline.
+      -->
+      
+
+      <!-- Drawer with navigation -->
+      <div class="drawer">
+        <!-- Navigation -->
+<nav aria-label="Navigation">
+  
+
+  <!-- Project information -->
+  <a href="https://github.com/bitrise-io/devcenter" class="project">
+
+    <!-- Name and logo -->
+    <div class="banner">
+
+      <!-- Version -->
+      
+        <div class="logo">
+          <img src="../../img/logo.svg" />
+        </div>
+      
+
+      <!-- Project name and verison -->
+      <div class="name">
+        <strong>
+          Bitrise DevCenter
+          <span class="version">
+            
+          </span>
+        </strong>
+
+        <!-- Project repository name -->
+        
+          <br />
+          bitrise-io/devcenter
+        
+      </div>
+    </div>
+  </a>
+
+  <!-- Repository and table of contents -->
+  <div class="scrollable">
+    <div class="wrapper">
+
+      <!-- Repository -->
+      <!--
+        <ul class="repo">
+          <li class="repo-download">
+            
+              
+              <a href="https://github.com/bitrise-io/devcenter/archive/master.zip" target="_blank"
+                title="Download" data-action="download">
+                <i class="icon icon-download"></i> Download
+              </a>
+            
+          </li>
+          <li class="repo-stars">
+            <a href="https://github.com/bitrise-io/devcenter/stargazers" target="_blank"
+              title="Stargazers" data-action="star">
+              <i class="icon icon-star"></i> Stars
+              <span class="count">&ndash;</span>
+            </a>
+          </li>
+        </ul>
+        <hr />
+      -->
+
+      <!-- Table of contents -->
+      <div class="toc">
+        <ul>
+          
+            
+  <li>
+    <a class="" title="Bitrise DevCenter - What is Bitrise?" href="../..">
+      Bitrise DevCenter - What is Bitrise?
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Getting Started</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Builds & Workflows" href="../../getting-started/builds-and-workflows/">
+      Builds & Workflows
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Code Security" href="../../getting-started/code-security/">
+      Code Security
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Create your first App on Bitrise.io" href="../../getting-started/create-your-first-app-on-bitrise/">
+      Create your first App on Bitrise.io
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Add your first Step to your Workflow" href="../../getting-started/add-your-first-step-to-your-workflow/">
+      Add your first Step to your Workflow
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Manage your Bitrise workflow" href="../../getting-started/manage-your-bitrise-workflow/">
+      Manage your Bitrise workflow
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Infrastructure</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Available Stacks" href="../../infrastructure/available-stacks/">
+      Available Stacks
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Virtual Machines" href="../../infrastructure/virtual-machines/">
+      Virtual Machines
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Signing up</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Signing up with GitHub" href="../../signing-up/signing-up-with-github/">
+      Signing up with GitHub
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Signing up with Bitbucket" href="../../signing-up/signing-up-with-bitbucket/">
+      Signing up with Bitbucket
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Signing up with email" href="../../signing-up/signing-up-with-email/">
+      Signing up with email
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Trial after signing up" href="../../signing-up/trial-after-signing-up/">
+      Trial after signing up
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Adding a new app</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Adding a new app" href="../../adding-a-new-app/">
+      Adding a new app
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Connecting a repository" href="../../adding-a-new-app/connecting-a-repository/">
+      Connecting a repository
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Setting up SSH keys" href="../../adding-a-new-app/setting-up-ssh-keys/">
+      Setting up SSH keys
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Setting up configuration" href="../../adding-a-new-app/setting-up-configuration/">
+      Setting up configuration
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Team management</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Adding a new team member" href="../../team-management/">
+      Adding a new team member
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Changing the owner of an app" href="../../team-management/changing-the-owner-of-an-app/">
+      Changing the owner of an app
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Webhooks</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Adding webhooks" href="../../webhooks/">
+      Adding webhooks
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Adding a GitHub webhook" href="../../webhooks/adding-a-github-webhook/">
+      Adding a GitHub webhook
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Adding a Bitbucket webhook" href="../../webhooks/adding-a-bitbucket-webhook/">
+      Adding a Bitbucket webhook
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Control what to build when, with the Trigger Map" href="../../webhooks/trigger-map/">
+      Control what to build when, with the Trigger Map
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Webhook Troubleshooting" href="../../webhooks/troubleshooting/">
+      Webhook Troubleshooting
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Caching</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="About caching" href="../../caching/about-caching/">
+      About caching
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Caching Cocoapods" href="../../caching/caching-cocoapods/">
+      Caching Cocoapods
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Caching Gradle" href="../../caching/caching-gradle/">
+      Caching Gradle
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Caching Maven" href="../../caching/caching-maven/">
+      Caching Maven
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Caching Ruby GEMs" href="../../caching/caching-ruby-gems/">
+      Caching Ruby GEMs
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Bitrise CLI and bitrise.yml</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Intro" href="../">
+      Intro
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Install the Bitrise CLI" href="../installation/">
+      Install the Bitrise CLI
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Run your first build" href="../run-your-first-build/">
+      Run your first build
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Basics of bitrise.yml" href="../basics-of-bitrise-yml/">
+      Basics of bitrise.yml
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="current" title="Workflows" href="./">
+      Workflows
+    </a>
+    
+      
+      
+        <ul>
+          
+            <li class="anchor">
+              <a title="Add steps to a workflow" href="#add-steps-to-a-workflow">
+                Add steps to a workflow
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Define workflow specific parameters / environment variables" href="#define-workflow-specific-parameters-environment-variables">
+                Define workflow specific parameters / environment variables
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Chaining workflows and reusing workflows" href="#chaining-workflows-and-reusing-workflows">
+                Chaining workflows and reusing workflows
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Utility workflows" href="#utility-workflows">
+                Utility workflows
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Full spec / list of available properties" href="#full-spec-list-of-available-properties">
+                Full spec / list of available properties
+              </a>
+            </li>
+          
+        </ul>
+      
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Steps" href="../steps/">
+      Steps
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Secrets" href="../secrets/">
+      Secrets
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Most important concepts" href="../most-important-concepts/">
+      Most important concepts
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Create your own Step" href="../create-your-own-step/">
+      Create your own Step
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">iOS</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="iOS Code Signing" href="../../ios/code-signing/">
+      iOS Code Signing
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="iOS Code Signing - Technical details" href="../../ios/code-signing-technical-details/">
+      iOS Code Signing - Technical details
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Uploading certificates" href="../../ios/uploading-certificates/">
+      Uploading certificates
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="How to export Certificates and Provisioning Profiles" href="../../ios/export-certificate-and-provisioning-profile/">
+      How to export Certificates and Provisioning Profiles
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Resigning an IPA" href="../../ios/resigning-an-ipa/">
+      Resigning an IPA
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Frequent iOS issues" href="../../ios/frequent-ios-issues/">
+      Frequent iOS issues
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="List of known Xcode issues" href="../../ios/known-xcode-issues/">
+      List of known Xcode issues
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Android</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Android Code Signing" href="../../android/code-signing/">
+      Android Code Signing
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="The Android/Linux/Docker environment" href="../../android/the-environment/">
+      The Android/Linux/Docker environment
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Android tips and tricks" href="../../android/android-tips-and-tricks/">
+      Android tips and tricks
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Frequent Android issues" href="../../android/frequent-android-issues/">
+      Frequent Android issues
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Docker</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Docker support on bitrise.io" href="../../docker/">
+      Docker support on bitrise.io
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="How to run your build locally in Docker" href="../../docker/run-your-build-locally-in-docker/">
+      How to run your build locally in Docker
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Use your own Docker image" href="../../docker/use-your-own-docker-image/">
+      Use your own Docker image
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Xamarin</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="About Xamarin" href="../../xamarin/">
+      About Xamarin
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Connect your Xamarin account to Bitrise" href="../../xamarin/connect-your-xamarin-account-to-bitrise/">
+      Connect your Xamarin account to Bitrise
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Restore NuGet packages and Xamarin Components" href="../../xamarin/restore-nuget-packages-and-xamarin-components/">
+      Restore NuGet packages and Xamarin Components
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Deploy your Xamarin app" href="../../xamarin/deploy-your-xamarin-app/">
+      Deploy your Xamarin app
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Add UITest to your Xamarin app" href="../../xamarin/add-unit-test-to-your-xamarin-app/">
+      Add UITest to your Xamarin app
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Run your tests in the Xamarin Test Cloud" href="../../xamarin/run-your-tests-in-the-xamarin-test-cloud/">
+      Run your tests in the Xamarin Test Cloud
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Add custom sources to NuGet" href="../../xamarin/add-custom-sources-to-nuget/">
+      Add custom sources to NuGet
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Fastlane</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="fastlane tools integration" href="../../fastlane/fastlane-tools-integration/">
+      fastlane tools integration
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="How to configure fastlane match for Bitrise" href="../../fastlane/how-to-configure-fastlane-match-for-bitrise/">
+      How to configure fastlane match for Bitrise
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Tutorials</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Community Created Tutorials" href="../../tutorials/community-created/">
+      Community Created Tutorials
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="HipChat message with build status and details" href="../../tutorials/hipchat-message/">
+      HipChat message with build status and details
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="How to use the Generic File Storage" href="../../tutorials/how-to-use-the-generic-file-storage/">
+      How to use the Generic File Storage
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Download or replace project resources" href="../../tutorials/download-or-replace-project-resources/">
+      Download or replace project resources
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Efficient Continuous Integration and Deployment Workflow for iOS development" href="../../tutorials/efficient-continuous-integration-and-deployment-workflow-for-ios/">
+      Efficient Continuous Integration and Deployment Workflow for iOS development
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Configure and connect to your VPN" href="../../tutorials/vpn-configuration/">
+      Configure and connect to your VPN
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Auto deploy your Middleman blog / static website" href="../../tutorials/auto-deploy-middleman-project/">
+      Auto deploy your Middleman blog / static website
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Build with FAKE (F# Make)" href="../../tutorials/build-with-fake/">
+      Build with FAKE (F# Make)
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Deployment Tutorials</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Bitrise OTA App Deployment" href="../../tutorials/deploy/bitrise-app-deployment/">
+      Bitrise OTA App Deployment
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Publish your app to Appaloosa" href="../../tutorials/deploy/publish-your-app-to-appaloosa/">
+      Publish your app to Appaloosa
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Deploy to TestFairy with Bitrise" href="../../tutorials/deploy/deploy-to-testfairy-with-bitrise/">
+      Deploy to TestFairy with Bitrise
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Tips & Tricks</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Skip a Build (skip ci)" href="../../tips-and-tricks/skip-a-build/">
+      Skip a Build (skip ci)
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Attach any file as an Artifact to the Build" href="../../tips-and-tricks/attach-any-file-to-build/">
+      Attach any file as an Artifact to the Build
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Expose an Environment Variable and use it in another Step" href="../../tips-and-tricks/expose-environment-variable/">
+      Expose an Environment Variable and use it in another Step
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Don't mark the Build as failed if a given step would fail (ignore the error of the Step)" href="../../tips-and-tricks/dont-mark-build-failed-if-step-fails/">
+      Don't mark the Build as failed if a given step would fail (ignore the error of the Step)
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Enable/Disable a step (optionally, based on a condition)" href="../../tips-and-tricks/disable-a-step-by-condition/">
+      Enable/Disable a step (optionally, based on a condition)
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Xcode Archive: export options" href="../../tips-and-tricks/xcodebuild-export-options/">
+      Xcode Archive: export options
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Install Any Additional Tool" href="../../tips-and-tricks/install-additional-tools/">
+      Install Any Additional Tool
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Optimize your build times" href="../../tips-and-tricks/optimize-your-build-times/">
+      Optimize your build times
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Should I commit my dependencies into my repository?" href="../../tips-and-tricks/should-i-commit-my-dependencies-into-my-repository/">
+      Should I commit my dependencies into my repository?
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Frequently Asked Questions (FAQ)</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Available Environment Variables" href="../../faq/available-environment-variables/">
+      Available Environment Variables
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="How to change the owner of an app" href="../../faq/how-to-change-the-owner-of-an-app/">
+      How to change the owner of an app
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Organization FAQ" href="../../faq/organization-faq/">
+      Organization FAQ
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Adding projects with submodules or with private CocoaPods repos" href="../../faq/adding-projects-with-submodules/">
+      Adding projects with submodules or with private CocoaPods repos
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Android x86 Emulator" href="../../faq/android-x86-emulator/">
+      Android x86 Emulator
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="How to generate an SSH key pair" href="../../faq/how-to-generate-ssh-keypair/">
+      How to generate an SSH key pair
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Grant access to a GitHub Organization" href="../../faq/grant-access-to-github-organization/">
+      Grant access to a GitHub Organization
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="I can't see my GitHub organization / repository on the Add New App page" href="../../faq/i-cant-see-my-github-organization-repository-on-the-add-new-app-page/">
+      I can't see my GitHub organization / repository on the Add New App page
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="GitHub Pull Request / build Status indicator troubleshooting" href="../../faq/github-pull-request-status-troubleshooting/">
+      GitHub Pull Request / build Status indicator troubleshooting
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="No builds are triggered when I push code into the repository" href="../../faq/no-builds-are-triggered-automatically/">
+      No builds are triggered when I push code into the repository
+    </a>
+    
+  </li>
+
+      
+        
+  <li>
+    <a class="" title="Why my build takes longer on Bitrise than on my Mac?" href="../../faq/why-my-build-takes-longer-on-bitrise-than-on-my-mac/">
+      Why my build takes longer on Bitrise than on my Mac?
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Troubleshooting</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Workflow Editor doesn't load" href="../../troubleshooting/workflow-editor-doesnt-load/">
+      Workflow Editor doesn't load
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+            
+  <li>
+    <span class="section">Tools</span>
+    <ul>
+      
+        
+  <li>
+    <a class="" title="Bitrise Tools" href="../../tools/bitrise-tools/">
+      Bitrise Tools
+    </a>
+    
+  </li>
+
+      
+    </ul>
+  </li>
+
+          
+        </ul>
+
+        <!-- Author-related links -->
+        
+      </div>
+    </div>
+  </div>
+</nav>
+      </div>
+
+      <!-- Article -->
+      <article class="article">
+        <div class="wrapper">
+
+          <!-- Headline -->
+          
+            <h1>
+              Workflows
+              <a class="headerlink" href="https://github.com/bitrise-io/devcenter/blob/master/docs/bitrise-cli/workflows.md">Edit this page on GitHub!</a>
+            </h1>
+          
+
+          <!-- Article content -->
+          <p>A workflow is a collection of steps, environment variables,
+and other configurations for a single <code>bitrise run</code>.</p>
+<p>The only requirement for a workflow is an ID for the step.</p>
+<pre class="code"><code class="language-yaml">format_version: 1.3.1
+workflows:
+  test:</code></pre>
+
+
+<p>In this configuration we declared one workflow, with the ID <code>test</code>.
+You can define as many workflows as you want to, and run a specific
+workflow with <code>bitrise run WORKFLOWID</code>.</p>
+<pre class="code"><code class="language-yaml">format_version: 1.3.1
+workflows:
+  first:
+  second:</code></pre>
+
+
+<p>This configuration contains two workflows, <code>first</code> and <code>second</code>,
+so you can execute both <code>bitrise run first</code> and <code>bitrise run second</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Available workflow list</p>
+<p>You can list all the available workflows in a <code>bitrise.yml</code>
+by running <code>bitrise run</code> or <code>bitrise workflows</code> in the directory
+of the <code>bitrise.yml</code>.</p>
+</div>
+<h2 id="add-steps-to-a-workflow">Add steps to a workflow<a class="headerlink" href="#add-steps-to-a-workflow" title="Permanent link">⚓</a></h2>
+<p>To add steps to a workflow simply include <code>steps:</code> and then the list of steps.
+For example to run two script steps after each other:</p>
+<pre class="code"><code class="language-yaml">format_version: 1.3.1
+default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
+
+workflows:
+  test:
+    steps:
+    - script:
+        title: First step
+    - script:
+        title: Second step</code></pre>
+
+
+<p>When you you run <code>bitrise run test</code>, the Bitrise CLI will run the two
+script steps one by one, starting with <code>First step</code> and then
+continuing with <code>Second step</code>.</p>
+<p><em>To learn more about Build Steps, check the <a href="../../bitrise-cli/steps">Steps</a> section.</em></p>
+<h2 id="define-workflow-specific-parameters-environment-variables">Define workflow specific parameters / environment variables<a class="headerlink" href="#define-workflow-specific-parameters-environment-variables" title="Permanent link">⚓</a></h2>
+<p>In addition to steps, you can also specify environment variables
+for every workflow.</p>
+<p>The environment variables you specify for a given workflow will be used
+when the workflow is executed and will be available for every step
+in the workflow.</p>
+<p>An example, defining two environment variables (<code>ENV_VAR_ONE</code> and <code>ENV_VAR_TWO</code>)
+for the <code>test</code> workflow:</p>
+<pre class="code"><code class="language-yaml">format_version: 1.3.1
+default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
+
+workflows:
+  test:
+    envs:
+    - ENV_VAR_ONE: first value
+    - ENV_VAR_TWO: second value</code></pre>
+
+
+<h2 id="chaining-workflows-and-reusing-workflows">Chaining workflows and reusing workflows<a class="headerlink" href="#chaining-workflows-and-reusing-workflows" title="Permanent link">⚓</a></h2>
+<p>It's also possible to "chain" workflows, to run one or more workflow
+before and/or after a specific workflow.</p>
+<p>An example:</p>
+<pre class="code"><code class="language-yaml">format_version: 1.3.1
+default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
+
+workflows:
+
+  send-notifications:
+    steps:
+    # send notifications
+
+  setup:
+    steps:
+    # setup steps to run
+
+  test:
+    before_run:
+    - setup
+    envs:
+    - IS_TEST: &quot;true&quot;
+    steps:
+    # test steps to run
+
+  ci:
+    before_run:
+    - test
+    after_run:
+    - send-notifications
+
+  deploy:
+    before_run:
+    - test
+    steps:
+    # steps to deploy
+    after_run:
+    - send-notifications</code></pre>
+
+
+<p>In the above example, if you run:</p>
+<ul>
+<li><code>bitrise run send-notifications</code> : only the steps of the <code>send-notifications</code> workflow will be executed</li>
+<li><code>bitrise run setup</code> : only the steps of the <code>setup</code> workflow will be executed</li>
+<li><code>bitrise run test</code> : first the steps of the <code>setup</code> workflow will be executed,
+  then the steps declared in <code>test</code> workflow</li>
+<li><code>bitrise run ci</code>: will execute the steps of the workflows, in the following order:<ol>
+<li><code>setup</code></li>
+<li><code>test</code></li>
+<li><code>ci</code> (the <code>ci</code> workflow doesn't have any steps, but that's not an issue, it just means
+   that no step will be executed here, the build will continue with the next workflow in the chain)</li>
+<li><code>send-notifications</code></li>
+</ol>
+</li>
+<li><code>bitrise run deploy</code>: will execute the steps of the workflows, in the following order:<ol>
+<li><code>setup</code></li>
+<li><code>test</code></li>
+<li><code>deploy</code></li>
+<li><code>send-notifications</code></li>
+</ol>
+</li>
+</ul>
+<p>This means that you can define what a <code>setup</code> and <code>test</code> should do
+in your project only once, in the <code>setup</code> and <code>test</code> workflows,
+and then you can resuse those in other workflows.
+There's no need to duplicate steps between workflows.</p>
+<p>When you chain workflows, technically it's the same as if you'd create
+one workflow which would include all steps from all the workflows
+chained after each other. This means that, for example,
+one step's outputs will be available for
+every other step which is executed after that step during the build,
+regardless of whether the other step is
+in the same or in another workflow; if a step is executed
+after another one during the build, it can access the outputs
+of the previous steps. Just like if both steps would be in a single workflow.</p>
+<h3 id="note-about-workflow-environment-variables">Note about workflow environment variables<a class="headerlink" href="#note-about-workflow-environment-variables" title="Permanent link">⚓</a></h3>
+<p>Workflow specific environment variables are made accessible
+<strong>when the workflow is executed</strong>, and are available for workflows
+executed <em>after</em> that workflow, <em>but not in the ones executed before</em> that workflow.</p>
+<p>Using the example above, if you <code>bitrise run ci</code>,
+the <code>IS_TEST</code> environment variable <strong>won't</strong> be available in the <code>setup</code>
+workflow, as that runs <em>before</em> the <code>test</code> workflow,
+but the environment variable <strong>will</strong> be available for the steps in <code>test</code>, <code>ci</code> and
+<code>send-notifications</code> workflows.</p>
+<p>This is true even if the workflow doesn't have any steps.
+This can be utilized if you want to create generic workflows,
+which can do different things based on environment variables,
+and you specify those environment variables through a "wrapper" workflow.</p>
+<p>Example:</p>
+<pre class="code"><code class="language-yaml">format_version: 1.3.1
+default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
+
+workflows:
+
+  generic-build:
+    steps:
+    # steps which depend on `BUILD_TYPE` environment variable
+
+  build-alpha:
+    envs:
+    - BUILD_TYPE: alpha
+    after_run:
+    - generic-build
+
+  build-beta:
+    envs:
+    - BUILD_TYPE: beta
+    after_run:
+    - generic-build</code></pre>
+
+
+<p><code>build-alpha</code> nor <code>build-beta</code> has any steps, the steps are defined in <code>generic-build</code>,
+but when you <code>bitrise run build-alpha</code> the <code>BUILD_TYPE</code> environment variable will be set to <code>alpha</code>,
+while if you <code>bitrise run build-beta</code>  the <code>BUILD_TYPE</code> environment variable will be set to <code>beta</code>.</p>
+<p><strong>Important:</strong> as noted above, workflow defined environment variables are
+only available in the workflow it defines it, and the ones <strong>executed after</strong> that workflow.
+In the example above <code>generic-build</code> is included as <code>after_run</code> workflow,
+so the <code>BUILD_TYPE</code> environment variable will be available in the steps of <code>generic-build</code>.
+But if you'd use <code>before_run</code> instead of <code>after_run</code>, that would mean that technically
+the steps of <code>generic-build</code> are processed and executed before processing
+the <code>build-alpha</code> or <code>build-beta</code> workflows, so the <code>BUILD_TYPE</code> environment
+variable would not be available in the step of <code>generic-build</code>.</p>
+<h2 id="utility-workflows">Utility workflows<a class="headerlink" href="#utility-workflows" title="Permanent link">⚓</a></h2>
+<p>Utility workflows are just a small trick to help you organize your workflows.</p>
+<p>If you rely on workflow chaining, you might quickly have tons of small,
+reusable workflows. Finding the right workflow might get tricky.</p>
+<p>To help with this, the Bitrise CLI supports a small notation called
+"utility workflows".</p>
+<p><strong>A workflow is considered as a utility workflow if it's ID starts
+with an underscore character (for example <code>_setup</code>).</strong></p>
+<p>Utility workflows are listed at the end of the workflow list if you
+run <code>bitrise run</code> or <code>bitrise workflows</code>, and
+<strong>utility workflows can't be executed directly with a <code>bitrise run</code></strong>.</p>
+<p>These workflows can still be referenced in <code>before_run</code> and <code>after_run</code>
+lists of course, and <strong>there's absolutely no other difference
+compared to a regular workflow</strong>.</p>
+<p>Using the above example where there were five workflows
+(<code>ci</code>, <code>deploy</code>, <code>send-notifications</code>, <code>setup</code> and <code>test</code>),
+if you run <code>bitrise run</code> in the directory of the <code>bitrise.yml</code>
+(just <code>bitrise run</code>, without specifying a workflow)
+you'll get a single list of all five workflows:</p>
+<pre class="code"><code>The following workflows are available:
+ * ci
+ * deploy
+ * send-notifications
+ * setup
+ * test
+
+You can run a selected workflow with:
+$ bitrise run WORKFLOW-ID</code></pre>
+
+
+<p>You most likely don't want to run <code>setup</code>, <code>test</code> nor <code>send-notifications</code>
+by itself, only through <code>ci</code> or <code>deploy</code>, so if you prefix those
+with an underscore character to make them utility workflows,
+the <code>bitrise run</code> output will better highlight which workflows
+are meant to be executed directly:</p>
+<pre class="code"><code>The following workflows are available:
+ * ci
+ * deploy
+
+You can run a selected workflow with:
+$ bitrise run WORKFLOW-ID
+
+
+The following utility workflows are defined:
+ * _send-notifications
+ * _setup
+ * _test
+
+Note about utility workflows:
+ Utility workflow names start with '_' (example: _my_utility_workflow).
+ These workflows can't be triggered directly, but can be used by other workflows
+ in the before_run and after_run lists.</code></pre>
+
+
+<h2 id="full-spec-list-of-available-properties">Full spec / list of available properties<a class="headerlink" href="#full-spec-list-of-available-properties" title="Permanent link">⚓</a></h2>
+<p>You can find the complete list of available properties in the
+<a href="https://github.com/bitrise-io/bitrise/blob/master/_docs/bitrise-yml-format-spec.md">bitrise.yml format specification / reference</a>
+docs of the CLI.</p>
+
+          <!-- Copyright and theme information -->
+          <aside class="copyright" role="note">
+            
+            <hr />
+            <p>
+              <b><a href="https://github.com/bitrise-io/devcenter/blob/master/docs/bitrise-cli/workflows.md">Feel free to edit any page of this DevCenter on GitHub, in your browser directly!</a></b>
+              <br />
+              You can edit the pages on <a href="https://github.com/bitrise-io/devcenter/blob/master/docs/bitrise-cli/workflows.md">GitHub</a> directly, you don't have to git clone the repository.
+              <br />
+              Just select the file on <a href="https://github.com/bitrise-io/devcenter/blob/master/docs/bitrise-cli/workflows.md">GitHub</a> and click the <b>pencil/edit icon</b>,
+              which will open the GitHub editor for the file.
+              <br />
+              If you don't want to edit the page on GitHub,
+              feel free to <a href="https://www.bitrise.io/contact">contact us</a>,
+              or to create an issue on the <a href="https://github.com/bitrise-io/devcenter">DevCenter's GitHub page</a>
+              and we'll do the change for you!
+            </p>
+          </aside>
+
+          <!-- Footer -->
+          
+            <footer class="footer">
+              
+  <nav class="pagination" aria-label="Footer">
+    <div class="previous">
+      
+        <a href="../basics-of-bitrise-yml/" title="Basics of bitrise.yml">
+          <span class="direction">
+            Previous
+          </span>
+          <div class="page">
+            <div class="button button-previous" role="button" aria-label="Previous">
+              <i class="icon icon-back"></i>
+            </div>
+            <div class="stretch">
+              <div class="title">
+                Basics of bitrise.yml
+              </div>
+            </div>
+          </div>
+        </a>
+      
+    </div>
+    <div class="next">
+      
+        <a href="../steps/" title="Steps">
+          <span class="direction">
+            Next
+          </span>
+          <div class="page">
+            <div class="stretch">
+              <div class="title">
+                Steps
+              </div>
+            </div>
+            <div class="button button-next" role="button" aria-label="Next">
+              <i class="icon icon-forward"></i>
+            </div>
+          </div>
+        </a>
+      
+    </div>
+  </nav>
+
+            </footer>
+          
+        </div>
+      </article>
+
+      <!-- Search results -->
+      <div class="results" role="status" aria-live="polite">
+        <div class="scrollable">
+          <div class="wrapper">
+            <div class="meta"></div>
+            <div class="list"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Theme-related and custom javascripts -->
+    <script>
+      var base_url = '../..';
+      var repo_id  = 'bitrise-io/devcenter';
+    </script>
+    <script src="../../assets/javascripts/application.js"></script>
+    
+
+    <!-- Google Analytics -->
+    
+  </body>
+</html>
