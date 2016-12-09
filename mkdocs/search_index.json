@@ -1217,13 +1217,28 @@
         }, 
         {
             "location": "/xamarin/", 
-            "text": "With \nXamarin\n integration you can now build your\niOS and Android Xamarin applications on \nBitrise\n.\n\n\nWe have listed a couple of tutorials to help you get started, but if you get stuck,\nfeel free to \ncontact us\n!\n\n\nXamarin tutorials\n\u2693\n\n\nHighlighted\n:\nA great overview and a detailed \"getting started\" tutorial: check out \nJames Montemagno\n's\nvideo session about setting up Xamarin apps on Bitrise here: \nhttps://www.youtube.com/watch?v=1UeNajpjIXY\n\n\n\n\nConnect your Xamarin account to Bitrise\n \n\n\nCreating your first App on Bitrise\n\n\nRestore NuGet packages and Xamarin Components\n\n\nCode Signing:\n\n\niOS code signing\n\n\nAndroid code signing\n \n\n\n\n\n\n\nDeploy your Xamarin app\n\n\nAdd Unit Test to your Xamarin app\n\n\nRun your tests in the Xamarin Test Cloud\n\n\nAdd custom sources to NuGet\n \n\n\nBuild with FAKE (F# Make)\n\n\n\n\n\n\nCommunity created tutorials\n\n\nFor more, community created tutorials, see the Xamarin section on the\n\nCommunity Created Tutorials\n page.", 
+            "text": "With \nXamarin\n integration you can now build your\niOS and Android Xamarin applications on \nBitrise\n.\n\n\nWe have listed a couple of tutorials to help you get started, but if you get stuck,\nfeel free to \ncontact us\n!\n\n\nXamarin tutorials\n\u2693\n\n\nHighlighted\n:\nA great overview and a detailed \"getting started\" tutorial: check out \nJames Montemagno\n's\nvideo session about setting up Xamarin apps on Bitrise here: \nhttps://www.youtube.com/watch?v=1UeNajpjIXY\n\n\nGetting Started\n\u2693\n\n\n\n\nConnect your Xamarin account to Bitrise\n \n\n\nCreating your first App on Bitrise\n\n\nRestore NuGet packages and Xamarin Components\n\n\n\n\nCode Signing\n\u2693\n\n\n\n\niOS code signing\n\n\nAndroid code signing\n \n\n\n\n\nAdvanced\n\u2693\n\n\n\n\nDeploy your Xamarin app\n\n\nAdd Unit Test to your Xamarin app\n\n\nRun your tests in the Xamarin Test Cloud\n\n\nAdd custom sources to NuGet\n \n\n\nBuild with FAKE (F# Make)\n\n\n\n\n\n\nCommunity created tutorials\n\n\nFor more, community created tutorials, see the Xamarin section on the\n\nCommunity Created Tutorials\n page.", 
             "title": "About Xamarin"
         }, 
         {
             "location": "/xamarin/#xamarin-tutorials", 
-            "text": "Highlighted :\nA great overview and a detailed \"getting started\" tutorial: check out  James Montemagno 's\nvideo session about setting up Xamarin apps on Bitrise here:  https://www.youtube.com/watch?v=1UeNajpjIXY   Connect your Xamarin account to Bitrise    Creating your first App on Bitrise  Restore NuGet packages and Xamarin Components  Code Signing:  iOS code signing  Android code signing      Deploy your Xamarin app  Add Unit Test to your Xamarin app  Run your tests in the Xamarin Test Cloud  Add custom sources to NuGet    Build with FAKE (F# Make)    Community created tutorials  For more, community created tutorials, see the Xamarin section on the Community Created Tutorials  page.", 
+            "text": "Highlighted :\nA great overview and a detailed \"getting started\" tutorial: check out  James Montemagno 's\nvideo session about setting up Xamarin apps on Bitrise here:  https://www.youtube.com/watch?v=1UeNajpjIXY", 
             "title": "Xamarin tutorials"
+        }, 
+        {
+            "location": "/xamarin/#getting-started", 
+            "text": "Connect your Xamarin account to Bitrise    Creating your first App on Bitrise  Restore NuGet packages and Xamarin Components", 
+            "title": "Getting Started"
+        }, 
+        {
+            "location": "/xamarin/#code-signing", 
+            "text": "iOS code signing  Android code signing", 
+            "title": "Code Signing"
+        }, 
+        {
+            "location": "/xamarin/#advanced", 
+            "text": "Deploy your Xamarin app  Add Unit Test to your Xamarin app  Run your tests in the Xamarin Test Cloud  Add custom sources to NuGet    Build with FAKE (F# Make)    Community created tutorials  For more, community created tutorials, see the Xamarin section on the Community Created Tutorials  page.", 
+            "title": "Advanced"
         }, 
         {
             "location": "/xamarin/connect-your-xamarin-account-to-bitrise/", 
