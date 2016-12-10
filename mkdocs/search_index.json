@@ -1292,7 +1292,7 @@
         }, 
         {
             "location": "/xamarin/add-unit-test-to-your-xamarin-app/", 
-            "text": "Work in progress\n\n\nPrevious, outdated tutorial can be found at: http://devcenter.bitrise.io/v1.0/docs/add-unit-test-to-your-xamarin-app .", 
+            "text": "Work in progress\n\n\nPrevious, outdated tutorial can be found at: http://bitrise.readme.io/v1.0/docs/add-unit-test-to-your-xamarin-app .", 
             "title": "Add UITest to your Xamarin app"
         }, 
         {
