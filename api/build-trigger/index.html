@@ -16,7 +16,7 @@
 
       <!-- Site title -->
       
-        <title>Most important concepts - Bitrise DevCenter</title>
+        <title>Build Trigger API - Bitrise DevCenter</title>
       
 
       <!-- Site description -->
@@ -157,12 +157,12 @@
           <span class="path">
             
               
-                Bitrise CLI and bitrise.yml <i class="icon icon-link"></i>
+                API <i class="icon icon-link"></i>
               
             
           </span>
         
-        Most important concepts
+        Build Trigger API
       </div>
     </div>
     
@@ -588,7 +588,7 @@
       
         
   <li>
-    <a class="" title="Intro" href="../">
+    <a class="" title="Intro" href="../../bitrise-cli/">
       Intro
     </a>
     
@@ -597,7 +597,7 @@
       
         
   <li>
-    <a class="" title="Install the Bitrise CLI" href="../installation/">
+    <a class="" title="Install the Bitrise CLI" href="../../bitrise-cli/installation/">
       Install the Bitrise CLI
     </a>
     
@@ -606,7 +606,7 @@
       
         
   <li>
-    <a class="" title="Run your first build" href="../run-your-first-build/">
+    <a class="" title="Run your first build" href="../../bitrise-cli/run-your-first-build/">
       Run your first build
     </a>
     
@@ -615,7 +615,7 @@
       
         
   <li>
-    <a class="" title="Basics of bitrise.yml" href="../basics-of-bitrise-yml/">
+    <a class="" title="Basics of bitrise.yml" href="../../bitrise-cli/basics-of-bitrise-yml/">
       Basics of bitrise.yml
     </a>
     
@@ -624,7 +624,7 @@
       
         
   <li>
-    <a class="" title="Workflows" href="../workflows/">
+    <a class="" title="Workflows" href="../../bitrise-cli/workflows/">
       Workflows
     </a>
     
@@ -633,7 +633,7 @@
       
         
   <li>
-    <a class="" title="Steps" href="../steps/">
+    <a class="" title="Steps" href="../../bitrise-cli/steps/">
       Steps
     </a>
     
@@ -642,7 +642,7 @@
       
         
   <li>
-    <a class="" title="Secrets" href="../secrets/">
+    <a class="" title="Secrets" href="../../bitrise-cli/secrets/">
       Secrets
     </a>
     
@@ -651,35 +651,16 @@
       
         
   <li>
-    <a class="current" title="Most important concepts" href="./">
+    <a class="" title="Most important concepts" href="../../bitrise-cli/most-important-concepts/">
       Most important concepts
     </a>
-    
-      
-      
-        <ul>
-          
-            <li class="anchor">
-              <a title="Every input, output and parameter is an Environment Variable" href="#every-input-output-and-parameter-is-an-environment-variable">
-                Every input, output and parameter is an Environment Variable
-              </a>
-            </li>
-          
-            <li class="anchor">
-              <a title="Availability order of environment variables" href="#availability-order-of-environment-variables">
-                Availability order of environment variables
-              </a>
-            </li>
-          
-        </ul>
-      
     
   </li>
 
       
         
   <li>
-    <a class="" title="Create your own Step" href="../create-your-own-step/">
+    <a class="" title="Create your own Step" href="../../bitrise-cli/create-your-own-step/">
       Create your own Step
     </a>
     
@@ -1300,9 +1281,40 @@
       
         
   <li>
-    <a class="" title="Build Trigger API" href="../../api/build-trigger/">
+    <a class="current" title="Build Trigger API" href="./">
       Build Trigger API
     </a>
+    
+      
+      
+        <ul>
+          
+            <li class="anchor">
+              <a title="How to start a build by calling the Trigger API?" href="#how-to-start-a-build-by-calling-the-trigger-api">
+                How to start a build by calling the Trigger API?
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="JSON body" href="#json-body">
+                JSON body
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="Build Params" href="#build-params">
+                Build Params
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="curl example generator" href="#curl-example-generator">
+                curl example generator
+              </a>
+            </li>
+          
+        </ul>
+      
     
   </li>
 
@@ -1328,97 +1340,115 @@
           <!-- Headline -->
           
             <h1>
-              Most important concepts
-              <a class="headerlink" href="https://github.com/bitrise-io/devcenter/blob/master/docs/bitrise-cli/most-important-concepts.md">Edit this page on GitHub!</a>
+              Build Trigger API
+              <a class="headerlink" href="https://github.com/bitrise-io/devcenter/blob/master/docs/api/build-trigger.md">Edit this page on GitHub!</a>
             </h1>
           
 
           <!-- Article content -->
-          <h2 id="every-input-output-and-parameter-is-an-environment-variable">Every input, output and parameter is an Environment Variable<a class="headerlink" href="#every-input-output-and-parameter-is-an-environment-variable" title="Permanent link">⚓</a></h2>
-<p>Every step input, step output, secret environment variable, app environment variable and workflow environment variable
-(basically every input and variable in your build config) is an environment variable.</p>
-<p>There's nothing special about how Bitrise handles environment variables,
-<strong>these are regular environment variable, with the same rules and restrictions as any other environment variable.</strong></p>
-<p>To highlight a couple of technical details:</p>
-<h3 id="the-value-of-an-environment-variable-can-only-be-a-string">The value of an Environment Variable can only be a String<a class="headerlink" href="#the-value-of-an-environment-variable-can-only-be-a-string" title="Permanent link">⚓</a></h3>
-<p>Environment Variables can only hold <code>String</code> values. Even if you set a number or bool, like <code>1</code> or <code>true</code> as
-the value of the Environment Variable, that will be a string.</p>
-<h3 id="parent-process-cant-access-environment-variables-exposed-by-child-processes">Parent process can't access  Environment Variables exposed by child processes<a class="headerlink" href="#parent-process-cant-access-environment-variables-exposed-by-child-processes" title="Permanent link">⚓</a></h3>
-<p>Parent process(es) can't access Environment Variables exposed by child processes.</p>
-<p>For example, if you run a <code>my_bash_script.sh</code> in your Terminal with <code>bash my_bash_script.sh</code>,
-and <code>my_bash_script.sh</code> sets an environment variable with <code>export MY_VAR=the-value</code>,
-you won't be able to access <code>MY_VAR</code> in your Terminal after the script is finished,
-<code>MY_VAR</code> will only be available in <code>my_bash_script.sh</code> <strong>and</strong> in the processes / scripts
-started by <code>my_bash_script.sh</code>.</p>
-<p>In terms of Bitrise CLI this means that if you <code>export MY_VAR=...</code> in a Script step,
-<code>MY_VAR</code> won't be available in subsequent steps. This is true for the steps too,
-regardless of which language the step is written in.</p>
-<p>Bitrise CLI includes a mechanism for exposing environment variables from Steps
-so that subsequent Steps can also access it, through the Bitrise CLI tool
-called <a href="https://github.com/bitrise-io/envman">envman</a>.</p>
-<p>To set an environment variable in your script or in your step to make that
-available in other steps too, you have to do that through <code>envman</code>.</p>
-<p>A simple example:</p>
-<pre class="code"><code>envman add --key MY_TEST_ENV_KEY --value 'test value for test key'</code></pre>
-
-
-<p>You can find more examples in <a href="https://github.com/bitrise-io/envman">envman's README</a>,
-and in the <a href="../../tips-and-tricks/expose-environment-variable">Expose an Environment Variable and use it in another Step</a> guide.</p>
-<h2 id="availability-order-of-environment-variables">Availability order of environment variables<a class="headerlink" href="#availability-order-of-environment-variables" title="Permanent link">⚓</a></h2>
-<p>Environment variables are available <strong>after</strong> the environment variable
-is "processed".</p>
-<p>There are a few environment variables <a href="../../faq/available-environment-variables/#exposed-by-the-bitrise-cli">exposed by the Bitrise CLI itself</a>,
-those are available from the start (e.g. <code>BITRISE_SOURCE_DIR</code> and <code>BITRISE_TRIGGERED_WORKFLOW_ID</code>).</p>
-<p>All other environment variables are "processed" / made available <em>as the build progresses.</em></p>
-<p>There are two types of environment variables which are processed and
-made available before the workflow would be executed:
-<a href="../../bitrise-cli/secrets/">Secrets</a> and <code>App Env Vars</code> (<code>app: envs:</code> in the <a href="../../bitrise-cli/basics-of-bitrise-yml/">bitrise.yml</a>).</p>
-<p>After these, the processing of the specified Workflow starts, and the
-<a href="../../bitrise-cli/workflows/#define-workflow-specific-parameters-environment-variables">environment variables specified for that Workflow</a>
-are made available. If the workflow has before or after workflows, when
-a specific workflow is processed (right before the first step of the workflow would run)
-the workflow's environment variables are processed and made available.</p>
-<p>Step inputs are also environment variables;
-those are exposed only for the specific step, and right before the Step would start.</p>
-<p>Last but not least Step outputs are exposed by the specific step,
-so those are available for subsequent steps <strong>after the Step finishes</strong>.</p>
-<p><strong>The environment variable processing order:</strong></p>
-<ol>
-<li><a href="../(/faq/available-environment-variables/#exposed-by-the-bitrise-cli)">Bitrise CLI exposed environment variables</a></li>
-<li><a href="../../bitrise-cli/secrets/">Secrets</a></li>
-<li><code>App Env Vars</code> (<code>app: envs:</code> in the <a href="../../bitrise-cli/basics-of-bitrise-yml/">bitrise.yml</a>)</li>
-<li><a href="../../bitrise-cli/workflows/#define-workflow-specific-parameters-environment-variables">Workflow environment variables</a></li>
-<li>Step inputs</li>
-<li>Step outputs</li>
-</ol>
-<p><strong>So, why does the processing order matter?</strong></p>
-<p>An environment variable is only available <strong>after</strong> it is processed and made available.
-<strong>When you reference or use an environment variable, you can only reference/use those which are already processed!</strong></p>
-<p>A couple of examples:</p>
+          <p>With the Build Trigger API you can start a new build of your app with a simple API call.</p>
+<p>You can define parameters for the build like what <code>branch</code>, <code>tag</code> or <em>git commit</em> to use
+and what <em>build message</em> to present on the Build's details page.</p>
+<div class="admonition note">
+<p class="admonition-title">Interactive cURL call configurator</p>
+<p>You can find an interactive cURL call configurator by clicking on the <code>Start/Schedule a build</code>
+button on your app's <a href="https://www.bitrise.io">bitrise.io</a> page
+and switching to <code>Advanced</code> mode in the popup.
+At the bottom of the popup you can find a <code>curl</code> call,
+based on the parameters you specify in the popup.</p>
+</div>
+<h2 id="how-to-start-a-build-by-calling-the-trigger-api">How to start a build by calling the Trigger API?<a class="headerlink" href="#how-to-start-a-build-by-calling-the-trigger-api" title="Permanent link">⚓</a></h2>
+<p>You have to call your build trigger with a <code>POST</code> request with a JSON body.</p>
+<div class="admonition note">
+<p class="admonition-title">API Token and App Slug</p>
+<p>When you use the Bitrise Trigger API you have to specify the App's <code>API Token</code> and <code>App Slug</code>.
+You can view both and regenerate your App's API Token anytime you want to,
+on the <code>Code</code> tab of the app.</p>
+</div>
+<h2 id="json-body">JSON body<a class="headerlink" href="#json-body" title="Permanent link">⚓</a></h2>
+<p>The JSON body has to contain at least:</p>
 <ul>
-<li>In the value of a <code>Secret</code> environment variable,
-  you can use environment variables exposed by Bitrise CLI,
-  but you can't use any other environment variable (App Env Vars, Workflow Env Vars, ...),
-  as those are not processed when secrets are processed.</li>
-<li>In the value of an <code>App Env Var</code>, you can use environment variables
-  from <code>Secrets</code> as well as the Bitrise CLI exposed ones, but you can't use Workflow Env Vars,
-  nor Step inputs.</li>
-<li>In a <code>Workflow environment variable</code> you can use all the above (<code>Secrets</code>, <code>App Env Vars</code>,
-  Bitrise CLI exposed env vars).</li>
-<li>And finally, in step input values, you can use all other environment variables,
-  including the workflow's environment variables, as well as the outputs
-  of steps which run before the specific step.</li>
+<li>a <code>hook_info</code> object with:<ul>
+<li>a <code>type</code> key and <code>bitrise</code> as its value</li>
+<li>an <code>api_token</code> key and your <em>API Token</em> as its value</li>
 </ul>
-<h3 id="environment-variables-of-chained-workflows">Environment variables of chained workflows<a class="headerlink" href="#environment-variables-of-chained-workflows" title="Permanent link">⚓</a></h3>
-<p>Once an environment variable of a workflow is processed and made available,
-it is available everywhere else during the build. This means that other workflows
-of the chain <strong>can</strong> use the environment variables of a workflow which is performed <strong>before</strong>
-the specific workflow, similar to Step outputs, which are available for every
-other step <strong>after</strong> the step (which generates the outputs) completes.</p>
-<p>You can find more information about environment variable availability
-of Workflow env vars in chained workflows in the
-<a href="../../bitrise-cli/workflows/#note-about-workflow-environment-variables">Workflows: Note about workflow environment variables</a>
-documentation.</p>
+</li>
+<li>a <code>build_params</code> object, with at least a <code>tag</code>, <code>branch</code> or <code>workflow_id</code> parameter specified</li>
+</ul>
+<p>A minimal sample JSON body, which specifies <em>master</em> as the <code>branch</code> parameter:</p>
+<pre class="code"><code>{
+  &quot;hook_info&quot;: {
+    &quot;type&quot;: &quot;bitrise&quot;,
+    &quot;api_token&quot;: &quot;...&quot;
+  },
+  &quot;build_params&quot;: {
+    &quot;branch&quot;: &quot;master&quot;
+  }
+}</code></pre>
+
+
+<h2 id="build-params">Build Params<a class="headerlink" href="#build-params" title="Permanent link">⚓</a></h2>
+<p>The following parameters are supported in the <code>build_params</code> object:</p>
+<ul>
+<li><code>branch</code> - <em>String</em></li>
+<li><code>tag</code>  - <em>String</em></li>
+<li><code>commit_hash</code> - <em>String</em></li>
+<li><code>commit_message</code> - <em>String</em></li>
+<li><code>workflow_id</code> - <em>String</em></li>
+<li><code>environments</code> - <em>Array of objects</em></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Git Clone - parameter priority</p>
+<p>If you provide a <code>tag</code>, the <code>branch</code> parameter will be ignored by the <code>Git Clone</code> step.
+If you provide a <code>commit_hash</code> parameter then both the <code>tag</code> and the <code>branch</code> parameters will be ignored.
+These will still be logged, will be available for steps and will be visible on the Build's details page,
+but the <code>Git Clone</code> step will use the the most specific parameter for checkout.</p>
+</div>
+<h3 id="specify-environment-variables">Specify Environment Variables<a class="headerlink" href="#specify-environment-variables" title="Permanent link">⚓</a></h3>
+<p>You can define additional <em>environment variables</em> for your build.</p>
+<p><em>These variables will be handled with priority between <code>Secrets</code> and <code>App Env Vars</code>,
+which means that you can not overwrite environment variables defined in
+your build configuration (e.g. App Env Vars), only Secrets.
+For more information see:
+<a href="../../bitrise-cli/most-important-concepts/#availability-order-of-environment-variables">Availability order of environment variables</a></em></p>
+<p>It's important that this parameter have to be an <strong>array of objects</strong>,
+and that every item of the array have to include
+at least a <code>mapped_to</code> (the key of the Environment Variable, without a dollar sign (<code>$</code>))
+and a <code>value</code> property (the value of the variable).</p>
+<p>Example:</p>
+<pre class="code"><code>&quot;environments&quot;:[{&quot;mapped_to&quot;:&quot;API_TEST_ENV&quot;,&quot;value&quot;:&quot;This is the test value&quot;,&quot;is_expand&quot;:true}]</code></pre>
+
+
+<h3 id="workflow-to-be-used-for-the-build">Workflow to be used for the build<a class="headerlink" href="#workflow-to-be-used-for-the-build" title="Permanent link">⚓</a></h3>
+<p>By default the Workflow for your Build will be selected based on the
+<code>build_params</code> and your app's <a href="../../webhooks/trigger-map/">Trigger Map</a>.
+This is the same as how <a href="../../webhooks/">Webhooks</a> select the workflow for the build
+automatically (based on the <em>Trigger Map</em>), and how you can
+define separate Workflows for separate branches, tags or pull requests
+without the need to specify the workflow manually for every build.</p>
+<p>With the Trigger API you can however <strong>overwrite</strong> this selection
+and specify exactly which Workflow you want to use.</p>
+<p>All you have to do is add a <code>workflow_id</code> parameter to your <code>build_params</code>
+and specify the Workflow you want to use for that specific build.</p>
+<p>An example <code>build_params</code> with <code>branch</code> and <code>workflow_id</code>:</p>
+<pre class="code"><code>&quot;build_params&quot;:{&quot;branch&quot;:&quot;master&quot;,&quot;workflow_id&quot;:&quot;deploy&quot;}'</code></pre>
+
+
+<h2 id="curl-example-generator"><code>curl</code> example generator<a class="headerlink" href="#curl-example-generator" title="Permanent link">⚓</a></h2>
+<p>You can find an interactive cURL call configurator by clicking on the <code>Start/Schedule a build</code>
+button on your app's <a href="https://www.bitrise.io">bitrise.io</a> page
+and switching to <code>Advanced</code> mode in the popup.
+At the bottom of the popup you can find a <code>curl</code> call, based on the parameters you specify in the popup.</p>
+<p>A base curl call would look like this (with <code>master</code> specified as the <code>branch</code> build parameter):</p>
+<pre class="code"><code>curl https://www.bitrise.io/app/APP-SLUG/build/start.json --data '{&quot;hook_info&quot;:{&quot;type&quot;:&quot;bitrise&quot;,&quot;api_token&quot;:&quot;APP-API-TOKEN&quot;},&quot;build_params&quot;:{&quot;branch&quot;:&quot;master&quot;}}'</code></pre>
+
+
+<p>A more advanced example: let's say you want to build the <strong>master</strong> <code>branch</code>
+using the <code>deployment</code> workflow,
+specify a build message (<code>commit_message</code>)
+and set a test environment variable (<code>API_TEST_ENV</code>),
+the call will look like this:</p>
+<pre class="code"><code>curl https://www.bitrise.io/app/APP-SLUG/build/start.json --data '{&quot;hook_info&quot;:{&quot;type&quot;:&quot;bitrise&quot;,&quot;api_token&quot;:&quot;APP-API-TOKEN&quot;},&quot;build_params&quot;:{&quot;branch&quot;:&quot;master&quot;,&quot;commit_message&quot;:&quot;Environment in API params test&quot;,&quot;workflow_id&quot;:&quot;deployment&quot;,&quot;environments&quot;:[{&quot;mapped_to&quot;:&quot;API_TEST_ENV&quot;,&quot;value&quot;:&quot;This is the test value&quot;,&quot;is_expand&quot;:true}]}}'</code></pre>
 
           <!-- Copyright and theme information -->
           <aside class="copyright" role="note">
@@ -1429,12 +1459,12 @@ documentation.</p>
               <br />
               Do you have an issue with this page of the DevCenter?
               <br />
-              Feel free to <a href="https://github.com/bitrise-io/devcenter/issues/new?title=PAGE:Most important concepts" target="_blank">create an issue on the DevCenter's GitHub page</a>,
+              Feel free to <a href="https://github.com/bitrise-io/devcenter/issues/new?title=PAGE:Build Trigger API" target="_blank">create an issue on the DevCenter's GitHub page</a>,
               or to <a href="https://www.bitrise.io/contact" target="_blank">contact us</a>!
               <br />
-              You can also edit this page on <a href="https://github.com/bitrise-io/devcenter/blob/master/docs/bitrise-cli/most-important-concepts.md">GitHub</a> directly, you don't have to git clone the repository.
+              You can also edit this page on <a href="https://github.com/bitrise-io/devcenter/blob/master/docs/api/build-trigger.md">GitHub</a> directly, you don't have to git clone the repository.
               <br />
-              Just <a href="https://github.com/bitrise-io/devcenter/blob/master/docs/bitrise-cli/most-important-concepts.md">select the file on GitHub</a> and click the <b>pencil/edit icon</b>,
+              Just <a href="https://github.com/bitrise-io/devcenter/blob/master/docs/api/build-trigger.md">select the file on GitHub</a> and click the <b>pencil/edit icon</b>,
               which will open the GitHub editor for the file.
             </p>
           </aside>
@@ -1446,7 +1476,7 @@ documentation.</p>
   <nav class="pagination" aria-label="Footer">
     <div class="previous">
       
-        <a href="../secrets/" title="Secrets">
+        <a href="../../tools/bitrise-tools/" title="Bitrise Tools">
           <span class="direction">
             Previous
           </span>
@@ -1456,7 +1486,7 @@ documentation.</p>
             </div>
             <div class="stretch">
               <div class="title">
-                Secrets
+                Bitrise Tools
               </div>
             </div>
           </div>
@@ -1464,22 +1494,6 @@ documentation.</p>
       
     </div>
     <div class="next">
-      
-        <a href="../create-your-own-step/" title="Create your own Step">
-          <span class="direction">
-            Next
-          </span>
-          <div class="page">
-            <div class="stretch">
-              <div class="title">
-                Create your own Step
-              </div>
-            </div>
-            <div class="button button-next" role="button" aria-label="Next">
-              <i class="icon icon-forward"></i>
-            </div>
-          </div>
-        </a>
       
     </div>
   </nav>
