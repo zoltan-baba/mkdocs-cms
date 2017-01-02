@@ -1343,7 +1343,12 @@
           
 
           <!-- Article content -->
-          <p>There are two ways to use <code>docker</code> on <a href="https://www.bitrise.io">bitrise.io</a>:</p>
+          <div class="admonition note">
+<p class="admonition-title">Have a question or suggestion? Join the discussion!</p>
+<p>You can find this guide's discussion topic at:
+<a href="http://discuss.bitrise.io/t/how-to-use-your-own-docker-image-for-your-builds/69">discuss.bitrise.io/t/69</a></p>
+</div>
+<p>There are two ways to use <code>docker</code> on <a href="https://www.bitrise.io">bitrise.io</a>:</p>
 <ol>
 <li>Run <code>docker</code> commands yourself, e.g. with a <code>Script</code> step</li>
 <li>Use a Linux/Android stack and set the environment docker image for the app (<code>Settings</code> tab)</li>
@@ -1557,10 +1562,17 @@ statement at the top of the <code>Dockerfile</code>, like the one you can see at
 <a href="https://github.com/viktorbenei/docker-bitrise-android-ext/blob/master/Dockerfile#L1">https://github.com/viktorbenei/docker-bitrise-android-ext/blob/master/Dockerfile#L1</a>
 (<em>don't forget to commit &amp; push it!</em>).</p>
 <div class="admonition note">
-<p class="admonition-title">Which image to use? - Performance notes</p>
-<p>If you don't need the Android tools you should base your image on the <code>bitrise-base</code> image
-and install just the things you need. If you really need the Android tools then you should use
-the <code>android</code> image, and you should only use the <code>android-ndk</code> image as the base image if you actually need the NDK.</p>
+<p class="admonition-title">Which image to use?</p>
+<ol>
+<li>If you don't need the Android tools you should base your image on
+   the <strong>bitrise-base</strong> (<code>bitriseio/docker-bitrise-base</code>) image
+   and install just the things you need.</li>
+<li>If you need the Android tools then you should use
+   the <strong>android</strong> (<code>bitriseio/docker-android</code>) image
+   or the <strong>bitrise-base</strong> (<code>bitriseio/docker-bitrise-base</code>) image.</li>
+<li>You should only use the <strong>android-ndk</strong> (<code>bitriseio/android-ndk</code>) image
+   as the base image if you actually need the NDK.</li>
+</ol>
 <p>From a performance perspective: you should install the least amount of tools in your image,
 as it'll make your image smaller, which means faster download &amp; build start.</p>
 </div>
@@ -1587,6 +1599,11 @@ in the <code>Stack Selector</code> section.</p>
 <p>You just have to copy paste the ID of your image (e.g. <code>bitriseio/docker-bitrise-base</code>)
 into the <code>Docker image to use</code> field and click the <code>Save</code> button.
 Your next build will use the image you specified.</p>
+<div class="admonition note">
+<p class="admonition-title">Have a question or suggestion? Join the discussion!</p>
+<p>You can find this guide's discussion topic at:
+<a href="http://discuss.bitrise.io/t/how-to-use-your-own-docker-image-for-your-builds/69">discuss.bitrise.io/t/69</a></p>
+</div>
 
           <!-- Copyright and theme information -->
           <aside class="copyright" role="note">
