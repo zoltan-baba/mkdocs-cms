@@ -567,16 +567,6 @@
     
       
       
-        <ul>
-          
-            <li class="anchor">
-              <a title="Example workflow (gradle and maven caches)" href="#example-workflow-gradle-and-maven-caches">
-                Example workflow (gradle and maven caches)
-              </a>
-            </li>
-          
-        </ul>
-      
     
   </li>
 
@@ -1337,36 +1327,7 @@
           
 
           <!-- Article content -->
-          <p>Your build process may use <a href="https://maven.apache.org/">Apache Maven</a> repositories to fetch dependencies at runtime.
-For example <a href="http://robolectric.org">Roboelectric</a> testing framework uses <a href="https://oss.sonatype.org/content/groups/public/">Sonatype</a>
-to fetch target platforms and shadow-classes during a test run (unless explicitly <a href="http://robolectric.org/configuring/">configured</a>).
-Resolved dependencies are cached in a local Maven repository at <code>$HOME/.m2</code></p>
-<p>To cache it follow these steps:   </p>
-<ol>
-<li>Put the <code>Cache:Pull</code> step after the Git Clone</li>
-<li>Put the <code>Cache:Push</code> step to the very end of the Workflow</li>
-<li>Select the <code>Cache:Push</code> step and add the following paths for caching (Cache Paths input):
-   <pre><code>$HOME/.m2</code></pre></li>
-</ol>
-<h2 id="example-workflow-gradle-and-maven-caches">Example workflow (gradle and maven caches)<a class="headerlink" href="#example-workflow-gradle-and-maven-caches" title="Permanent link">⚓</a></h2>
-<pre class="code"><code class="language-yml">example:
-  steps:
-  - git-clone: {}
-  - cache-pull: {}
-  - gradle-runner:
-      inputs:
-      - gradle_file: &quot;$BITRISE_PROJECT_PATH&quot;
-      - gradle_task: &quot;$GRADLE_TASK&quot;
-  - cache-push:
-      inputs:
-      - cache_paths: |-
-          $HOME/.gradle
-          ./.gradle
-          $HOME/.m2
-      - ignore_check_on_paths: |-
-          $HOME/.gradle/caches/*.lock
-          ./.gradle/*.lock
-          ./.gradle/*.bin</code></pre>
+          <p>This guide was moved to: <a href="https://discuss.bitrise.io/t/how-to-cache-maven-dependencies/195">https://discuss.bitrise.io/t/how-to-cache-maven-dependencies/195</a></p>
 
           <!-- Copyright and theme information -->
           <aside class="copyright" role="note">

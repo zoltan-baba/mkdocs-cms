@@ -549,6 +549,12 @@
             </li>
           
             <li class="anchor">
+              <a title="Example build cache configurations" href="#example-build-cache-configurations">
+                Example build cache configurations
+              </a>
+            </li>
+          
+            <li class="anchor">
               <a title="Downloading and deleting caches" href="#downloading-and-deleting-caches">
                 Downloading and deleting caches
               </a>
@@ -1378,6 +1384,9 @@ Before the <code>Git Clone</code> step your code (and the directories your code 
 The only thing you have to care about is that it should be after the step(s) which update the cached paths.
 For example in case of <code>CocoaPods</code> you should put the <code>Cache:Push</code> step anywhere after the <code>CocoaPods</code> install,
 because that's the step which generates, or updates the directory (<code>./Pods</code>) which is cached.</p>
+<h2 id="example-build-cache-configurations">Example build cache configurations<a class="headerlink" href="#example-build-cache-configurations" title="Permanent link">⚓</a></h2>
+<p>You can find example build cache configurations / guides at:
+<a href="https://discuss.bitrise.io/tags/build-cache">discuss.bitrise.io/tags/build-cache</a></p>
 <h2 id="downloading-and-deleting-caches">Downloading and deleting caches<a class="headerlink" href="#downloading-and-deleting-caches" title="Permanent link">⚓</a></h2>
 <p>You can download and delete caches, for every branch which generated a cache,
 on the <code>Settings</code> tab of the app, under the <code>Manage Build Caches</code> section.</p>

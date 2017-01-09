@@ -558,16 +558,6 @@
     
       
       
-        <ul>
-          
-            <li class="anchor">
-              <a title="Example workflow" href="#example-workflow">
-                Example workflow
-              </a>
-            </li>
-          
-        </ul>
-      
     
   </li>
 
@@ -1337,35 +1327,7 @@
           
 
           <!-- Article content -->
-          <ol>
-<li>Put the <code>Cache:Pull</code> step after the Git Clone</li>
-<li>Put the <code>Cache:Push</code> step to the very end of the Workflow</li>
-<li>Select the <code>Cache:Push</code> step and specify the following paths for caching (Cache Paths input):
-   <pre><code>$HOME/.gradle
-./.gradle</code></pre></li>
-<li>Select the <code>Cache:Push</code> step and specify the following paths for update-check ignore (Ignore Paths from change check input):
-   <pre><code>$HOME/.gradle/caches/<em>.lock
-./.gradle/</em>.lock
-./.gradle/*.bin</code></pre></li>
-</ol>
-<h2 id="example-workflow">Example workflow<a class="headerlink" href="#example-workflow" title="Permanent link">⚓</a></h2>
-<pre class="code"><code class="language-yml">example:
-  steps:
-  - git-clone: {}
-  - cache-pull: {}
-  - gradle-runner:
-      inputs:
-      - gradle_file: &quot;$BITRISE_PROJECT_PATH&quot;
-      - gradle_task: &quot;$GRADLE_TASK&quot;
-  - cache-push:
-      inputs:
-      - cache_paths: |-
-          $HOME/.gradle
-          ./.gradle
-      - ignore_check_on_paths: |-
-          $HOME/.gradle/caches/*.lock
-          ./.gradle/*.lock
-          ./.gradle/*.bin</code></pre>
+          <p>This guide was moved to: <a href="https://discuss.bitrise.io/t/how-to-cache-gradle-dependencies/194">https://discuss.bitrise.io/t/how-to-cache-gradle-dependencies/194</a></p>
 
           <!-- Copyright and theme information -->
           <aside class="copyright" role="note">
