@@ -1834,6 +1834,23 @@ on the <code>Code</code> tab of the app.</p>
 }</code></pre>
 
 
+<p><strong>To pass this JSON payload</strong> you can either pass it as the <strong>body</strong> of the request <strong>as string</strong> (the JSON object serialized to string),
+or if you want to pass it as an object (e.g. if you want to call it from JavaScript) then you have to include a root <code>payload</code>
+element, or set the JSON object as the value of the <code>payload</code> POST parameter.</p>
+<p>jQuery example using the <code>payload</code> parameter:</p>
+<pre class="code"><code>$.post(&quot;https://www.bitrise.io/app/APP-SLUG/build/start.json&quot;, {
+    &quot;payload&quot;:{
+        &quot;hook_info&quot;:{
+            &quot;type&quot;:&quot;bitrise&quot;,
+            &quot;api_token&quot;:&quot;APP-API-TOKEN&quot;
+        },
+        &quot;build_params&quot;:{
+            &quot;branch&quot;:&quot;master&quot;
+        }
+    }
+})</code></pre>
+
+
 <h2 id="build-params">Build Params<a class="headerlink" href="#build-params" title="Permanent link">⚓</a></h2>
 <p>The following parameters are supported in the <code>build_params</code> object:</p>
 <ul>
