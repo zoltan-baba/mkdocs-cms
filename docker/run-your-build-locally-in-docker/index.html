@@ -1763,7 +1763,10 @@ if you know what <code>bitrise run WORKFLOW</code> does, that should be enough f
 </ul>
 </li>
 <li><code>docker pull bitriseio/docker-android:latest</code></li>
-<li><code>docker run --privileged --env CI=false --volume "$(pwd):/bitrise/src" --volume "/var/run/docker.sock:/var/run/docker.sock" --rm bitriseio/docker-android:latest bitrise run WORKFLOW</code></li>
+<li><code>docker run --privileged --env CI=false --volume "$(pwd):/bitrise/src" --volume "/var/run/docker.sock:/var/run/docker.sock" --rm bitriseio/docker-android:latest bitrise run WORKFLOW</code><ul>
+<li>Note: if you want to just jump into the container and experiment inside, you can replace <code>--rm bitriseio/docker-android:latest bitrise run WORKFLOW</code> with <code>-it bitriseio/docker-android:latest bash</code> to start an interactive bash shell inside the container. E.g.: <code>docker run --privileged --env CI=false --volume "$(pwd):/bitrise/src" --volume "/var/run/docker.sock:/var/run/docker.sock" -it bitriseio/docker-android:latest bash</code>.</li>
+</ul>
+</li>
 </ol>
 <p><em>Keep reading if you want to read more details and notes about the process and commands!</em></p>
 <h2 id="getting-started">Getting started<a class="headerlink" href="#getting-started" title="Permanent link">⚓</a></h2>
@@ -1800,6 +1803,13 @@ committed into your repository, e.g. files which are in <code>.gitignore</code>.
 <pre class="code"><code>docker run --privileged --env CI=false --volume &quot;$(pwd):/bitrise/src&quot; --volume &quot;/var/run/docker.sock:/var/run/docker.sock&quot; --rm bitriseio/docker-android:latest bitrise run WORKFLOW</code></pre>
 
 
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you want to just jump into the container and experiment inside, you can replace <code>--rm bitriseio/docker-android:latest bitrise run WORKFLOW</code> with <code>-it bitriseio/docker-android:latest bash</code> to start an interactive bash shell inside the container.
+E.g.: <code>docker run --privileged --env CI=false --volume "$(pwd):/bitrise/src" --volume "/var/run/docker.sock:/var/run/docker.sock" -it bitriseio/docker-android:latest bash</code>.
+After this, if you want to, you can run <code>bitrise run WORKFLOW</code>, which will run the workflow inside the container.
+To exit from the container just run <code>exist</code>.</p>
+</div>
 <p><em>Don't forget to replace <code>WORKFLOW</code> with the actual ID of your workflow in your <code>bitrise.yml</code>,
 with something like <code>primary</code>!</em></p>
 <p>This command will share the current directory (the directory of your repository)
