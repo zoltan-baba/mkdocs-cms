@@ -357,7 +357,7 @@
         }, 
         {
             "location": "/team-management/changing-the-owner-of-an-app/", 
-            "text": "It can happen that you need to transfer an application on \nBitrise\n to another user. This can be done in a few seconds by following these quick steps:\n\n\n\n\nLogin with the \ncurrent owner\n of the app\n\n\nOpen the app's page and go to the \nTeam\n tab\n\n\nMake sure the new owner of the app is in the team or add her/him if you need to\n\n\nClick the \nTransfer ownership\n button next to the current owner's username\n\n\n\n\nFor transferring the ownership, select the new user to transfer the app to:\n\n\n\n\nYou can use the toggle to stay the connected service user. This is important if you are the admin of the given repository on \nGitHub\n, or \nBitbucket\n and the app needs your credentials to work on Bitrise.", 
+            "text": "It can happen that you need to transfer an application on \nBitrise\n to another user. This can be done in a few seconds by following these quick steps:\n\n\n\n\nLogin with the \ncurrent owner\n of the app\n\n\nOpen the app's page and go to the \nTeam\n tab\n\n\nMake sure the new owner of the app is in the team or add her/him if you need to\n\n\nClick the \nTransfer ownership\n button on the top right\n\n\n\n\nFor transferring the ownership, select the new user to transfer the app to:\n\n\n\n\nYou can use the toggle to stay the connected service user. This is important if you are the admin of the given repository on \nGitHub\n, or \nBitbucket\n and the app needs your credentials to work on Bitrise.", 
             "title": "Changing the owner of an app"
         }, 
         {
