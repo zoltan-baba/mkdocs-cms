@@ -657,6 +657,12 @@
      <changefreq>daily</changefreq>
     </url>
         
+    <url>
+     <loc>/api/v0.1/</loc>
+     <lastmod>2017-07-05</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
     
 
 </urlset>
