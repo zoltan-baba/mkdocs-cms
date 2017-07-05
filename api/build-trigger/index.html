@@ -1673,6 +1673,27 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#git-related" title="Git related:" class="md-nav__link">
+    Git related:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bitriseio-specific" title="Bitrise.io specific:" class="md-nav__link">
+    Bitrise.io specific:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pull-request-specific" title="Pull Request specific:" class="md-nav__link">
+    Pull Request specific:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#specify-environment-variables" title="Specify Environment Variables" class="md-nav__link">
     Specify Environment Variables
   </a>
@@ -1760,6 +1781,27 @@
   
     <nav class="md-nav">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#git-related" title="Git related:" class="md-nav__link">
+    Git related:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bitriseio-specific" title="Bitrise.io specific:" class="md-nav__link">
+    Bitrise.io specific:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pull-request-specific" title="Pull Request specific:" class="md-nav__link">
+    Pull Request specific:
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#specify-environment-variables" title="Specify Environment Variables" class="md-nav__link">
@@ -1864,13 +1906,34 @@ element, or set the JSON object as the value of the <code>payload</code> POST pa
 
 <h2 id="build-params">Build Params<a class="headerlink" href="#build-params" title="Permanent link">⚓</a></h2>
 <p>The following parameters are supported in the <code>build_params</code> object:</p>
+<h3 id="git-related">Git related:<a class="headerlink" href="#git-related" title="Permanent link">⚓</a></h3>
 <ul>
-<li><code>branch</code> - <em>String</em></li>
-<li><code>tag</code>  - <em>String</em></li>
-<li><code>commit_hash</code> - <em>String</em></li>
-<li><code>commit_message</code> - <em>String</em></li>
-<li><code>workflow_id</code> - <em>String</em></li>
-<li><code>environments</code> - <em>Array of objects</em></li>
+<li><code>branch</code> (string): The (Source) Branch to build. In case of a standard git commit this is the branch of the commit.
+  In case of a Pull Request build this is the source branch, the one the PR was started from.</li>
+<li><code>tag</code> (string): The git Tag to build.</li>
+<li><code>commit_hash</code> (string): The git Commit Hash to build.</li>
+<li><code>commit_message</code> (strings): The git commit message (or build's message).</li>
+</ul>
+<h3 id="bitriseio-specific">Bitrise.io specific:<a class="headerlink" href="#bitriseio-specific" title="Permanent link">⚓</a></h3>
+<ul>
+<li><code>workflow_id</code>: (string): Force the use of the specified workflow ID. If not defined then the workflow will be selected
+  based on the project's <a href="../../webhooks/trigger-map/">Trigger Map config</a>.</li>
+<li><code>environments</code> (array of objects): See the <a href="#specify-environment-variables">Specify Environment Variables</a> section for more info
+  about the <code>environments</code> objects.</li>
+</ul>
+<h3 id="pull-request-specific">Pull Request specific:<a class="headerlink" href="#pull-request-specific" title="Permanent link">⚓</a></h3>
+<ul>
+<li><code>branch_dest</code> (string): Used only in case of Pull Request builds: the destination/target branch of the Pull Request,
+  the one the PR will be merged <em>into</em>. Example: <code>master</code>.</li>
+<li><code>pull_request_id</code> (int): Pull Request ID on the source code hosting system (e.g. the PR number on GitHub)</li>
+<li><code>pull_request_repository_url</code> (string): repository url from where the Pull Request is sent. E.g. if
+  it's created from a fork this should be the fork's URL. Example: <code>https://github.com/xyz/bitrise.git</code>.</li>
+<li><code>pull_request_merge_branch</code> (string): the pre-merge branch, <strong>if the source code hosting system supports &amp; provides</strong>
+  the pre-merged state of the PR on a special "merge branch" (ref). Probably only GitHub supports this.
+  Example: <code>pull/12/merge</code>.</li>
+<li><code>pull_request_head_branch</code> (string): the Pull Request's "head branch" (<code>refs/</code>) <strong>if the source code hosting system supports &amp; provides</strong> this.
+  This special git <code>ref</code> should point to the <strong>source</strong> of the Pull Request. Supported by GitHub and GitLab.
+  Example: <code>pull/12/head</code> (github) / <code>merge-requests/12/head</code> (gitlab).</li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Git Clone - parameter priority</p>
