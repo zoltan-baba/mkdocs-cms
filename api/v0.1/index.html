@@ -1856,6 +1856,33 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#get-appsapp-slugbuildsbuild-sluglog" title="GET /apps/{APP-SLUG}/builds/{BUILD-SLUG}/log" class="md-nav__link">
+    GET /apps/{APP-SLUG}/builds/{BUILD-SLUG}/log
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-curl-request_5" title="Example curl request" class="md-nav__link">
+    Example curl request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-response_5" title="Example response" class="md-nav__link">
+    Example response
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -2079,6 +2106,33 @@
         
           <li class="md-nav__item">
   <a href="#example-response_4" title="Example response" class="md-nav__link">
+    Example response
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-appsapp-slugbuildsbuild-sluglog" title="GET /apps/{APP-SLUG}/builds/{BUILD-SLUG}/log" class="md-nav__link">
+    GET /apps/{APP-SLUG}/builds/{BUILD-SLUG}/log
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-curl-request_5" title="Example curl request" class="md-nav__link">
+    Example curl request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-response_5" title="Example response" class="md-nav__link">
     Example response
   </a>
   
@@ -2369,6 +2423,60 @@ as well as we might change things a bit if required.</p>
     &quot;triggered_at&quot;: &quot;2017-05-30T15:47:17.135312Z&quot;,
     &quot;triggered_workflow&quot;: &quot;primary&quot;
   }
+}</code></pre>
+
+
+<h3 id="get-appsapp-slugbuildsbuild-sluglog">GET /apps/{APP-SLUG}/builds/{BUILD-SLUG}/log<a class="headerlink" href="#get-appsapp-slugbuildsbuild-sluglog" title="Permanent link">⚓</a></h3>
+<p>Get the <strong>log info</strong> of a specific Build.</p>
+<p>The log info includes the last couple of <strong>chunks</strong> (<code>log_chunks</code>) of the build log,
+as well as other meta infos like how many chunks were generated during the build (<code>generated_log_chunks_num</code>).</p>
+<p>Once the build is finished and the full log is available in the log archives (<code>"is_archived": true</code>)
+the response will also include an <strong>expiring</strong>, read only download URL (<code>expiring_raw_log_url</code>).</p>
+<p>There's no guarantee for how long this expiring raw log URL will exist (other than "for a couple of minutes"),
+so please <strong>do not store</strong> this URL! If you want to retrieve the full (raw) log please:</p>
+<ol>
+<li>Call this log info endpoint</li>
+<li>And right after that, when you get the response, parse the <code>expiring_raw_log_url</code> from it and send a <code>GET</code> request to that URL as soon as possible.</li>
+</ol>
+<p><strong>Important:</strong> when you send your <code>GET</code> request to the <code>expiring_raw_log_url</code> URL please <strong>do not</strong> include the Authorization headers.
+In fact, you should not include any special header at all; just create a simple GET request and send it to the <code>expiring_raw_log_url</code> url.
+The <code>expiring_raw_log_url</code> is configured so that it does not require any other parameter other than what's included in the URL.</p>
+<h4 id="example-curl-request_5">Example <code>curl</code> request<a class="headerlink" href="#example-curl-request_5" title="Permanent link">⚓</a></h4>
+<pre class="code"><code>curl -H 'Authorization: token THE-ACCESS-TOKEN' 'https://api.bitrise.io/v0.1/apps/APP-SLUG/builds/BUILD-SLUG/log'</code></pre>
+
+
+<h4 id="example-response_5">Example response<a class="headerlink" href="#example-response_5" title="Permanent link">⚓</a></h4>
+<pre class="code"><code>{
+  &quot;expiring_raw_log_url&quot;: &quot;https://bitrise-build-log-archives-production.s3.amazonaws.com/build-logs-v2/669403bffbe35909/3247e2920496e846/2194500/3247e2920496e846.log?X-Amz-Algorithm=AWS4-HMAC-SHA256\u0026X-Amz-Credential=AKIAIOC7N256G7J2W2TQ%2F20170706%2Fus-east-1%2Fs3%2Faws4_request\u0026X-Amz-Date=20170706T104757Z\u0026X-Amz-Expires=600\u0026X-Amz-SignedHeaders=host\u0026X-Amz-Signature=cdb386a2b3b509dc0229b156af0420fef711f6a8200f2cda84888a606260f850&quot;,
+  &quot;generated_log_chunks_num&quot;: 6,
+  &quot;is_archived&quot;: true,
+  &quot;log_chunks&quot;: [
+    {
+      &quot;chunk&quot;: &quot;\n  ██████╗ ██╗████████╗██████╗ ██╗███████╗███████╗\n  ██╔══██╗██║╚══██╔══╝██╔══██╗██║██╔════╝██╔════╝\n  ██████╔╝██║   ██║   ██████╔╝██║███████╗█████╗\n  ██╔══██╗██║   ██║   ██╔══██╗██║╚════██║██╔══╝\n  ██████╔╝██║   ██║   ██║  ██║██║███████║███████╗\n  ╚═════╝ ╚═╝   ╚═╝   ╚═╝  ╚═╝╚═╝╚══════╝╚══════╝\n\n\u001b[32;1mVersion: 1.6.1\u001b[0m\n\n\u001b[34mINFO\u001b[0m[15:47:21] \u001b[33;1mbitrise runs in CI mode\u001b[0m           \n\u001b[34mINFO\u001b[0m[15:47:21] \u001b[32;1mRunning workflow:\u001b[0m primary         \n\n\u001b[34;1mSwitching to workflow:\u001b[0m primary\n\n&quot;,
+      &quot;position&quot;: 0
+    },
+    {
+      &quot;chunk&quot;: &quot;+------------------------------------------------------------------------------+\n| (0) activate-ssh-key@3.1.1                                                   |\n+------------------------------------------------------------------------------+\n| id: activate-ssh-key                                                         |\n| version: 3.1.1                                                               |\n| collection: https://github.com/bitrise-io/bitrise-steplib.git                |\n| toolkit: bash                                                                |\n| time: 2017-05-30T15:47:26Z                                                   |\n+------------------------------------------------------------------------------+\n|                                                                              |\n|                                                                              |\n+---+---------------------------------------------------------------+----------+\n| \u001b[34;1m-\u001b[0m | \u001b[34;1mactivate-ssh-key@3.1.1\u001b[0m                                        | 2.32 sec |\n+---+---------------------------------------------------------------+----------+\n\n                                          ▼\n\n\u001b[33mWARN\u001b[0m[15:47:26] The step's (activate-ssh-key@3.1.1) Run-If expression evaluated to false - skipping \n\u001b[34mINFO\u001b[0m[15:47:26] The Run-If expression was: \u001b[34;1m{{getenv \&quot;SSH_RSA_PRIVATE_KEY\&quot; | ne \&quot;\&quot;}}\u001b[0m \n&quot;,
+      &quot;position&quot;: 1
+    },
+    {
+      &quot;chunk&quot;: &quot;+------------------------------------------------------------------------------+\n| (1) git-clone@3.4.3                                                          |\n+------------------------------------------------------------------------------+\n| id: git-clone                                                                |\n| version: 3.4.3                                                               |\n| collection: https://github.com/bitrise-io/bitrise-steplib.git                |\n| toolkit: go                                                                  |\n| time: 2017-05-30T15:47:27Z                                                   |\n+------------------------------------------------------------------------------+\n|                                                                              |\n\u001b[34mINFO\u001b[0m[15:47:27] Start installing (golang) with apt-get       \n\u001b[34mINFO\u001b[0m[15:47:27]  * \u001b[32;1m[OK]\u001b[0m Step dependency (go) installed, available. \n&quot;,
+      &quot;position&quot;: 2
+    },
+    {
+      &quot;chunk&quot;: &quot;\n\u001b[34;1mGit Clone Configs:\u001b[0m\n- CloneIntoDir: /bitrise/src\n- RepositoryURL: https://github.com/bitrise-samples/sample-apps-android-sdk22.git\n\u001b[34;1mGit Checkout Configs:\u001b[0m\n- Commit: \n- Tag: \n- Branch: master\n- CloneDepth: \n\u001b[34;1mGit Pull Request Configs:\u001b[0m\n- PullRequestURI: \n- PullRequestID: \n- BranchDest: \n- PullRequestMergeBranch: \n- ResetRepository: No\n\u001b[34;1mBitrise Build Configs:\u001b[0m\n- BuildURL: https://www.bitrise.io/build/3247e2920496e846\n- BuildAPIToken: XtFWIhNx22MMMA6DcPXBGw\n\n\u001b[34;1mGit clone repository\u001b[0m\n=\u003e git \&quot;init\&quot;\n=\u003e git \&quot;remote\&quot; \&quot;add\&quot; \&quot;origin\&quot; \&quot;https://github.com/bitrise-samples/sample-apps-android-sdk22.git\&quot;\n=\u003e git \&quot;fetch\&quot;\n&quot;,
+      &quot;position&quot;: 3
+    },
+    {
+      &quot;chunk&quot;: &quot;=\u003e git \&quot;checkout\&quot; \&quot;master\&quot;\n=\u003e git \&quot;submodule\&quot; \&quot;update\&quot; \&quot;--init\&quot; \&quot;--recursive\&quot;\n\u001b[34;1mExporting git logs\u001b[0m\n=\u003e GIT_CLONE_COMMIT_HASH\n   value: b4e7cad230e3fc2f2f84dbb455c7ac7f89a3a18b\n\n=\u003e GIT_CLONE_COMMIT_MESSAGE_SUBJECT\n   value: downgrade to com.android.tools.build:gradle:2.1.0\n\n=\u003e GIT_CLONE_COMMIT_MESSAGE_BODY\n   value: \n\n=\u003e GIT_CLONE_COMMIT_AUTHOR_NAME\n   value: Viktor Benei\n\n=\u003e GIT_CLONE_COMMIT_AUTHOR_EMAIL\n   value: viktor.benei@gmail.com\n\n=\u003e GIT_CLONE_COMMIT_COMMITER_NAME\n   value: GitHub\n\n=\u003e GIT_CLONE_COMMIT_COMMITER_EMAIL\n   value: noreply@github.com\n\n\u001b[32;1mSuccess\u001b[0m\n|                                                                              |\n+---+---------------------------------------------------------------+----------+\n| \u001b[32;1m✓\u001b[0m | \u001b[32;1mgit-clone@3.4.3\u001b[0m                                               | 8.77 sec |\n+---+---------------------------------------------------------------+----------+\n\n                                          ▼\n\n+------------------------------------------------------------------------------+\n| (2) Sleep                                                                    |\n+------------------------------------------------------------------------------+\n| id: script                                                                   |\n| version: 1.1.3                                                               |\n| collection: https://github.com/bitrise-io/bitrise-steplib.git                |\n| toolkit: bash                                                                |\n| time: 2017-05-30T15:47:35Z                                                   |\n+------------------------------------------------------------------------------+\n|                                                                              |\n&quot;,
+      &quot;position&quot;: 4
+    },
+    {
+      &quot;chunk&quot;: &quot;+ sleep 30\n&quot;,
+      &quot;position&quot;: 5
+    }
+  ],
+  &quot;timestamp&quot;: &quot;2017-05-30T15:47:39.567+00:00&quot;
 }</code></pre>
 
 
