@@ -1776,8 +1776,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#get-appsapp-slugbuilds" title="GET /apps/{APP-SLUG}/builds" class="md-nav__link">
-    GET /apps/{APP-SLUG}/builds
+  <a href="#get-appsapp-slug" title="GET /apps/{APP-SLUG}" class="md-nav__link">
+    GET /apps/{APP-SLUG}
   </a>
   
     <nav class="md-nav">
@@ -1803,8 +1803,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#get-appsapp-slugbuildsbuild-slug" title="GET /apps/{APP-SLUG}/builds/{BUILD-SLUG}" class="md-nav__link">
-    GET /apps/{APP-SLUG}/builds/{BUILD-SLUG}
+  <a href="#get-appsapp-slugbuilds" title="GET /apps/{APP-SLUG}/builds" class="md-nav__link">
+    GET /apps/{APP-SLUG}/builds
   </a>
   
     <nav class="md-nav">
@@ -1819,6 +1819,33 @@
         
           <li class="md-nav__item">
   <a href="#example-response_3" title="Example response" class="md-nav__link">
+    Example response
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-appsapp-slugbuildsbuild-slug" title="GET /apps/{APP-SLUG}/builds/{BUILD-SLUG}" class="md-nav__link">
+    GET /apps/{APP-SLUG}/builds/{BUILD-SLUG}
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-curl-request_4" title="Example curl request" class="md-nav__link">
+    Example curl request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-response_4" title="Example response" class="md-nav__link">
     Example response
   </a>
   
@@ -1982,8 +2009,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#get-appsapp-slugbuilds" title="GET /apps/{APP-SLUG}/builds" class="md-nav__link">
-    GET /apps/{APP-SLUG}/builds
+  <a href="#get-appsapp-slug" title="GET /apps/{APP-SLUG}" class="md-nav__link">
+    GET /apps/{APP-SLUG}
   </a>
   
     <nav class="md-nav">
@@ -2009,8 +2036,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#get-appsapp-slugbuildsbuild-slug" title="GET /apps/{APP-SLUG}/builds/{BUILD-SLUG}" class="md-nav__link">
-    GET /apps/{APP-SLUG}/builds/{BUILD-SLUG}
+  <a href="#get-appsapp-slugbuilds" title="GET /apps/{APP-SLUG}/builds" class="md-nav__link">
+    GET /apps/{APP-SLUG}/builds
   </a>
   
     <nav class="md-nav">
@@ -2025,6 +2052,33 @@
         
           <li class="md-nav__item">
   <a href="#example-response_3" title="Example response" class="md-nav__link">
+    Example response
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-appsapp-slugbuildsbuild-slug" title="GET /apps/{APP-SLUG}/builds/{BUILD-SLUG}" class="md-nav__link">
+    GET /apps/{APP-SLUG}/builds/{BUILD-SLUG}
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-curl-request_4" title="Example curl request" class="md-nav__link">
+    Example curl request
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-response_4" title="Example response" class="md-nav__link">
     Example response
   </a>
   
@@ -2185,6 +2239,21 @@ as well as we might change things a bit if required.</p>
 }</code></pre>
 
 
+<h3 id="get-appsapp-slug">GET /apps/{APP-SLUG}<a class="headerlink" href="#get-appsapp-slug" title="Permanent link">⚓</a></h3>
+<p>Get a specific app's data.</p>
+<h4 id="example-curl-request_2">Example <code>curl</code> request<a class="headerlink" href="#example-curl-request_2" title="Permanent link">⚓</a></h4>
+<pre class="code"><code>curl -H 'Authorization: token THE-ACCESS-TOKEN' https://api.bitrise.io/v0.1/apps/APP-SLUG</code></pre>
+
+
+<h4 id="example-response_2">Example response<a class="headerlink" href="#example-response_2" title="Permanent link">⚓</a></h4>
+<pre class="code"><code>{
+  &quot;data&quot;: {
+    &quot;slug&quot;: &quot;669403bffbe35909&quot;,
+    &quot;title&quot;: &quot;sample-apps-android-sdk22&quot;
+  }
+}</code></pre>
+
+
 <h3 id="get-appsapp-slugbuilds">GET /apps/{APP-SLUG}/builds<a class="headerlink" href="#get-appsapp-slugbuilds" title="Permanent link">⚓</a></h3>
 <p>Get the builds of a specific app.</p>
 <p>Status codes (<code>status</code>) and related status texts (<code>status_text</code>):</p>
@@ -2206,11 +2275,11 @@ as well as we might change things a bit if required.</p>
 <li><strong><code>environment_prepare_finished_at</code></strong> is the time when the environment of the build was fully prepared; the build starts right after this, usually under a second.</li>
 <li><strong><code>finished_at</code></strong> is when the build finished (with success or error, or the time of the "abort" if it was aborted). <code>finished_at</code> is <code>nil</code> in case of a running build.</li>
 </ul>
-<h4 id="example-curl-request_2">Example <code>curl</code> request<a class="headerlink" href="#example-curl-request_2" title="Permanent link">⚓</a></h4>
+<h4 id="example-curl-request_3">Example <code>curl</code> request<a class="headerlink" href="#example-curl-request_3" title="Permanent link">⚓</a></h4>
 <pre class="code"><code>curl -H 'Authorization: token THE-ACCESS-TOKEN' 'https://api.bitrise.io/v0.1/apps/APP-SLUG/builds'</code></pre>
 
 
-<h4 id="example-response_2">Example response<a class="headerlink" href="#example-response_2" title="Permanent link">⚓</a></h4>
+<h4 id="example-response_3">Example response<a class="headerlink" href="#example-response_3" title="Permanent link">⚓</a></h4>
 <pre class="code"><code>{
   &quot;data&quot;: [
     {
@@ -2277,11 +2346,11 @@ as well as we might change things a bit if required.</p>
 <p>Get a specific build's data.</p>
 <p>Status codes (<code>status</code>) and related status texts (<code>status_text</code>): <strong>See the <a href="#get-appsapp-slugbuilds"><code>GET /apps/{APP-SLUG}/builds</code> endpoint description</a></strong></p>
 <p>Build times: <strong>See the <a href="#get-appsapp-slugbuilds"><code>GET /apps/{APP-SLUG}/builds</code> endpoint description</a></strong></p>
-<h4 id="example-curl-request_3">Example <code>curl</code> request<a class="headerlink" href="#example-curl-request_3" title="Permanent link">⚓</a></h4>
+<h4 id="example-curl-request_4">Example <code>curl</code> request<a class="headerlink" href="#example-curl-request_4" title="Permanent link">⚓</a></h4>
 <pre class="code"><code>curl -H 'Authorization: token THE-ACCESS-TOKEN' 'https://api.bitrise.io/v0.1/apps/APP-SLUG/builds/BUILD-SLUG'</code></pre>
 
 
-<h4 id="example-response_3">Example response<a class="headerlink" href="#example-response_3" title="Permanent link">⚓</a></h4>
+<h4 id="example-response_4">Example response<a class="headerlink" href="#example-response_4" title="Permanent link">⚓</a></h4>
 <pre class="code"><code>{
   &quot;data&quot;: {
     &quot;abort_reason&quot;: &quot;User api-demo requested to abort this build with reason: This is an example abort build&quot;,
