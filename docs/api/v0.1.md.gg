@@ -239,6 +239,24 @@ curl -H 'Authorization: token THE-ACCESS-TOKEN' 'https://api.bitrise.io/v0.1/app
 {{ (var "/v0.1/apps/669403bffbe35909/builds/3247e2920496e846/log").GET }}
 ```
 
+### POST /apps/{APP-SLUG}/builds/{BUILD-SLUG}/cancel
+
+Cancel (abort) the specified build, optionally specifying an "abort reason" message
+which can be retrieved through the API and will be shown on the Web UI.
+
+
+#### Example `curl` request
+
+```
+curl -X POST -H 'Authorization: token THE-ACCESS-TOKEN' 'https://api.bitrise.io/v0.1/apps/APP-SLUG/builds/BUILD-SLUG/cancel'
+```
+
+#### Example response
+
+```
+WIP!
+```
+
 
 ## WIP / working on it
 
