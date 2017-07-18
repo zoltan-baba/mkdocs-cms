@@ -1815,6 +1815,7 @@
 
 
 <h3 id="solution">Solution<a class="headerlink" href="#solution" title="Permanent link">⚓</a></h3>
+<p><strong>Please use the <code>Install missing Android tools</code> step. The section below is kept only for referencing purposes!</strong></p>
 <p>The error means that your build requires an Android package which is either not (yet) preinstalled
 (<em>you can see which packages are preinstalled <a href="https://github.com/bitrise-docker/android/blob/master/Dockerfile#L30">here, on GitHub</a> -
 feel free to send us a Pull Request if you'd want to add a new preinstalled package!</em>),
@@ -1829,12 +1830,16 @@ set -e
 # debug log
 set -x
 
-# write your script here
+# For newer Android SDK:
+sdkmanager &quot;extras;android;m2repository&quot;
+sdkmanager &quot;extras;google;m2repository&quot;
+
+# For older Android SDK:
 echo y | android update sdk --no-ui --all --filter extra-android-m2repository | grep 'package installed'
 echo y | android update sdk --no-ui --all --filter extra-google-m2repository | grep 'package installed'</code></pre>
 
 
-<p>In most cases you don't need all three packages to be updated, so you can try to remove them one
+<p>In most cases you don't need both packages to be updated, so you can try to remove them one
 by one, but having all three in the script covers most of the cases related to this error.</p>
 <div class="admonition note">
 <p class="admonition-title">We update the preinstalled Android packages on every weekend</p>
@@ -1842,6 +1847,7 @@ by one, but having all three in the script covers most of the cases related to t
 we describe here can be removed from your build after that weekend's update.</p>
 </div>
 <h3 id="alternative-solution-for-the-license-error">Alternative solution for the license error<a class="headerlink" href="#alternative-solution-for-the-license-error" title="Permanent link">⚓</a></h3>
+<p><strong>Please use the <code>Install missing Android tools</code> step. The section below is kept only for referencing purposes!</strong></p>
 <p>An alternative solution for the <code>You have not accepted the license agreements of the following SDK components</code>
 error, as printed in the log:</p>
 <pre class="code"><code>Before building your project, you need to accept the license agreements and complete the installation of the missing components using the Android Studio SDK Manager.
@@ -1874,31 +1880,7 @@ rsync -avhP ./android-licenses/ &quot;$ANDROID_HOME/licenses/&quot;</code></pre>
 <p>That's all, this script copies the licenses from the <code>android-licenses</code> (from your repository)
 into the system's Android SDK Home path under <code>licenses</code> directory.</p>
 <h2 id="install-an-additional-android-package">Install an additional Android package<a class="headerlink" href="#install-an-additional-android-package" title="Permanent link">⚓</a></h2>
-<p>An Android package (e.g. a build tool version) is not preinstalled or missing?
-No problem at all, the solution is quite simple!</p>
-<p>Just add a <code>Script</code> step to your Workflow (can be the very first step)
-and run <code>android sdk update ..</code> with the package you want to install.</p>
-<p>An example <code>Script</code> step content which installs <code>build-tools-24.0.3</code>:</p>
-<pre class="code"><code class="language-bash linenums">#!/bin/bash
-# fail if any commands fails
-set -e
-# debug log
-set -x
-
-# write your script here
-echo y | android update sdk --no-ui --all --filter build-tools-24.0.3 | grep 'package installed'</code></pre>
-
-
-<p>This should work for any other Android package - you can
-get the full available Android package list by running this on your Mac/PC:</p>
-<pre class="code"><code>android list sdk --no-ui --all --extended</code></pre>
-
-
-<div class="admonition note">
-<p class="admonition-title">Request a package to be pre-installed</p>
-<p>If we missed an Android package which should be pre-installed,
-feel free to create a Pull Request here: <a href="https://github.com/bitrise-docker/android/blob/master/Dockerfile">https://github.com/bitrise-docker/android/blob/master/Dockerfile</a></p>
-</div>
+<p>Please see <a href="../../android/android-tips-and-tricks/#how-to-install-an-additional-android-sdk-package">this section</a>.</p>
               
             </article>
           </div>

@@ -1892,8 +1892,11 @@ and about how you can generate one (if you would not have one already)</strong>
 in the official guide at: <a href="https://docs.gradle.org/current/userguide/gradle_wrapper.html">https://docs.gradle.org/current/userguide/gradle_wrapper.html</a>.</p>
 </blockquote>
 <h2 id="how-to-install-an-additional-android-sdk-package">How to install an additional Android SDK package<a class="headerlink" href="#how-to-install-an-additional-android-sdk-package" title="Permanent link">⚓</a></h2>
+<p><strong>The preferred way to do this is to use the <code>Install missing Android tools</code> step.
+Please only use a Script solution if you really have to, as you'll have to update
+the Script if the Android tools change (which did happen).</strong></p>
 <p>All you have to do is to add a <code>Script</code> step to your workflow,
-and use <code>android update sdk</code> to install the additional SDKs or packages you want to.</p>
+and use the Android <code>sdkmanager</code> tool to install the additional packages you want to.</p>
 <p>As an example, to install the Android SDK v18 and the related <code>build-tools</code> v18.0.1,
 you can add a <code>Script</code> step (can be the very first step in the Workflow)
 with the following content:</p>
@@ -1904,25 +1907,14 @@ set -e
 set -x
 
 # write your script here
-echo y | android update sdk --no-ui --all --filter android-18 | grep 'package installed'
-echo y | android update sdk --no-ui --all --filter build-tools-18.0.1 | grep 'package installed'</code></pre>
+sdkmanager &quot;platforms;android-18&quot;
+sdkmanager &quot;build-tools;18.0.1&quot;</code></pre>
 
 
-<p><em>The <code>echo y |</code> prefix is really important.
-If you miss to include this your build will hang waiting for your input,
-to accept the license agreements presented during an Android SDK / package install.</em></p>
 <p><strong>You can get the full list of available packages</strong> by running:
-<code>android list sdk --no-ui --all --extended</code>. You can run this on your own machine if you have <code>android</code> in your <code>$PATH</code>.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>You should only install the Android tools which are <em>not</em> yet installed.
-Calling <code>android update</code> for an already installed tool might fail if it can't create a backup -
-which is the case if you use the default <code>Docker</code> file system driver (<code>aufs</code>).</p>
-<p><em>This issue does not affect builds running on <a href="https://www.bitrise.io">bitrise.io</a>,
-as the filesystem driver for <code>docker</code> is set to <code>btrfs</code> instead of the default <code>aufs</code>.</em></p>
-<p>You can check all the pre-installed tools in the official Bitrise Android Dockerfile:
-<a href="https://github.com/bitrise-docker/android/blob/master/Dockerfile">https://github.com/bitrise-docker/android/blob/master/Dockerfile</a></p>
-</div>
+<code>sdkmanager --list --include_obsolete --verbose</code>.
+You can run this on your own machine if you have <code>$ANDROID_HOME/tools/bin</code> in your <code>$PATH</code>.
+If not then you can run it with <code>/PATH/TO/ANDROID-SDK-HOME/tools/bin/sdkmanager ...</code>.</p>
 <h2 id="enable-gradle-debug-options">Enable Gradle debug options<a class="headerlink" href="#enable-gradle-debug-options" title="Permanent link">⚓</a></h2>
 <p>If your Gradle build fails and you can't find any information in the logs you can try to call it with
 <code>--stacktrace --debug</code> flags (ex: <code>gradle ... --stacktrace --debug</code>) to get more detailed logs.</p>
@@ -1949,18 +1941,9 @@ where you can set the Android version and a couple of other parameters for the n
 then you can boot this emulator with the <code>Start Android emulator</code> step,
 which makes sure that the emulator is booted and ready for subsequent steps.</p>
 <h3 id="emulator-with-google-apis">Emulator with Google APIs<a class="headerlink" href="#emulator-with-google-apis" title="Permanent link">⚓</a></h3>
-<p>To create an Android Emulator with Google APIs,
-you can use the following code snippet instead of the <code>Create Android emulator</code> step:</p>
-<pre class="code"><code class="language-bash linenums">#!/bin/bash
-set -ex
-
-echo y | android update sdk --no-ui --all --filter addon-google_apis-google-21
-
-echo y | android update sdk --no-ui --all --filter sys-img-armeabi-v7a-google_apis-21
-
-echo no | android create avd --force --name YOUR_EMULATOR_NAME --target &quot;android-21&quot; --abi &quot;google_apis/armeabi-v7a&quot;</code></pre>
-
-
+<p><strong>Instead of using a Script step to create an android emulator please use the <code>Create Android emulator</code> step!
+There are simply too many edge cases to cover here, as well as the commands and working configurations change quite frequently.</strong></p>
+<p><em>The section below is kept here for referencing purposes, and might be outdated.</em></p>
 <p><strong>Note about Android SDK versions:</strong> at this time there are lots of known issues reported for Android Emulators
 with Android SDK version 22 &amp; 23 when combined with Google Play services
 (see <a href="http://stackoverflow.com/questions/32856919/androidstudio-emulator-wont-run-unless-you-update-google-play-services">1</a>
