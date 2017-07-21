@@ -2337,6 +2337,56 @@ as well as we might change things a bit if required.</p>
 <pre class="code"><code>{
   &quot;data&quot;: [
     {
+      &quot;abort_reason&quot;: null,
+      &quot;branch&quot;: &quot;master&quot;,
+      &quot;build_number&quot;: 14,
+      &quot;commit_hash&quot;: null,
+      &quot;commit_message&quot;: null,
+      &quot;environment_prepare_finished_at&quot;: &quot;2017-07-19T16:29:59Z&quot;,
+      &quot;finished_at&quot;: &quot;2017-07-19T16:31:38Z&quot;,
+      &quot;is_on_hold&quot;: false,
+      &quot;original_build_params&quot;: {
+        &quot;branch&quot;: &quot;master&quot;
+      },
+      &quot;pull_request_id&quot;: 0,
+      &quot;pull_request_target_branch&quot;: null,
+      &quot;slug&quot;: &quot;9fb8eaaa4bdd3763&quot;,
+      &quot;stack_config_type&quot;: &quot;standard1&quot;,
+      &quot;stack_identifier&quot;: null,
+      &quot;started_on_worker_at&quot;: &quot;2017-07-19T16:28:51Z&quot;,
+      &quot;status&quot;: 1,
+      &quot;status_text&quot;: &quot;success&quot;,
+      &quot;tag&quot;: null,
+      &quot;triggered_at&quot;: &quot;2017-07-19T16:28:50.744603Z&quot;,
+      &quot;triggered_by&quot;: &quot;manual-api-demo&quot;,
+      &quot;triggered_workflow&quot;: &quot;primary&quot;
+    },
+    {
+      &quot;abort_reason&quot;: null,
+      &quot;branch&quot;: &quot;master&quot;,
+      &quot;build_number&quot;: 13,
+      &quot;commit_hash&quot;: null,
+      &quot;commit_message&quot;: null,
+      &quot;environment_prepare_finished_at&quot;: &quot;2017-07-19T16:26:33Z&quot;,
+      &quot;finished_at&quot;: &quot;2017-07-19T16:27:50Z&quot;,
+      &quot;is_on_hold&quot;: false,
+      &quot;original_build_params&quot;: {
+        &quot;branch&quot;: &quot;master&quot;
+      },
+      &quot;pull_request_id&quot;: 0,
+      &quot;pull_request_target_branch&quot;: null,
+      &quot;slug&quot;: &quot;78c605ea44677118&quot;,
+      &quot;stack_config_type&quot;: &quot;standard1&quot;,
+      &quot;stack_identifier&quot;: null,
+      &quot;started_on_worker_at&quot;: &quot;2017-07-19T16:23:01Z&quot;,
+      &quot;status&quot;: 1,
+      &quot;status_text&quot;: &quot;success&quot;,
+      &quot;tag&quot;: null,
+      &quot;triggered_at&quot;: &quot;2017-07-19T16:23:00.523386Z&quot;,
+      &quot;triggered_by&quot;: &quot;manual-api-demo&quot;,
+      &quot;triggered_workflow&quot;: &quot;primary&quot;
+    },
+    {
       &quot;abort_reason&quot;: &quot;User api-demo requested to abort this build with reason: canceled through the API&quot;,
       &quot;branch&quot;: &quot;master&quot;,
       &quot;build_number&quot;: 12,
@@ -2345,53 +2395,28 @@ as well as we might change things a bit if required.</p>
       &quot;environment_prepare_finished_at&quot;: &quot;2017-06-20T22:35:03Z&quot;,
       &quot;finished_at&quot;: &quot;2017-06-20T22:35:15Z&quot;,
       &quot;is_on_hold&quot;: false,
+      &quot;original_build_params&quot;: {
+        &quot;branch&quot;: &quot;master&quot;,
+        &quot;commit_message&quot;: &quot;this build will be aborted through the API&quot;
+      },
+      &quot;pull_request_id&quot;: 0,
+      &quot;pull_request_target_branch&quot;: null,
       &quot;slug&quot;: &quot;ce86c8475d31d288&quot;,
+      &quot;stack_config_type&quot;: &quot;standard1&quot;,
+      &quot;stack_identifier&quot;: null,
       &quot;started_on_worker_at&quot;: &quot;2017-06-20T22:35:03Z&quot;,
       &quot;status&quot;: 3,
       &quot;status_text&quot;: &quot;aborted&quot;,
       &quot;tag&quot;: null,
       &quot;triggered_at&quot;: &quot;2017-06-20T22:35:02.40449Z&quot;,
-      &quot;triggered_workflow&quot;: &quot;primary&quot;
-    },
-    {
-      &quot;abort_reason&quot;: null,
-      &quot;branch&quot;: &quot;master&quot;,
-      &quot;build_number&quot;: 11,
-      &quot;commit_hash&quot;: &quot;b4e7cad230e3fc2f2f84dbb455c7ac7f89a3a18b&quot;,
-      &quot;commit_message&quot;: &quot;API Demo - commit hash example\n\nThis build has a specified commit hash&quot;,
-      &quot;environment_prepare_finished_at&quot;: &quot;2017-06-20T22:31:28Z&quot;,
-      &quot;finished_at&quot;: &quot;2017-06-20T22:33:00Z&quot;,
-      &quot;is_on_hold&quot;: false,
-      &quot;slug&quot;: &quot;c518445a250a5848&quot;,
-      &quot;started_on_worker_at&quot;: &quot;2017-06-20T22:31:28Z&quot;,
-      &quot;status&quot;: 1,
-      &quot;status_text&quot;: &quot;success&quot;,
-      &quot;tag&quot;: null,
-      &quot;triggered_at&quot;: &quot;2017-06-20T22:31:27.940493Z&quot;,
-      &quot;triggered_workflow&quot;: &quot;primary&quot;
-    },
-    {
-      &quot;abort_reason&quot;: &quot;User api-demo requested to abort this build with reason: This is an example abort build&quot;,
-      &quot;branch&quot;: &quot;master&quot;,
-      &quot;build_number&quot;: 10,
-      &quot;commit_hash&quot;: null,
-      &quot;commit_message&quot;: &quot;Abort example&quot;,
-      &quot;environment_prepare_finished_at&quot;: &quot;2017-05-30T15:47:17Z&quot;,
-      &quot;finished_at&quot;: &quot;2017-05-30T15:47:32Z&quot;,
-      &quot;is_on_hold&quot;: false,
-      &quot;slug&quot;: &quot;3247e2920496e846&quot;,
-      &quot;started_on_worker_at&quot;: &quot;2017-05-30T15:47:17Z&quot;,
-      &quot;status&quot;: 3,
-      &quot;status_text&quot;: &quot;aborted&quot;,
-      &quot;tag&quot;: null,
-      &quot;triggered_at&quot;: &quot;2017-05-30T15:47:17.135312Z&quot;,
+      &quot;triggered_by&quot;: null,
       &quot;triggered_workflow&quot;: &quot;primary&quot;
     }
   ],
   &quot;paging&quot;: {
-    &quot;next&quot;: &quot;5267720a89cb298d&quot;,
+    &quot;next&quot;: &quot;c518445a250a5848&quot;,
     &quot;page_item_limit&quot;: 3,
-    &quot;total_item_count&quot;: 12
+    &quot;total_item_count&quot;: 14
   }
 }</code></pre>
 
@@ -2415,12 +2440,21 @@ as well as we might change things a bit if required.</p>
     &quot;environment_prepare_finished_at&quot;: &quot;2017-05-30T15:47:17Z&quot;,
     &quot;finished_at&quot;: &quot;2017-05-30T15:47:32Z&quot;,
     &quot;is_on_hold&quot;: false,
+    &quot;original_build_params&quot;: {
+      &quot;branch&quot;: &quot;master&quot;,
+      &quot;commit_message&quot;: &quot;Abort example&quot;
+    },
+    &quot;pull_request_id&quot;: 0,
+    &quot;pull_request_target_branch&quot;: null,
     &quot;slug&quot;: &quot;3247e2920496e846&quot;,
+    &quot;stack_config_type&quot;: null,
+    &quot;stack_identifier&quot;: null,
     &quot;started_on_worker_at&quot;: &quot;2017-05-30T15:47:17Z&quot;,
     &quot;status&quot;: 3,
     &quot;status_text&quot;: &quot;aborted&quot;,
     &quot;tag&quot;: null,
     &quot;triggered_at&quot;: &quot;2017-05-30T15:47:17.135312Z&quot;,
+    &quot;triggered_by&quot;: null,
     &quot;triggered_workflow&quot;: &quot;primary&quot;
   }
 }</code></pre>
@@ -2447,7 +2481,7 @@ The <code>expiring_raw_log_url</code> is configured so that it does not require 
 
 <h4 id="example-response_5">Example response<a class="headerlink" href="#example-response_5" title="Permanent link">⚓</a></h4>
 <pre class="code"><code>{
-  &quot;expiring_raw_log_url&quot;: &quot;https://bitrise-build-log-archives-production.s3.amazonaws.com/build-logs-v2/669403bffbe35909/3247e2920496e846/2194500/3247e2920496e846.log?X-Amz-Algorithm=AWS4-HMAC-SHA256\u0026X-Amz-Credential=AKIAIOC7N256G7J2W2TQ%2F20170714%2Fus-east-1%2Fs3%2Faws4_request\u0026X-Amz-Date=20170714T112844Z\u0026X-Amz-Expires=600\u0026X-Amz-SignedHeaders=host\u0026X-Amz-Signature=55ff58e8f61f3ba72267c221d322eb35d0d02422c629ee1f804a377c747646a9&quot;,
+  &quot;expiring_raw_log_url&quot;: &quot;https://bitrise-build-log-archives-production.s3.amazonaws.com/build-logs-v2/669403bffbe35909/3247e2920496e846/2194500/3247e2920496e846.log?X-Amz-Algorithm=AWS4-HMAC-SHA256\u0026X-Amz-Credential=AKIAIOC7N256G7J2W2TQ%2F20170721%2Fus-east-1%2Fs3%2Faws4_request\u0026X-Amz-Date=20170721T182547Z\u0026X-Amz-Expires=600\u0026X-Amz-SignedHeaders=host\u0026X-Amz-Signature=79a321bd33dbcb3e8b2bbdaa4b19257e8834a33de6ba50efc0c203f6a0b66860&quot;,
   &quot;generated_log_chunks_num&quot;: 6,
   &quot;is_archived&quot;: true,
   &quot;log_chunks&quot;: [
