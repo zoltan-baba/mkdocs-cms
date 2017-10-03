@@ -2497,6 +2497,12 @@ as well as we might change things a bit if required.</p>
 
 
 <p><em>Note: the <code>next</code> property of the <code>paging</code> object is only included if there's at least one more page available. If there's no <code>next</code> property inside <code>paging</code> that means that there's no more page to retrieve.</em></p>
+<p>The <code>page_item_limit</code> property can be set with the query parameter named <code>limit</code> at the GET requests, so you can specify the size of the response pages. The default value for this parameter is 50.</p>
+<p>Example:</p>
+<ul>
+<li>Calling <code>https://api.bitrise.io/v0.1/me/apps</code> will retrieve you the first page of your apps with size of 50.</li>
+<li>If you call <code>https://api.bitrise.io/v0.1/me/apps?limit=10</code>, the response is also the first page of your apps, but it will contain only 10 elements.</li>
+</ul>
 <p>If you want to iterate through all the items this is what you have to do:</p>
 <ol>
 <li>First call the endpoint without any pagination parameters</li>
@@ -3451,7 +3457,7 @@ The <code>expiring_raw_log_url</code> is configured so that it does not require 
 
 <h4 id="example-response_5">Example response<a class="headerlink" href="#example-response_5" title="Permanent link">⚓</a></h4>
 <pre class="code"><code>{
-  &quot;expiring_raw_log_url&quot;: &quot;https://bitrise-build-log-archives-production.s3.amazonaws.com/build-logs-v2/669403bffbe35909/3247e2920496e846/2194500/3247e2920496e846.log?X-Amz-Algorithm=AWS4-HMAC-SHA256\u0026X-Amz-Credential=AKIAIOC7N256G7J2W2TQ%2F20170919%2Fus-east-1%2Fs3%2Faws4_request\u0026X-Amz-Date=20170919T120022Z\u0026X-Amz-Expires=600\u0026X-Amz-SignedHeaders=host\u0026X-Amz-Signature=9866fa3c1748ed817c2d1b189d95223bdef85635385edac3c6269652969b6934&quot;,
+  &quot;expiring_raw_log_url&quot;: &quot;https://bitrise-build-log-archives-production.s3.amazonaws.com/build-logs-v2/669403bffbe35909/3247e2920496e846/2194500/3247e2920496e846.log?X-Amz-Algorithm=AWS4-HMAC-SHA256\u0026X-Amz-Credential=AKIAIOC7N256G7J2W2TQ%2F20170919%2Fus-east-1%2Fs3%2Faws4_request\u0026X-Amz-Date=20170919T133615Z\u0026X-Amz-Expires=600\u0026X-Amz-SignedHeaders=host\u0026X-Amz-Signature=6f0c58f1678ece8d164ac7bd2eb25cf96f1e8658de6eea408d5db80ca421f46a&quot;,
   &quot;generated_log_chunks_num&quot;: 6,
   &quot;is_archived&quot;: true,
   &quot;log_chunks&quot;: [
