@@ -272,7 +272,7 @@
         }, 
         {
             "location": "/signing-up/trial-after-signing-up/", 
-            "text": "After you created your user on Bitrise your account will start with a \n2 weeks of trial\n of\nthe \nPro plan\n.\nThis means that you can setup your application and start building it with all the benefits of the paying plan.\n\n\n\n\nTip\n\n\nRead more about \noptimizing your build times\n\nto help you fit into the 10 minute limit for free accounts.", 
+            "text": "After you have created your account on Bitrise it will start with a \n14-day trial\n of\nthe \nTeam plan\n.\nThis means that you can setup your application and start building it with all the benefits of the paying plan.\n\n\nYou can see the remaining time of your trial in the header.\n\n\n\n\n\n\nTip\n\n\nRead more about \noptimizing your build times\n\nto help you fit into the 10 minute limit for free accounts.\n\n\n\n\nYou can earn extra build minutes with our \nReferral program\n.", 
             "title": "Trial after signing up"
         }, 
         {
