@@ -1922,8 +1922,13 @@
         }, 
         {
             "location": "/faq/android-x86-emulator/", 
-            "text": "A frequent question is whether it's possible to run the Android x86 emulator,\ninstead of the ARM emulators.\n\n\nUnfortunately, as far as we know, none of the public cloud environments expose the required\nhardware virtualization bit required for running the Android x86 emulator.\n\n\nIf you know about any solution, \nplease contact us\n!\n\n\nFor now, the best workaround seems to be \nOracle's Ravello\n ( \na related blog post\n )\nif you need a full emulator (with UI),\nor \nrobolectric\n for unit tests.\n\n\nAnother alternative might be to use a service like \nAWS Device Farm\n or \nOpen STF\n,\nwhere you can run the tests on real devices instead of in an emulator. Bitrise integrations are available for both those services.\n\n\nIf you know about any other, \nfeel free to contact us\n!", 
+            "text": "A frequent question is whether it's possible to run the Android x86 emulator, instead of the ARM emulators.\n\n\nAs an experiment we now allow all the required nested virtualization bits for the x86 Android emulators \non the Linux/Android stacks\n, which means that we can use the virtualization that the host machine has for running an emulator with x86 architecture, and we can thus skip the slow emulation. This is still 10-15% slower than when run on a physical machine, but it is still much faster than the armv7-a emulator.\n\n\nThis feature is only available on the Linux/Android stacks\n right now.\n\n\nAlternatives (for other stacks)\n\u2693\n\n\nFor now, the best workaround seems to be \nOracle's Ravello\n ( \na related blog post\n )\nif you need a full emulator (with UI),\nor \nrobolectric\n for unit tests.\n\n\nAnother alternative might be to use a service like \nAWS Device Farm\n or \nOpen STF\n,\nwhere you can run the tests on real devices instead of in an emulator. Bitrise integrations are available for both those services.\n\n\nIf you know about any other, \nfeel free to contact us\n!", 
             "title": "Android x86 Emulator"
+        }, 
+        {
+            "location": "/faq/android-x86-emulator/#alternatives-for-other-stacks", 
+            "text": "For now, the best workaround seems to be  Oracle's Ravello  (  a related blog post  )\nif you need a full emulator (with UI),\nor  robolectric  for unit tests.  Another alternative might be to use a service like  AWS Device Farm  or  Open STF ,\nwhere you can run the tests on real devices instead of in an emulator. Bitrise integrations are available for both those services.  If you know about any other,  feel free to contact us !", 
+            "title": "Alternatives (for other stacks)"
         }, 
         {
             "location": "/faq/how-to-generate-ssh-keypair/", 
