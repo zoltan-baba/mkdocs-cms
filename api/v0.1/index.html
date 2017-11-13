@@ -3568,7 +3568,7 @@ The <code>expiring_raw_log_url</code> is configured so that it does not require 
 
 <h4 id="example-response_5">Example response<a class="headerlink" href="#example-response_5" title="Permanent link">⚓</a></h4>
 <pre class="code"><code>{
-  &quot;expiring_raw_log_url&quot;: &quot;https://bitrise-build-log-archives-production.s3.amazonaws.com/build-logs-v2/669403bffbe35909/3247e2920496e846/2194500/3247e2920496e846.log?X-Amz-Algorithm=AWS4-HMAC-SHA256\u0026X-Amz-Credential=AKIAIOC7N256G7J2W2TQ%2F20171109%2Fus-east-1%2Fs3%2Faws4_request\u0026X-Amz-Date=20171109T181644Z\u0026X-Amz-Expires=600\u0026X-Amz-SignedHeaders=host\u0026X-Amz-Signature=10abb0f8ef679fb5d6d702035a4109facfaeed99db02fb98e8dd844fd68b55b6&quot;,
+  &quot;expiring_raw_log_url&quot;: &quot;https://bitrise-build-log-archives-production.s3.amazonaws.com/build-logs-v2/669403bffbe35909/3247e2920496e846/2194500/3247e2920496e846.log?X-Amz-Algorithm=AWS4-HMAC-SHA256\u0026X-Amz-Credential=AKIAIOC7N256G7J2W2TQ%2F20171113%2Fus-east-1%2Fs3%2Faws4_request\u0026X-Amz-Date=20171113T125210Z\u0026X-Amz-Expires=600\u0026X-Amz-SignedHeaders=host\u0026X-Amz-Signature=284d9c31c544c2635739ff1bbda0093aabd77a23e1e46edc85d3af995d259df2&quot;,
   &quot;generated_log_chunks_num&quot;: 6,
   &quot;is_archived&quot;: true,
   &quot;log_chunks&quot;: [
@@ -3612,14 +3612,14 @@ The <code>expiring_raw_log_url</code> is configured so that it does not require 
   &quot;data&quot;: [
     {
       &quot;artifact_type&quot;: &quot;file&quot;,
-      &quot;file_size_bytes&quot;: null,
+      &quot;file_size_bytes&quot;: 10,
       &quot;is_public_page_enabled&quot;: true,
       &quot;slug&quot;: &quot;0d2277e50b8d32ce&quot;,
       &quot;title&quot;: &quot;artifact-1.txt&quot;
     },
     {
       &quot;artifact_type&quot;: &quot;file&quot;,
-      &quot;file_size_bytes&quot;: null,
+      &quot;file_size_bytes&quot;: 11,
       &quot;is_public_page_enabled&quot;: false,
       &quot;slug&quot;: &quot;b69c23de1f13b998&quot;,
       &quot;title&quot;: &quot;artifact-2.txt&quot;
@@ -3642,8 +3642,8 @@ The <code>expiring_raw_log_url</code> is configured so that it does not require 
 <pre class="code"><code>{
   &quot;data&quot;: {
     &quot;artifact_type&quot;: &quot;file&quot;,
-    &quot;expiring_download_url&quot;: &quot;https://bitrise-prod-build-storage.s3.amazonaws.com/builds/9fb8eaaa4bdd3763/artifacts/2138393/artifact-1.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256\u0026X-Amz-Content-Sha256=UNSIGNED-PAYLOAD\u0026X-Amz-Credential=AKIAIOC7N256G7J2W2TQ%2F20171109%2Fus-east-1%2Fs3%2Faws4_request\u0026X-Amz-Date=20171109T181645Z\u0026X-Amz-Expires=600\u0026X-Amz-SignedHeaders=host\u0026X-Amz-Signature=4d75af392d9091254f259a22d689d64f15c9f5a8a29debe8ba56da5d04be127e&quot;,
-    &quot;file_size_bytes&quot;: null,
+    &quot;expiring_download_url&quot;: &quot;https://bitrise-prod-build-storage.s3.amazonaws.com/builds/9fb8eaaa4bdd3763/artifacts/2138393/artifact-1.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256\u0026X-Amz-Content-Sha256=UNSIGNED-PAYLOAD\u0026X-Amz-Credential=AKIAIOC7N256G7J2W2TQ%2F20171113%2Fus-east-1%2Fs3%2Faws4_request\u0026X-Amz-Date=20171113T125211Z\u0026X-Amz-Expires=600\u0026X-Amz-SignedHeaders=host\u0026X-Amz-Signature=81b7d472c40b52bb2f3a9289f7fed6177c0ee823fff150ac8f54553917949b84&quot;,
+    &quot;file_size_bytes&quot;: 10,
     &quot;is_public_page_enabled&quot;: true,
     &quot;public_install_page_url&quot;: &quot;https://www.bitrise.io/artifact/2138393/p/6e7dc9c2b99492e6aa997a2e5d3f7413&quot;,
     &quot;slug&quot;: &quot;0d2277e50b8d32ce&quot;,
@@ -3663,8 +3663,8 @@ The <code>expiring_raw_log_url</code> is configured so that it does not require 
 <pre class="code"><code>{
   &quot;data&quot;: {
     &quot;artifact_type&quot;: &quot;android-apk&quot;,
-    &quot;expiring_download_url&quot;: &quot;https://bitrise-prod-build-storage.s3.amazonaws.com/builds/ddf4134555e833d8/artifacts/3205846/app-debug.apk?X-Amz-Algorithm=AWS4-HMAC-SHA256\u0026X-Amz-Content-Sha256=UNSIGNED-PAYLOAD\u0026X-Amz-Credential=AKIAIOC7N256G7J2W2TQ%2F20171109%2Fus-east-1%2Fs3%2Faws4_request\u0026X-Amz-Date=20171109T181645Z\u0026X-Amz-Expires=600\u0026X-Amz-SignedHeaders=host\u0026X-Amz-Signature=be140a08bfb16a14ff950f525382b1677fe05dcc7047906aab2d189c4c99cf6a&quot;,
-    &quot;file_size_bytes&quot;: null,
+    &quot;expiring_download_url&quot;: &quot;https://bitrise-prod-build-storage.s3.amazonaws.com/builds/ddf4134555e833d8/artifacts/3205846/app-debug.apk?X-Amz-Algorithm=AWS4-HMAC-SHA256\u0026X-Amz-Content-Sha256=UNSIGNED-PAYLOAD\u0026X-Amz-Credential=AKIAIOC7N256G7J2W2TQ%2F20171113%2Fus-east-1%2Fs3%2Faws4_request\u0026X-Amz-Date=20171113T125211Z\u0026X-Amz-Expires=600\u0026X-Amz-SignedHeaders=host\u0026X-Amz-Signature=4e457b16a916b7733458d656a14cdae539a83245c875b908fbdafeb99df6af19&quot;,
+    &quot;file_size_bytes&quot;: 607185,
     &quot;is_public_page_enabled&quot;: true,
     &quot;public_install_page_url&quot;: &quot;https://www.bitrise.io/artifact/3205846/p/300e0121b50985fd631fe304d549006f&quot;,
     &quot;slug&quot;: &quot;5a9f5da8d5f1057c&quot;,
