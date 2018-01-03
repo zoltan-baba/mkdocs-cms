@@ -15,7 +15,7 @@
     
     
       
-        <title>Virtual Machines - Bitrise DevCenter</title>
+        <title>Outgoing Webhooks - Bitrise DevCenter</title>
       
     
     
@@ -79,11 +79,11 @@
             
               
                 <span class="md-header-nav__parent">
-                  Infrastructure
+                  API
                 </span>
               
             
-            Virtual Machines
+            Outgoing Webhooks
           
         </span>
       </div>
@@ -269,7 +269,7 @@
       
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
     <label class="md-nav__link" for="nav-3">
       Infrastructure
@@ -285,7 +285,7 @@
           
   <li class="md-nav__item">
     
-      <a href="../available-stacks/" title="Available Stacks" class="md-nav__link">
+      <a href="../../infrastructure/available-stacks/" title="Available Stacks" class="md-nav__link">
         Available Stacks
       </a>
     
@@ -296,69 +296,9 @@
           
   <li class="md-nav__item">
     
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="toc">
+      <a href="../../infrastructure/virtual-machines/" title="Virtual Machines" class="md-nav__link">
         Virtual Machines
-      </label>
-    
-    <a href="./" title="Virtual Machines" class="md-nav__link md-nav__link--active">
-      Virtual Machines
-    </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-  
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#security" title="Security" class="md-nav__link">
-    Security
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#customization" title="Customization" class="md-nav__link">
-    Customization
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#virtual-machine-updates" title="Virtual machine updates" class="md-nav__link">
-    Virtual machine updates
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#stack-updates" title="Stack updates" class="md-nav__link">
-    Stack updates
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ios-simulator-version-sdk-support" title="iOS Simulator version &amp; SDK support" class="md-nav__link">
-    iOS Simulator version &amp; SDK support
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
+      </a>
     
   </li>
 
@@ -1675,7 +1615,7 @@
       
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-21" type="checkbox" id="nav-21">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-21" type="checkbox" id="nav-21" checked>
     
     <label class="md-nav__link" for="nav-21">
       API
@@ -1691,7 +1631,7 @@
           
   <li class="md-nav__item">
     
-      <a href="../../api/build-trigger/" title="Build Trigger API" class="md-nav__link">
+      <a href="../build-trigger/" title="Build Trigger API" class="md-nav__link">
         Build Trigger API
       </a>
     
@@ -1702,7 +1642,7 @@
           
   <li class="md-nav__item">
     
-      <a href="../../api/app-status-badge/" title="App Status / Badge API" class="md-nav__link">
+      <a href="../app-status-badge/" title="App Status / Badge API" class="md-nav__link">
         App Status / Badge API
       </a>
     
@@ -1713,9 +1653,55 @@
           
   <li class="md-nav__item">
     
-      <a href="../../api/outgoing-webhooks/" title="Outgoing Webhooks" class="md-nav__link">
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
         Outgoing Webhooks
-      </a>
+      </label>
+    
+    <a href="./" title="Outgoing Webhooks" class="md-nav__link md-nav__link--active">
+      Outgoing Webhooks
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#build-events" title="Build events" class="md-nav__link">
+    Build events
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#build-triggered" title="Build triggered" class="md-nav__link">
+    Build triggered
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-finished" title="Build finished" class="md-nav__link">
+    Build finished
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -1724,7 +1710,7 @@
           
   <li class="md-nav__item">
     
-      <a href="../../api/v0.1/" title="Bitrise.io API v0.1 (Work In Progress)" class="md-nav__link">
+      <a href="../v0.1/" title="Bitrise.io API v0.1 (Work In Progress)" class="md-nav__link">
         Bitrise.io API v0.1 (Work In Progress)
       </a>
     
@@ -1755,43 +1741,29 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#security" title="Security" class="md-nav__link">
-    Security
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#customization" title="Customization" class="md-nav__link">
-    Customization
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#virtual-machine-updates" title="Virtual machine updates" class="md-nav__link">
-    Virtual machine updates
+  <a href="#build-events" title="Build events" class="md-nav__link">
+    Build events
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#stack-updates" title="Stack updates" class="md-nav__link">
-    Stack updates
+  <a href="#build-triggered" title="Build triggered" class="md-nav__link">
+    Build triggered
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#build-finished" title="Build finished" class="md-nav__link">
+    Build finished
   </a>
   
 </li>
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ios-simulator-version-sdk-support" title="iOS Simulator version &amp; SDK support" class="md-nav__link">
-    iOS Simulator version &amp; SDK support
-  </a>
   
 </li>
       
@@ -1806,61 +1778,56 @@
           <div class="md-content">
             <article class="md-content__inner md-typeset">
                
-                 <a href="https://github.com/bitrise-io/devcenter/blob/master/docs/infrastructure/virtual-machines.md" title="Edit this page" class="md-icon md-content__edit">edit</a>
+                 <a href="https://github.com/bitrise-io/devcenter/blob/master/docs/api/outgoing-webhooks.md" title="Edit this page" class="md-icon md-content__edit">edit</a>
                
               
                 
-                  <h1>Virtual Machines</h1>
+                  <h1>Outgoing Webhooks</h1>
                 
-                <p>On <a href="https://www.bitrise.io">bitrise.io</a>, we have <code>macOS</code> and <code>Linux</code> virtual machines hosted for your builds.
-You can select from multiple stacks, each with its own list of preinstalled tool versions.
-Read more about available stacks and stack prepare types in the <a href="../../infrastructure/available-stacks/">Available Stacks docs</a>.</p>
-<div class="admonition note">
-<p class="admonition-title">Passwordless sudo</p>
-<p>The user which is used for the builds is configured with <strong>passwordless sudo</strong> enabled,
-this way you are able to install all the extra things you need for your builds and for other automation.
-If a tool is not preinstalled on your Stack of choice,
-you can install it yourself - see the <a href="../../tips-and-tricks/install-additional-tools/">Install Any Additional Tool</a> guide.</p>
-</div>
-<h2 id="security">Security<a class="headerlink" href="#security" title="Permanent link">⚓</a></h2>
-<p>Every build runs in its own virtual machine and the virtual machine is rolled back to a saved state,
-the "base box" state, after the build is finished.
-This way <strong>your builds are always protected</strong> by changes made by others
-and by your previous builds and you can use a <strong>stable environment</strong> to define your build workflow,
-since <em>no state persists between builds</em>.</p>
-<p>For more information about Build/Code Security, see the <a href="../../getting-started/code-security/">Code Security</a> guide.</p>
-<h2 id="customization">Customization<a class="headerlink" href="#customization" title="Permanent link">⚓</a></h2>
-<p>You can find the <strong>macOS</strong> base box setup guide and automation scripts we use for building our
-macOS virtual machine base boxes in our <a href="https://github.com/bitrise-io/osx-box-bootstrap">OS X Box Bootstrap repository</a>.
-The repository includes every script we use for preparing these base virtual machine images.</p>
-<p>For our <strong>Linux</strong> machines, check out the <a href="https://github.com/bitrise-docker/bitrise-base">Bitrise Base Docker Image's repository</a>.</p>
-<div class="admonition note">
-<p class="admonition-title">System reports</p>
-<p>You can always check our current configurations in the
-<a href="https://github.com/bitrise-io/bitrise.io/tree/master/system_reports">system reports folder of our main repository</a>,
-to see what tools and which versions are preinstalled.</p>
-<p>These reports have been generated by the scripts, linked in the first lines of the report.</p>
-</div>
-<p>The repositories used for our virtual machine preparation are open source,
-and pull requests are welcome.
-If you'd like to have a tool pre-installed in our machines,
-feel free to add your changes and they will be included in the related Stack(s)
-the next time the Stack is updated.</p>
-<h2 id="virtual-machine-updates">Virtual machine updates<a class="headerlink" href="#virtual-machine-updates" title="Permanent link">⚓</a></h2>
-<p>Updates are always announced in the <a href="https://discuss.bitrise.io/c/changelog">#changelog category of discuss.bitrise.io</a>
-and can be seen on <a href="https://www.bitrise.io/dashboard">your Bitrise Dashboard</a>.
-We will also send you a <em>Platform Updates</em> notification about significant changes,
-unless you disable this feature under your <a href="https://www.bitrise.io/me/profile">account settings page</a>.</p>
-<h3 id="stack-updates">Stack updates<a class="headerlink" href="#stack-updates" title="Permanent link">⚓</a></h3>
-<p>In general we do stack updates once a week, during the weekends.</p>
-<p>Minor patches might be applied during the week in case we detect an issue
-with the current virtual machine environment.
-These patches do not change any pre-installed tool version, unless it's really necessary.</p>
-<p>We test every stack change as much as we can before it is
-released to avoid any changes / updates during the week.</p>
-<h2 id="ios-simulator-version-sdk-support">iOS Simulator version &amp; SDK support<a class="headerlink" href="#ios-simulator-version-sdk-support" title="Permanent link">⚓</a></h2>
-<p>All the iOS Simulator versions which can be installed
-through <em>Xcode -&gt; Preferences -&gt; Downloads</em> are installed and available.</p>
+                <p>By setting up outgoing webhooks you can make Bitrise send notifications about specific events to your web service, so you can create custom integrations.</p>
+<p>You can set the URL of your web service and select which events should trigger a notification in the Code tab of your app. Currently only build events are supported: a notification is sent when a build starts or finishes.</p>
+<p>The event type that triggered the webhook is sent in a custom header:</p>
+<pre class="code"><code>&quot;Bitrise-Event-Type&quot;: &quot;build/triggered&quot; # or &quot;build/finished&quot;</code></pre>
+
+
+<p>The recent delivery attempts of a webhook can be found on the Code tab, so you can inspect the sent payload and the given response, and even request a redelivery of a given item. (Please note that Bitrise tries to deliver an item only once, no automatic retry attempts are made: it can be requested manually.)</p>
+<h2 id="build-events">Build events<a class="headerlink" href="#build-events" title="Permanent link">⚓</a></h2>
+<h3 id="build-triggered">Build triggered<a class="headerlink" href="#build-triggered" title="Permanent link">⚓</a></h3>
+<p>Custom header:</p>
+<pre class="code"><code>&quot;Bitrise-Event-Type&quot;: &quot;build/triggered&quot;</code></pre>
+
+
+<p>Payload example:</p>
+<pre class="code"><code>{
+  &quot;build_slug&quot;:&quot;1234abcd&quot;,
+  &quot;build_number&quot;:3,
+  &quot;app_slug&quot;:&quot;abcd1234&quot;,
+  &quot;git&quot;: {
+    &quot;provider&quot;:&quot;github&quot;,
+    &quot;src_branch&quot;:&quot;feature/branch&quot;,
+    &quot;dst_branch&quot;:master, # If the build was triggered by a pull request
+    &quot;pull_request_id&quot;:32 # If the build was triggered by a pull request
+  }
+}</code></pre>
+
+
+<h3 id="build-finished">Build finished<a class="headerlink" href="#build-finished" title="Permanent link">⚓</a></h3>
+<p>Custom header:</p>
+<pre class="code"><code>&quot;Bitrise-Event-Type&quot;: &quot;build/finished&quot;</code></pre>
+
+
+<p>Payload example:</p>
+<pre class="code"><code>{
+  &quot;build_slug&quot;:&quot;1234abcd&quot;,
+  &quot;build_number&quot;:3,
+  &quot;app_slug&quot;:&quot;abcd1234&quot;,
+  &quot;git&quot;: {
+    &quot;provider&quot;:&quot;github&quot;,
+    &quot;src_branch&quot;:&quot;feature/branch&quot;,
+    &quot;dst_branch&quot;:master, # If the build was triggered by a pull request
+    &quot;pull_request_id&quot;:32 # If the build was triggered by a pull request
+  }
+}</code></pre>
               
             </article>
           </div>
@@ -1873,7 +1840,7 @@ through <em>Xcode -&gt; Preferences -&gt; Downloads</em> are installed and avail
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../available-stacks/" title="Available Stacks" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../app-status-badge/" title="App Status / Badge API" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1882,19 +1849,19 @@ through <em>Xcode -&gt; Preferences -&gt; Downloads</em> are installed and avail
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Available Stacks
+                App Status / Badge API
               </span>
             </div>
           </a>
         
         
-          <a href="../../signing-up/signing-up-with-github/" title="Signing up with GitHub" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../v0.1/" title="Bitrise.io API v0.1 (Work In Progress)" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Signing up with GitHub
+                Bitrise.io API v0.1 (Work In Progress)
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
