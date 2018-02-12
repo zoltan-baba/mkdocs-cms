@@ -3573,13 +3573,16 @@ so please <strong>do not store</strong> this URL! If you want to retrieve the fu
 <p><strong>Important:</strong> when you send your <code>GET</code> request to the <code>expiring_raw_log_url</code> URL please <strong>do not</strong> include the Authorization headers.
 In fact, you should not include any special header at all; just create a simple GET request and send it to the <code>expiring_raw_log_url</code> url.
 The <code>expiring_raw_log_url</code> is configured so that it does not require any other parameter other than what's included in the URL.</p>
+<p>When a build is running, the log chunks can be retrieved with filtering, because in this case every response contain a <code>timestamp</code> which has Unix timestamp format. You can send this value in the next call as query parameter with the key <code>timestamp</code>, so the next response will contain only the chunks created after the timestamp.
+There is also a <code>limit</code> parameter which has 50 as the default value, with this you can limit the number of the retrieved log chunks.</p>
+<p><em>Note: If build is finished the logs will be archived, in this case there are no filtering options, the filter parameters won't have any effect on the content of the response, the whole archived log will be retrieved.</em></p>
 <h4 id="example-curl-request_5">Example <code>curl</code> request<a class="headerlink" href="#example-curl-request_5" title="Permanent link">⚓</a></h4>
 <pre class="code"><code>curl -H 'Authorization: token THE-ACCESS-TOKEN' 'https://api.bitrise.io/v0.1/apps/APP-SLUG/builds/BUILD-SLUG/log'</code></pre>
 
 
 <h4 id="example-response_5">Example response<a class="headerlink" href="#example-response_5" title="Permanent link">⚓</a></h4>
 <pre class="code"><code>{
-  &quot;expiring_raw_log_url&quot;: &quot;https://bitrise-build-log-archives-production.s3.amazonaws.com/build-logs-v2/669403bffbe35909/3247e2920496e846/2194500/3247e2920496e846.log?X-Amz-Algorithm=AWS4-HMAC-SHA256\u0026X-Amz-Credential=AKIAIOC7N256G7J2W2TQ%2F20171122%2Fus-east-1%2Fs3%2Faws4_request\u0026X-Amz-Date=20171122T135458Z\u0026X-Amz-Expires=600\u0026X-Amz-SignedHeaders=host\u0026X-Amz-Signature=611793356be42a86b618f53effa74a4297f3970abc2ebc47b8b1a298a29ae649&quot;,
+  &quot;expiring_raw_log_url&quot;: &quot;https://bitrise-build-log-archives-production.s3.amazonaws.com/build-logs-v2/669403bffbe35909/3247e2920496e846/2194500/3247e2920496e846.log?X-Amz-Algorithm=AWS4-HMAC-SHA256\u0026X-Amz-Content-Sha256=UNSIGNED-PAYLOAD\u0026X-Amz-Credential=AKIAIOC7N256G7J2W2TQ%2F20180125%2Fus-east-1%2Fs3%2Faws4_request\u0026X-Amz-Date=20180125T073258Z\u0026X-Amz-Expires=600\u0026X-Amz-SignedHeaders=host\u0026X-Amz-Signature=882bce8970e5ec0f4afc6b3a3642c912a0a7ac03d4beb638bc019a919ab673b2&quot;,
   &quot;generated_log_chunks_num&quot;: 6,
   &quot;is_archived&quot;: true,
   &quot;log_chunks&quot;: [
@@ -3608,7 +3611,7 @@ The <code>expiring_raw_log_url</code> is configured so that it does not require 
       &quot;position&quot;: 5
     }
   ],
-  &quot;timestamp&quot;: &quot;2017-05-30T15:47:39.567+00:00&quot;
+  &quot;timestamp&quot;: &quot;&quot;
 }</code></pre>
 
 
@@ -3653,7 +3656,7 @@ The <code>expiring_raw_log_url</code> is configured so that it does not require 
 <pre class="code"><code>{
   &quot;data&quot;: {
     &quot;artifact_type&quot;: &quot;file&quot;,
-    &quot;expiring_download_url&quot;: &quot;https://bitrise-prod-build-storage.s3.amazonaws.com/builds/9fb8eaaa4bdd3763/artifacts/2138393/artifact-1.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256\u0026X-Amz-Content-Sha256=UNSIGNED-PAYLOAD\u0026X-Amz-Credential=AKIAIOC7N256G7J2W2TQ%2F20171122%2Fus-east-1%2Fs3%2Faws4_request\u0026X-Amz-Date=20171122T135501Z\u0026X-Amz-Expires=600\u0026X-Amz-SignedHeaders=host\u0026X-Amz-Signature=a5bbf776d300753babb0e11913cd4f364ce3f2ed0406288111be14f4d88576f0&quot;,
+    &quot;expiring_download_url&quot;: &quot;https://bitrise-prod-build-storage.s3.amazonaws.com/builds/9fb8eaaa4bdd3763/artifacts/2138393/artifact-1.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256\u0026X-Amz-Content-Sha256=UNSIGNED-PAYLOAD\u0026X-Amz-Credential=AKIAIOC7N256G7J2W2TQ%2F20180125%2Fus-east-1%2Fs3%2Faws4_request\u0026X-Amz-Date=20180125T073301Z\u0026X-Amz-Expires=600\u0026X-Amz-SignedHeaders=host\u0026X-Amz-Signature=2cf5bb1b528dc61570fdaf4c12bf4e27ed3943f8f6e05c45ce3bd043015dfecd&quot;,
     &quot;file_size_bytes&quot;: 10,
     &quot;is_public_page_enabled&quot;: true,
     &quot;public_install_page_url&quot;: &quot;https://www.bitrise.io/artifact/2138393/p/6e7dc9c2b99492e6aa997a2e5d3f7413&quot;,
@@ -3674,7 +3677,7 @@ The <code>expiring_raw_log_url</code> is configured so that it does not require 
 <pre class="code"><code>{
   &quot;data&quot;: {
     &quot;artifact_type&quot;: &quot;android-apk&quot;,
-    &quot;expiring_download_url&quot;: &quot;https://bitrise-prod-build-storage.s3.amazonaws.com/builds/ddf4134555e833d8/artifacts/3205846/app-debug.apk?X-Amz-Algorithm=AWS4-HMAC-SHA256\u0026X-Amz-Content-Sha256=UNSIGNED-PAYLOAD\u0026X-Amz-Credential=AKIAIOC7N256G7J2W2TQ%2F20171122%2Fus-east-1%2Fs3%2Faws4_request\u0026X-Amz-Date=20171122T135501Z\u0026X-Amz-Expires=600\u0026X-Amz-SignedHeaders=host\u0026X-Amz-Signature=bad4467b83a1d98a6046b59a1b232bb0888decf203e039c9b3798f7b4950b68c&quot;,
+    &quot;expiring_download_url&quot;: &quot;https://bitrise-prod-build-storage.s3.amazonaws.com/builds/ddf4134555e833d8/artifacts/3205846/app-debug.apk?X-Amz-Algorithm=AWS4-HMAC-SHA256\u0026X-Amz-Content-Sha256=UNSIGNED-PAYLOAD\u0026X-Amz-Credential=AKIAIOC7N256G7J2W2TQ%2F20180125%2Fus-east-1%2Fs3%2Faws4_request\u0026X-Amz-Date=20180125T073301Z\u0026X-Amz-Expires=600\u0026X-Amz-SignedHeaders=host\u0026X-Amz-Signature=a33dc40c9910a20729c826e04331b59991f623df59fc40a4b2cdad66aab0c9bc&quot;,
     &quot;file_size_bytes&quot;: 607185,
     &quot;is_public_page_enabled&quot;: true,
     &quot;public_install_page_url&quot;: &quot;https://www.bitrise.io/artifact/3205846/p/300e0121b50985fd631fe304d549006f&quot;,
