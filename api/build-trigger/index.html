@@ -1974,9 +1974,12 @@ For more information see:
 <p>It's important that this parameter have to be an <strong>array of objects</strong>,
 and that every item of the array have to include
 at least a <code>mapped_to</code> (the key of the Environment Variable, without a dollar sign (<code>$</code>))
-and a <code>value</code> property (the value of the variable).</p>
+and a <code>value</code> property (the value of the variable). By default environment variable names inside values will be replaced in triggered build by actual value from target environment. This behavior can be disabled by setting <code>is_expand</code> flag to <code>false</code>.</p>
 <p>Example:</p>
-<pre class="code"><code>&quot;environments&quot;:[{&quot;mapped_to&quot;:&quot;API_TEST_ENV&quot;,&quot;value&quot;:&quot;This is the test value&quot;,&quot;is_expand&quot;:true}]</code></pre>
+<pre class="code"><code>&quot;environments&quot;:[
+  {&quot;mapped_to&quot;:&quot;API_TEST_ENV&quot;,&quot;value&quot;:&quot;This is the test value&quot;,&quot;is_expand&quot;:true},
+  {&quot;mapped_to&quot;:&quot;HELP_ENV&quot;,&quot;value&quot;:&quot;$HOME variable contains user's home directory path&quot;,&quot;is_expand&quot;:false},
+]</code></pre>
 
 
 <h3 id="workflow-to-be-used-for-the-build">Workflow to be used for the build<a class="headerlink" href="#workflow-to-be-used-for-the-build" title="Permanent link">⚓</a></h3>
