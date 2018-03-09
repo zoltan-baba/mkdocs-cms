@@ -2549,6 +2549,8 @@ as well as we might change things a bit if required.</p>
 <h4 id="example-response">Example response<a class="headerlink" href="#example-response" title="Permanent link">⚓</a></h4>
 <pre class="code"><code>{
   &quot;data&quot;: {
+    &quot;avatar_url&quot;: &quot;https://secure.gravatar.com/avatar/f50ae2f0652b92e9dbdcc7b8d9d348a0&quot;,
+    &quot;slug&quot;: &quot;8e82ac7601178f17&quot;,
     &quot;username&quot;: &quot;api-demo&quot;
   }
 }</code></pre>
@@ -2565,22 +2567,36 @@ as well as we might change things a bit if required.</p>
   &quot;data&quot;: [
     {
       &quot;is_disabled&quot;: false,
+      &quot;is_public&quot;: false,
+      &quot;owner&quot;: {
+        &quot;account_type&quot;: &quot;user&quot;,
+        &quot;name&quot;: &quot;api-demo&quot;,
+        &quot;slug&quot;: &quot;8e82ac7601178f17&quot;
+      },
       &quot;project_type&quot;: &quot;xamarin&quot;,
       &quot;provider&quot;: &quot;github&quot;,
       &quot;repo_owner&quot;: &quot;bitrise-samples&quot;,
       &quot;repo_slug&quot;: &quot;sample-apps-xamarin-cross-platform&quot;,
       &quot;repo_url&quot;: &quot;https://github.com/bitrise-samples/sample-apps-xamarin-cross-platform.git&quot;,
       &quot;slug&quot;: &quot;f46e89061e967f27&quot;,
+      &quot;status&quot;: 1,
       &quot;title&quot;: &quot;sample-apps-xamarin-cross-platform&quot;
     },
     {
       &quot;is_disabled&quot;: false,
+      &quot;is_public&quot;: false,
+      &quot;owner&quot;: {
+        &quot;account_type&quot;: &quot;user&quot;,
+        &quot;name&quot;: &quot;api-demo&quot;,
+        &quot;slug&quot;: &quot;8e82ac7601178f17&quot;
+      },
       &quot;project_type&quot;: &quot;macos&quot;,
       &quot;provider&quot;: &quot;github&quot;,
       &quot;repo_owner&quot;: &quot;bitrise-samples&quot;,
       &quot;repo_slug&quot;: &quot;sample-apps-osx-10-12&quot;,
       &quot;repo_url&quot;: &quot;https://github.com/bitrise-samples/sample-apps-osx-10-12.git&quot;,
       &quot;slug&quot;: &quot;13533d589b89fb4b&quot;,
+      &quot;status&quot;: 1,
       &quot;title&quot;: &quot;sample-apps-osx-10-12&quot;
     }
   ],
@@ -2602,12 +2618,19 @@ as well as we might change things a bit if required.</p>
 <pre class="code"><code>{
   &quot;data&quot;: {
     &quot;is_disabled&quot;: false,
+    &quot;is_public&quot;: false,
+    &quot;owner&quot;: {
+      &quot;account_type&quot;: &quot;user&quot;,
+      &quot;name&quot;: &quot;api-demo&quot;,
+      &quot;slug&quot;: &quot;8e82ac7601178f17&quot;
+    },
     &quot;project_type&quot;: &quot;android&quot;,
     &quot;provider&quot;: &quot;github&quot;,
     &quot;repo_owner&quot;: &quot;bitrise-samples&quot;,
     &quot;repo_slug&quot;: &quot;sample-apps-android-sdk22&quot;,
     &quot;repo_url&quot;: &quot;https://github.com/bitrise-samples/sample-apps-android-sdk22.git&quot;,
     &quot;slug&quot;: &quot;669403bffbe35909&quot;,
+    &quot;status&quot;: 1,
     &quot;title&quot;: &quot;sample-apps-android-sdk22&quot;
   }
 }</code></pre>
@@ -2643,6 +2666,69 @@ as well as we might change things a bit if required.</p>
   &quot;data&quot;: [
     {
       &quot;abort_reason&quot;: null,
+      &quot;branch&quot;: &quot;gradle-plugin-v3&quot;,
+      &quot;build_number&quot;: 22,
+      &quot;commit_hash&quot;: &quot;cad2bc7b90085a9cfab58bbc7ead52ea913b9c13&quot;,
+      &quot;commit_message&quot;: &quot;gradle android plugin v3, gradle v4&quot;,
+      &quot;commit_view_url&quot;: &quot;https://github.com/bitrise-samples/sample-apps-android-sdk22/commit/cad2bc7b90085a9cfab58bbc7ead52ea913b9c13&quot;,
+      &quot;environment_prepare_finished_at&quot;: &quot;2018-02-23T14:28:15Z&quot;,
+      &quot;finished_at&quot;: &quot;2018-02-23T14:29:41Z&quot;,
+      &quot;is_on_hold&quot;: false,
+      &quot;original_build_params&quot;: {
+        &quot;branch&quot;: &quot;gradle-plugin-v3&quot;,
+        &quot;branch_dest&quot;: &quot;master&quot;,
+        &quot;commit_hash&quot;: &quot;cad2bc7b90085a9cfab58bbc7ead52ea913b9c13&quot;,
+        &quot;commit_message&quot;: &quot;gradle android plugin v3, gradle v4&quot;,
+        &quot;pull_request_head_branch&quot;: &quot;pull/4/head&quot;,
+        &quot;pull_request_id&quot;: 4,
+        &quot;pull_request_merge_branch&quot;: &quot;pull/4/merge&quot;,
+        &quot;pull_request_repository_url&quot;: &quot;https://github.com/bitrise-samples/sample-apps-android-sdk22.git&quot;
+      },
+      &quot;pull_request_id&quot;: 4,
+      &quot;pull_request_target_branch&quot;: &quot;master&quot;,
+      &quot;pull_request_view_url&quot;: &quot;https://github.com/bitrise-samples/sample-apps-android-sdk22/pull/4&quot;,
+      &quot;slug&quot;: &quot;2a009816d8b62496&quot;,
+      &quot;stack_config_type&quot;: &quot;standard1&quot;,
+      &quot;stack_identifier&quot;: &quot;linux-docker-android&quot;,
+      &quot;started_on_worker_at&quot;: &quot;2018-02-23T14:27:07Z&quot;,
+      &quot;status&quot;: 1,
+      &quot;status_text&quot;: &quot;success&quot;,
+      &quot;tag&quot;: null,
+      &quot;triggered_at&quot;: &quot;2018-02-23T14:25:57Z&quot;,
+      &quot;triggered_by&quot;: &quot;webhook&quot;,
+      &quot;triggered_workflow&quot;: &quot;primary&quot;
+    },
+    {
+      &quot;abort_reason&quot;: null,
+      &quot;branch&quot;: &quot;gradle-plugin-v3&quot;,
+      &quot;build_number&quot;: 21,
+      &quot;commit_hash&quot;: &quot;cad2bc7b90085a9cfab58bbc7ead52ea913b9c13&quot;,
+      &quot;commit_message&quot;: &quot;gradle android plugin v3, gradle v4&quot;,
+      &quot;commit_view_url&quot;: &quot;https://github.com/bitrise-samples/sample-apps-android-sdk22/commit/cad2bc7b90085a9cfab58bbc7ead52ea913b9c13&quot;,
+      &quot;environment_prepare_finished_at&quot;: &quot;2018-02-23T14:25:52Z&quot;,
+      &quot;finished_at&quot;: &quot;2018-02-23T14:27:06Z&quot;,
+      &quot;is_on_hold&quot;: false,
+      &quot;original_build_params&quot;: {
+        &quot;branch&quot;: &quot;gradle-plugin-v3&quot;,
+        &quot;commit_hash&quot;: &quot;cad2bc7b90085a9cfab58bbc7ead52ea913b9c13&quot;,
+        &quot;commit_message&quot;: &quot;gradle android plugin v3, gradle v4&quot;
+      },
+      &quot;pull_request_id&quot;: 0,
+      &quot;pull_request_target_branch&quot;: null,
+      &quot;pull_request_view_url&quot;: null,
+      &quot;slug&quot;: &quot;dc60d8be63011e29&quot;,
+      &quot;stack_config_type&quot;: &quot;standard1&quot;,
+      &quot;stack_identifier&quot;: &quot;linux-docker-android&quot;,
+      &quot;started_on_worker_at&quot;: &quot;2018-02-23T14:25:52Z&quot;,
+      &quot;status&quot;: 1,
+      &quot;status_text&quot;: &quot;success&quot;,
+      &quot;tag&quot;: null,
+      &quot;triggered_at&quot;: &quot;2018-02-23T14:25:51Z&quot;,
+      &quot;triggered_by&quot;: &quot;webhook&quot;,
+      &quot;triggered_workflow&quot;: &quot;primary&quot;
+    },
+    {
+      &quot;abort_reason&quot;: null,
       &quot;branch&quot;: &quot;master&quot;,
       &quot;build_number&quot;: 20,
       &quot;commit_hash&quot;: null,
@@ -2669,67 +2755,12 @@ as well as we might change things a bit if required.</p>
       &quot;triggered_at&quot;: &quot;2017-11-08T13:24:33Z&quot;,
       &quot;triggered_by&quot;: &quot;manual-api-demo&quot;,
       &quot;triggered_workflow&quot;: &quot;gen-apk&quot;
-    },
-    {
-      &quot;abort_reason&quot;: null,
-      &quot;branch&quot;: &quot;master&quot;,
-      &quot;build_number&quot;: 19,
-      &quot;commit_hash&quot;: null,
-      &quot;commit_message&quot;: null,
-      &quot;commit_view_url&quot;: null,
-      &quot;environment_prepare_finished_at&quot;: &quot;2017-08-17T09:13:11Z&quot;,
-      &quot;finished_at&quot;: &quot;2017-08-17T09:14:37Z&quot;,
-      &quot;is_on_hold&quot;: false,
-      &quot;original_build_params&quot;: {
-        &quot;branch&quot;: &quot;master&quot;,
-        &quot;workflow_id&quot;: &quot;secondary&quot;
-      },
-      &quot;pull_request_id&quot;: 0,
-      &quot;pull_request_target_branch&quot;: null,
-      &quot;pull_request_view_url&quot;: null,
-      &quot;slug&quot;: &quot;8ee5e483b79fdfd4&quot;,
-      &quot;stack_config_type&quot;: &quot;standard1&quot;,
-      &quot;stack_identifier&quot;: &quot;linux-docker-android&quot;,
-      &quot;started_on_worker_at&quot;: &quot;2017-08-17T09:12:05Z&quot;,
-      &quot;status&quot;: 1,
-      &quot;status_text&quot;: &quot;success&quot;,
-      &quot;tag&quot;: null,
-      &quot;triggered_at&quot;: &quot;2017-08-17T09:10:41Z&quot;,
-      &quot;triggered_by&quot;: &quot;curl&quot;,
-      &quot;triggered_workflow&quot;: &quot;secondary&quot;
-    },
-    {
-      &quot;abort_reason&quot;: null,
-      &quot;branch&quot;: &quot;master&quot;,
-      &quot;build_number&quot;: 18,
-      &quot;commit_hash&quot;: null,
-      &quot;commit_message&quot;: null,
-      &quot;commit_view_url&quot;: null,
-      &quot;environment_prepare_finished_at&quot;: &quot;2017-08-17T09:10:31Z&quot;,
-      &quot;finished_at&quot;: &quot;2017-08-17T09:12:04Z&quot;,
-      &quot;is_on_hold&quot;: false,
-      &quot;original_build_params&quot;: {
-        &quot;branch&quot;: &quot;master&quot;
-      },
-      &quot;pull_request_id&quot;: 0,
-      &quot;pull_request_target_branch&quot;: null,
-      &quot;pull_request_view_url&quot;: null,
-      &quot;slug&quot;: &quot;601e080954bbd57b&quot;,
-      &quot;stack_config_type&quot;: &quot;standard1&quot;,
-      &quot;stack_identifier&quot;: &quot;linux-docker-android&quot;,
-      &quot;started_on_worker_at&quot;: &quot;2017-08-17T09:09:24Z&quot;,
-      &quot;status&quot;: 1,
-      &quot;status_text&quot;: &quot;success&quot;,
-      &quot;tag&quot;: null,
-      &quot;triggered_at&quot;: &quot;2017-08-17T09:09:23Z&quot;,
-      &quot;triggered_by&quot;: &quot;curl&quot;,
-      &quot;triggered_workflow&quot;: &quot;primary&quot;
     }
   ],
   &quot;paging&quot;: {
-    &quot;next&quot;: &quot;62f841f1497f5f30&quot;,
+    &quot;next&quot;: &quot;8ee5e483b79fdfd4&quot;,
     &quot;page_item_limit&quot;: 3,
-    &quot;total_item_count&quot;: 20
+    &quot;total_item_count&quot;: 22
   }
 }</code></pre>
 
@@ -2873,6 +2904,40 @@ as well as we might change things a bit if required.</p>
   &quot;data&quot;: [
     {
       &quot;abort_reason&quot;: null,
+      &quot;branch&quot;: &quot;gradle-plugin-v3&quot;,
+      &quot;build_number&quot;: 22,
+      &quot;commit_hash&quot;: &quot;cad2bc7b90085a9cfab58bbc7ead52ea913b9c13&quot;,
+      &quot;commit_message&quot;: &quot;gradle android plugin v3, gradle v4&quot;,
+      &quot;commit_view_url&quot;: &quot;https://github.com/bitrise-samples/sample-apps-android-sdk22/commit/cad2bc7b90085a9cfab58bbc7ead52ea913b9c13&quot;,
+      &quot;environment_prepare_finished_at&quot;: &quot;2018-02-23T14:28:15Z&quot;,
+      &quot;finished_at&quot;: &quot;2018-02-23T14:29:41Z&quot;,
+      &quot;is_on_hold&quot;: false,
+      &quot;original_build_params&quot;: {
+        &quot;branch&quot;: &quot;gradle-plugin-v3&quot;,
+        &quot;branch_dest&quot;: &quot;master&quot;,
+        &quot;commit_hash&quot;: &quot;cad2bc7b90085a9cfab58bbc7ead52ea913b9c13&quot;,
+        &quot;commit_message&quot;: &quot;gradle android plugin v3, gradle v4&quot;,
+        &quot;pull_request_head_branch&quot;: &quot;pull/4/head&quot;,
+        &quot;pull_request_id&quot;: 4,
+        &quot;pull_request_merge_branch&quot;: &quot;pull/4/merge&quot;,
+        &quot;pull_request_repository_url&quot;: &quot;https://github.com/bitrise-samples/sample-apps-android-sdk22.git&quot;
+      },
+      &quot;pull_request_id&quot;: 4,
+      &quot;pull_request_target_branch&quot;: &quot;master&quot;,
+      &quot;pull_request_view_url&quot;: &quot;https://github.com/bitrise-samples/sample-apps-android-sdk22/pull/4&quot;,
+      &quot;slug&quot;: &quot;2a009816d8b62496&quot;,
+      &quot;stack_config_type&quot;: &quot;standard1&quot;,
+      &quot;stack_identifier&quot;: &quot;linux-docker-android&quot;,
+      &quot;started_on_worker_at&quot;: &quot;2018-02-23T14:27:07Z&quot;,
+      &quot;status&quot;: 1,
+      &quot;status_text&quot;: &quot;success&quot;,
+      &quot;tag&quot;: null,
+      &quot;triggered_at&quot;: &quot;2018-02-23T14:25:57Z&quot;,
+      &quot;triggered_by&quot;: &quot;webhook&quot;,
+      &quot;triggered_workflow&quot;: &quot;primary&quot;
+    },
+    {
+      &quot;abort_reason&quot;: null,
       &quot;branch&quot;: &quot;create_dev_file&quot;,
       &quot;build_number&quot;: 17,
       &quot;commit_hash&quot;: &quot;b170936b1281a1cfd01fd7d19559793aae1b891a&quot;,
@@ -2936,7 +3001,7 @@ as well as we might change things a bit if required.</p>
   ],
   &quot;paging&quot;: {
     &quot;page_item_limit&quot;: 50,
-    &quot;total_item_count&quot;: 2
+    &quot;total_item_count&quot;: 3
   }
 }</code></pre>
 
@@ -3126,6 +3191,69 @@ as well as we might change things a bit if required.</p>
 <p>Response:</p>
 <pre class="code"><code>{
   &quot;data&quot;: [
+    {
+      &quot;abort_reason&quot;: null,
+      &quot;branch&quot;: &quot;gradle-plugin-v3&quot;,
+      &quot;build_number&quot;: 22,
+      &quot;commit_hash&quot;: &quot;cad2bc7b90085a9cfab58bbc7ead52ea913b9c13&quot;,
+      &quot;commit_message&quot;: &quot;gradle android plugin v3, gradle v4&quot;,
+      &quot;commit_view_url&quot;: &quot;https://github.com/bitrise-samples/sample-apps-android-sdk22/commit/cad2bc7b90085a9cfab58bbc7ead52ea913b9c13&quot;,
+      &quot;environment_prepare_finished_at&quot;: &quot;2018-02-23T14:28:15Z&quot;,
+      &quot;finished_at&quot;: &quot;2018-02-23T14:29:41Z&quot;,
+      &quot;is_on_hold&quot;: false,
+      &quot;original_build_params&quot;: {
+        &quot;branch&quot;: &quot;gradle-plugin-v3&quot;,
+        &quot;branch_dest&quot;: &quot;master&quot;,
+        &quot;commit_hash&quot;: &quot;cad2bc7b90085a9cfab58bbc7ead52ea913b9c13&quot;,
+        &quot;commit_message&quot;: &quot;gradle android plugin v3, gradle v4&quot;,
+        &quot;pull_request_head_branch&quot;: &quot;pull/4/head&quot;,
+        &quot;pull_request_id&quot;: 4,
+        &quot;pull_request_merge_branch&quot;: &quot;pull/4/merge&quot;,
+        &quot;pull_request_repository_url&quot;: &quot;https://github.com/bitrise-samples/sample-apps-android-sdk22.git&quot;
+      },
+      &quot;pull_request_id&quot;: 4,
+      &quot;pull_request_target_branch&quot;: &quot;master&quot;,
+      &quot;pull_request_view_url&quot;: &quot;https://github.com/bitrise-samples/sample-apps-android-sdk22/pull/4&quot;,
+      &quot;slug&quot;: &quot;2a009816d8b62496&quot;,
+      &quot;stack_config_type&quot;: &quot;standard1&quot;,
+      &quot;stack_identifier&quot;: &quot;linux-docker-android&quot;,
+      &quot;started_on_worker_at&quot;: &quot;2018-02-23T14:27:07Z&quot;,
+      &quot;status&quot;: 1,
+      &quot;status_text&quot;: &quot;success&quot;,
+      &quot;tag&quot;: null,
+      &quot;triggered_at&quot;: &quot;2018-02-23T14:25:57Z&quot;,
+      &quot;triggered_by&quot;: &quot;webhook&quot;,
+      &quot;triggered_workflow&quot;: &quot;primary&quot;
+    },
+    {
+      &quot;abort_reason&quot;: null,
+      &quot;branch&quot;: &quot;gradle-plugin-v3&quot;,
+      &quot;build_number&quot;: 21,
+      &quot;commit_hash&quot;: &quot;cad2bc7b90085a9cfab58bbc7ead52ea913b9c13&quot;,
+      &quot;commit_message&quot;: &quot;gradle android plugin v3, gradle v4&quot;,
+      &quot;commit_view_url&quot;: &quot;https://github.com/bitrise-samples/sample-apps-android-sdk22/commit/cad2bc7b90085a9cfab58bbc7ead52ea913b9c13&quot;,
+      &quot;environment_prepare_finished_at&quot;: &quot;2018-02-23T14:25:52Z&quot;,
+      &quot;finished_at&quot;: &quot;2018-02-23T14:27:06Z&quot;,
+      &quot;is_on_hold&quot;: false,
+      &quot;original_build_params&quot;: {
+        &quot;branch&quot;: &quot;gradle-plugin-v3&quot;,
+        &quot;commit_hash&quot;: &quot;cad2bc7b90085a9cfab58bbc7ead52ea913b9c13&quot;,
+        &quot;commit_message&quot;: &quot;gradle android plugin v3, gradle v4&quot;
+      },
+      &quot;pull_request_id&quot;: 0,
+      &quot;pull_request_target_branch&quot;: null,
+      &quot;pull_request_view_url&quot;: null,
+      &quot;slug&quot;: &quot;dc60d8be63011e29&quot;,
+      &quot;stack_config_type&quot;: &quot;standard1&quot;,
+      &quot;stack_identifier&quot;: &quot;linux-docker-android&quot;,
+      &quot;started_on_worker_at&quot;: &quot;2018-02-23T14:25:52Z&quot;,
+      &quot;status&quot;: 1,
+      &quot;status_text&quot;: &quot;success&quot;,
+      &quot;tag&quot;: null,
+      &quot;triggered_at&quot;: &quot;2018-02-23T14:25:51Z&quot;,
+      &quot;triggered_by&quot;: &quot;webhook&quot;,
+      &quot;triggered_workflow&quot;: &quot;primary&quot;
+    },
     {
       &quot;abort_reason&quot;: null,
       &quot;branch&quot;: &quot;master&quot;,
@@ -3384,7 +3512,7 @@ as well as we might change things a bit if required.</p>
   ],
   &quot;paging&quot;: {
     &quot;page_item_limit&quot;: 50,
-    &quot;total_item_count&quot;: 9
+    &quot;total_item_count&quot;: 11
   }
 }</code></pre>
 
@@ -3582,7 +3710,7 @@ There is also a <code>limit</code> parameter which has 50 as the default value, 
 
 <h4 id="example-response_5">Example response<a class="headerlink" href="#example-response_5" title="Permanent link">⚓</a></h4>
 <pre class="code"><code>{
-  &quot;expiring_raw_log_url&quot;: &quot;https://bitrise-build-log-archives-production.s3.amazonaws.com/build-logs-v2/669403bffbe35909/3247e2920496e846/2194500/3247e2920496e846.log?X-Amz-Algorithm=AWS4-HMAC-SHA256\u0026X-Amz-Content-Sha256=UNSIGNED-PAYLOAD\u0026X-Amz-Credential=AKIAIOC7N256G7J2W2TQ%2F20180125%2Fus-east-1%2Fs3%2Faws4_request\u0026X-Amz-Date=20180125T073258Z\u0026X-Amz-Expires=600\u0026X-Amz-SignedHeaders=host\u0026X-Amz-Signature=882bce8970e5ec0f4afc6b3a3642c912a0a7ac03d4beb638bc019a919ab673b2&quot;,
+  &quot;expiring_raw_log_url&quot;: &quot;https://bitrise-build-log-archives-production.s3.amazonaws.com/build-logs-v2/669403bffbe35909/3247e2920496e846/2194500/3247e2920496e846.log?X-Amz-Algorithm=AWS4-HMAC-SHA256\u0026X-Amz-Content-Sha256=UNSIGNED-PAYLOAD\u0026X-Amz-Credential=AKIAIOC7N256G7J2W2TQ%2F20180306%2Fus-east-1%2Fs3%2Faws4_request\u0026X-Amz-Date=20180306T164951Z\u0026X-Amz-Expires=600\u0026X-Amz-SignedHeaders=host\u0026X-Amz-Signature=29119ab2832a05a7caa4d44889c67f4cbbb7aa071645dac995564e60fdee9c7f&quot;,
   &quot;generated_log_chunks_num&quot;: 6,
   &quot;is_archived&quot;: true,
   &quot;log_chunks&quot;: [
@@ -3611,7 +3739,7 @@ There is also a <code>limit</code> parameter which has 50 as the default value, 
       &quot;position&quot;: 5
     }
   ],
-  &quot;timestamp&quot;: &quot;&quot;
+  &quot;timestamp&quot;: null
 }</code></pre>
 
 
@@ -3656,7 +3784,7 @@ There is also a <code>limit</code> parameter which has 50 as the default value, 
 <pre class="code"><code>{
   &quot;data&quot;: {
     &quot;artifact_type&quot;: &quot;file&quot;,
-    &quot;expiring_download_url&quot;: &quot;https://bitrise-prod-build-storage.s3.amazonaws.com/builds/9fb8eaaa4bdd3763/artifacts/2138393/artifact-1.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256\u0026X-Amz-Content-Sha256=UNSIGNED-PAYLOAD\u0026X-Amz-Credential=AKIAIOC7N256G7J2W2TQ%2F20180125%2Fus-east-1%2Fs3%2Faws4_request\u0026X-Amz-Date=20180125T073301Z\u0026X-Amz-Expires=600\u0026X-Amz-SignedHeaders=host\u0026X-Amz-Signature=2cf5bb1b528dc61570fdaf4c12bf4e27ed3943f8f6e05c45ce3bd043015dfecd&quot;,
+    &quot;expiring_download_url&quot;: &quot;https://bitrise-prod-build-storage.s3.amazonaws.com/builds/9fb8eaaa4bdd3763/artifacts/2138393/artifact-1.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256\u0026X-Amz-Content-Sha256=UNSIGNED-PAYLOAD\u0026X-Amz-Credential=AKIAIOC7N256G7J2W2TQ%2F20180306%2Fus-east-1%2Fs3%2Faws4_request\u0026X-Amz-Date=20180306T164952Z\u0026X-Amz-Expires=600\u0026X-Amz-SignedHeaders=host\u0026X-Amz-Signature=9b73e81171cc9bd9d45679697d30ecebc65452f3fc7095bd087b5752007a75b1&quot;,
     &quot;file_size_bytes&quot;: 10,
     &quot;is_public_page_enabled&quot;: true,
     &quot;public_install_page_url&quot;: &quot;https://www.bitrise.io/artifact/2138393/p/6e7dc9c2b99492e6aa997a2e5d3f7413&quot;,
@@ -3677,7 +3805,7 @@ There is also a <code>limit</code> parameter which has 50 as the default value, 
 <pre class="code"><code>{
   &quot;data&quot;: {
     &quot;artifact_type&quot;: &quot;android-apk&quot;,
-    &quot;expiring_download_url&quot;: &quot;https://bitrise-prod-build-storage.s3.amazonaws.com/builds/ddf4134555e833d8/artifacts/3205846/app-debug.apk?X-Amz-Algorithm=AWS4-HMAC-SHA256\u0026X-Amz-Content-Sha256=UNSIGNED-PAYLOAD\u0026X-Amz-Credential=AKIAIOC7N256G7J2W2TQ%2F20180125%2Fus-east-1%2Fs3%2Faws4_request\u0026X-Amz-Date=20180125T073301Z\u0026X-Amz-Expires=600\u0026X-Amz-SignedHeaders=host\u0026X-Amz-Signature=a33dc40c9910a20729c826e04331b59991f623df59fc40a4b2cdad66aab0c9bc&quot;,
+    &quot;expiring_download_url&quot;: &quot;https://bitrise-prod-build-storage.s3.amazonaws.com/builds/ddf4134555e833d8/artifacts/3205846/app-debug.apk?X-Amz-Algorithm=AWS4-HMAC-SHA256\u0026X-Amz-Content-Sha256=UNSIGNED-PAYLOAD\u0026X-Amz-Credential=AKIAIOC7N256G7J2W2TQ%2F20180306%2Fus-east-1%2Fs3%2Faws4_request\u0026X-Amz-Date=20180306T164952Z\u0026X-Amz-Expires=600\u0026X-Amz-SignedHeaders=host\u0026X-Amz-Signature=cff316ab9e3f693abf3ab7fce1b6bef9c01694cc77f69e47481257280a7f2cda&quot;,
     &quot;file_size_bytes&quot;: 607185,
     &quot;is_public_page_enabled&quot;: true,
     &quot;public_install_page_url&quot;: &quot;https://www.bitrise.io/artifact/3205846/p/300e0121b50985fd631fe304d549006f&quot;,
