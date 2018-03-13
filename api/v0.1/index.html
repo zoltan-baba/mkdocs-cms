@@ -3056,7 +3056,7 @@ as well as we might change things a bit if required.</p>
 <h3 id="post-appsapp-slugprovisioning-profilesprovisioning-profile-sluguploaded">POST /apps/{APP-SLUG}/provisioning-profiles/{PROVISIONING-PROFILE-SLUG}/uploaded<a class="headerlink" href="#post-appsapp-slugprovisioning-profilesprovisioning-profile-sluguploaded" title="Permanent link">⚓</a></h3>
 <p>After the provisioning profile is uploaded to AWS, you have to confirm the upload with this endpoint.</p>
 <h4 id="example-curl-request_5">Example <code>curl</code> request<a class="headerlink" href="#example-curl-request_5" title="Permanent link">⚓</a></h4>
-<pre class="code"><code>curl -X POST -H  'Authorization: token THE-ACCESS-TOKEN' 'https://api.bitrise.io/v0.1/apps/APP-SLUG/provisioning-profiles/01C6FA6P6HRQT5PQ8RMMVVXE6W/uploaded'</code></pre>
+<pre class="code"><code>curl -X POST -H  'Authorization: token THE-ACCESS-TOKEN' 'https://api.bitrise.io/v0.1/apps/APP-SLUG/provisioning-profiles/PROVISIONING-PROFILE-SLUG/uploaded'</code></pre>
 
 
 <h4 id="example-response_4">Example response<a class="headerlink" href="#example-response_4" title="Permanent link">⚓</a></h4>
@@ -3082,7 +3082,7 @@ as well as we might change things a bit if required.</p>
 <p>Violating these constraints the response will be <code>Bad Request</code>.
 <em>Note: the previous <code>/apps/{APP-SLUG}/provisioning-profiles/{PROVISIONING-PROFILE-SLUG}/uploaded</code> endpoint will have the same effect as this one with the request body '{"processed":true}'</em></p>
 <h4 id="example-curl-request_6">Example <code>curl</code> request<a class="headerlink" href="#example-curl-request_6" title="Permanent link">⚓</a></h4>
-<pre class="code"><code>curl -X PATCH -H  'Authorization: token THE-ACCESS-TOKEN' 'https://api.bitrise.io/v0.1/apps/APP-SLUG/provisioning-profiles/01C6FA6P6HRQT5PQ8RMMVVXE6W -d '{&quot;is_protected&quot;:true}'</code></pre>
+<pre class="code"><code>curl -X PATCH -H  'Authorization: token THE-ACCESS-TOKEN' 'https://api.bitrise.io/v0.1/apps/APP-SLUG/provisioning-profiles/PROVISIONING-PROFILE-SLUG -d '{&quot;is_protected&quot;:true}'</code></pre>
 
 
 <h4 id="example-response_5">Example response<a class="headerlink" href="#example-response_5" title="Permanent link">⚓</a></h4>
@@ -3127,7 +3127,7 @@ as well as we might change things a bit if required.</p>
 <h3 id="post-appsapp-slugbuild-certificatesbuild-certificate-sluguploaded">POST /apps/{APP-SLUG}/build-certificates/{BUILD-CERTIFICATE-SLUG}/uploaded<a class="headerlink" href="#post-appsapp-slugbuild-certificatesbuild-certificate-sluguploaded" title="Permanent link">⚓</a></h3>
 <p>After the certificate file is uploaded to AWS, you have to confirm the upload with this endpoint.</p>
 <h4 id="example-curl-request_9">Example <code>curl</code> request<a class="headerlink" href="#example-curl-request_9" title="Permanent link">⚓</a></h4>
-<pre class="code"><code>curl -X POST -H 'Authorization: token THE-ACCESS-TOKEN' 'https://api.bitrise.io/v0.1/apps/APP-SLUG/build-certificates/01C6FA2R4CB772QTDETBE0MENP/uploaded'</code></pre>
+<pre class="code"><code>curl -X POST -H 'Authorization: token THE-ACCESS-TOKEN' 'https://api.bitrise.io/v0.1/apps/APP-SLUG/build-certificates/BUILD-CERTIFICATE-SLUG/uploaded'</code></pre>
 
 
 <h4 id="example-response_7">Example response<a class="headerlink" href="#example-response_7" title="Permanent link">⚓</a></h4>
@@ -3154,7 +3154,7 @@ as well as we might change things a bit if required.</p>
 <p>Violating these constraints the response will be <code>Bad Request</code>.
 <em>Note: the previous <code>/apps/{APP-SLUG}/build-certificates/{BUILD-CERTIFICATE-SLUG}/uploaded</code> endpoint will have the same effect as this one with the request body '{"processed":true}'</em></p>
 <h4 id="example-curl-request_10">Example <code>curl</code> request<a class="headerlink" href="#example-curl-request_10" title="Permanent link">⚓</a></h4>
-<pre class="code"><code>curl -X PATCH -H  'Authorization: token THE-ACCESS-TOKEN' 'https://api.bitrise.io/v0.1/apps/APP-SLUG/build-certificates/01C6FA2R4CB772QTDETBE0MENP -d '{&quot;is_protected&quot;:true}'</code></pre>
+<pre class="code"><code>curl -X PATCH -H  'Authorization: token THE-ACCESS-TOKEN' 'https://api.bitrise.io/v0.1/apps/APP-SLUG/build-certificates/BUILD-CERTIFICATE-SLUG -d '{&quot;is_protected&quot;:true}'</code></pre>
 
 
 <h4 id="example-response_8">Example response<a class="headerlink" href="#example-response_8" title="Permanent link">⚓</a></h4>
@@ -4949,7 +4949,7 @@ There is also a <code>limit</code> parameter which has 50 as the default value, 
 
 <h4 id="example-response_11">Example response<a class="headerlink" href="#example-response_11" title="Permanent link">⚓</a></h4>
 <pre class="code"><code>{
-  &quot;expiring_raw_log_url&quot;: &quot;https://bitrise-build-log-archives-production.s3.amazonaws.com/build-logs-v2/669403bffbe35909/3247e2920496e846/2194500/3247e2920496e846.log?X-Amz-Algorithm=AWS4-HMAC-SHA256\u0026X-Amz-Content-Sha256=UNSIGNED-PAYLOAD\u0026X-Amz-Credential=AKIAIOC7N256G7J2W2TQ%2F20180309%2Fus-east-1%2Fs3%2Faws4_request\u0026X-Amz-Date=20180309T162803Z\u0026X-Amz-Expires=600\u0026X-Amz-SignedHeaders=host\u0026X-Amz-Signature=7da05ccad2093778ecd0ef793c6992129c2642a72f5896e722d042f72c3b2277&quot;,
+  &quot;expiring_raw_log_url&quot;: &quot;https://bitrise-build-log-archives-production.s3.amazonaws.com/build-logs-v2/669403bffbe35909/3247e2920496e846/2194500/3247e2920496e846.log?X-Amz-Algorithm=AWS4-HMAC-SHA256\u0026X-Amz-Content-Sha256=UNSIGNED-PAYLOAD\u0026X-Amz-Credential=AKIAIOC7N256G7J2W2TQ%2F20180313%2Fus-east-1%2Fs3%2Faws4_request\u0026X-Amz-Date=20180313T091516Z\u0026X-Amz-Expires=600\u0026X-Amz-SignedHeaders=host\u0026X-Amz-Signature=9a00d8ed4fdfcc8c4dee1e81096752612330bad55bfacf642653781338f76928&quot;,
   &quot;generated_log_chunks_num&quot;: 6,
   &quot;is_archived&quot;: true,
   &quot;log_chunks&quot;: [
@@ -5023,7 +5023,7 @@ There is also a <code>limit</code> parameter which has 50 as the default value, 
 <pre class="code"><code>{
   &quot;data&quot;: {
     &quot;artifact_type&quot;: &quot;file&quot;,
-    &quot;expiring_download_url&quot;: &quot;https://bitrise-prod-build-storage.s3.amazonaws.com/builds/9fb8eaaa4bdd3763/artifacts/2138393/artifact-1.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256\u0026X-Amz-Content-Sha256=UNSIGNED-PAYLOAD\u0026X-Amz-Credential=AKIAIOC7N256G7J2W2TQ%2F20180309%2Fus-east-1%2Fs3%2Faws4_request\u0026X-Amz-Date=20180309T162804Z\u0026X-Amz-Expires=600\u0026X-Amz-SignedHeaders=host\u0026X-Amz-Signature=a3a97a7b9246398d0797fbd0173c5986e980d1e1270eca2a3627f3b39a0a39ee&quot;,
+    &quot;expiring_download_url&quot;: &quot;https://bitrise-prod-build-storage.s3.amazonaws.com/builds/9fb8eaaa4bdd3763/artifacts/2138393/artifact-1.txt?X-Amz-Algorithm=AWS4-HMAC-SHA256\u0026X-Amz-Content-Sha256=UNSIGNED-PAYLOAD\u0026X-Amz-Credential=AKIAIOC7N256G7J2W2TQ%2F20180313%2Fus-east-1%2Fs3%2Faws4_request\u0026X-Amz-Date=20180313T091516Z\u0026X-Amz-Expires=600\u0026X-Amz-SignedHeaders=host\u0026X-Amz-Signature=0ae7742336b435350310e5a2bb0f7cdfc5f10e60d6a0866b882e28cb482cc73f&quot;,
     &quot;file_size_bytes&quot;: 10,
     &quot;is_public_page_enabled&quot;: true,
     &quot;public_install_page_url&quot;: &quot;https://www.bitrise.io/artifact/2138393/p/6e7dc9c2b99492e6aa997a2e5d3f7413&quot;,
@@ -5044,7 +5044,7 @@ There is also a <code>limit</code> parameter which has 50 as the default value, 
 <pre class="code"><code>{
   &quot;data&quot;: {
     &quot;artifact_type&quot;: &quot;android-apk&quot;,
-    &quot;expiring_download_url&quot;: &quot;https://bitrise-prod-build-storage.s3.amazonaws.com/builds/ddf4134555e833d8/artifacts/3205846/app-debug.apk?X-Amz-Algorithm=AWS4-HMAC-SHA256\u0026X-Amz-Content-Sha256=UNSIGNED-PAYLOAD\u0026X-Amz-Credential=AKIAIOC7N256G7J2W2TQ%2F20180309%2Fus-east-1%2Fs3%2Faws4_request\u0026X-Amz-Date=20180309T162804Z\u0026X-Amz-Expires=600\u0026X-Amz-SignedHeaders=host\u0026X-Amz-Signature=73c2713ee637e15d082d8ab6b5ae65790d2fd4e89ab98d813ddd081405a2a57b&quot;,
+    &quot;expiring_download_url&quot;: &quot;https://bitrise-prod-build-storage.s3.amazonaws.com/builds/ddf4134555e833d8/artifacts/3205846/app-debug.apk?X-Amz-Algorithm=AWS4-HMAC-SHA256\u0026X-Amz-Content-Sha256=UNSIGNED-PAYLOAD\u0026X-Amz-Credential=AKIAIOC7N256G7J2W2TQ%2F20180313%2Fus-east-1%2Fs3%2Faws4_request\u0026X-Amz-Date=20180313T091516Z\u0026X-Amz-Expires=600\u0026X-Amz-SignedHeaders=host\u0026X-Amz-Signature=f81d4095b756ef75d5e41914253b6bffdb971b53e654f51aca80f5c5123fe552&quot;,
     &quot;file_size_bytes&quot;: 607185,
     &quot;is_public_page_enabled&quot;: true,
     &quot;public_install_page_url&quot;: &quot;https://www.bitrise.io/artifact/3205846/p/300e0121b50985fd631fe304d549006f&quot;,
