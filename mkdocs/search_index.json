@@ -337,8 +337,13 @@
         }, 
         {
             "location": "/team-management/", 
-            "text": "Now that you have set up your app on Bitrise we can start inviting team members! You can select multiple roles for the new members, like: \nadmin\n, \ndeveloper\n, and \nqa/tester\n.\nDifferent roles have different permissions that you can read more about below.\n\n\nTo invite a team member head to the \nTeam tab\n on your application's page. You can invite any user by their username or by their email address. If they are not registered on Bitrise we will send out an invitation email for them.\n\n\n\n\nInviting team members\n\n\nYou need to be the app's \nowner\n or an \nadmin\n to be able to add new team members to your app.\n\n\n\n\n\n\nCheck out the different roles and permissions below:\n\n\nAdmin\n\u2693\n\n\n\n\nDeveloper\n\u2693\n\n\n\n\nTester / QA\n\u2693", 
+            "text": "Now that you have set up your app on Bitrise we can start inviting team members! You can select multiple roles for the new members, like: \nadmin\n, \ndeveloper\n, and \nqa/tester\n.\nDifferent roles have different permissions that you can read more about below.\n\n\nTo invite a team member head to the \nTeam tab\n on your application's page. You can invite any user by their username or by their email address. If they are not registered on Bitrise we will send out an invitation email for them. Before granting access to a new user, select their role.\n\n\n\n\nInviting team members\n\n\nYou need to be the app's \nowner\n or an \nadmin\n to be able to add new team members to your app.\n\n\n\n\nOwners\n and \nadmins\n can change the roles of other members by clicking \nChange role\n next to the member's name.\n\n\n\n\nCheck out the different roles and permissions below:\n\n\nOwner\n\u2693\n\n\n\n\nAdmin\n\u2693\n\n\n\n\nDeveloper\n\u2693\n\n\n\n\nTester / QA\n\u2693", 
             "title": "Adding a new team member"
+        }, 
+        {
+            "location": "/team-management/#owner", 
+            "text": "", 
+            "title": "Owner"
         }, 
         {
             "location": "/team-management/#admin", 
@@ -382,7 +387,7 @@
         }, 
         {
             "location": "/webhooks/adding-a-github-webhook/", 
-            "text": "To have Bitrise automatically start a build every time you push code into your repository you can set up a webhook at your code hosting service which will automatically trigger a build on Bitrise with the code you push to your repository.\n\n\nGet the webhook URL for GitHub\n\u2693\n\n\nNavigate to the \nCode\n tab of your app's page and select \nGitHub\n from the dropdown at the webhooks section.\n\n\n\n\nCopy the webhook URL for the selected service.\n\n\nSetup webhook on GitHub\n\u2693\n\n\nNavigate to your GitHub repository and select \nSettings\n.\n\n\n\n\nSelect \nAdd webhook\n under Webhooks \n Services.\n\n\n\n\nPaste the GitHub Webhook URL from Bitrise to the Payload URL.\n\n\n\n\nSelect \nLet me select individual events\n.\n\n\n\n\nSelect \nPull request\n and \nPush\n. After you are ready press the \nAdd webhook\n button and you are ready to roll!", 
+            "text": "To have Bitrise automatically start a build every time you push code into your repository you can set up a webhook at your code hosting service which will automatically trigger a build on Bitrise with the code you push to your repository.\n\n\nGet the webhook URL for GitHub\n\u2693\n\n\nNavigate to the \nCode\n tab of your app's page and select \nGitHub\n from the dropdown at the webhooks section.\n\n\n\n\nCopy the webhook URL for the selected service.\n\n\nSetup webhook on GitHub\n\u2693\n\n\nNavigate to your GitHub repository and select \nSettings\n.\n\n\n\n\nSelect \nAdd webhook\n under Webhooks.\n\n\n\n\nPaste the GitHub Webhook URL from Bitrise to the Payload URL...\n\n\n\n\nAnd on the same page, select \nLet me select individual events\n.\n\n\n\n\nSelect \nPull request\n and \nPush\n. After you are ready press the \nAdd webhook\n button and you are ready to roll!", 
             "title": "Adding a GitHub webhook"
         }, 
         {
@@ -392,7 +397,7 @@
         }, 
         {
             "location": "/webhooks/adding-a-github-webhook/#setup-webhook-on-github", 
-            "text": "Navigate to your GitHub repository and select  Settings .   Select  Add webhook  under Webhooks   Services.   Paste the GitHub Webhook URL from Bitrise to the Payload URL.   Select  Let me select individual events .   Select  Pull request  and  Push . After you are ready press the  Add webhook  button and you are ready to roll!", 
+            "text": "Navigate to your GitHub repository and select  Settings .   Select  Add webhook  under Webhooks.   Paste the GitHub Webhook URL from Bitrise to the Payload URL...   And on the same page, select  Let me select individual events .   Select  Pull request  and  Push . After you are ready press the  Add webhook  button and you are ready to roll!", 
             "title": "Setup webhook on GitHub"
         }, 
         {
