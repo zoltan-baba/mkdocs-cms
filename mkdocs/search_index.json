@@ -1637,7 +1637,7 @@
         }, 
         {
             "location": "/tips-and-tricks/dont-mark-build-failed-if-step-fails/", 
-            "text": "To do this you have to switch to \nbitrise.yml\n mode (open the Workflow Editor on bitrise.io -\n left side: click on \nbitrise.yml\n to switch to the interactive \nbitrise.yml\n editor).\n\n\nAll you have to do is: add an \nis_skippable: true\n flag to the Step.\n\n\nAn example \nscript\n step which, although fails, it won't \"break\" the build:\n\n\n- script:\n    is_skippable: true\n    inputs:\n    - content: |-\n        #!/bin/bash\n        echo \nFailing Step.\n\n        exit 1\n        # exit 1 would mark this step as Failed, but it won't break the Build\n        #  because of the is_skippable: true flag / propery\n\n\n\n\nYou can find more examples on \nGitHub\n.", 
+            "text": "To do this you have to switch to \nbitrise.yml\n mode (open the Workflow Editor on bitrise.io -\n left side: click on \nbitrise.yml\n to switch to the interactive \nbitrise.yml\n editor).\n\n\nAll you have to do is: add an \nis_skippable: true\n flag to the Step.\n\n\nAn example \nscript\n step which, although fails, it won't \"break\" the build:\n\n\n- script:\n    is_skippable: true\n    inputs:\n    - content: |-\n        #!/bin/bash\n        echo \nFailing Step.\n\n        exit 1\n        # exit 1 would mark this step as Failed, but it won't break the Build\n        #  because of the is_skippable: true flag / property\n\n\n\n\nYou can find more examples on \nGitHub\n.", 
             "title": "Don't mark the Build as failed if a given step would fail (ignore the error of the Step)"
         }, 
         {
