@@ -2004,15 +2004,16 @@ button on your app's <a href="https://www.bitrise.io">bitrise.io</a> page
 and switching to <code>Advanced</code> mode in the popup.
 At the bottom of the popup you can find a <code>curl</code> call, based on the parameters you specify in the popup.</p>
 <p>A base curl call would look like this (with <code>master</code> specified as the <code>branch</code> build parameter):</p>
-<pre class="code"><code>curl https://app.bitrise.io/app/APP-SLUG/build/start.json --data '{&quot;hook_info&quot;:{&quot;type&quot;:&quot;bitrise&quot;,&quot;api_token&quot;:&quot;APP-API-TOKEN&quot;},&quot;build_params&quot;:{&quot;branch&quot;:&quot;master&quot;}}'</code></pre>
+<pre class="code"><code>curl -H 'Content-Type: application/json' https://app.bitrise.io/app/APP-SLUG/build/start.json --data '{&quot;hook_info&quot;:{&quot;type&quot;:&quot;bitrise&quot;,&quot;api_token&quot;:&quot;APP-API-TOKEN&quot;},&quot;build_params&quot;:{&quot;branch&quot;:&quot;master&quot;}}'</code></pre>
 
 
+<p><em>Note: please don't forget to add <code>Content-Type</code> header with <code>application/json</code> value</em></p>
 <p>A more advanced example: let's say you want to build the <strong>master</strong> <code>branch</code>
 using the <code>deployment</code> workflow,
 specify a build message (<code>commit_message</code>)
 and set a test environment variable (<code>API_TEST_ENV</code>),
 the call will look like this:</p>
-<pre class="code"><code>curl https://app.bitrise.io/app/APP-SLUG/build/start.json --data '{&quot;hook_info&quot;:{&quot;type&quot;:&quot;bitrise&quot;,&quot;api_token&quot;:&quot;APP-API-TOKEN&quot;},&quot;build_params&quot;:{&quot;branch&quot;:&quot;master&quot;,&quot;commit_message&quot;:&quot;Environment in API params test&quot;,&quot;workflow_id&quot;:&quot;deployment&quot;,&quot;environments&quot;:[{&quot;mapped_to&quot;:&quot;API_TEST_ENV&quot;,&quot;value&quot;:&quot;This is the test value&quot;,&quot;is_expand&quot;:true}]}}'</code></pre>
+<pre class="code"><code>curl  -H 'Content-Type: application/json' https://app.bitrise.io/app/APP-SLUG/build/start.json --data '{&quot;hook_info&quot;:{&quot;type&quot;:&quot;bitrise&quot;,&quot;api_token&quot;:&quot;APP-API-TOKEN&quot;},&quot;build_params&quot;:{&quot;branch&quot;:&quot;master&quot;,&quot;commit_message&quot;:&quot;Environment in API params test&quot;,&quot;workflow_id&quot;:&quot;deployment&quot;,&quot;environments&quot;:[{&quot;mapped_to&quot;:&quot;API_TEST_ENV&quot;,&quot;value&quot;:&quot;This is the test value&quot;,&quot;is_expand&quot;:true}]}}'</code></pre>
               
             </article>
           </div>
