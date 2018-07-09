@@ -2,4 +2,4 @@ root: ./docs/
 
 structure:
   readme: ./docs/index.md
-  summary: ./mkdocs.yml
+  summary: ./summary.md
