@@ -5,7 +5,7 @@ Follow the steps to see how you can set it up for your next build!
 
   1. Log into [bitrise.io](https://www.bitrise.io).
 
-  2. Go to your `Dashboard` and click on the project whose build you want to schedule.
+  2. Go to your `Dashboard` and click on the project whose build you want to schedule. Check this out. 
 
   3. Click on `Start/Schedule a Build`.
 
