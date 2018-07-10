@@ -1,3 +1,5 @@
+# Changing the owner of an app
+
 It can happen that you need to transfer an application on [Bitrise](https://www.bitrise.io) to another user. This can be done in a few seconds by following these quick steps:
 
 1. Login with the **current owner** of the app
@@ -7,6 +9,7 @@ It can happen that you need to transfer an application on [Bitrise](https://www.
 
 For transferring the ownership, select the new user to transfer the app to:
 
-![Screenshot](/img/team-management/transfering-ownership.png)
+![Screenshot](https://github.com/OrganizationDummy/devcenter/tree/acf5f40e38b6dcf6fe62e839a4c04acb31fdebd2/img/team-management/transfering-ownership.png)
 
 You can use the toggle to stay the connected service user. This is important if you are the admin of the given repository on `GitHub`, or `Bitbucket` and the app needs your credentials to work on Bitrise.
+
