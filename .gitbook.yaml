@@ -4,5 +4,3 @@ structure:
   readme: ./index.md
   summary: ./summary.md
   
-redirects:
-  infrastructure: ./infrastructure/available-stacks.md
