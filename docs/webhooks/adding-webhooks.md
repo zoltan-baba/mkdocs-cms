@@ -12,7 +12,7 @@ If you select `GitHub` or `Bitbucket` as the source code provider when you add y
 
 You can manually setup or change your webhooks after you registered your application. We support multiple webhook providers. You can find the supported providers in your application's `Code` tab.
 
-![Screenshot](https://github.com/OrganizationDummy/devcenter/tree/acf5f40e38b6dcf6fe62e839a4c04acb31fdebd2/img/webhooks/webhook-providers.png)
+!\[Screenshot\]\(/img/webhooks/webhook-providers.png\)
 
 !!! note "Custom webhook support" [Our webhook processor is Open Sourced](https://github.com/bitrise-io/bitrise-webhooks). If you are looking for a not supported solution, you can create an issue on the GitHub page or create a pull request with the implementation.
 
