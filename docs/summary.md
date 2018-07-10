@@ -15,7 +15,7 @@
     * [Triggering builds with Git Tags](getting-started/triggering-builds/triggering-builds-with-git-tags.md)
     * [Reporting the build status to your git hosting provider](getting-started/triggering-builds/reporting-the-build-status-to-your-git-hosting-provider.md)
     * [Starting parallel builds with a single trigger](getting-started/triggering-builds/starting-parallel-builds-with-a-single-trigger.md)
-* [Infrastructure](infrastructure/README.md)
+* [Infrastructure](infrastructure)
   * [Rolling builds](infrastructure/rolling-builds.md)
   * [Builds and workflows](infrastructure/builds-and-workflows.md)
   * [Available Stacks](infrastructure/available-stacks.md)
