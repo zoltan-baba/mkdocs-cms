@@ -5,4 +5,4 @@ structure:
   summary: ./summary.md
   
 redirects:
-  infastructure: ./infrastructure/available-stacks.md
+  infrastructure: ./infrastructure/available-stacks.md
