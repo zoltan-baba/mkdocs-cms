@@ -1,5 +1,6 @@
 root: ./docs/
 
 structure:
-  readme: ./docs/index.md
-  summary: ./mkdocs.yml
+  readme: ./index.md
+  summary: ./summary.md
+  
