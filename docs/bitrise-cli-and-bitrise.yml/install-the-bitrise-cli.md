@@ -1,6 +1,6 @@
 # Install the Bitrise CLI
 
-Installing the Bitrise CLI is super simple. It is distributed as a single binary which you can acquire in several ways. All you need to do is download it and make it executable. Let's see how! This is supposed to be working now, isn't it? 
+Installing the Bitrise CLI is super simple. It is distributed as a single binary which you can acquire in several ways. All you need to do is download it and make it executable. Let's see how!
 
 ## Installing the Bitrise CLI with curl
 
