@@ -1,4 +1,0 @@
-# Signing up
-
-
-
