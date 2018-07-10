@@ -4,7 +4,22 @@ A _build_ is the process specified by the app's _workflow_, which is a collectio
 
 The app's build configuration can be specified as a `yaml` \(`bitrise.yml`\) config, which you can modify in [bitrise.io](https://www.bitrise.io)'s graphical Workflow Editor UI \(on your app's Bitrise.io page click the `Workflows` tab\), or [yaml editor](http://blog.bitrise.io/2016/02/12/edit-your-yaml-files-like-a-boss.html) directly.
 
-\*I want the Markdown editor to work perfectly here\*. Let's see if it does.
+1. Create a **Personal Access Token** for your user.
+
+   Go to `Account settings` and select the `Security` option on the left side. Click the `Generate new` button.
+
+You can download your files from `GENERIC FILE STORAGE`\(for example, your keystore file\) using the `File-downloader` step:
+
+```text
+...
+- file-downloader:
+   inputs:
+   - source: $BITRISEIO_ANDROID_KEYSTORE_URL
+   - destination: "$HOME/keystores/my_keystore.jks" #native android#               
+...
+```
+
+Some more testing to the Display changes function. Don't mind me. Nothing to see here. 
 
 On the graphical UI of the Workflow editor, you are able to add, remove, and reorder the build steps. Steps represent a block of script execution with predefined input and output variables. Steps can be written in various languages, like bash, Go, Ruby, Swift, etc. Read more about how the CLI, workflows and steps work in the [Bitrise CLI and bitrise.yml](https://github.com/OrganizationDummy/devcenter/tree/5622a428a937dfd83c38efded70b3457ce3b4841/bitrise-cli/README.md) section.
 

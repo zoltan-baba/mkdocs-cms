@@ -2,7 +2,6 @@
 
 * [What is Bitrise](index.md)
 * [Getting started](getting-started/README.md)
-  * [Builds and workflows](getting-started/builds-and-workflows.md)
   * [Code Security](getting-started/code-security.md)
   * [Create your first App on Bitrise.io](getting-started/create-your-first-app-on-bitrise.io.md)
   * [Add your first Step to your Workflow](getting-started/add-your-first-step-to-your-workflow.md)
@@ -18,6 +17,7 @@
     * [Reporting the build status to your git hosting provider](getting-started/triggering-builds/reporting-the-build-status-to-your-git-hosting-provider.md)
     * [Starting parallel builds with a single trigger](getting-started/triggering-builds/starting-parallel-builds-with-a-single-trigger.md)
 * [Infrastructure](infrastructure/README.md)
+  * [Builds and workflows](infrastructure/builds-and-workflows.md)
   * [Available Stacks](infrastructure/available-stacks.md)
   * [Virtual Machines](infrastructure/virtual-machines.md)
   * [The Android/Linux/Docker environment](infrastructure/the-android-linux-docker-environment.md)
