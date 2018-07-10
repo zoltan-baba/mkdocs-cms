@@ -3,3 +3,6 @@ root: ./docs/
 structure:
   readme: ./index.md
   summary: ./summary.md
+  
+redirects:
+  infastructure: infrastructure/available-stacks.md
