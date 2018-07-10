@@ -1,7 +1,6 @@
 # Table of contents
 
-* [Introduction](index.md)
-* [What is Bitrise](what-is-bitrise.md)
+* [What is Bitrise](index.md)
 * [Getting started](getting-started/README.md)
   * [Builds and workflows](getting-started/builds-and-workflows.md)
   * [Code Security](getting-started/code-security.md)
