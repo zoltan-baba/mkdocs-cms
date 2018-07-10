@@ -131,7 +131,7 @@ pages:
   - Expose an Environment Variable and use it in another Step: tips-and-tricks/expose-an-environment-variable-and-use-it-in-another-step.md
   - Don't mark the Build as failed if a given step would fail (ignore the error of the Step): tips-and-tricks/dont-mark-the-build-as-failed-if-a-given-step-would-fail-ignore-the-error-of-the-step.md
   - Enable/Disable a step (optionally, based on a condition): tips-and-tricks/enable-disable-a-step-optionally-based-on-a-condition.md
-  - Xcode Archive: export options: tips-and-tricks/xcode-archive-export-options.md
+  - Xcode Archive export options: tips-and-tricks/xcode-archive-export-options.md
   - Install Any Additional Tool: tips-and-tricks/install-any-additional-tool.md
   - Optimize your build times: tips-and-tricks/optimize-your-build-times.md
   - Use bitrise.yml from repository: tips-and-tricks/use-bitrise.yml-from-repository.md
