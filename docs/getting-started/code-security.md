@@ -4,7 +4,7 @@ To guarantee the security of your builds we use [virtual machines](https://githu
 
 _This is also true for the Linux/Android stacks, which use Docker containers to run the build. The build itself still gets a full virtual machine where no other Docker container is started, only the one used as the environment of the build. In short we only use Docker containers to manage the environment, not for build environment isolation - that's ensured by using full virtual machines for every build._
 
-This way your builds are always protected from changes made by others and from your previous builds, no one else can access your code and you can use a stable environment to define your build workflow. Every build is completed in an isolated environment, unrelated to any previous or parallelly running builds. Sync test. Sync test 2. 
+This way your builds are always protected from changes made by others and from your previous builds, no one else can access your code and you can use a stable environment to define your build workflow. Every build is completed in an isolated environment, unrelated to any previous or parallelly running builds. Sync test. Sync test 2.
 
 ## Source code
 
