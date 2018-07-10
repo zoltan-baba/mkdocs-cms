@@ -1,6 +1,6 @@
 # What is Bitrise
 
-**Bitrise** is a [Continuous Integration](https://en.wikipedia.org/wiki/Continuous_integration) and [Delivery](https://en.wikipedia.org/wiki/Continuous_delivery) \(CI/CD\) Platform as a Service \(PaaS\) with a main focus on mobile app development \(`iOS`, `Android`, `Xamarin`, ...\). It is a collection of tools and services to help you with the development and automation of your software projects
+**Bitrise** is a [Continuous Integration](https://en.wikipedia.org/wiki/Continuous_integration) and [Delivery](https://en.wikipedia.org/wiki/Continuous_delivery) \(CI/CD\) Platform as a Service \(PaaS\) with a main focus on mobile app development \(`iOS`, `Android`, `Xamarin`, ...\). It is a collection of tools and services to help you with the development and automation of your software projects. Let's see how it works. 
 
 **Automate the testing and deployment of your apps with just a few clicks.**
 
