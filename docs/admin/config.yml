@@ -16,9 +16,9 @@ collections:
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Body", name: "body", widget: "markdown"}
-  - name: "extensions"
-    label: "Extensions"
-    folder: "docs/extensions"
+  - name: "getting-started"
+    label: "Getting started"
+    folder: "docs/getting-started"
     create: true
     slug: "{{slug}}"
     fields:
