@@ -1,6 +1,5 @@
 ---
-title: This is a new test document
-date: '2018-07-11'
+title: Rolling builds
 ---
 
 You can cancel running builds or builds on hold - no need to abort them manually! If you turn on the __Rolling Builds__ feature, you can automatically abort the previous builds of your app once a new one is started.
