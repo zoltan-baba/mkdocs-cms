@@ -18,6 +18,9 @@ You can also set which types of triggered builds you wish to abort. Let's see ho
 
 1. Open your `Dashboard` on [bitrise.io](https://www.bitrise.io) and select your app.
 
+  !!! note
+      Yet another note I'll try to make work. 
+
 1. Select the `Settings` tab from the menubar.
 
 1. Scroll down to the `ENABLE ROLLING BUILDS` option and toggle it.
