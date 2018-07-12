@@ -1,6 +1,9 @@
 ---
 title: Rolling builds
+published: true
 ---
+
+!!! new note here.
 
 You can cancel running builds or builds on hold - no need to abort them manually! If you turn on the __Rolling Builds__ feature, you can automatically abort the previous builds of your app once a new one is started.
 
@@ -38,4 +41,4 @@ You can also set which types of triggered builds you wish to abort. Let's see ho
 And done! From now on, you don't have to wait for a triggered build to finish if you do not need it!
 
 !!! example
-    So the new note above worked with prose. 
+    So the new note above worked with prose.
