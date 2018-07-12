@@ -21,9 +21,16 @@ You can also set which types of triggered builds you wish to abort. Let's see ho
 
 1. Open your `Dashboard` on [bitrise.io](https://www.bitrise.io) and select your app.
 
-   !!! note
-       Yet another note I'll try to make work. 
-
+    !!! example
+        ``` yaml
+        workflows:
+          primary:
+          steps:
+          - gradle-runner:
+              outputs:
+              - BITRISE_APK_PATH: ALIAS_APK_PATH
+        ```
+        
 1. Select the `Settings` tab from the menubar.
 
    Will this work. 
