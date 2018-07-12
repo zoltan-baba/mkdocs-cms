@@ -12,6 +12,9 @@ Follow the steps to see how you can set it up for your next build!
 
   3. Click on `Start/Schedule a Build`.
 
+    !!! tip 
+        Let's see if this works!
+
   4. In the `Build configuration` pop-up window, toggle the switch to the right to enable `Schedule this build` feature.
 
     ![Screenshot](/img/scheduling-builds/disabled-build-scheduling.png)
