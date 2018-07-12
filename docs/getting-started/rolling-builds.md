@@ -33,7 +33,8 @@ You can also set which types of triggered builds you wish to abort. Let's see ho
         
 1. Select the `Settings` tab from the menubar.
 
-   Will this work. 
+    !!! tip 
+        Let's see if this works!
 
 1. Scroll down to the `ENABLE ROLLING BUILDS` option and toggle it.
 
